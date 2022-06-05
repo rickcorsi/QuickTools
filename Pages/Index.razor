@@ -1,0 +1,14 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+<div>
+    <MudPaper Outlined="true" Class="MudPaper">
+        <MudColorPicker Class="MudColorPicker" DisableToolbar="false" DisableAlpha="false" DisableColorField="false" DisablePreview="false" DisableSliders="false" DisableInputs="false" DisableModeSwitch="false" PickerVariant="PickerVariant.Static" />
+        <MudImage Src="Images/BUF1.png" Elevation="0" Class="images" Style=""/>
+    </MudPaper>
+</div>
+
+@code {
+
+    public ColorPickerMode ColorPickerMode { get; set; }
+}

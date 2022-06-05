@@ -1,0 +1,33 @@
+.Main {
+    display: flex;
+    justify-content: center;
+}
+
+.MudAppBar {
+    background-color: #04BFFD;
+    color: #04BFFD;
+    height: 50px;
+}
+.MudButton {
+    height: 25px;
+}
+.Text {
+    color: black;
+}
+.MudPaper {
+    display: flex;
+    justify-content: center;
+    background-color: #04BFFD;
+    width: 60%;
+    height: 600px;
+    margin: 5%;
+    min-width: 60%;
+    min-height: 600px;
+}
+.images {
+    width: 400px;
+    height: 400px;
+}
+
+.MudColorPicker {
+}

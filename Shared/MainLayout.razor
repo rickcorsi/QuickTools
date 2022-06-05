@@ -1,0 +1,32 @@
+﻿@inherits LayoutComponentBase
+<MudThemeProvider/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
+<style>
+    :root {
+         --mud-palette-primary: #04BFFD;
+    }
+</style>
+
+<PageTitle>WebProject</PageTitle>
+<div>
+    <MudAppBar Color="Color.Primary" Class="MudAppBar">
+        <MudButton Class="MudButton">
+            <MudText Class="Text">Tab1</MudText>
+        </MudButton>
+        <MudButton Class="MudButton">
+            <MudText Class="Text">Tab2</MudText>
+        </MudButton>
+        <MudButton Class="MudButton">
+            <MudText Class="Text">Tab3</MudText>
+        </MudButton>        
+        <MudButton Class="MudButton">
+            <MudText Class="Text">Tab4</MudText>
+        </MudButton>    </MudAppBar>
+</div>
+<div>
+    <main class="Main">
+            @Body;
+    </main>
+</div>
