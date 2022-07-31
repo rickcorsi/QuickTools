@@ -1,14 +1,306 @@
 ﻿@page "/"
+@using System.Drawing;
+
+<style>
+    :root {
+        --mud-palette-primary: #111A28;
+        background-color: #2E333C;
+    }
+</style>
 
 <PageTitle>Index</PageTitle>
 <div>
-    <MudPaper Outlined="true" Class="MudPaper">
-        <MudColorPicker Class="MudColorPicker" DisableToolbar="false" DisableAlpha="false" DisableColorField="false" DisablePreview="false" DisableSliders="false" DisableInputs="false" DisableModeSwitch="false" PickerVariant="PickerVariant.Static" />
-        <MudImage Src="Images/BUF1.png" Elevation="0" Class="images" Style=""/>
-    </MudPaper>
+    <MudAppBar Color="MudBlazor.Color.Primary" Class="MudAppBar">
+        <MudButton OnClick="tab1" Class="MudButton">
+            <MudText Style="font-size: 20px;" Class="Text">Home</MudText>
+        </MudButton>
+        <MudButton OnClick="tab2" Class="MudButton">
+            <MudText Style="font-size: 20px;" Class="Text">Beginner</MudText>
+        </MudButton>
+        <MudButton OnClick="tab3" Class="MudButton">
+            <MudText Style="font-size: 20px;" Class="Text">Intermediate</MudText>
+        </MudButton>        
+        <MudButton OnClick="tab4" Class="MudButton">
+            <MudText Style="font-size: 20px;" Class="Text">Advanced</MudText>
+        </MudButton>        
+
+    </MudAppBar>
+    @if(home == true)
+    {
+    <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 40px;" Class="MudAppBar">
+        <MudButton Class="MudButton">
+            <MudText Class="Text"></MudText>
+        </MudButton>
+        <MudButton Class="MudButton">
+            <MudText Class="Text"></MudText>
+        </MudButton>
+        <MudButton Class="MudButton">
+            <MudText Class="Text"></MudText>
+        </MudButton>        
+        <MudButton Class="MudButton">
+            <MudText Class="Text"></MudText>
+        </MudButton>    
+    </MudAppBar>    }
+    @if(Beginner == true)
+    {
+    <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 40px;" Class="MudAppBar">
+        <MudButton OnClick="Tab_Calculator" Class="MudButton">
+            <MudText Class="Text">Calculator</MudText>
+        </MudButton>
+        <MudButton OnClick="Tab_TemperatureConverter" Class="MudButton">
+            <MudText Class="Text">Temperature Converter</MudText>
+        </MudButton>
+        <MudButton OnClick="Tab_RomanDecimalConverter" Class="MudButton">
+            <MudText Class="Text">Roman to Decimal Converter</MudText>
+        </MudButton>        
+        <MudButton OnClick="Tab_Stopwatch" Class="MudButton">
+            <MudText Class="Text">Stopwatch App</MudText>
+        </MudButton>    
+    </MudAppBar>    }
+    @if(Intermediate == true)
+    {
+    <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 40px;" Class="MudAppBar">
+        <MudButton Class="MudButton">
+            <MudText Class="Text"></MudText>
+        </MudButton>
+        <MudButton Class="MudButton">
+            <MudText Class="Text"></MudText>
+        </MudButton>
+        <MudButton Class="MudButton">
+            <MudText Class="Text"></MudText>
+        </MudButton>        
+        <MudButton Class="MudButton">
+            <MudText Class="Text"></MudText>
+        </MudButton>    
+    </MudAppBar>    }
+    @if(Advanced == true)
+    {
+    <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 40px;" Class="MudAppBar">
+        <MudButton Class="MudButton">
+            <MudText Class="Text">Home</MudText>
+        </MudButton>
+        <MudButton Class="MudButton">
+            <MudText Class="Text">Beginner</MudText>
+        </MudButton>
+        <MudButton Class="MudButton">
+            <MudText Class="Text">Projects</MudText>
+        </MudButton>        
+        <MudButton Class="MudButton">
+            <MudText Class="Text">Schedule</MudText>
+        </MudButton>    
+    </MudAppBar>    }
+</div>
+<div>
+    @if(home == true)
+    {
+    <MudPaper Outlined="false" Elevation="1" Class="MudPaper">Home</MudPaper> 
+    }
+    @if(Beginner == true)
+    {
+    <MudPaper Outlined="false" Elevation="1" Class="MudPaper">
+        @if(App_Calculator == true)
+        {
+            <MudPaper Outlined="false" Elevation="1" Class="MudPaperCalculator">
+                <MudText Style="margin: 5%;">Calculator</MudText>
+                <div style="display: flex;">
+                    <MudNumericField @bind-Value="App_Calculator_Value1" Label="Value 1" Style="margin: 5%;" Variant="Variant.Outlined"/>
+                    <MudNumericField @bind-Value="App_Calculator_Value2" Label="Value 2" Style="margin: 5%;" Variant="Variant.Outlined"/>
+                </div>
+                <div style="margin-left: 5%;">
+                    <MudButton OnClick="Addition" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">+</MudText></MudButton>
+                    <MudButton OnClick="Subtraction" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">-</MudText></MudButton>
+                    <MudButton OnClick="Multiplication" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">x</MudText></MudButton>
+                    <MudButton OnClick="Division" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">÷</MudText></MudButton>
+                    <MudButton OnClick="App_Calculator_Clear" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">C</MudText></MudButton>
+                </div>
+                <MudTextField @bind-Value="App_Calculator_Output" ReadOnly="true" Variant="Variant.Outlined" Style="margin: 5%;" ></MudTextField>
+            </MudPaper> 
+        }
+        @if(App_TemperatureConverter == true)
+        {
+            <MudPaper Outlined="false" Elevation="1" Class="MudPaperTemperatureConverter">
+                <MudText Style="margin: 5%;">Temperature Converter</MudText>
+                <div style="display: flex;">
+                    <div style="margin-left: 5%;">
+                    <MudTextField @bind-Value="App_TemperatureConverter_Value1" MaxLength="7" ReadOnly="false" Variant="Variant.Outlined" Style="margin: 5%;" ></MudTextField>
+                    <MudSelect @bind-Value="TempValue1" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
+                        <MudSelectItem Value="@("Fahrenheit")" />
+                        <MudSelectItem Value="@("Celsius")" />
+                        <MudSelectItem Value="@("Kelvin")" />
+                    </MudSelect>    
+                    </div>
+                    <div style="margin-left: 5%;">
+                    <MudTextField @bind-Value="App_TemperatureConverter_Value2" MaxLength="7" ReadOnly="true" Variant="Variant.Outlined" Style="margin: 5%;" ></MudTextField>
+                    <MudSelect @bind-Value="TempValue2" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
+                        <MudSelectItem Value="@("Fahrenheit")" />
+                        <MudSelectItem Value="@("Celsius")" />
+                        <MudSelectItem Value="@("Kelvin")" />
+                    </MudSelect>                
+                    </div>
+                </div>
+                <div>
+                    <MudButton OnClick="ConvertTemp" Style="margin: 5%;" >Convert</MudButton>
+                </div>
+            </MudPaper>         }
+        @if(App_RomanDecimalConverter == true)
+        {
+        <MudPaper Outlined="false" Elevation="1" Class="">Roman to Decimal Converter</MudPaper> 
+        }
+        @if(App_Stopwatch == true)
+        {
+        <MudPaper Outlined="false" Elevation="1" Class="">Stopwatch</MudPaper> 
+        }
+    </MudPaper> 
+    }
+    @if(Intermediate == true)
+    {
+    <MudPaper Outlined="false" Elevation="1" Class="MudPaper">Intermediate</MudPaper> 
+    }
+    @if(Advanced == true)
+    {
+    <MudPaper Outlined="false" Elevation="1" Class="MudPaper">Advanced</MudPaper> 
+    }
 </div>
 
 @code {
+    private bool home = true;
+    private bool Beginner = false;
+    private bool Intermediate = false;
+    private bool Advanced = false;
+    //Apps
+    //Calculator
+    private bool App_Calculator = false;
+    double App_Calculator_Value1 = 0;
+    double App_Calculator_Value2 = 0;
+    double App_Calculator_Output = 0;
+    //Temperature Converter
+    private bool App_TemperatureConverter = false;
+    double App_TemperatureConverter_Value1 = 0;
+    double App_TemperatureConverter_Value2 = 0;
+    private string TempValue1 { get; set; } = "Fahrenheit";
+    private string TempValue2 { get; set; } = "Celsius";
+    private void ConvertTemp()
+    {
+        if(TempValue1 == "Fahrenheit" && TempValue2 == "Fahrenheit")
+        {
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value1;
+        }
+        if(TempValue1 == "Fahrenheit" && TempValue2 == "Celsius")
+        {
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value1;
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value2 - 32;
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value2 * 5/9;
+        }
+        if(TempValue1 == "Fahrenheit" && TempValue2 == "Kelvin")
+        {
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value1;
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value2 - 32;
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value2 * 5/9;
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value2 + 273.15;
+        }
+        if(TempValue1 == "Celsius" && TempValue2 == "Fahrenheit")
+        {
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value1;
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value2 * 9/5;
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value2 + 32;
+        }
+        if(TempValue1 == "Celsius" && TempValue2 == "Celsius")
+        {
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value1;
+        }
+        if(TempValue1 == "Celsius" && TempValue2 == "Kelvin")
+        {
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value1;
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value2 + 273.15;
+        }
+        if(TempValue1 == "Kelvin" && TempValue2 == "Fahrenheit")
+        {
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value1;
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value2 - 273.15;
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value2 * 9/5;
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value2 + 32;
+        }
+        if(TempValue1 == "Kelvin" && TempValue2 == "Celsius")
+        {
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value1;
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value2 - 273.15;
+        }
+        if(TempValue1 == "Kelvin" && TempValue2 == "Kelvin")
+        {
+            App_TemperatureConverter_Value2 = App_TemperatureConverter_Value1;
+        }
+    }
+    //Roman to Decimal Converter
+    private bool App_RomanDecimalConverter = false;
+    private bool App_Stopwatch = false;
 
-    public ColorPickerMode ColorPickerMode { get; set; }
+    private void Addition()
+    {
+        App_Calculator_Output = App_Calculator_Value1 + App_Calculator_Value2;
+    }
+    private void Subtraction()
+    {
+        App_Calculator_Output = App_Calculator_Value1 - App_Calculator_Value2;
+    }
+    private void Multiplication()
+    {
+        App_Calculator_Output = App_Calculator_Value1 * App_Calculator_Value2;
+    }
+    private void Division()
+    {
+        App_Calculator_Output = App_Calculator_Value1 / App_Calculator_Value2;
+    }
+    private void App_Calculator_Clear()
+    {
+        App_Calculator_Output = 0;
+        App_Calculator_Value1 = 0;
+        App_Calculator_Value2 = 0;
+    }
+
+    private void tab1() {
+        AllTabsFalse();
+        home = true;
+    }
+    private void tab2() {
+        AllTabsFalse();
+        Beginner = true;
+    }
+    private void tab3() {
+        AllTabsFalse();
+        Intermediate = true;
+    }
+    private void tab4() {
+        AllTabsFalse();
+        Advanced = true;    
+    }
+
+    private void Tab_Calculator() {
+        AllBeginnerTabsFalse();
+        App_Calculator = true;
+    }
+    private void Tab_TemperatureConverter() {
+        AllBeginnerTabsFalse();
+        App_TemperatureConverter = true;
+    }
+    private void Tab_RomanDecimalConverter() {
+        AllBeginnerTabsFalse();
+        App_RomanDecimalConverter = true;
+    }
+    private void Tab_Stopwatch() {
+        AllBeginnerTabsFalse();
+        App_Stopwatch = true;    
+    }
+    private void AllTabsFalse() {
+        home = false;
+        Beginner = false;
+        Intermediate = false;
+        Advanced = false; 
+    }
+    private void AllBeginnerTabsFalse()
+    {
+        App_Calculator = false;
+        App_TemperatureConverter = false;
+        App_RomanDecimalConverter = false;
+        App_Stopwatch = false;
+    }
 }
