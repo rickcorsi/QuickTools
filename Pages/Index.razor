@@ -54,7 +54,7 @@
             <MudText Class="Text">Roman to Decimal Converter</MudText>
         </MudButton>        
         <MudButton OnClick="Tab_Stopwatch" Class="MudButton">
-            <MudText Class="Text">Stopwatch App</MudText>
+            <MudText Class="Text">Stopwatch</MudText>
         </MudButton>    
     </MudAppBar>    }
     @if(Intermediate == true)
@@ -93,14 +93,14 @@
 <div>
     @if(home == true)
     {
-    <MudPaper Outlined="false" Elevation="1" Class="MudPaper">Home</MudPaper> 
+    <MudPaper Outlined="false" Elevation="0" Class="MudPaper">Home</MudPaper> 
     }
     @if(Beginner == true)
     {
-    <MudPaper Outlined="false" Elevation="1" Class="MudPaper">
+    <div class="MainDiv">
         @if(App_Calculator == true)
         {
-            <MudPaper Outlined="false" Elevation="1" Class="MudPaperCalculator">
+            <MudPaper Class="MudPaperCalculator">
                 <MudText Style="margin: 5%;">Calculator</MudText>
                 <div style="display: flex;">
                     <MudNumericField @bind-Value="App_Calculator_Value1" Label="Value 1" Style="margin: 5%;" Variant="Variant.Outlined"/>
@@ -148,9 +148,18 @@
         }
         @if(App_Stopwatch == true)
         {
-        <MudPaper Outlined="false" Elevation="1" Class="">Stopwatch</MudPaper> 
+        <MudPaper Outlined="false" Elevation="1" Class="MudPaperStopwatch">
+            <MudText Style="margin: 5%;">Stopwatch</MudText>
+            <div style="display: flex; justify-content: center;">
+            <MudText Style="font-size: 36px;">@displaytimer</MudText>
+            </div>
+            <div style="display: flex; justify-content: center;">
+            <MudButton Style="margin: 5%;" Disabled="@isTiming" OnClick="StopwatchTiming">Start</MudButton>
+            <MudButton Style="margin: 5%;" Disabled="@isStopped" OnClick="StopwatchStop">Stop</MudButton>
+            </div>
+        </MudPaper> 
         }
-    </MudPaper> 
+    </div> 
     }
     @if(Intermediate == true)
     {
@@ -173,6 +182,28 @@
     double App_Calculator_Value1 = 0;
     double App_Calculator_Value2 = 0;
     double App_Calculator_Output = 0;
+    private void Addition()
+    {
+        App_Calculator_Output = App_Calculator_Value1 + App_Calculator_Value2;
+    }
+    private void Subtraction()
+    {
+        App_Calculator_Output = App_Calculator_Value1 - App_Calculator_Value2;
+    }
+    private void Multiplication()
+    {
+        App_Calculator_Output = App_Calculator_Value1 * App_Calculator_Value2;
+    }
+    private void Division()
+    {
+        App_Calculator_Output = App_Calculator_Value1 / App_Calculator_Value2;
+    }
+    private void App_Calculator_Clear()
+    {
+        App_Calculator_Output = 0;
+        App_Calculator_Value1 = 0;
+        App_Calculator_Value2 = 0;
+    }
     //Temperature Converter
     private bool App_TemperatureConverter = false;
     double App_TemperatureConverter_Value1 = 0;
@@ -232,31 +263,32 @@
     }
     //Roman to Decimal Converter
     private bool App_RomanDecimalConverter = false;
+    //Stopwatch
     private bool App_Stopwatch = false;
-
-    private void Addition()
-    {
-        App_Calculator_Output = App_Calculator_Value1 + App_Calculator_Value2;
+    private bool isTiming = false;
+    private bool isStopped = true;
+    string displaytimer = "00:00:00"; //displayed time
+    TimeSpan TimeFromZero;
+    async Task StopwatchTiming() { //Stopwatch task
+        displaytimer = "00:00:00";
+        isStopped = false;
+        TimeFromZero = new TimeSpan(0, 0, 0); //Timespan 
+        isTiming = true;
+        while (isTiming) { //While stopwatch is running
+            await Task.Delay(1000);
+            if (isTiming)
+            {
+                TimeFromZero = TimeFromZero.Add(new TimeSpan(0, 0, 1)); //Add one second while stopwatch is running
+                displaytimer = TimeFromZero.ToString();
+                StateHasChanged();
+            }
+        }
     }
-    private void Subtraction()
+    void StopwatchStop()
     {
-        App_Calculator_Output = App_Calculator_Value1 - App_Calculator_Value2;
+        isTiming = false;
+        isStopped = true;
     }
-    private void Multiplication()
-    {
-        App_Calculator_Output = App_Calculator_Value1 * App_Calculator_Value2;
-    }
-    private void Division()
-    {
-        App_Calculator_Output = App_Calculator_Value1 / App_Calculator_Value2;
-    }
-    private void App_Calculator_Clear()
-    {
-        App_Calculator_Output = 0;
-        App_Calculator_Value1 = 0;
-        App_Calculator_Value2 = 0;
-    }
-
     private void tab1() {
         AllTabsFalse();
         home = true;
