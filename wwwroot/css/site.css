@@ -28,8 +28,6 @@
     display: flex;
     justify-content: center;
     background: rgba(0,0,0,0.0);
-    width: 1000px;
-    height: 700px;
     margin: 5%;
     margin: 100px;
     min-width: 800px;
@@ -56,6 +54,16 @@
     min-height: 400px;
 }
 .MudPaperStopwatch {
+    justify-content: center;
+    background-color: #04BFFD;
+    width: 400px;
+    height: 400px;
+    margin: 5%;
+    margin: 100px;
+    min-width: 400px;
+    min-height: 400px;
+}
+.MudPaperDollarCentsConverter {
     justify-content: center;
     background-color: #04BFFD;
     width: 400px;

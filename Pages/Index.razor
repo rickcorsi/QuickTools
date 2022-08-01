@@ -27,20 +27,11 @@
     </MudAppBar>
     @if(home == true)
     {
-    <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 40px;" Class="MudAppBar">
-        <MudButton Class="MudButton">
-            <MudText Class="Text"></MudText>
-        </MudButton>
-        <MudButton Class="MudButton">
-            <MudText Class="Text"></MudText>
-        </MudButton>
-        <MudButton Class="MudButton">
-            <MudText Class="Text"></MudText>
-        </MudButton>        
-        <MudButton Class="MudButton">
-            <MudText Class="Text"></MudText>
-        </MudButton>    
-    </MudAppBar>    }
+    <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 40px;" Class="MudAppBar"></MudAppBar>    
+    <div class="MainDiv">
+    <MudButton Style="margin-top: 250px;" Class="MudButton" ><MudText Class="Text">Select Widgets</MudText></MudButton>
+    </div>
+    }
     @if(Beginner == true)
     {
     <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 40px;" Class="MudAppBar">
@@ -50,8 +41,8 @@
         <MudButton OnClick="Tab_TemperatureConverter" Class="MudButton">
             <MudText Class="Text">Temperature Converter</MudText>
         </MudButton>
-        <MudButton OnClick="Tab_RomanDecimalConverter" Class="MudButton">
-            <MudText Class="Text">Roman to Decimal Converter</MudText>
+        <MudButton OnClick="Tab_DollarsCentsConverter" Class="MudButton">
+            <MudText Class="Text">Dollars to Cents Converter</MudText>
         </MudButton>        
         <MudButton OnClick="Tab_Stopwatch" Class="MudButton">
             <MudText Class="Text">Stopwatch</MudText>
@@ -103,8 +94,8 @@
             <MudPaper Class="MudPaperCalculator">
                 <MudText Style="margin: 5%;">Calculator</MudText>
                 <div style="display: flex;">
-                    <MudNumericField @bind-Value="App_Calculator_Value1" Label="Value 1" Style="margin: 5%;" Variant="Variant.Outlined"/>
-                    <MudNumericField @bind-Value="App_Calculator_Value2" Label="Value 2" Style="margin: 5%;" Variant="Variant.Outlined"/>
+                    <MudNumericField @bind-Value="App_Calculator_Value1" HideSpinButtons="true" Label="Value 1" Style="margin: 5%;" Variant="Variant.Outlined"/>
+                    <MudNumericField @bind-Value="App_Calculator_Value2" HideSpinButtons="true" Label="Value 2" Style="margin: 5%;" Variant="Variant.Outlined"/>
                 </div>
                 <div style="margin-left: 5%;">
                     <MudButton OnClick="Addition" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">+</MudText></MudButton>
@@ -142,9 +133,16 @@
                     <MudButton OnClick="ConvertTemp" Style="margin: 5%;" >Convert</MudButton>
                 </div>
             </MudPaper>         }
-        @if(App_RomanDecimalConverter == true)
+        @if(App_DollarsCentsConverter == true)
         {
-        <MudPaper Outlined="false" Elevation="1" Class="">Roman to Decimal Converter</MudPaper> 
+        <MudPaper Outlined="false" Elevation="0" Class="MudPaperDollarCentsConverter">
+            <MudText Style="margin: 5%;">Dollars to Cents Converter</MudText>
+            <div style="justify-content: center; padding: 10%;">
+                <MudTextField @bind-Value="DollarAmount" Label="Enter $ Amount" Variant="Variant.Outlined"/>
+                <MudButton Style="margin: 5%;" OnClick="ConvertDollars">Convert</MudButton>
+                <MudTextField ReadOnly="true" T="string" Variant="Variant.Outlined" Text="@OutcomeStatement" Lines="3" />
+            </div> 
+        </MudPaper> 
         }
         @if(App_Stopwatch == true)
         {
@@ -163,7 +161,7 @@
     }
     @if(Intermediate == true)
     {
-    <MudPaper Outlined="false" Elevation="1" Class="MudPaper">Intermediate</MudPaper> 
+    <MudPaper Outlined="false" Elevation="0" Class="MudPaper">Intermediate</MudPaper> 
     }
     @if(Advanced == true)
     {
@@ -261,8 +259,37 @@
             App_TemperatureConverter_Value2 = App_TemperatureConverter_Value1;
         }
     }
-    //Roman to Decimal Converter
-    private bool App_RomanDecimalConverter = false;
+    //Dollars to Cents Converter
+    private bool App_DollarsCentsConverter = false;
+    double DollarAmount = 0;
+    double quarters = 0;
+    private string Cents { get; set; } = "";
+    private string OutcomeStatement { get; set; } = "";
+
+    private void ConvertDollars()
+    {
+        Cents = String.Format("{0:0.00}", DollarAmount);
+        Cents = Cents.Replace("0.0", "");
+        Cents = Cents.Replace(".0", "");
+        Cents = Cents.Replace(".", "");
+        OutcomeStatement = "You have " + Cents + " cents.";
+       
+        //int total = Convert.ToInt32(DollarAmount);
+        //for (int q = 0; q <= total / 25; q++)
+        //{
+        //    int total_less_q = total - q * 25;
+        //    for (int d = 0; d <= total_less_q / 10; d++)
+        //    {
+        //        int total_less_q_d = total_less_q - d * 10;
+        //        for (int n = 0; n <= total_less_q_d / 5; n++)
+        //        {
+        //            int p = total_less_q_d - n * 5;
+        //            OutcomeStatement = "You have " + Cents + " cents. This is " + q + " Quarters, " + d + " Dimes, " + n + " Nickels, and " + p + "Pennies.";
+        //        }
+        //    }
+        //}
+        
+    }
     //Stopwatch
     private bool App_Stopwatch = false;
     private bool isTiming = false;
@@ -314,9 +341,9 @@
         AllBeginnerTabsFalse();
         App_TemperatureConverter = true;
     }
-    private void Tab_RomanDecimalConverter() {
+    private void Tab_DollarsCentsConverter() {
         AllBeginnerTabsFalse();
-        App_RomanDecimalConverter = true;
+        App_DollarsCentsConverter = true;
     }
     private void Tab_Stopwatch() {
         AllBeginnerTabsFalse();
@@ -332,7 +359,7 @@
     {
         App_Calculator = false;
         App_TemperatureConverter = false;
-        App_RomanDecimalConverter = false;
+        App_DollarsCentsConverter = false;
         App_Stopwatch = false;
     }
 }
