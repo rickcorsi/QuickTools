@@ -24,34 +24,66 @@
 .Text {
     color: white;
 }
-.MudPaper {
+.MainDiv {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    background-color: #04BFFD;
-    width: 1000px;
-    height: 700px;
+    background-color: rgba(100,100,100,0.0);
     margin: 5%;
     margin: 100px;
-    min-width: 800px;
-    min-height: 600px;
+    width: 1200px;
+    min-width: 1200px;
+    max-width: 1200px;
+    min-height: 500px;
 }
-.MudPaperCalculator {
-    justify-content: center;
+.MultipleWidgetsDiv {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    background-color: rgba(100,100,100,0.0);
+    margin: 5%;
+    margin: 100px;
+    margin-left: 270px;
+    width: 1600px;
+    min-width: 1200px;
+    max-width: 1200px;
+    min-height: 500px;
+}
+.MudPaperSmallWidget {
     background-color: #04BFFD;
     width: 400px;
     height: 400px;
-    margin: 5%;
-    margin: 100px;
+    margin: 2%;
     min-width: 400px;
     min-height: 400px;
 }
-.MudPaperTemperatureConverter {
-    justify-content: center;
+.MudPaperMediumWidget {
     background-color: #04BFFD;
     width: 550px;
     height: 400px;
-    margin: 5%;
-    margin: 100px;
+    margin: 2%;
     min-width: 550px;
     min-height: 400px;
+}
+.MudPaperLargeWidget {
+    background-color: #04BFFD;
+    width: 1000px;
+    height: 600px;
+    margin: 2%;
+    min-width: 1000px;
+    min-height: 600px;
+}
+.ColorPicker {
+    max-width: 80px;
+    max-height: 320px;
+    margin: 2%;
+    border-radius: 3px;
+}
+.colorPreview {
+    min-width: 125px;
+    min-height: 35px;
+    border-radius: 7px;
+    margin: 2%;
 }
