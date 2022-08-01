@@ -26,50 +26,46 @@
 }
 .MainDiv {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    background: rgba(0,0,0,0.0);
+    background-color: rgba(100,100,100,0.0);
     margin: 5%;
     margin: 100px;
-    min-width: 800px;
-    min-height: 600px;
+    width: 1200px;
+    min-width: 1200px;
+    max-width: 1200px;
+    min-height: 500px;
 }
 .MudPaperCalculator {
-    justify-content: center;
     background-color: #04BFFD;
     width: 400px;
     height: 400px;
-    margin: 5%;
-    margin: 100px;
+    margin: 2%;
     min-width: 400px;
     min-height: 400px;
 }
 .MudPaperTemperatureConverter {
-    justify-content: center;
     background-color: #04BFFD;
     width: 550px;
     height: 400px;
-    margin: 5%;
-    margin: 100px;
+    margin: 2%;
     min-width: 550px;
     min-height: 400px;
 }
-.MudPaperStopwatch {
-    justify-content: center;
+.MudPaperDollarCentsConverter {
     background-color: #04BFFD;
     width: 400px;
     height: 400px;
-    margin: 5%;
-    margin: 100px;
+    margin: 2%;
     min-width: 400px;
     min-height: 400px;
 }
-.MudPaperDollarCentsConverter {
-    justify-content: center;
+.MudPaperStopwatch {
     background-color: #04BFFD;
     width: 400px;
     height: 400px;
-    margin: 5%;
-    margin: 100px;
+    margin: 2%;
     min-width: 400px;
     min-height: 400px;
 }

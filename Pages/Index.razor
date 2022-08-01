@@ -1,5 +1,7 @@
 ﻿@page "/"
 @using System.Drawing;
+@inject IDialogService DialogService
+
 
 <style>
     :root {
@@ -27,10 +29,7 @@
     </MudAppBar>
     @if(home == true)
     {
-    <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 40px;" Class="MudAppBar"></MudAppBar>    
-    <div class="MainDiv">
-    <MudButton Style="margin-top: 250px;" Class="MudButton" ><MudText Class="Text">Select Widgets</MudText></MudButton>
-    </div>
+    <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 40px;" Class="MudAppBar"><MudButton Style="" OnClick="OpenDialog" Class="" ><MudText Class="Text">Select Widgets</MudText></MudButton></MudAppBar>    
     }
     @if(Beginner == true)
     {
@@ -68,25 +67,23 @@
     {
     <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 40px;" Class="MudAppBar">
         <MudButton Class="MudButton">
-            <MudText Class="Text">Home</MudText>
+            <MudText Class="Text"></MudText>
         </MudButton>
         <MudButton Class="MudButton">
-            <MudText Class="Text">Beginner</MudText>
+            <MudText Class="Text"></MudText>
         </MudButton>
         <MudButton Class="MudButton">
-            <MudText Class="Text">Projects</MudText>
+            <MudText Class="Text"></MudText>
         </MudButton>        
         <MudButton Class="MudButton">
-            <MudText Class="Text">Schedule</MudText>
+            <MudText Class="Text"></MudText>
         </MudButton>    
     </MudAppBar>    }
 </div>
 <div>
-    @if(home == true)
-    {
-    <MudPaper Outlined="false" Elevation="0" Class="MudPaper">Home</MudPaper> 
+    @if(home == true) {
     }
-    @if(Beginner == true)
+    @if(Beginner == true || home == true)
     {
     <div class="MainDiv">
         @if(App_Calculator == true)
@@ -135,7 +132,7 @@
             </MudPaper>         }
         @if(App_DollarsCentsConverter == true)
         {
-        <MudPaper Outlined="false" Elevation="0" Class="MudPaperDollarCentsConverter">
+        <MudPaper Outlined="false" Elevation="1" Class="MudPaperDollarCentsConverter">
             <MudText Style="margin: 5%;">Dollars to Cents Converter</MudText>
             <div style="justify-content: center; padding: 10%;">
                 <MudTextField @bind-Value="DollarAmount" Label="Enter $ Amount" Variant="Variant.Outlined"/>
@@ -169,11 +166,32 @@
     }
 </div>
 
+<MudDialog @bind-IsVisible="visible" Options="dialogOptions">
+    <TitleContent>
+    Select Widgets
+    </TitleContent>
+    <DialogContent>
+        <MudCheckBox @bind-Checked="@App_Calculator" Label="Calculator"></MudCheckBox>
+        <MudCheckBox @bind-Checked="@App_TemperatureConverter" Label="Temperature Converter"></MudCheckBox>
+        <MudCheckBox @bind-Checked="@App_DollarsCentsConverter" Label="Dollars to Cents Converter"></MudCheckBox>
+        <MudCheckBox @bind-Checked="@App_Stopwatch" Label="Stopwatch"></MudCheckBox>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="Variant.Filled" OnClick="Submit" Class="px-10">Close</MudButton>
+    </DialogActions>
+</MudDialog>
 @code {
+    private bool visible;
+    private int rating;
+    private void OpenDialog() => visible = true;
+    void Submit() => visible = false;
+    private DialogOptions dialogOptions = new() { FullWidth = true };
+
     private bool home = true;
     private bool Beginner = false;
     private bool Intermediate = false;
     private bool Advanced = false;
+
     //Apps
     //Calculator
     private bool App_Calculator = false;
@@ -273,7 +291,7 @@
         Cents = Cents.Replace(".0", "");
         Cents = Cents.Replace(".", "");
         OutcomeStatement = "You have " + Cents + " cents.";
-       
+
         //int total = Convert.ToInt32(DollarAmount);
         //for (int q = 0; q <= total / 25; q++)
         //{
@@ -288,7 +306,7 @@
         //        }
         //    }
         //}
-        
+
     }
     //Stopwatch
     private bool App_Stopwatch = false;
@@ -318,6 +336,7 @@
     }
     private void tab1() {
         AllTabsFalse();
+        AllBeginnerTabsFalse();
         home = true;
     }
     private void tab2() {
