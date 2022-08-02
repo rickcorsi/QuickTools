@@ -3,6 +3,7 @@
 @using System.Timers;
 @using System.Threading.Tasks;
 @using MudBlazor.Utilities;
+@using System.Linq;
 @inject IDialogService DialogService
 
 
@@ -78,17 +79,32 @@
                     }    
                     </div>
                     <div style="display: flex;">
-                        <MudNumericField @bind-Value="App_Calculator_Value1" HideSpinButtons="true" Label="Value 1" Style="margin: 5%;" Variant="Variant.Outlined"/>
-                        <MudNumericField @bind-Value="App_Calculator_Value2" HideSpinButtons="true" Label="Value 2" Style="margin: 5%;" Variant="Variant.Outlined"/>
+                    <MudTextField @bind-Value="App_Calculator_Display" ReadOnly="true" Variant="Variant.Outlined" Style="margin-left: 2%; margin-right: 2%; margin-bottom: 2%;" ></MudTextField>
                     </div>
-                    <div style="margin-left: 5%;">
-                        <MudButton OnClick="Addition" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">+</MudText></MudButton>
-                        <MudButton OnClick="Subtraction" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">-</MudText></MudButton>
-                        <MudButton OnClick="Multiplication" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">x</MudText></MudButton>
-                        <MudButton OnClick="Division" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">÷</MudText></MudButton>
-                        <MudButton OnClick="App_Calculator_Clear" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">C</MudText></MudButton>
+                    <div style="margin-left: 72px; max-width: 300px;">
+                        <MudButton OnClick="Calc_Button_Seven" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">7</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_Eight" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">8</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_Nine" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">9</MudText></MudButton>
+                        <MudButton OnClick="Division" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">÷</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_Four" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">4</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_Five" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">5</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_Six" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">6</MudText></MudButton>
+                        <MudButton OnClick="Multiplication" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">x</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_One" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">1</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_Two" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">2</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_Three" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">3</MudText></MudButton>
+                        <MudButton OnClick="Subtraction" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">-</MudText></MudButton>
+                        <MudButton OnClick="App_Calculator_Clear" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">C</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_Zero" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">0</MudText></MudButton>
+                        <MudButton OnClick="Equals" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">=</MudText></MudButton>
+                        <MudButton OnClick="Addition" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">+</MudText></MudButton>
                     </div>
-                    <MudTextField @bind-Value="App_Calculator_Output" ReadOnly="true" Variant="Variant.Outlined" Style="margin: 5%;" ></MudTextField>
+@*                  <MudText Class="Text" Style="margin-top: 50px;" >App_Calculator_Value: @App_Calculator_Value</MudText>
+                    <MudText Class="Text" >App_Calculator_Value: @App_Calculator_Value2</MudText>
+                    <MudText Class="Text" >App_Calculator_Display: @App_Calculator_Display</MudText>
+                    <MudText Class="Text" >App_Calculator_FirstNumber: @App_Calculator_FirstNumber</MudText>
+                    <MudText Class="Text" >App_Calculator_SecondNumber: @App_Calculator_SecondNumber</MudText>
+                    <MudText Class="Text" >App_Calculator_Mode: @App_Calculator_Mode</MudText>*@
                 </MudPaper>
             }
             @if (App_TemperatureConverter == true)
@@ -381,31 +397,334 @@
     //Apps
     //Calculator - WIP
     private bool App_Calculator = false;
-    double App_Calculator_Value1 = 0;
+    double App_Calculator_Value = 0;
     double App_Calculator_Value2 = 0;
-    double App_Calculator_Output = 0;
+    string App_Calculator_Display = "0";
+    string App_Calculator_FirstNumber = "";
+    string App_Calculator_SecondNumber = "";
+    string App_Calculator_Mode = "";
     private void Addition()
     {
-        App_Calculator_Output = App_Calculator_Value1 + App_Calculator_Value2;
+        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
+        {
+            Equals(); 
+        }
+        App_Calculator_Mode = "Addition";
+        App_Calculator_Value = Double.Parse(App_Calculator_FirstNumber);
+        App_Calculator_Display = App_Calculator_Value + " + ";
     }
     private void Subtraction()
     {
-        App_Calculator_Output = App_Calculator_Value1 - App_Calculator_Value2;
+        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
+        {
+            Equals(); 
+        }
+        App_Calculator_Mode = "Subtraction";
+        App_Calculator_Value = Double.Parse(App_Calculator_FirstNumber);
+        App_Calculator_Display = App_Calculator_Value + " - ";
     }
     private void Multiplication()
     {
-        App_Calculator_Output = App_Calculator_Value1 * App_Calculator_Value2;
+        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
+        {
+            Equals(); 
+        }
+        App_Calculator_Mode = "Multiplication";
+        App_Calculator_Value = Double.Parse(App_Calculator_FirstNumber);
+        App_Calculator_Display = App_Calculator_Value + " * ";
     }
     private void Division()
     {
-        App_Calculator_Output = App_Calculator_Value1 / App_Calculator_Value2;
+        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
+        {
+            Equals(); 
+        }
+        App_Calculator_Mode = "Division";
+        App_Calculator_Value = Double.Parse(App_Calculator_FirstNumber);
+        App_Calculator_Display = App_Calculator_Value + " ÷ ";
+    }
+    private void Equals()
+    {
+        if (App_Calculator_Mode == "Addition")
+        {
+
+
+            App_Calculator_Value = Double.Parse(App_Calculator_FirstNumber);
+            App_Calculator_Value2 = Double.Parse(App_Calculator_SecondNumber);
+            App_Calculator_Value = App_Calculator_Value + App_Calculator_Value2;
+            App_Calculator_Display = App_Calculator_Value.ToString();
+            App_Calculator_FirstNumber = App_Calculator_Value.ToString();
+            App_Calculator_SecondNumber = "";
+        }
+        if (App_Calculator_Mode == "Subtraction")
+        {
+            App_Calculator_Value = Double.Parse(App_Calculator_FirstNumber);
+            App_Calculator_Value2 = Double.Parse(App_Calculator_SecondNumber);
+            App_Calculator_Value = App_Calculator_Value - App_Calculator_Value2;
+            App_Calculator_Display = App_Calculator_Value.ToString();
+            App_Calculator_FirstNumber = App_Calculator_Value.ToString();
+            App_Calculator_SecondNumber = "";
+        }
+        if (App_Calculator_Mode == "Multiplication")
+        {
+            App_Calculator_Value = Double.Parse(App_Calculator_FirstNumber);
+            App_Calculator_Value2 = Double.Parse(App_Calculator_SecondNumber);
+            App_Calculator_Value = App_Calculator_Value * App_Calculator_Value2;
+            App_Calculator_Display = App_Calculator_Value.ToString();
+            App_Calculator_FirstNumber = App_Calculator_Value.ToString();
+            App_Calculator_SecondNumber = "";
+        }
+        if (App_Calculator_Mode == "Division")
+        {
+            App_Calculator_Value = Double.Parse(App_Calculator_FirstNumber);
+            App_Calculator_Value2 = Double.Parse(App_Calculator_SecondNumber);
+            App_Calculator_Value = App_Calculator_Value / App_Calculator_Value2;
+            App_Calculator_Display = App_Calculator_Value.ToString();
+            App_Calculator_FirstNumber = App_Calculator_Value.ToString();
+            App_Calculator_SecondNumber = "";
+        }
     }
     private void App_Calculator_Clear()
     {
-        App_Calculator_Output = 0;
-        App_Calculator_Value1 = 0;
+        App_Calculator_SecondNumber = "";
+        App_Calculator_FirstNumber = "0";   
+        App_Calculator_Display = "0";   
+        App_Calculator_Mode = "";
+        App_Calculator_Value = 0;
         App_Calculator_Value2 = 0;
     }
+    private void Calc_Button_Nine()
+    {
+        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
+        {
+            App_Calculator_Value2 = 9;
+            App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
+            App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
+        }
+        else
+        {
+            App_Calculator_Value = 9;
+            if (App_Calculator_Display == "0")
+            {
+                App_Calculator_Display = App_Calculator_Value.ToString();
+                App_Calculator_FirstNumber = App_Calculator_Display;
+            }
+            else
+            {
+                App_Calculator_Display = App_Calculator_Display + App_Calculator_Value.ToString();
+                App_Calculator_FirstNumber = App_Calculator_Display;
+            }
+        }
+    }
+    private void Calc_Button_Eight()
+    {
+        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
+        {
+            App_Calculator_Value2 = 8;
+            App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
+            App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
+        }
+        else
+        {
+            App_Calculator_Value = 8;
+            if (App_Calculator_Display == "0")
+            {
+                App_Calculator_Display = App_Calculator_Value.ToString();
+                App_Calculator_FirstNumber = App_Calculator_Display;
+            }
+            else
+            {
+                App_Calculator_Display = App_Calculator_Display + App_Calculator_Value.ToString();
+                App_Calculator_FirstNumber = App_Calculator_Display;
+            }
+        }
+        
+    }
+    private void Calc_Button_Seven()
+    {
+        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
+        {
+            App_Calculator_Value2 = 7;
+            App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
+            App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
+        }
+        else
+        {
+            App_Calculator_Value = 7;
+            if (App_Calculator_Display == "0")
+            {
+                App_Calculator_Display = App_Calculator_Value.ToString();
+                App_Calculator_FirstNumber = App_Calculator_Display;
+            }
+            else
+            {
+                App_Calculator_Display = App_Calculator_Display + App_Calculator_Value.ToString();
+                App_Calculator_FirstNumber = App_Calculator_Display;
+            }
+        }
+    }
+    private void Calc_Button_Six()
+    {
+        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
+        {
+            App_Calculator_Value2 = 6;
+            App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
+            App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
+        }
+        else
+        {
+            App_Calculator_Value = 6;
+            if (App_Calculator_Display == "0")
+            {
+                App_Calculator_Display = App_Calculator_Value.ToString();
+                App_Calculator_FirstNumber = App_Calculator_Display;
+            }
+            else
+            {
+                App_Calculator_Display = App_Calculator_Display + App_Calculator_Value.ToString();
+                App_Calculator_FirstNumber = App_Calculator_Display;
+            }
+        }
+    }
+    private void Calc_Button_Five()
+    {
+        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
+        {
+            App_Calculator_Value2 = 5;
+            App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
+            App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
+        }
+        else
+        {
+            App_Calculator_Value = 5;
+            if (App_Calculator_Display == "0")
+            {
+                App_Calculator_Display = App_Calculator_Value.ToString();
+                App_Calculator_FirstNumber = App_Calculator_Display;
+            }
+            else
+            {
+                App_Calculator_Display = App_Calculator_Display + App_Calculator_Value.ToString();
+                App_Calculator_FirstNumber = App_Calculator_Display;
+            }
+        }
+    }
+    private void Calc_Button_Four()
+    {
+        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
+        {
+            App_Calculator_Value2 = 4;
+            App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
+            App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
+        }
+        else
+        {
+            App_Calculator_Value = 4;
+            if (App_Calculator_Display == "0")
+            {
+                App_Calculator_Display = App_Calculator_Value.ToString();
+                App_Calculator_FirstNumber = App_Calculator_Display;
+            }
+            else
+            {
+                App_Calculator_Display = App_Calculator_Display + App_Calculator_Value.ToString();
+                App_Calculator_FirstNumber = App_Calculator_Display;
+            }
+        }
+    }
+    private void Calc_Button_Three()
+    {
+        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
+        {
+            App_Calculator_Value2 = 3;
+            App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
+            App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
+        }
+        else
+        {
+            App_Calculator_Value = 3;
+            if (App_Calculator_Display == "0")
+            {
+                App_Calculator_Display = App_Calculator_Value.ToString();
+                App_Calculator_FirstNumber = App_Calculator_Display;
+            }
+            else
+            {
+                App_Calculator_Display = App_Calculator_Display + App_Calculator_Value.ToString();
+                App_Calculator_FirstNumber = App_Calculator_Display;
+            }
+        }
+    }
+    private void Calc_Button_Two()
+    {
+        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
+        {
+            App_Calculator_Value2 = 2;
+            App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
+            App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
+        }
+        else
+        {
+            App_Calculator_Value = 2;
+            if (App_Calculator_Display == "0")
+            {
+                App_Calculator_Display = App_Calculator_Value.ToString();
+                App_Calculator_FirstNumber = App_Calculator_Display;
+            }
+            else
+            {
+                App_Calculator_Display = App_Calculator_Display + App_Calculator_Value.ToString();
+                App_Calculator_FirstNumber = App_Calculator_Display;
+            }
+        }
+    }
+    private void Calc_Button_One()
+    {
+        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
+        {
+            App_Calculator_Value2 = 1;
+            App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
+            App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
+        }
+        else
+        {
+            App_Calculator_Value = 1;
+            if (App_Calculator_Display == "0")
+            {
+                App_Calculator_Display = App_Calculator_Value.ToString();
+                App_Calculator_FirstNumber = App_Calculator_Display;
+            }
+            else
+            {
+                App_Calculator_Display = App_Calculator_Display + App_Calculator_Value.ToString();
+                App_Calculator_FirstNumber = App_Calculator_Display;
+            }
+        }
+    }
+    private void Calc_Button_Zero()
+    {
+        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
+        {
+            App_Calculator_Value2 = 0;
+            App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
+            App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
+        }
+        else
+        {
+            App_Calculator_Value = 0;
+            if (App_Calculator_Display == "0")
+            {
+                App_Calculator_Display = App_Calculator_Value.ToString();
+                App_Calculator_FirstNumber = App_Calculator_Display;
+            }
+            else
+            {
+                App_Calculator_Display = App_Calculator_Display + App_Calculator_Value.ToString();
+                App_Calculator_FirstNumber = App_Calculator_Display;
+            }
+        }
+    }
+
     //Temperature Converter
     private bool App_TemperatureConverter = false;
     double App_TemperatureConverter_Value1 = 0;
