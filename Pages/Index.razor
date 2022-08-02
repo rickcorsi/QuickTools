@@ -2,7 +2,7 @@
 @using System.Drawing;
 @using System.Timers;
 @using System.Threading.Tasks;
-@using MudBlazor.Utilities
+@using MudBlazor.Utilities;
 @inject IDialogService DialogService
 
 
@@ -23,7 +23,7 @@
             <MudText Style="font-size: 20px;" Class="Text">Utilities</MudText>
         </MudButton>
         <MudButton OnClick="tab3" Class="MudButton">
-            <MudText Style="font-size: 20px;" Class="Text"></MudText>
+            <MudText Style="font-size: 20px;" Class="Text">Converters</MudText>
         </MudButton>        
         <MudButton OnClick="tab4" Class="MudButton">
             <MudText Style="font-size: 20px;" Class="Text"></MudText>
@@ -55,9 +55,12 @@
             <MudButton OnClick="Tab_Notes" Class="MudButton">
                 <MudText Class="Text">Notes</MudText>
             </MudButton>  
+            <MudButton OnClick="Tab_LengthConverter" Class="MudButton">
+                <MudText Class="Text">Length Converter</MudText>
+            </MudButton>  
         </MudAppBar>
     }
-    @if (Intermediate == true)
+    @if (Converters == true)
     {
         <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 40px;" Class="MudAppBar">
             <MudButton Class="MudButton">
@@ -127,7 +130,7 @@
                     <div style="display: flex;">
                     <MudText Style="margin: 5%;">Temperature Converter</MudText>
                     @if (home == true) {
-                    <MudIconButton OnClick='() => App_TemperatureConverter = false' Style="margin-left: 285px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    <MudIconButton OnClick='() => App_TemperatureConverter = false' Style="margin-left: 278px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                     }    
                     </div>                    <div style="display: flex;">
                         <div style="margin-left: 5%;">
@@ -148,7 +151,7 @@
                         </div>
                     </div>
                     <div>
-                        <MudButton OnClick="ConvertTemp" Style="margin: 5%;" >Convert</MudButton>
+                        <MudButton OnClick="ConvertTemp" Style="margin: 5%; margin-top: 155px;" >Convert</MudButton>
                     </div>
                 </MudPaper>
             }
@@ -212,6 +215,43 @@
                     </div> 
                 </MudPaper>
             }
+            @if (App_LengthConverter == true)
+            {
+                <MudPaper Outlined="false" Elevation="1" Class="MudPaperMediumWidget">
+                    <div style="display: flex;">
+                    <MudText Style="margin: 5%;">Length Converter</MudText>
+                    @if (home == true) {
+                    <MudIconButton OnClick='() => App_LengthConverter = false' Style="margin-left: 320px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    }    
+                    </div>                    <div style="display: flex;">
+                        <div style="margin-left: 5%;">
+                            <MudTextField @bind-Value="App_LengthConverter_Value1" ReadOnly="false" Variant="Variant.Outlined" Style="" ></MudTextField>
+                            <MudSelect @bind-Value="LengthValue1" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
+                                <MudSelectItem Value="@("Foot")" />
+                                <MudSelectItem Value="@("Yard")" />
+                                <MudSelectItem Value="@("Mile")" />
+                                <MudSelectItem Value="@("Inch")" />
+                                <MudSelectItem Value="@("Meter")" />
+                                <MudSelectItem Value="@("Kilometer")" />
+                            </MudSelect>    
+                        </div>
+                        <div style="margin-left: 5%;">
+                            <MudTextField @bind-Value="App_LengthConverter_Value2" ReadOnly="true" Variant="Variant.Outlined" Style="" ></MudTextField>
+                            <MudSelect @bind-Value="LengthValue2" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
+                                <MudSelectItem Value="@("Foot")" />
+                                <MudSelectItem Value="@("Yard")" />
+                                <MudSelectItem Value="@("Mile")" />
+                                <MudSelectItem Value="@("Inch")" />
+                                <MudSelectItem Value="@("Meter")" />
+                                <MudSelectItem Value="@("Kilometer")" />
+                            </MudSelect>                
+                        </div>
+                    </div>
+                    <div>
+                        <MudButton OnClick="ConvertLength" Style="margin: 5%; margin-top: 155px;" >Convert</MudButton>
+                    </div>
+                </MudPaper>
+            }
             @if (App_Notes == true)
             {
                 <MudPaper Outlined="false" Elevation="1" Class="MudPaperLargeWidget">
@@ -228,9 +268,9 @@
             }
         </div>
     }
-    @if (Intermediate == true)
+    @if (Converters == true)
     {
-        <MudPaper Outlined="false" Elevation="0" Class="MudPaper">Intermediate</MudPaper>
+        <MudPaper Outlined="false" Elevation="0" Class="MudPaper">Converters</MudPaper>
     }
     @if (Advanced == true)
     {
@@ -248,9 +288,10 @@
         <MudCheckBox @bind-Checked="@App_Stopwatch" Label="Stopwatch"></MudCheckBox>
         <MudCheckBox @bind-Checked="@App_DollarsCentsConverter" Label="Dollars to Cents Converter"></MudCheckBox>
         <MudCheckBox @bind-Checked="@App_Notes" Label="Notes"></MudCheckBox>
+        <MudCheckBox @bind-Checked="@App_LengthConverter" Label="Length Converter"></MudCheckBox>
     </DialogContent>
     <DialogActions>
-        @if (App_Calculator == true && App_TemperatureConverter == true && App_ColorPicker == true && App_Stopwatch == true && App_DollarsCentsConverter == true && App_Notes == true)
+        @if (App_Calculator == true && App_TemperatureConverter == true && App_ColorPicker == true && App_Stopwatch == true && App_DollarsCentsConverter == true && App_Notes == true && App_LengthConverter == true)
         {
         <MudButton Variant="Variant.Filled" OnClick="AllUtilitiesTabsFalse" Style="width:140px;">Deselect All</MudButton>
         }
@@ -273,11 +314,11 @@
 
     private bool home = true;
     private bool Utilities = false;
-    private bool Intermediate = false;
+    private bool Converters = false;
     private bool Advanced = false;
 
     //Apps
-    //Calculator
+    //Calculator - WIP
     private bool App_Calculator = false;
     double App_Calculator_Value1 = 0;
     double App_Calculator_Value2 = 0;
@@ -361,7 +402,7 @@
             App_TemperatureConverter_Value2 = App_TemperatureConverter_Value1;
         }
     }
-    //Dollars to Cents Converter
+    //Dollars to Cents Converter - WIP
     private bool App_DollarsCentsConverter = false;
     double DollarAmount = 0;
     double quarters = 0;
@@ -474,9 +515,131 @@
             _pickerColor = secondColorConverted;
         }
     }
-    //Notes
+    //Notes - WIP
     private bool App_Notes = false;
+    //Length Converter
+    private bool App_LengthConverter = false;
+    double App_LengthConverter_Value1 = 0;
+    double App_LengthConverter_Value2 = 0;
+    private string LengthValue1 { get; set; } = "Foot";
+    private string LengthValue2 { get; set; } = "Yard";
+    private void ConvertLength()
+    {
+        if (LengthValue1 == "Foot" && LengthValue2 == "Foot") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1;
+        }
+        if (LengthValue1 == "Foot" && LengthValue2 == "Yard") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 * 1/3;
+        }
+        if (LengthValue1 == "Foot" && LengthValue2 == "Mile") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 / 5280;
+        }
+        if (LengthValue1 == "Foot" && LengthValue2 == "Inch") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 * 12;
+        }
+        if (LengthValue1 == "Foot" && LengthValue2 == "Meter") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 / 3.281;
+        }
+        if (LengthValue1 == "Foot" && LengthValue2 == "Kilometer") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 / 3281;
+        }
+        if (LengthValue1 == "Yard" && LengthValue2 == "Foot") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 * 3;
+        }
+        if (LengthValue1 == "Yard" && LengthValue2 == "Yard") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1;
+        }
+        if (LengthValue1 == "Yard" && LengthValue2 == "Mile") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 / 1760;
+        }
+        if (LengthValue1 == "Yard" && LengthValue2 == "Inch") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 * 36;
+        }
+        if (LengthValue1 == "Yard" && LengthValue2 == "Meter") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 / 1.094;
+        }
+        if (LengthValue1 == "Yard" && LengthValue2 == "Kilometer") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 / 1094;
+        }
+        if (LengthValue1 == "Mile" && LengthValue2 == "Foot") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 * 5280;
+        }
+        if (LengthValue1 == "Mile" && LengthValue2 == "Yard") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 * 1760;
+        }
+        if (LengthValue1 == "Mile" && LengthValue2 == "Mile") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1;
+        }
+        if (LengthValue1 == "Mile" && LengthValue2 == "Inch") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 * 63360;
+        }
+        if (LengthValue1 == "Mile" && LengthValue2 == "Meter") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 * 1609;
+        }
+        if (LengthValue1 == "Mile" && LengthValue2 == "Kilometer") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 * 1.609;
+        }
+        if (LengthValue1 == "Inch" && LengthValue2 == "Foot") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 / 12;
+        }
+        if (LengthValue1 == "Inch" && LengthValue2 == "Yard") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 / 36;
+        }
+        if (LengthValue1 == "Inch" && LengthValue2 == "Mile") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 / 63360;
+        }
+        if (LengthValue1 == "Inch" && LengthValue2 == "Inch") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1;
+        }
+        if (LengthValue1 == "Inch" && LengthValue2 == "Meter") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 / 39.37;
+        }
+        if (LengthValue1 == "Inch" && LengthValue2 == "Kilometer") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 / 39370;
+        }
+        if (LengthValue1 == "Meter" && LengthValue2 == "Foot") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 * 3.281;
+        }
+        if (LengthValue1 == "Meter" && LengthValue2 == "Yard") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 * 1.094;
+        }
+        if (LengthValue1 == "Meter" && LengthValue2 == "Mile") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 / 1609;
+        }
+        if (LengthValue1 == "Meter" && LengthValue2 == "Inch") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 * 39.37;
+        }
+        if (LengthValue1 == "Meter" && LengthValue2 == "Meter") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1;
+        }
+        if (LengthValue1 == "Meter" && LengthValue2 == "Kilometer") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 / 1000;
+        }
+        if (LengthValue1 == "Kilometer" && LengthValue2 == "Foot") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 * 3281;
+        }
+        if (LengthValue1 == "Kilometer" && LengthValue2 == "Yard") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 * 1094;
+        }
+        if (LengthValue1 == "Kilometer" && LengthValue2 == "Mile") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 / 1.609;
+        }
+        if (LengthValue1 == "Kilometer" && LengthValue2 == "Inch") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 * 39370;
+        }
+        if (LengthValue1 == "Kilometer" && LengthValue2 == "Meter") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 * 1000;
+        }
+        if (LengthValue1 == "Kilometer" && LengthValue2 == "Kilometer") {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1;
+        }
+    }
+    //565
 
+
+
+
+    //Tab Controls
     private void tab1() {
         AllTabsFalse();
         className = "MultipleWidgetsDiv";
@@ -492,7 +655,7 @@
     }
     private void tab3() {
         AllTabsFalse();
-        Intermediate = true;
+        Converters = true;
     }
     private void tab4() {
         AllTabsFalse();
@@ -524,11 +687,16 @@
         AllUtilitiesTabsFalse();
         App_Notes = true;
     }
+    private void Tab_LengthConverter()
+    {
+        AllUtilitiesTabsFalse();
+        App_LengthConverter = true;
+    }
 
     private void AllTabsFalse() {
         home = false;
         Utilities = false;
-        Intermediate = false;
+        Converters = false;
         Advanced = false; 
     }
     private void AllUtilitiesTabsFalse()
@@ -539,6 +707,7 @@
         App_Stopwatch = false;
         App_ColorPicker = false;
         App_Notes = false;
+        App_LengthConverter = false;
     }
     private void App_SelectAll()
     {
@@ -548,5 +717,6 @@
         App_Stopwatch = true;
         App_ColorPicker = true;
         App_Notes = true;
+        App_LengthConverter = true;
     }
 }
