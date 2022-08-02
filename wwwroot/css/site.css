@@ -15,12 +15,19 @@
     .MudButton:hover {
     }
 .MudButtonCalculator {
-    background-color: #2E333C;
+    background-color: red;
     color: red;
+    min-width: 400px;
+    min-height: 4px;
 }
     .MudButtonCalculator:hover {
         background-color: #2E333C;
     }
+
+.CalcButton {
+    min-width: 400px;
+}
+
 .Text {
     color: white;
 }
