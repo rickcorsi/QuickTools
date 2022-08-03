@@ -79,28 +79,32 @@
                     }    
                     </div>
                     <div style="display: flex;">
-                    <MudTextField @bind-Value="App_Calculator_Display" ReadOnly="true" Variant="Variant.Outlined" Style="margin-left: 2%; margin-right: 2%; margin-bottom: 2%;" ></MudTextField>
+                    <MudTextField @bind-Value="App_Calculator_Display" ReadOnly="true" Variant="Variant.Outlined" Style="margin-left: 2%; margin-right: 2%; margin-bottom: 3%;" ></MudTextField>
                     </div>
-                    <div style="margin-left: 72px; max-width: 300px;">
-                        <MudButton OnClick="Calc_Button_Seven" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">7</MudText></MudButton>
-                        <MudButton OnClick="Calc_Button_Eight" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">8</MudText></MudButton>
-                        <MudButton OnClick="Calc_Button_Nine" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">9</MudText></MudButton>
-                        <MudButton OnClick="Division" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">÷</MudText></MudButton>
-                        <MudButton OnClick="Calc_Button_Four" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">4</MudText></MudButton>
-                        <MudButton OnClick="Calc_Button_Five" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">5</MudText></MudButton>
-                        <MudButton OnClick="Calc_Button_Six" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">6</MudText></MudButton>
-                        <MudButton OnClick="Multiplication" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">x</MudText></MudButton>
-                        <MudButton OnClick="Calc_Button_One" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">1</MudText></MudButton>
-                        <MudButton OnClick="Calc_Button_Two" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">2</MudText></MudButton>
-                        <MudButton OnClick="Calc_Button_Three" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">3</MudText></MudButton>
-                        <MudButton OnClick="Subtraction" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">-</MudText></MudButton>
-                        <MudButton OnClick="App_Calculator_Clear" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">C</MudText></MudButton>
-                        <MudButton OnClick="Calc_Button_Zero" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">0</MudText></MudButton>
-                        <MudButton OnClick="Equals" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">=</MudText></MudButton>
-                        <MudButton OnClick="Addition" Style="min-width: 60px; min-height: 60px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">+</MudText></MudButton>
+                    <div style="margin-left: 15px; max-width: 390px;">
+                        <MudButton OnClick="App_Calculator_Clear" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">C</MudText></MudButton>
+                        <MudButton Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">x²</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_Backspace" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">←</MudText></MudButton>
+                        <MudButton OnClick="Division" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">÷</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_Seven" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">7</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_Eight" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">8</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_Nine" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">9</MudText></MudButton>
+                        <MudButton OnClick="Multiplication" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">x</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_Four" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">4</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_Five" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">5</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_Six" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">6</MudText></MudButton>
+                        <MudButton OnClick="Addition" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">+</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_One" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">1</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_Two" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">2</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_Three" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">3</MudText></MudButton>
+                        <MudButton OnClick="Subtraction" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">-</MudText></MudButton>
+                        <MudButton OnClick="App_Calculator_Clear" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">±</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_Zero" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">0</MudText></MudButton>
+                        <MudButton OnClick="App_Calculator_Decimal" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">.</MudText></MudButton>
+                        <MudButton OnClick="Equals" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">=</MudText></MudButton>
                     </div>
 @*                  <MudText Class="Text" Style="margin-top: 50px;" >App_Calculator_Value: @App_Calculator_Value</MudText>
-                    <MudText Class="Text" >App_Calculator_Value: @App_Calculator_Value2</MudText>
+                    <MudText Class="Text" >App_Calculator_Value2: @App_Calculator_Value2</MudText>
                     <MudText Class="Text" >App_Calculator_Display: @App_Calculator_Display</MudText>
                     <MudText Class="Text" >App_Calculator_FirstNumber: @App_Calculator_FirstNumber</MudText>
                     <MudText Class="Text" >App_Calculator_SecondNumber: @App_Calculator_SecondNumber</MudText>
@@ -400,8 +404,8 @@
     double App_Calculator_Value = 0;
     double App_Calculator_Value2 = 0;
     string App_Calculator_Display = "0";
-    string App_Calculator_FirstNumber = "";
-    string App_Calculator_SecondNumber = "";
+    string App_Calculator_FirstNumber = "0";
+    string App_Calculator_SecondNumber = "0";
     string App_Calculator_Mode = "";
     private void Addition()
     {
@@ -445,16 +449,15 @@
     }
     private void Equals()
     {
+
         if (App_Calculator_Mode == "Addition")
         {
-
-
             App_Calculator_Value = Double.Parse(App_Calculator_FirstNumber);
             App_Calculator_Value2 = Double.Parse(App_Calculator_SecondNumber);
             App_Calculator_Value = App_Calculator_Value + App_Calculator_Value2;
             App_Calculator_Display = App_Calculator_Value.ToString();
             App_Calculator_FirstNumber = App_Calculator_Value.ToString();
-            App_Calculator_SecondNumber = "";
+            App_Calculator_SecondNumber = "0";
         }
         if (App_Calculator_Mode == "Subtraction")
         {
@@ -463,7 +466,7 @@
             App_Calculator_Value = App_Calculator_Value - App_Calculator_Value2;
             App_Calculator_Display = App_Calculator_Value.ToString();
             App_Calculator_FirstNumber = App_Calculator_Value.ToString();
-            App_Calculator_SecondNumber = "";
+            App_Calculator_SecondNumber = "0";
         }
         if (App_Calculator_Mode == "Multiplication")
         {
@@ -472,7 +475,7 @@
             App_Calculator_Value = App_Calculator_Value * App_Calculator_Value2;
             App_Calculator_Display = App_Calculator_Value.ToString();
             App_Calculator_FirstNumber = App_Calculator_Value.ToString();
-            App_Calculator_SecondNumber = "";
+            App_Calculator_SecondNumber = "0";
         }
         if (App_Calculator_Mode == "Division")
         {
@@ -481,15 +484,76 @@
             App_Calculator_Value = App_Calculator_Value / App_Calculator_Value2;
             App_Calculator_Display = App_Calculator_Value.ToString();
             App_Calculator_FirstNumber = App_Calculator_Value.ToString();
-            App_Calculator_SecondNumber = "";
+            App_Calculator_SecondNumber = "0";
         }
     }
     private void App_Calculator_Clear()
     {
-        App_Calculator_SecondNumber = "";
+        App_Calculator_SecondNumber = "0";
         App_Calculator_FirstNumber = "0";   
         App_Calculator_Display = "0";   
         App_Calculator_Mode = "";
+        App_Calculator_Value = 0;
+        App_Calculator_Value2 = 0;
+    }
+    private void App_Calculator_Decimal()
+    {
+        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
+        {
+            if (!App_Calculator_SecondNumber.Contains('.'))
+            {
+                if (App_Calculator_SecondNumber == "0")
+                {
+                    App_Calculator_SecondNumber = App_Calculator_SecondNumber.Remove(App_Calculator_SecondNumber.Length - 1);
+                }
+                App_Calculator_SecondNumber = App_Calculator_SecondNumber + "0.";
+                App_Calculator_Display = App_Calculator_Display + "0.";
+            }
+        }
+        else 
+        {
+            if (!App_Calculator_FirstNumber.Contains('.')) {
+            App_Calculator_FirstNumber = App_Calculator_FirstNumber + ".";
+            App_Calculator_Display = App_Calculator_Display + "."; 
+            }
+        }
+    }
+    private void Calc_Button_Backspace()
+    {
+        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
+        {
+            if (App_Calculator_SecondNumber == "0")
+            {
+                App_Calculator_Display = App_Calculator_Display.Remove(App_Calculator_Display.Length - 2);
+                App_Calculator_Mode = "";
+            }
+            if (App_Calculator_SecondNumber.Length > 1)
+            {
+                App_Calculator_SecondNumber = App_Calculator_SecondNumber.Remove(App_Calculator_SecondNumber.Length - 1);
+                App_Calculator_Display = App_Calculator_Display.Remove(App_Calculator_Display.Length - 1);
+                if (App_Calculator_SecondNumber == "")
+                {
+                    App_Calculator_SecondNumber = "0";
+                }
+            }
+            else {
+                App_Calculator_Display = App_Calculator_Display.Remove(App_Calculator_Display.Length - 1);
+                App_Calculator_SecondNumber = "0";
+            }
+        }
+        else
+        {
+            if (App_Calculator_Display.Length > 1 && App_Calculator_FirstNumber.Length > 1)
+            {
+                App_Calculator_FirstNumber = App_Calculator_FirstNumber.Remove(App_Calculator_FirstNumber.Length - 1);
+                App_Calculator_Display = App_Calculator_Display.Remove(App_Calculator_Display.Length - 1);
+            }
+            else
+            {
+                App_Calculator_FirstNumber = "0";
+                App_Calculator_Display = "0";
+            }
+        }
         App_Calculator_Value = 0;
         App_Calculator_Value2 = 0;
     }
@@ -497,6 +561,10 @@
     {
         if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
         {
+            if (App_Calculator_SecondNumber == "0")
+            {
+                App_Calculator_SecondNumber = "";
+            }
             App_Calculator_Value2 = 9;
             App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
             App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
@@ -520,6 +588,10 @@
     {
         if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
         {
+            if (App_Calculator_SecondNumber == "0")
+            {
+                App_Calculator_SecondNumber = "";
+            }
             App_Calculator_Value2 = 8;
             App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
             App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
@@ -544,6 +616,10 @@
     {
         if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
         {
+            if (App_Calculator_SecondNumber == "0")
+            {
+                App_Calculator_SecondNumber = "";
+            }
             App_Calculator_Value2 = 7;
             App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
             App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
@@ -567,6 +643,10 @@
     {
         if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
         {
+            if (App_Calculator_SecondNumber == "0")
+            {
+                App_Calculator_SecondNumber = "";
+            }
             App_Calculator_Value2 = 6;
             App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
             App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
@@ -590,6 +670,10 @@
     {
         if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
         {
+            if (App_Calculator_SecondNumber == "0")
+            {
+                App_Calculator_SecondNumber = "";
+            }
             App_Calculator_Value2 = 5;
             App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
             App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
@@ -613,6 +697,10 @@
     {
         if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
         {
+            if (App_Calculator_SecondNumber == "0")
+            {
+                App_Calculator_SecondNumber = "";
+            }
             App_Calculator_Value2 = 4;
             App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
             App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
@@ -636,6 +724,10 @@
     {
         if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
         {
+            if (App_Calculator_SecondNumber == "0")
+            {
+                App_Calculator_SecondNumber = "";
+            }
             App_Calculator_Value2 = 3;
             App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
             App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
@@ -659,6 +751,10 @@
     {
         if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
         {
+            if (App_Calculator_SecondNumber == "0")
+            {
+                App_Calculator_SecondNumber = "";
+            }
             App_Calculator_Value2 = 2;
             App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
             App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
@@ -682,6 +778,10 @@
     {
         if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
         {
+            if (App_Calculator_SecondNumber == "0")
+            {
+                App_Calculator_SecondNumber = "";
+            }
             App_Calculator_Value2 = 1;
             App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
             App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
@@ -705,6 +805,10 @@
     {
         if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
         {
+            if (App_Calculator_SecondNumber == "0")
+            {
+                App_Calculator_SecondNumber = "";
+            }
             App_Calculator_Value2 = 0;
             App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
             App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
