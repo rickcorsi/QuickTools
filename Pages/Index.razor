@@ -79,7 +79,7 @@
                     <div style="display: flex;">
                     <MudText Style="margin: 5%;">Calculator</MudText>
                     @if (home == true) {
-                    <MudIconButton OnClick='() => App_Calculator = false' Style="margin-left: 235px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    <MudIconButton OnClick='() => App_Calculator = false' Style="margin-left: 245px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                     }    
                     </div>
                     <div style="display: flex;">
@@ -123,7 +123,7 @@
                     <div style="display: flex;">
                     <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Color Picker</MudText>
                     @if (home == true) {
-                    <MudIconButton OnClick='() => App_ColorPicker = false' Style="margin-left: 355px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    <MudIconButton OnClick='() => App_ColorPicker = false' Style="margin-left: 365px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                     }    
                     </div>   
                     <div style="display: flex; justify-content: center;">
@@ -150,7 +150,7 @@
                     <div style="display: flex;">
                     <MudText Style="margin: 5%;">Stopwatch</MudText>
                     @if (home == true) {
-                    <MudIconButton OnClick='() => App_Stopwatch = false' Style="margin-left: 235px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    <MudIconButton OnClick='() => App_Stopwatch = false' Style="margin-left: 241px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                     }    
                     </div> 
                     <div style="display: flex; justify-content: center;">
@@ -179,17 +179,115 @@
             }
             @if (App_Notes == true)
             {
-                <div class="MudPaperLargeWidget">
-                    <div style="display: flex;">
-                    <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Notes</MudText>
-                    @if (home == true) {
-                    <MudIconButton OnClick='() => App_Notes = false' Style="margin-left: 805px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                    }    
+                <MudText Class="Text" >notesOpen: @notesOpen</MudText>
+                <MudText Class="Text" >noteOne: @noteOne</MudText>
+                <MudText Class="Text" >noteTwo: @noteTwo</MudText>
+                <MudText Class="Text" >noteThree: @noteThree</MudText>
+                <MudText Class="Text" >noteFour: @noteFour</MudText>
+                @if (noteOne == true)
+                {
+                    <div class="MudPaperSmallWidget">
+                        <div style="display: flex;">
+                            <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Notes</MudText>
+                            @if (home == true)
+                            {
+                                @if (notesOpen != 4)
+                                {
+                                    <MudIconButton OnClick="NewNote" Style="margin-left: 235px; width: 40px; height: 40px;" Icon="@Icons.Filled.Add"></MudIconButton>
+                                }                                
+                                @if (notesOpen >= 1)
+                                {
+                                <MudIconButton OnClick="CloseNote1" Style="margin-left: 2px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                                }
+                                else 
+                                {
+                                <MudIconButton OnClick='() => App_Notes = false' Style="margin-left: 2px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                                }
+                            }    
                     </div>
                     <div style="justify-content: start;">
-                        <MudTextField Style="margin: 2%;" Label="" DisableUnderLine="false" T="string" Lines="24" />
+                        <MudTextField Style="margin: 4%;" Label="" DisableUnderLine="false" T="string" Lines="16" />
                     </div> 
-                </div>
+                    </div>
+                }
+                @if (noteTwo == true)
+                {
+                    <div class="MudPaperSmallWidget">
+                        <div style="display: flex;">
+                            <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Notes</MudText>
+                            @if (home == true)
+                            {
+                                @if (notesOpen != 4)
+                                {
+                                    <MudIconButton OnClick="NewNote" Style="margin-left: 235px; width: 40px; height: 40px;" Icon="@Icons.Filled.Add"></MudIconButton>
+                                }                                
+                                @if (notesOpen >= 2)
+                                {
+                                <MudIconButton OnClick="CloseNote2" Style="margin-left: 2px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                                }
+                                else 
+                                {
+                                <MudIconButton OnClick='() => App_Notes = false' Style="margin-left: 2px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                                }
+                            }    
+                    </div>
+                    <div style="justify-content: start;">
+                        <MudTextField Style="margin: 4%;" Label="" DisableUnderLine="false" T="string" Lines="16" />
+                    </div> 
+                    </div>
+                }
+                @if (noteThree == true)
+                {
+                    <div class="MudPaperSmallWidget">
+                        <div style="display: flex;">
+                            <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Notes</MudText>
+                            @if (home == true)
+                            {
+                                @if (notesOpen != 4)
+                                {
+                                    <MudIconButton OnClick="NewNote" Style="margin-left: 235px; width: 40px; height: 40px;" Icon="@Icons.Filled.Add"></MudIconButton>
+                                }                                
+                                @if (notesOpen >= 3)
+                                {
+                                <MudIconButton OnClick="CloseNote3" Style="margin-left: 2px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                                }
+                                else 
+                                {
+                                <MudIconButton OnClick='() => App_Notes = false' Style="margin-left: 2px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                                }
+                            }    
+                    </div>
+                    <div style="justify-content: start;">
+                        <MudTextField Style="margin: 4%;" Label="" DisableUnderLine="false" T="string" Lines="16" />
+                    </div> 
+                    </div>
+                }
+                @if (noteFour == true)
+                {
+                    <div class="MudPaperSmallWidget">
+                        <div style="display: flex;">
+                            <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Notes</MudText>
+                            @if (home == true)
+                            {
+                                @if (notesOpen != 4)
+                                {
+                                <MudIconButton OnClick="NewNote" Style="margin-left: 235px; width: 40px; height: 40px;" Icon="@Icons.Filled.Add"></MudIconButton>
+                                }
+                                @if (notesOpen >= 4)
+                                {
+                                <MudIconButton OnClick="CloseNote4" Style="margin-left: 2px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                                }
+                                else 
+                                {
+                                <MudIconButton OnClick='() => App_Notes = false' Style="margin-left: 2px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                                }
+                            }    
+                    </div>
+                    <div style="justify-content: start;">
+                        <MudTextField Style="margin: 4%;" Label="" DisableUnderLine="false" T="string" Lines="16" />
+                    </div> 
+                    </div>
+                }
             }
     }
     @if (Converters == true || home == true)
@@ -200,7 +298,7 @@
                     <div style="display: flex;">
                     <MudText Style="margin: 5%;">Temperature Converter</MudText>
                     @if (home == true) {
-                    <MudIconButton OnClick='() => App_TemperatureConverter = false' Style="margin-left: 278px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    <MudIconButton OnClick='() => App_TemperatureConverter = false' Style="margin-left: 288px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                     }    
                     </div>                    <div style="display: flex;">
                         <div style="margin-left: 5%;">
@@ -231,7 +329,7 @@
                     <div style="display: flex;">
                     <MudText Style="margin: 5%;">Dollars to Cents Converter</MudText>
                     @if (home == true) {
-                    <MudIconButton OnClick='() => App_DollarsCentsConverter = false' Style="margin-left: 118px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    <MudIconButton OnClick='() => App_DollarsCentsConverter = false' Style="margin-left: 132px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                     }    
                     </div> 
                     <div style="justify-content: center; padding: 10%;">
@@ -247,7 +345,7 @@
                     <div style="display: flex;">
                     <MudText Style="margin: 5%;">Length Converter</MudText>
                     @if (home == true) {
-                    <MudIconButton OnClick='() => App_LengthConverter = false' Style="margin-left: 320px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    <MudIconButton OnClick='() => App_LengthConverter = false' Style="margin-left: 330px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                     }    
                     </div>                    <div style="display: flex;">
                         <div style="margin-left: 5%;">
@@ -284,7 +382,7 @@
                     <div style="display: flex;">
                     <MudText Style="margin: 5%;">Mass Converter</MudText>
                     @if (home == true) {
-                    <MudIconButton OnClick='() => App_MassConverter = false' Style="margin-left: 320px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    <MudIconButton OnClick='() => App_MassConverter = false' Style="margin-left: 340px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                     }    
                     </div>                    <div style="display: flex;">
                         <div style="margin-left: 5%;">
@@ -1142,8 +1240,68 @@
     {
         backcolor = _pickerColor;
     }
-    //Notes - WIP
+    //Notes
     private bool App_Notes = false;
+    private bool noteOne = true;
+    private bool noteTwo = false;
+    private bool noteThree = false;
+    private bool noteFour = false;
+    int notesOpen = 1;
+    private void NewNote()
+    {
+        if (notesOpen <= 3)
+        {
+            notesOpen = notesOpen + 1;
+        }
+        if (notesOpen == 1)
+        {
+            noteOne = true;
+        }
+        if (notesOpen == 2)
+        {
+            noteTwo = true;
+        }
+        if (notesOpen == 3)
+        {
+            noteThree = true;
+        }
+        if (notesOpen == 4)
+        {
+            noteFour = true;
+        }
+        if (noteOne == false && noteTwo == true && noteThree == true && noteFour == true)
+        {
+            noteOne = true;
+        }
+        if (noteOne == true && noteTwo == false && noteThree == true && noteFour == true)
+        {
+            noteTwo = true;
+        }
+        if (noteOne == true && noteTwo == true && noteThree == false && noteFour == true)
+        {
+            noteThree = true;
+        }
+        if (noteOne == true && noteTwo == true && noteThree == true && noteFour == false)
+        {
+            noteFour = true;
+        }
+    }
+    private void CloseNote1() {
+        noteOne = false;
+        notesOpen = notesOpen - 1;
+    }
+    private void CloseNote2() {
+        noteTwo = false;
+        notesOpen = notesOpen - 1;
+    }
+    private void CloseNote3() {
+        noteThree = false;
+        notesOpen = notesOpen - 1;
+    }
+    private void CloseNote4() {
+        noteFour = false;
+        notesOpen = notesOpen - 1;
+    }
     //Length Converter
     private bool App_LengthConverter = false;
     double App_LengthConverter_Value1 = 0;
