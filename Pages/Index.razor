@@ -71,218 +71,12 @@
     @if (home == true) {
     }
     <div class="@className">
-    @if (Utilities == true || home == true)
-    {
-            @if (App_Calculator == true)
-            {
-                <div class="MudPaperSmallWidget">
-                    <div style="display: flex;">
-                    <MudText Style="margin: 5%;">Calculator</MudText>
-                    @if (home == true) {
-                    <MudIconButton OnClick='() => App_Calculator = false' Style="margin-left: 245px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                    }    
-                    </div>
-                    <div style="display: flex;">
-                    <MudTextField @bind-Value="App_Calculator_Display" ReadOnly="true" Variant="Variant.Outlined" Style="margin-left: 2%; margin-right: 2%; margin-bottom: 3%;" ></MudTextField>
-                    </div>
-                    <div style="margin-left: 15px; max-width: 390px;">
-                        <MudButton OnClick="App_Calculator_Clear" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">C</MudText></MudButton>
-                        <MudButton Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">x²</MudText></MudButton>
-                        <MudButton OnClick="Calc_Button_Backspace" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">←</MudText></MudButton>
-                        <MudButton OnClick="Division" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">÷</MudText></MudButton>
-                        <MudButton OnClick='() => Calc_Button_Number("7")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">7</MudText></MudButton>
-                        <MudButton OnClick='() => Calc_Button_Number("8")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">8</MudText></MudButton>
-                        <MudButton OnClick='() => Calc_Button_Number("9")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">9</MudText></MudButton>
-                        <MudButton OnClick="Multiplication" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">x</MudText></MudButton>
-                        <MudButton OnClick='() => Calc_Button_Number("4")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">4</MudText></MudButton>
-                        <MudButton OnClick='() => Calc_Button_Number("5")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">5</MudText></MudButton>
-                        <MudButton OnClick='() => Calc_Button_Number("6")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">6</MudText></MudButton>
-                        <MudButton OnClick="Addition" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">+</MudText></MudButton>
-                        <MudButton OnClick='() => Calc_Button_Number("1")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">1</MudText></MudButton>
-                        <MudButton OnClick='() => Calc_Button_Number("2")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">2</MudText></MudButton>
-                        <MudButton OnClick='() => Calc_Button_Number("3")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">3</MudText></MudButton>
-                        <MudButton OnClick="Subtraction" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">-</MudText></MudButton>
-                        <MudButton OnClick="App_Calculator_PlusMinus" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">±</MudText></MudButton>
-                        <MudButton OnClick='() => Calc_Button_Number("0")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">0</MudText></MudButton>
-                        <MudButton OnClick="App_Calculator_Decimal" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">.</MudText></MudButton>
-                        <MudButton OnClick="Equals" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">=</MudText></MudButton>
-                    </div>
-                    <MudText Class="Text" Style="margin-top: 40px;" >App_Calculator_Value: @App_Calculator_Value</MudText>
-                    <MudText Class="Text" >App_Calculator_Value2: @App_Calculator_Value2</MudText>
-                    <MudText Class="Text" >App_Calculator_Display: @App_Calculator_Display</MudText>
-                    <MudText Class="Text" >App_Calculator_FirstNumber: @App_Calculator_FirstNumber</MudText>
-                    <MudText Class="Text" >App_Calculator_SecondNumber: @App_Calculator_SecondNumber</MudText>
-                    <MudText Class="Text" >App_Calculator_Mode: @App_Calculator_Mode</MudText>
-                    <MudText Class="Text" >negateTemp: @negateTemp</MudText>
-                    <MudText Class="Text" >secondNumberLength: @App_Calculator_SecondNumber.Length</MudText>
-                    <MudText Class="Text" >buttonValue: @buttonValue</MudText>
-                </div>
-            }
-            @if (App_ColorPicker == true)
-            {
-                <div class="MudPaperMediumWidget">
-                    <div style="display: flex;">
-                    <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Color Picker</MudText>
-                    @if (home == true) {
-                    <MudIconButton OnClick='() => App_ColorPicker = false' Style="margin-left: 365px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                    }    
-                    </div>   
-                    <div style="display: flex; justify-content: center;">
-                    <MudColorPicker Value="_pickerColor" ValueChanged="UpdateSelectedColor" Class="ColorPicker" DisableToolbar="true" DisableAlpha="true" DisableColorField="false" DisablePreview="true" DisableSliders="false" DisableInputs="true" DisableModeSwitch="false" ColorPickerMode="ColorPickerMode.RGB" PickerVariant="PickerVariant.Static" />
-                    <div>
-                    <MudList Clickable="true" SelectedItemChanged="ChangeSelectedColor">
-                        <MudListItem OnClick="firstColorTrue">
-                            <div class="colorPreview" style="@($"background-color:{firstColor};")"></div>
-                        </MudListItem>
-                        <MudTextField @bind-Value="firstColorConverted" Style="margin-right: 4%; margin-bottom: 3%" Adornment="Adornment.End" AdornmentIcon="@Icons.Outlined.ChangeCircle" OnAdornmentClick="HEXColorEntered" ReadOnly="false" Variant="Variant.Outlined"/>
-                        <MudListItem OnClick="secondColorTrue">
-                            <div class="colorPreview" style="@($"background-color:{secondColor};")"></div>
-                        </MudListItem>
-                        <MudTextField @bind-Value="secondColorConverted" Style="margin-right: 4%;" Adornment="Adornment.End" AdornmentIcon="@Icons.Outlined.ChangeCircle" OnAdornmentClick="HEXColorEntered" ReadOnly="false" Variant="Variant.Outlined"/>
-                    </MudList>
-                    <MudButton OnClick="SetBackgroundColor" Style="margin-top: 13px;">Set Background</MudButton>
-                    </div>
-                    </div>
-                </div>
-            }
-            @if (App_Stopwatch == true)
-            {
-                <div class="MudPaperSmallWidget">
-                    <div style="display: flex;">
-                    <MudText Style="margin: 5%;">Stopwatch</MudText>
-                    @if (home == true) {
-                    <MudIconButton OnClick='() => App_Stopwatch = false' Style="margin-left: 241px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                    }    
-                    </div> 
-                    <div style="display: flex; justify-content: center;">
-                        <MudText Style="font-size: 36px;">@displaytimer</MudText>
-                    </div>
-                    <div style="display: flex; justify-content: center;">
-                        <MudButton Style="margin: 5%;" Disabled="@isTiming" OnClick="StopwatchTiming">Start</MudButton>
-                        <MudButton Style="margin: 5%;" Disabled="@isStopped" OnClick="StopwatchStop">Stop</MudButton>
-                    </div>
-                    @if (stopwatchStops >= 1)
-                    {
-                        <div style="display: flex; justify-content: center; margin-top: 5px;">
-                            <MudText Style="font-size: 16px;">Recent Times:</MudText>
-                        </div>
-                        <div style="display: flex; justify-content: center; margin-top: 5px;">
-                            <MudText Style="font-size: 14px;">@RecentTime1</MudText>
-                        </div>
-                        <div style="display: flex; justify-content: center; margin-top: 5px;">
-                            <MudText Style="font-size: 14px;">@RecentTime2</MudText>
-                        </div>
-                        <div style="display: flex; justify-content: center; margin-top: 5px;">
-                            <MudText Style="font-size: 14px;">@RecentTime3</MudText>
-                        </div>
-                    }
-                </div>
-            }   
-            @if (App_Notes == true)
-            {
-                <div class="MudPaperSmallWidget">
-                    <div style="display: flex;">
-                        <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Notes</MudText>
-                        @if (home == true)
-                        {
-                            <MudIconButton OnClick='() => App_Notes = false' Style="margin-left: 275px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                        }    
-                </div>
-                <div style="justify-content: start;">
-                    <MudTextField Style="margin: 4%;" Label="" DisableUnderLine="false" T="string" Lines="16" />
-                </div> 
-                </div>
-            }
-    }
     @if (Converters == true || home == true)
     {
-            @if (App_TemperatureConverter == true)
-            {
-                <div class="MudPaperMediumWidget">
-                    <div style="display: flex;">
-                    <MudText Style="margin: 5%;">Temperature Converter</MudText>
-                    @if (home == true) {
-                    <MudIconButton OnClick='() => App_TemperatureConverter = false' Style="margin-left: 288px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                    }    
-                    </div>                    <div style="display: flex;">
-                        <div style="margin-left: 5%;">
-                            <MudTextField @bind-Value="App_TemperatureConverter_Value1" ReadOnly="false" Variant="Variant.Outlined" Style="" ></MudTextField>
-                            <MudSelect @bind-Value="TempValue1" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
-                                <MudSelectItem Value="@("Fahrenheit")" />
-                                <MudSelectItem Value="@("Celsius")" />
-                                <MudSelectItem Value="@("Kelvin")" />
-                            </MudSelect>    
-                        </div>
-                        <div style="margin-left: 5%;">
-                            <MudTextField @bind-Value="App_TemperatureConverter_Value2" ReadOnly="true" Variant="Variant.Outlined" Style="" ></MudTextField>
-                            <MudSelect @bind-Value="TempValue2" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
-                                <MudSelectItem Value="@("Fahrenheit")" />
-                                <MudSelectItem Value="@("Celsius")" />
-                                <MudSelectItem Value="@("Kelvin")" />
-                            </MudSelect>                
-                        </div>
-                    </div>
-                    <div>
-                        <MudButton OnClick="ConvertTemp" Style="margin: 5%; margin-top: 155px;" >Convert</MudButton>
-                    </div>
-                </div>
-            }
-            @if (App_DollarsCentsConverter == true)
-            {
-                <div class="MudPaperSmallWidget">
-                    <div style="display: flex;">
-                    <MudText Style="margin: 5%;">Dollars to Cents Converter</MudText>
-                    @if (home == true) {
-                    <MudIconButton OnClick='() => App_DollarsCentsConverter = false' Style="margin-left: 132px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                    }    
-                    </div> 
-                    <div style="justify-content: center; padding: 10%;">
-                        <MudTextField @bind-Value="DollarAmount" Label="Enter $ Amount" Variant="Variant.Outlined"/>
-                        <MudButton Style="margin: 5%;" OnClick="ConvertDollars">Convert</MudButton>
-                        <MudTextField ReadOnly="true" T="string" Variant="Variant.Outlined" Text="@OutcomeStatement" Lines="3" />
-                    </div> 
-                </div>
-            }
-            @if (App_LengthConverter == true)
-            {
-                <div class="MudPaperMediumWidget">
-                    <div style="display: flex;">
-                    <MudText Style="margin: 5%;">Length Converter</MudText>
-                    @if (home == true) {
-                    <MudIconButton OnClick='() => App_LengthConverter = false' Style="margin-left: 330px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                    }    
-                    </div>                    <div style="display: flex;">
-                        <div style="margin-left: 5%;">
-                            <MudTextField @bind-Value="App_LengthConverter_Value1" ReadOnly="false" Variant="Variant.Outlined" Style="" ></MudTextField>
-                            <MudSelect @bind-Value="LengthValue1" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
-                                <MudSelectItem Value="@("Foot")" />
-                                <MudSelectItem Value="@("Yard")" />
-                                <MudSelectItem Value="@("Mile")" />
-                                <MudSelectItem Value="@("Inch")" />
-                                <MudSelectItem Value="@("Meter")" />
-                                <MudSelectItem Value="@("Kilometer")" />
-                            </MudSelect>    
-                        </div>
-                        <div style="margin-left: 5%;">
-                            <MudTextField @bind-Value="App_LengthConverter_Value2" ReadOnly="true" Variant="Variant.Outlined" Style="" ></MudTextField>
-                            <MudSelect @bind-Value="LengthValue2" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
-                                <MudSelectItem Value="@("Foot")" />
-                                <MudSelectItem Value="@("Yard")" />
-                                <MudSelectItem Value="@("Mile")" />
-                                <MudSelectItem Value="@("Inch")" />
-                                <MudSelectItem Value="@("Meter")" />
-                                <MudSelectItem Value="@("Kilometer")" />
-                            </MudSelect>                
-                        </div>
-                    </div>
-                    <div>
-                        <MudButton OnClick="ConvertLength" Style="margin: 5%; margin-top: 155px;" >Convert</MudButton>
-                    </div>
-                </div>
-            }
             @if (App_MassConverter == true)
             {
-                <div class="MudPaperMediumWidget">
+                ReOrderWidgets();
+                <div class="MudPaperMediumWidget" style="order: @widgetOrder[7]">
                     <div style="display: flex;">
                     <MudText Style="margin: 5%;">Mass Converter</MudText>
                     @if (home == true) {
@@ -317,11 +111,236 @@
                     </div>
                 </div>
             }
+            @if (App_LengthConverter == true)
+            {
+                ReOrderWidgets();
+                <div class="MudPaperMediumWidget" style="order: @widgetOrder[6]">
+                    <div style="display: flex;">
+                    <MudText Style="margin: 5%;">Length Converter</MudText>
+                    @if (home == true) {
+                    <MudIconButton OnClick='() => App_LengthConverter = false' Style="margin-left: 330px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    }    
+                    </div>                    <div style="display: flex;">
+                        <div style="margin-left: 5%;">
+                            <MudTextField @bind-Value="App_LengthConverter_Value1" ReadOnly="false" Variant="Variant.Outlined" Style="" ></MudTextField>
+                            <MudSelect @bind-Value="LengthValue1" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
+                                <MudSelectItem Value="@("Foot")" />
+                                <MudSelectItem Value="@("Yard")" />
+                                <MudSelectItem Value="@("Mile")" />
+                                <MudSelectItem Value="@("Inch")" />
+                                <MudSelectItem Value="@("Meter")" />
+                                <MudSelectItem Value="@("Kilometer")" />
+                            </MudSelect>    
+                        </div>
+                        <div style="margin-left: 5%;">
+                            <MudTextField @bind-Value="App_LengthConverter_Value2" ReadOnly="true" Variant="Variant.Outlined" Style="" ></MudTextField>
+                            <MudSelect @bind-Value="LengthValue2" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
+                                <MudSelectItem Value="@("Foot")" />
+                                <MudSelectItem Value="@("Yard")" />
+                                <MudSelectItem Value="@("Mile")" />
+                                <MudSelectItem Value="@("Inch")" />
+                                <MudSelectItem Value="@("Meter")" />
+                                <MudSelectItem Value="@("Kilometer")" />
+                            </MudSelect>                
+                        </div>
+                    </div>
+                    <div>
+                        <MudButton OnClick="ConvertLength" Style="margin: 5%; margin-top: 155px;" >Convert</MudButton>
+                    </div>
+                </div>
+            }
+            @if (App_DollarsCentsConverter == true)
+            {
+                ReOrderWidgets();
+                <div class="MudPaperSmallWidget" style="order: @widgetOrder[5]">
+                    <div style="display: flex;">
+                    <MudText Style="margin: 5%;">Dollars to Cents Converter</MudText>
+                    @if (home == true) {
+                    <MudIconButton OnClick='() => App_DollarsCentsConverter = false' Style="margin-left: 132px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    }    
+                    </div> 
+                    <div style="justify-content: center; padding: 10%;">
+                        <MudTextField @bind-Value="DollarAmount" Label="Enter $ Amount" Variant="Variant.Outlined"/>
+                        <MudButton Style="margin: 5%;" OnClick="ConvertDollars">Convert</MudButton>
+                        <MudTextField ReadOnly="true" T="string" Variant="Variant.Outlined" Text="@OutcomeStatement" Lines="3" />
+                    </div> 
+                </div>
+            }
+            @if (App_TemperatureConverter == true)
+            {
+                ReOrderWidgets();
+                <div class="MudPaperMediumWidget" style="order: @widgetOrder[4]">
+                    <div style="display: flex;">
+                    <MudText Style="margin: 5%;">Temperature Converter</MudText>
+                    @if (home == true) {
+                    <MudIconButton OnClick='() => App_TemperatureConverter = false' Style="margin-left: 288px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    }    
+                    </div>                    <div style="display: flex;">
+                        <div style="margin-left: 5%;">
+                            <MudTextField @bind-Value="App_TemperatureConverter_Value1" ReadOnly="false" Variant="Variant.Outlined" Style="" ></MudTextField>
+                            <MudSelect @bind-Value="TempValue1" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
+                                <MudSelectItem Value="@("Fahrenheit")" />
+                                <MudSelectItem Value="@("Celsius")" />
+                                <MudSelectItem Value="@("Kelvin")" />
+                            </MudSelect>    
+                        </div>
+                        <div style="margin-left: 5%;">
+                            <MudTextField @bind-Value="App_TemperatureConverter_Value2" ReadOnly="true" Variant="Variant.Outlined" Style="" ></MudTextField>
+                            <MudSelect @bind-Value="TempValue2" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
+                                <MudSelectItem Value="@("Fahrenheit")" />
+                                <MudSelectItem Value="@("Celsius")" />
+                                <MudSelectItem Value="@("Kelvin")" />
+                            </MudSelect>                
+                        </div>
+                    </div>
+                    <div>
+                        <MudButton OnClick="ConvertTemp" Style="margin: 5%; margin-top: 155px;" >Convert</MudButton>
+                    </div>
+                </div>
+            }
+    }
+    @if (Utilities == true || home == true)
+    {
+            @if (App_Notes == true)
+            {
+                ReOrderWidgets();
+                <div class="MudPaperSmallWidget" style="order: @widgetOrder[3]">
+                    <div style="display: flex;">
+                        <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Notes</MudText>
+                        @if (home == true)
+                        {
+                            <MudIconButton OnClick='() => App_Notes = false' Style="margin-left: 275px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                        }    
+                </div>
+                <div style="justify-content: start;">
+                    <MudTextField Style="margin: 4%;" Label="" DisableUnderLine="false" T="string" Lines="16" />
+                </div> 
+                </div>
+            }
+            @if (App_Stopwatch == true)
+            {
+                ReOrderWidgets();
+                <div class="MudPaperSmallWidget" style="order: @widgetOrder[2]">
+                    <div style="display: flex;">
+                    <MudText Style="margin: 5%;">Stopwatch</MudText>
+                    @if (home == true) {
+                    <MudIconButton OnClick='() => App_Stopwatch = false' Style="margin-left: 241px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    }    
+                    </div> 
+                    <div style="display: flex; justify-content: center;">
+                        <MudText Style="font-size: 36px;">@displaytimer</MudText>
+                    </div>
+                    <div style="display: flex; justify-content: center;">
+                        <MudButton Style="margin: 5%;" Disabled="@isTiming" OnClick="StopwatchTiming">Start</MudButton>
+                        <MudButton Style="margin: 5%;" Disabled="@isStopped" OnClick="StopwatchStop">Stop</MudButton>
+                    </div>
+                    @if (stopwatchStops >= 1)
+                    {
+                        <div style="display: flex; justify-content: center; margin-top: 5px;">
+                            <MudText Style="font-size: 16px;">Recent Times:</MudText>
+                        </div>
+                        <div style="display: flex; justify-content: center; margin-top: 5px;">
+                            <MudText Style="font-size: 14px;">@RecentTime1</MudText>
+                        </div>
+                        <div style="display: flex; justify-content: center; margin-top: 5px;">
+                            <MudText Style="font-size: 14px;">@RecentTime2</MudText>
+                        </div>
+                        <div style="display: flex; justify-content: center; margin-top: 5px;">
+                            <MudText Style="font-size: 14px;">@RecentTime3</MudText>
+                        </div>
+                    }
+                </div>
+            }   
+            @if (App_ColorPicker == true)
+            {
+                ReOrderWidgets();
+                <div class="MudPaperMediumWidget" style="order: @widgetOrder[1]">
+                    <div style="display: flex;">
+                    <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Color Picker</MudText>
+                    @if (home == true) {
+                    <MudIconButton OnClick='() => App_ColorPicker = false' Style="margin-left: 365px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    }    
+                    </div>   
+                    <div style="display: flex; justify-content: center;">
+                    <MudColorPicker Value="_pickerColor" ValueChanged="UpdateSelectedColor" Class="ColorPicker" DisableToolbar="true" DisableAlpha="true" DisableColorField="false" DisablePreview="true" DisableSliders="false" DisableInputs="true" DisableModeSwitch="false" ColorPickerMode="ColorPickerMode.RGB" PickerVariant="PickerVariant.Static" />
+                    <div>
+                    <MudList Clickable="true" SelectedItemChanged="ChangeSelectedColor">
+                        <MudListItem OnClick="firstColorTrue">
+                            <div class="colorPreview" style="@($"background-color:{firstColor};")"></div>
+                        </MudListItem>
+                        <MudTextField @bind-Value="firstColorConverted" Style="margin-right: 4%; margin-bottom: 3%" Adornment="Adornment.End" AdornmentIcon="@Icons.Outlined.ChangeCircle" OnAdornmentClick="HEXColorEntered" ReadOnly="false" Variant="Variant.Outlined"/>
+                        <MudListItem OnClick="secondColorTrue">
+                            <div class="colorPreview" style="@($"background-color:{secondColor};")"></div>
+                        </MudListItem>
+                        <MudTextField @bind-Value="secondColorConverted" Style="margin-right: 4%;" Adornment="Adornment.End" AdornmentIcon="@Icons.Outlined.ChangeCircle" OnAdornmentClick="HEXColorEntered" ReadOnly="false" Variant="Variant.Outlined"/>
+                    </MudList>
+                    <MudButton OnClick="SetBackgroundColor" Style="margin-top: 13px;">Set Background</MudButton>
+                    </div>
+                    </div>
+                </div>
+            }
+            @if (App_Calculator == true)
+            {
+                ReOrderWidgets();
+                <div class="MudPaperSmallWidget" style="order: @widgetOrder[0]">
+                    <div style="display: flex;">
+                    <MudText Style="margin: 5%;">Calculator</MudText>
+                    @if (home == true) {
+                    <MudIconButton OnClick='() => App_Calculator = false' Style="margin-left: 245px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    }    
+                    </div>
+                    <div style="display: flex;">
+                    <MudTextField @bind-Value="App_Calculator_Display" ReadOnly="true" Variant="Variant.Outlined" Style="margin-left: 2%; margin-right: 2%; margin-bottom: 3%;" ></MudTextField>
+                    </div>
+                    <div style="margin-left: 15px; max-width: 390px;">
+                        <MudButton OnClick="App_Calculator_Clear" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">C</MudText></MudButton>
+                        <MudButton Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">x²</MudText></MudButton>
+                        <MudButton OnClick="Calc_Button_Backspace" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">←</MudText></MudButton>
+                        <MudButton OnClick="Division" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">÷</MudText></MudButton>
+                        <MudButton OnClick='() => Calc_Button_Number("7")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">7</MudText></MudButton>
+                        <MudButton OnClick='() => Calc_Button_Number("8")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">8</MudText></MudButton>
+                        <MudButton OnClick='() => Calc_Button_Number("9")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">9</MudText></MudButton>
+                        <MudButton OnClick="Multiplication" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">x</MudText></MudButton>
+                        <MudButton OnClick='() => Calc_Button_Number("4")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">4</MudText></MudButton>
+                        <MudButton OnClick='() => Calc_Button_Number("5")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">5</MudText></MudButton>
+                        <MudButton OnClick='() => Calc_Button_Number("6")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">6</MudText></MudButton>
+                        <MudButton OnClick="Addition" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">+</MudText></MudButton>
+                        <MudButton OnClick='() => Calc_Button_Number("1")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">1</MudText></MudButton>
+                        <MudButton OnClick='() => Calc_Button_Number("2")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">2</MudText></MudButton>
+                        <MudButton OnClick='() => Calc_Button_Number("3")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">3</MudText></MudButton>
+                        <MudButton OnClick="Subtraction" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">-</MudText></MudButton>
+                        <MudButton OnClick="App_Calculator_PlusMinus" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">±</MudText></MudButton>
+                        <MudButton OnClick='() => Calc_Button_Number("0")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">0</MudText></MudButton>
+                        <MudButton OnClick="App_Calculator_Decimal" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">.</MudText></MudButton>
+                        <MudButton OnClick="Equals" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">=</MudText></MudButton>
+                    </div>
+@*                    <MudText Class="Text" Style="margin-top: 40px;" >App_Calculator_Value: @App_Calculator_Value</MudText>
+                    <MudText Class="Text" >App_Calculator_Value2: @App_Calculator_Value2</MudText>
+                    <MudText Class="Text" >App_Calculator_Display: @App_Calculator_Display</MudText>
+                    <MudText Class="Text" >App_Calculator_FirstNumber: @App_Calculator_FirstNumber</MudText>
+                    <MudText Class="Text" >App_Calculator_SecondNumber: @App_Calculator_SecondNumber</MudText>
+                    <MudText Class="Text" >App_Calculator_Mode: @App_Calculator_Mode</MudText>
+                    <MudText Class="Text" >negateTemp: @negateTemp</MudText>
+                    <MudText Class="Text" >secondNumberLength: @App_Calculator_SecondNumber.Length</MudText>
+                    <MudText Class="Text" >buttonValue: @buttonValue</MudText>*@
+                </div>
+            }
+
     }
     </div>    
     @if (Advanced == true)
     {
     }
+    <div style="margin: 150px;">
+@*      <MudText Class="Text" >widgetOrder[0]: @widgetOrder[0]</MudText>
+        <MudText Class="Text" >widgetOrder[1]: @widgetOrder[1]</MudText>
+        <MudText Class="Text" >widgetOrder[2]: @widgetOrder[2]</MudText>
+        <MudText Class="Text" >widgetOrder[3]: @widgetOrder[3]</MudText>
+        <MudText Class="Text" >widgetOrder[4]: @widgetOrder[4]</MudText>
+        <MudText Class="Text" >widgetOrder[5]: @widgetOrder[5]</MudText>
+        <MudText Class="Text" >widgetOrder[6]: @widgetOrder[6]</MudText>
+        <MudText Class="Text" >widgetOrder[7]: @widgetOrder[7]</MudText>*@
+    </div>
 </div>
 <MudDialog @bind-IsVisible="visible" Options="dialogOptions">
     <TitleContent>
@@ -340,7 +359,7 @@
         <MudCheckBox @bind-Checked="@App_MassConverter" Label="Mass Converter"></MudCheckBox>
     </DialogContent>
     <DialogActions>
-        @if (App_Calculator == true && App_TemperatureConverter == true && App_ColorPicker == true && App_Stopwatch == true && App_DollarsCentsConverter == true && App_Notes == true && App_LengthConverter == true)
+        @if (App_Calculator == true && App_TemperatureConverter == true && App_ColorPicker == true && App_Stopwatch == true && App_DollarsCentsConverter == true && App_Notes == true && App_LengthConverter == true  && App_MassConverter == true)
         {
         <MudButton Variant="Variant.Filled" OnClick="AllAppsFalse" Style="width:140px;">Deselect All</MudButton>
         }
@@ -360,7 +379,7 @@
     string className = "MultipleWidgetsDiv";
 
     //Apps
-    //Calculator - WIP
+    //Calculator
     private bool App_Calculator = false;
     string buttonValue = "0";
     double App_Calculator_Value = 0;
@@ -634,7 +653,6 @@
             }
         }
     }
-
     //Temperature Converter
     private bool App_TemperatureConverter = false;
     double App_TemperatureConverter_Value1 = 0;
@@ -692,7 +710,7 @@
             App_TemperatureConverter_Value2 = App_TemperatureConverter_Value1;
         }
     }
-    //Dollars to Cents Converter - WIP
+    //Dollars to Cents Converter
     private bool App_DollarsCentsConverter = false;
     double DollarAmount = 0;
     double quarters = 0;
@@ -736,18 +754,17 @@
     string RecentTime1 = "";
     string RecentTime2 = "";
     string RecentTime3 = "";
-    //displayed time
     TimeSpan TimeFromZero;
-    async Task StopwatchTiming() { //Stopwatch task
+    async Task StopwatchTiming() { 
         displaytimer = "00:00:00";
         isStopped = false;
-        TimeFromZero = new TimeSpan(0, 0, 0); //Timespan 
+        TimeFromZero = new TimeSpan(0, 0, 0);  
         isTiming = true;
-        while (isTiming) { //While stopwatch is running
+        while (isTiming) { 
             await Task.Delay(1000);
             if (isTiming)
             {
-                TimeFromZero = TimeFromZero.Add(new TimeSpan(0, 0, 1)); //Add one second while stopwatch is running
+                TimeFromZero = TimeFromZero.Add(new TimeSpan(0, 0, 1));
                 displaytimer = TimeFromZero.ToString();
                 StateHasChanged();
             }
@@ -1064,6 +1081,94 @@
         if (MassValue1 == "Metric Ton" && MassValue2 == "Metric Ton") {
             App_MassConverter_Value2 = App_MassConverter_Value1;
         }
+    }
+    //Widget Ordering
+    int[] widgetOrder = {0, 0, 0, 0, 0, 0, 0, 0};
+    private void ReOrderWidgets()
+    {
+        if (App_Calculator == true)
+        {
+            widgetOrder[0] = widgetOrder[0] - 1;
+        }
+        if (App_Calculator == false)
+        {
+            increaseAllWidgetOrder();
+            widgetOrder[0] = 0;
+        }
+        if (App_ColorPicker == true)
+        {
+            widgetOrder[1] = widgetOrder[1] - 1;
+        }
+        if (App_ColorPicker == false)
+        {
+            increaseAllWidgetOrder();
+            widgetOrder[1] = 0;
+        }
+        if (App_Stopwatch == true)
+        {
+            widgetOrder[2] = widgetOrder[2] - 1;
+        }
+        if (App_Stopwatch == false)
+        {
+            increaseAllWidgetOrder();
+            widgetOrder[2] = 0;
+        }
+        if (App_Notes == true)
+        {
+            widgetOrder[3] = widgetOrder[3] - 1;
+        }
+        if (App_Notes == false)
+        {
+            increaseAllWidgetOrder();
+            widgetOrder[3] = 0;
+        }
+        if (App_TemperatureConverter == true)
+        {
+            widgetOrder[4] = widgetOrder[4] - 1;
+        }
+        if (App_TemperatureConverter == false)
+        {
+            increaseAllWidgetOrder();
+            widgetOrder[4] = 0;
+        }
+        if (App_DollarsCentsConverter == true)
+        {
+            widgetOrder[5] = widgetOrder[5] - 1;
+        }
+        if (App_DollarsCentsConverter == false)
+        {
+            increaseAllWidgetOrder();
+            widgetOrder[5] = 0;
+        }
+        if (App_LengthConverter == true)
+        {
+            widgetOrder[6] = widgetOrder[6] - 1;
+        }
+        if (App_LengthConverter == false)
+        {
+            increaseAllWidgetOrder();
+            widgetOrder[6] = 0;
+        }
+        if (App_MassConverter == true)
+        {
+            widgetOrder[7] = widgetOrder[7] - 1;
+        }
+        if (App_MassConverter == false)
+        {
+            increaseAllWidgetOrder();
+            widgetOrder[7] = 0;
+        }
+    }
+    private void increaseAllWidgetOrder()
+    {
+        widgetOrder[0] = widgetOrder[0] - 1;
+        widgetOrder[1] = widgetOrder[1] - 1;
+        widgetOrder[2] = widgetOrder[2] - 1;
+        widgetOrder[3] = widgetOrder[3] - 1;
+        widgetOrder[4] = widgetOrder[4] - 1;
+        widgetOrder[5] = widgetOrder[5] - 1;
+        widgetOrder[6] = widgetOrder[6] - 1;
+        widgetOrder[7] = widgetOrder[7] - 1;
     }
     //Tab Controls
     private bool home = true;
