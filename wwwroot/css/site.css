@@ -1,11 +1,11 @@
 .Main {
     display: flex;
     justify-content: center;
-    background-color: #2E333C;
+    background-color: rgba(100,100,100,0.0);
 }
 .backScreen {
     width: 100%;
-    height: 100%;
+    height: 10px;
     background-color: #2E333C;
 }
 .MudAppBar {
@@ -56,18 +56,17 @@
     top: 50%;
     left: 50%;
     margin-top: -300px;
-    margin-left: -520px;
+    margin-left: -680px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: start;
     background-color: rgba(100,100,100,0.0);
-    width: 1600px;
-    min-width: 1200px;
-    max-width: 1200px;
+    width: 1375px;
+    min-width: 1375px;
+    max-width: 1375px;
     min-height: 500px;
 }
-
 .MudPaperSmallWidget {
     border-radius: 7px;
     background-color: white;
@@ -102,19 +101,10 @@
 }
 .colorPreview {
     min-width: 125px;
-    min-height: 35px;
+    min-height: 25px;
     border-radius: 7px;
     margin: 2%;
 }
-#drag-1, #drag-2 {
-    width: 25%;
-    min-height: 6.5em;
-    margin: 1rem 0 0 1rem;
-    background-color: #29e;
-    color: white;
-    border-radius: 0.75em;
-    padding: 4%;
-    touch-action: none;
-    user-select: none;
-    transform: translate(0px, 0px);
+.timerField {
+    max-width: 80px;
 }
