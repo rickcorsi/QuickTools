@@ -325,7 +325,6 @@
                     <MudText Class="Text" >buttonValue: @buttonValue</MudText>*@
                 </div>
             }
-
     }
     </div>    
     @if (Advanced == true)
@@ -359,7 +358,7 @@
         <MudCheckBox @bind-Checked="@App_MassConverter" Label="Mass Converter"></MudCheckBox>
     </DialogContent>
     <DialogActions>
-        @if (App_Calculator == true && App_TemperatureConverter == true && App_ColorPicker == true && App_Stopwatch == true && App_DollarsCentsConverter == true && App_Notes == true && App_LengthConverter == true  && App_MassConverter == true)
+        @if (App_Calculator == true && App_TemperatureConverter == true && App_ColorPicker == true && App_Stopwatch == true && App_DollarsCentsConverter == true && App_Notes == true && App_LengthConverter == true && App_MassConverter == true)
         {
         <MudButton Variant="Variant.Filled" OnClick="AllAppsFalse" Style="width:140px;">Deselect All</MudButton>
         }
@@ -1254,6 +1253,17 @@
     }
     private void App_SelectAll()
     {
+        if (App_Calculator == false && App_TemperatureConverter == false && App_ColorPicker == false && App_Stopwatch == false && App_DollarsCentsConverter == false && App_Notes == false && App_LengthConverter == false && App_MassConverter == false)
+        {
+            widgetOrder[0] = 1;
+            widgetOrder[1] = 2;
+            widgetOrder[2] = 3;
+            widgetOrder[3] = 4;
+            widgetOrder[4] = 5;
+            widgetOrder[5] = 6;
+            widgetOrder[6] = 7;
+            widgetOrder[7] = 8;
+        }
         App_Calculator = true;
         App_TemperatureConverter = true;
         App_DollarsCentsConverter = true;
