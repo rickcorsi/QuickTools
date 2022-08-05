@@ -4,78 +4,82 @@
 @using System.Threading.Tasks;
 @using MudBlazor.Utilities;
 @using System.Linq;
-@inject IDialogService DialogService
+@using System.Text.RegularExpressions;
+@using System.Collections.Generic;
 
+@inject IDialogService DialogService
 
 <style>
     :root {
         --mud-palette-primary: #111A28;
-        background-color: #2E333C;
+        background-color: @backcolor;
     }
 </style>
-
 <PageTitle>Index</PageTitle>
 <div>
     <MudAppBar Color="MudBlazor.Color.Primary" Class="MudAppBar">
         <MudButton OnClick="tab1" Class="MudButton">
-            <MudText Style="font-size: 20px;" Class="Text">Home</MudText>
+            <MudText Style="font-size: 18px;" Class="Text">Home</MudText>
         </MudButton>
         <MudButton OnClick="tab2" Class="MudButton">
-            <MudText Style="font-size: 20px;" Class="Text">Utilities</MudText>
+            <MudText Style="font-size: 18px;" Class="Text">Utilities</MudText>
         </MudButton>
         <MudButton OnClick="tab3" Class="MudButton">
-            <MudText Style="font-size: 20px;" Class="Text">Converters</MudText>
+            <MudText Style="font-size: 18px;" Class="Text">Converters</MudText>
         </MudButton>        
     </MudAppBar>
     @if (home == true)
     {
-        <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 40px;" Class="MudAppBar"><MudButton Style="" OnClick="OpenDialog" Class="" ><MudText Class="Text">Select Widgets</MudText></MudButton></MudAppBar>
+        <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 32px;" Class="MudAppBar"><MudButton Style="font-size: 16px;" OnClick="OpenDialog" Class="" ><MudText Style="" Class="Text">Select Widgets</MudText></MudButton></MudAppBar>
     }
     @if (Utilities == true)
     {
-        <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 40px;" Class="MudAppBar">
+        <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 32px;" Class="MudAppBar">
             <MudButton OnClick="Tab_Calculator" Class="MudButton">
-                <MudText Class="Text">Calculator</MudText>
+                <MudText Style="font-size: 16px;" Class="Text">Calculator</MudText>
             </MudButton>       
             <MudButton OnClick="Tab_Stopwatch" Class="MudButton">
-                <MudText Class="Text">Stopwatch</MudText>
+                <MudText Style="font-size: 16px;" Class="Text">Stopwatch</MudText>
             </MudButton>    
             <MudButton OnClick="Tab_ColorPicker" Class="MudButton">
-                <MudText Class="Text">Color Picker</MudText>
+                <MudText Style="font-size: 16px;" Class="Text">Color Picker</MudText>
             </MudButton>  
             <MudButton OnClick="Tab_Notes" Class="MudButton">
-                <MudText Class="Text">Notes</MudText>
+                <MudText Style="font-size: 16px;" Class="Text">Notes</MudText>
             </MudButton>  
         </MudAppBar>
     }
     @if (Converters == true)
     {
-        <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 40px;" Class="MudAppBar">
+        <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 32px;" Class="MudAppBar">
             <MudButton OnClick="Tab_TemperatureConverter" Class="MudButton">
-                <MudText Class="Text">Temperature Converter</MudText>
+                <MudText Style="font-size: 16px;" Class="Text">Temperature Converter</MudText>
             </MudButton>
             <MudButton OnClick="Tab_DollarsCentsConverter" Class="MudButton">
-                <MudText Class="Text">Dollars to Cents Converter</MudText>
+                <MudText Style="font-size: 16px;" Class="Text">Dollars to Cents Converter</MudText>
             </MudButton>  
             <MudButton OnClick="Tab_LengthConverter" Class="MudButton">
-                <MudText Class="Text">Length Converter</MudText>
+                <MudText Style="font-size: 16px;" Class="Text">Length Converter</MudText>
+            </MudButton>  
+            <MudButton OnClick="Tab_MassConverter" Class="MudButton">
+                <MudText Style="font-size: 16px;" Class="Text">Mass Converter</MudText>
             </MudButton>  
         </MudAppBar>
     }
 </div>
-<div>
+<div class="backScreen" style="background-color: @backcolor">
     @if (home == true) {
     }
+    <div class="@className">
     @if (Utilities == true || home == true)
     {
-        <div class="@className">
             @if (App_Calculator == true)
             {
-                <MudPaper Class="MudPaperSmallWidget">
+                <div class="MudPaperSmallWidget">
                     <div style="display: flex;">
                     <MudText Style="margin: 5%;">Calculator</MudText>
                     @if (home == true) {
-                    <MudIconButton OnClick='() => App_Calculator = false' Style="margin-left: 235px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    <MudIconButton OnClick='() => App_Calculator = false' Style="margin-left: 245px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                     }    
                     </div>
                     <div style="display: flex;">
@@ -86,69 +90,41 @@
                         <MudButton Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">x²</MudText></MudButton>
                         <MudButton OnClick="Calc_Button_Backspace" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">←</MudText></MudButton>
                         <MudButton OnClick="Division" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">÷</MudText></MudButton>
-                        <MudButton OnClick="Calc_Button_Seven" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">7</MudText></MudButton>
-                        <MudButton OnClick="Calc_Button_Eight" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">8</MudText></MudButton>
-                        <MudButton OnClick="Calc_Button_Nine" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">9</MudText></MudButton>
+                        <MudButton OnClick='() => Calc_Button_Number("7")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">7</MudText></MudButton>
+                        <MudButton OnClick='() => Calc_Button_Number("8")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">8</MudText></MudButton>
+                        <MudButton OnClick='() => Calc_Button_Number("9")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">9</MudText></MudButton>
                         <MudButton OnClick="Multiplication" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">x</MudText></MudButton>
-                        <MudButton OnClick="Calc_Button_Four" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">4</MudText></MudButton>
-                        <MudButton OnClick="Calc_Button_Five" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">5</MudText></MudButton>
-                        <MudButton OnClick="Calc_Button_Six" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">6</MudText></MudButton>
+                        <MudButton OnClick='() => Calc_Button_Number("4")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">4</MudText></MudButton>
+                        <MudButton OnClick='() => Calc_Button_Number("5")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">5</MudText></MudButton>
+                        <MudButton OnClick='() => Calc_Button_Number("6")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">6</MudText></MudButton>
                         <MudButton OnClick="Addition" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">+</MudText></MudButton>
-                        <MudButton OnClick="Calc_Button_One" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">1</MudText></MudButton>
-                        <MudButton OnClick="Calc_Button_Two" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">2</MudText></MudButton>
-                        <MudButton OnClick="Calc_Button_Three" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">3</MudText></MudButton>
+                        <MudButton OnClick='() => Calc_Button_Number("1")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">1</MudText></MudButton>
+                        <MudButton OnClick='() => Calc_Button_Number("2")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">2</MudText></MudButton>
+                        <MudButton OnClick='() => Calc_Button_Number("3")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">3</MudText></MudButton>
                         <MudButton OnClick="Subtraction" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">-</MudText></MudButton>
-                        <MudButton OnClick="App_Calculator_Clear" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">±</MudText></MudButton>
-                        <MudButton OnClick="Calc_Button_Zero" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">0</MudText></MudButton>
+                        <MudButton OnClick="App_Calculator_PlusMinus" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">±</MudText></MudButton>
+                        <MudButton OnClick='() => Calc_Button_Number("0")' Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">0</MudText></MudButton>
                         <MudButton OnClick="App_Calculator_Decimal" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">.</MudText></MudButton>
                         <MudButton OnClick="Equals" Style="min-width: 90px; min-height: 50px;" Class="MudButtonCalculator"><MudText Style="font-size: 20px; color: black;" Class="Text">=</MudText></MudButton>
                     </div>
-@*                  <MudText Class="Text" Style="margin-top: 50px;" >App_Calculator_Value: @App_Calculator_Value</MudText>
+                    <MudText Class="Text" Style="margin-top: 40px;" >App_Calculator_Value: @App_Calculator_Value</MudText>
                     <MudText Class="Text" >App_Calculator_Value2: @App_Calculator_Value2</MudText>
                     <MudText Class="Text" >App_Calculator_Display: @App_Calculator_Display</MudText>
                     <MudText Class="Text" >App_Calculator_FirstNumber: @App_Calculator_FirstNumber</MudText>
                     <MudText Class="Text" >App_Calculator_SecondNumber: @App_Calculator_SecondNumber</MudText>
-                    <MudText Class="Text" >App_Calculator_Mode: @App_Calculator_Mode</MudText>*@
-                </MudPaper>
-            }
-            @if (App_TemperatureConverter == true)
-            {
-                <MudPaper Outlined="false" Elevation="1" Class="MudPaperMediumWidget">
-                    <div style="display: flex;">
-                    <MudText Style="margin: 5%;">Temperature Converter</MudText>
-                    @if (home == true) {
-                    <MudIconButton OnClick='() => App_TemperatureConverter = false' Style="margin-left: 278px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                    }    
-                    </div>                    <div style="display: flex;">
-                        <div style="margin-left: 5%;">
-                            <MudTextField @bind-Value="App_TemperatureConverter_Value1" ReadOnly="false" Variant="Variant.Outlined" Style="" ></MudTextField>
-                            <MudSelect @bind-Value="TempValue1" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
-                                <MudSelectItem Value="@("Fahrenheit")" />
-                                <MudSelectItem Value="@("Celsius")" />
-                                <MudSelectItem Value="@("Kelvin")" />
-                            </MudSelect>    
-                        </div>
-                        <div style="margin-left: 5%;">
-                            <MudTextField @bind-Value="App_TemperatureConverter_Value2" ReadOnly="true" Variant="Variant.Outlined" Style="" ></MudTextField>
-                            <MudSelect @bind-Value="TempValue2" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
-                                <MudSelectItem Value="@("Fahrenheit")" />
-                                <MudSelectItem Value="@("Celsius")" />
-                                <MudSelectItem Value="@("Kelvin")" />
-                            </MudSelect>                
-                        </div>
-                    </div>
-                    <div>
-                        <MudButton OnClick="ConvertTemp" Style="margin: 5%; margin-top: 155px;" >Convert</MudButton>
-                    </div>
-                </MudPaper>
+                    <MudText Class="Text" >App_Calculator_Mode: @App_Calculator_Mode</MudText>
+                    <MudText Class="Text" >negateTemp: @negateTemp</MudText>
+                    <MudText Class="Text" >secondNumberLength: @App_Calculator_SecondNumber.Length</MudText>
+                    <MudText Class="Text" >buttonValue: @buttonValue</MudText>
+                </div>
             }
             @if (App_ColorPicker == true)
             {
-                <MudPaper Outlined="false" Elevation="1" Class="MudPaperMediumWidget">
+                <div class="MudPaperMediumWidget">
                     <div style="display: flex;">
                     <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Color Picker</MudText>
                     @if (home == true) {
-                    <MudIconButton OnClick='() => App_ColorPicker = false' Style="margin-left: 355px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    <MudIconButton OnClick='() => App_ColorPicker = false' Style="margin-left: 365px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                     }    
                     </div>   
                     <div style="display: flex; justify-content: center;">
@@ -164,17 +140,18 @@
                         </MudListItem>
                         <MudTextField @bind-Value="secondColorConverted" Style="margin-right: 4%;" Adornment="Adornment.End" AdornmentIcon="@Icons.Outlined.ChangeCircle" OnAdornmentClick="HEXColorEntered" ReadOnly="false" Variant="Variant.Outlined"/>
                     </MudList>
+                    <MudButton OnClick="SetBackgroundColor" Style="margin-top: 13px;">Set Background</MudButton>
                     </div>
                     </div>
-                </MudPaper>
+                </div>
             }
             @if (App_Stopwatch == true)
             {
-                <MudPaper Outlined="false" Elevation="1" Class="MudPaperSmallWidget">
+                <div class="MudPaperSmallWidget">
                     <div style="display: flex;">
                     <MudText Style="margin: 5%;">Stopwatch</MudText>
                     @if (home == true) {
-                    <MudIconButton OnClick='() => App_Stopwatch = false' Style="margin-left: 235px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    <MudIconButton OnClick='() => App_Stopwatch = false' Style="margin-left: 241px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                     }    
                     </div> 
                     <div style="display: flex; justify-content: center;">
@@ -199,87 +176,33 @@
                             <MudText Style="font-size: 14px;">@RecentTime3</MudText>
                         </div>
                     }
-                </MudPaper>
-            }
-            @if (App_DollarsCentsConverter == true)
-            {
-                <MudPaper Outlined="false" Elevation="1" Class="MudPaperSmallWidget">
-                    <div style="display: flex;">
-                    <MudText Style="margin: 5%;">Dollars to Cents Converter</MudText>
-                    @if (home == true) {
-                    <MudIconButton OnClick='() => App_DollarsCentsConverter = false' Style="margin-left: 118px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                    }    
-                    </div> 
-                    <div style="justify-content: center; padding: 10%;">
-                        <MudTextField @bind-Value="DollarAmount" Label="Enter $ Amount" Variant="Variant.Outlined"/>
-                        <MudButton Style="margin: 5%;" OnClick="ConvertDollars">Convert</MudButton>
-                        <MudTextField ReadOnly="true" T="string" Variant="Variant.Outlined" Text="@OutcomeStatement" Lines="3" />
-                    </div> 
-                </MudPaper>
-            }
-            @if (App_LengthConverter == true)
-            {
-                <MudPaper Outlined="false" Elevation="1" Class="MudPaperMediumWidget">
-                    <div style="display: flex;">
-                    <MudText Style="margin: 5%;">Length Converter</MudText>
-                    @if (home == true) {
-                    <MudIconButton OnClick='() => App_LengthConverter = false' Style="margin-left: 320px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                    }    
-                    </div>                    <div style="display: flex;">
-                        <div style="margin-left: 5%;">
-                            <MudTextField @bind-Value="App_LengthConverter_Value1" ReadOnly="false" Variant="Variant.Outlined" Style="" ></MudTextField>
-                            <MudSelect @bind-Value="LengthValue1" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
-                                <MudSelectItem Value="@("Foot")" />
-                                <MudSelectItem Value="@("Yard")" />
-                                <MudSelectItem Value="@("Mile")" />
-                                <MudSelectItem Value="@("Inch")" />
-                                <MudSelectItem Value="@("Meter")" />
-                                <MudSelectItem Value="@("Kilometer")" />
-                            </MudSelect>    
-                        </div>
-                        <div style="margin-left: 5%;">
-                            <MudTextField @bind-Value="App_LengthConverter_Value2" ReadOnly="true" Variant="Variant.Outlined" Style="" ></MudTextField>
-                            <MudSelect @bind-Value="LengthValue2" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
-                                <MudSelectItem Value="@("Foot")" />
-                                <MudSelectItem Value="@("Yard")" />
-                                <MudSelectItem Value="@("Mile")" />
-                                <MudSelectItem Value="@("Inch")" />
-                                <MudSelectItem Value="@("Meter")" />
-                                <MudSelectItem Value="@("Kilometer")" />
-                            </MudSelect>                
-                        </div>
-                    </div>
-                    <div>
-                        <MudButton OnClick="ConvertLength" Style="margin: 5%; margin-top: 155px;" >Convert</MudButton>
-                    </div>
-                </MudPaper>
-            }
+                </div>
+            }   
             @if (App_Notes == true)
             {
-                <MudPaper Outlined="false" Elevation="1" Class="MudPaperLargeWidget">
+                <div class="MudPaperSmallWidget">
                     <div style="display: flex;">
-                    <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Notes</MudText>
-                    @if (home == true) {
-                    <MudIconButton OnClick='() => App_Notes = false' Style="margin-left: 805px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                    }    
-                    </div>
-                    <div style="justify-content: start;">
-                        <MudTextField Style="margin: 2%;" Label="" DisableUnderLine="false" T="string" Lines="24" />
-                    </div> 
-                </MudPaper>
+                        <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Notes</MudText>
+                        @if (home == true)
+                        {
+                            <MudIconButton OnClick='() => App_Notes = false' Style="margin-left: 275px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                        }    
+                </div>
+                <div style="justify-content: start;">
+                    <MudTextField Style="margin: 4%;" Label="" DisableUnderLine="false" T="string" Lines="16" />
+                </div> 
+                </div>
             }
-        </div>
     }
-    @if (Converters == true)
+    @if (Converters == true || home == true)
     {
-        <div class="@className">
             @if (App_TemperatureConverter == true)
             {
-                <MudPaper Outlined="false" Elevation="1" Class="MudPaperMediumWidget">
+                <div class="MudPaperMediumWidget">
                     <div style="display: flex;">
                     <MudText Style="margin: 5%;">Temperature Converter</MudText>
                     @if (home == true) {
-                    <MudIconButton OnClick='() => App_TemperatureConverter = false' Style="margin-left: 278px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    <MudIconButton OnClick='() => App_TemperatureConverter = false' Style="margin-left: 288px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                     }    
                     </div>                    <div style="display: flex;">
                         <div style="margin-left: 5%;">
@@ -302,15 +225,15 @@
                     <div>
                         <MudButton OnClick="ConvertTemp" Style="margin: 5%; margin-top: 155px;" >Convert</MudButton>
                     </div>
-                </MudPaper>
+                </div>
             }
             @if (App_DollarsCentsConverter == true)
             {
-                <MudPaper Outlined="false" Elevation="1" Class="MudPaperSmallWidget">
+                <div class="MudPaperSmallWidget">
                     <div style="display: flex;">
                     <MudText Style="margin: 5%;">Dollars to Cents Converter</MudText>
                     @if (home == true) {
-                    <MudIconButton OnClick='() => App_DollarsCentsConverter = false' Style="margin-left: 118px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    <MudIconButton OnClick='() => App_DollarsCentsConverter = false' Style="margin-left: 132px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                     }    
                     </div> 
                     <div style="justify-content: center; padding: 10%;">
@@ -318,15 +241,15 @@
                         <MudButton Style="margin: 5%;" OnClick="ConvertDollars">Convert</MudButton>
                         <MudTextField ReadOnly="true" T="string" Variant="Variant.Outlined" Text="@OutcomeStatement" Lines="3" />
                     </div> 
-                </MudPaper>
+                </div>
             }
             @if (App_LengthConverter == true)
             {
-                <MudPaper Outlined="false" Elevation="1" Class="MudPaperMediumWidget">
+                <div class="MudPaperMediumWidget">
                     <div style="display: flex;">
                     <MudText Style="margin: 5%;">Length Converter</MudText>
                     @if (home == true) {
-                    <MudIconButton OnClick='() => App_LengthConverter = false' Style="margin-left: 320px; width: 50px; height: 50px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    <MudIconButton OnClick='() => App_LengthConverter = false' Style="margin-left: 330px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                     }    
                     </div>                    <div style="display: flex;">
                         <div style="margin-left: 5%;">
@@ -355,10 +278,47 @@
                     <div>
                         <MudButton OnClick="ConvertLength" Style="margin: 5%; margin-top: 155px;" >Convert</MudButton>
                     </div>
-                </MudPaper>
+                </div>
             }
-        </div>    
+            @if (App_MassConverter == true)
+            {
+                <div class="MudPaperMediumWidget">
+                    <div style="display: flex;">
+                    <MudText Style="margin: 5%;">Mass Converter</MudText>
+                    @if (home == true) {
+                    <MudIconButton OnClick='() => App_MassConverter = false' Style="margin-left: 340px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    }    
+                    </div>                    <div style="display: flex;">
+                        <div style="margin-left: 5%;">
+                            <MudTextField @bind-Value="App_MassConverter_Value1" ReadOnly="false" Variant="Variant.Outlined" Style="" ></MudTextField>
+                            <MudSelect @bind-Value="MassValue1" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
+                                <MudSelectItem Value="@("Pound")" />
+                                <MudSelectItem Value="@("Ounce")" />
+                                <MudSelectItem Value="@("Kilogram")" />
+                                <MudSelectItem Value="@("Gram")" />
+                                <MudSelectItem Value="@("US Ton")" />
+                                <MudSelectItem Value="@("Metric Ton")" />
+                            </MudSelect>    
+                        </div>
+                        <div style="margin-left: 5%;">
+                            <MudTextField @bind-Value="App_MassConverter_Value2" ReadOnly="true" Variant="Variant.Outlined" Style="" ></MudTextField>
+                            <MudSelect @bind-Value="MassValue2" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
+                                <MudSelectItem Value="@("Pound")" />
+                                <MudSelectItem Value="@("Ounce")" />
+                                <MudSelectItem Value="@("Kilogram")" />
+                                <MudSelectItem Value="@("Gram")" />
+                                <MudSelectItem Value="@("US Ton")" />
+                                <MudSelectItem Value="@("Metric Ton")" />
+                            </MudSelect>                
+                        </div>
+                    </div>
+                    <div>
+                        <MudButton OnClick="ConvertMass" Style="margin: 5%; margin-top: 155px;" >Convert</MudButton>
+                    </div>
+                </div>
+            }
     }
+    </div>    
     @if (Advanced == true)
     {
     }
@@ -377,6 +337,7 @@
         <MudCheckBox @bind-Checked="@App_TemperatureConverter" Label="Temperature Converter"></MudCheckBox>
         <MudCheckBox @bind-Checked="@App_DollarsCentsConverter" Label="Dollars to Cents Converter"></MudCheckBox>
         <MudCheckBox @bind-Checked="@App_LengthConverter" Label="Length Converter"></MudCheckBox>
+        <MudCheckBox @bind-Checked="@App_MassConverter" Label="Mass Converter"></MudCheckBox>
     </DialogContent>
     <DialogActions>
         @if (App_Calculator == true && App_TemperatureConverter == true && App_ColorPicker == true && App_Stopwatch == true && App_DollarsCentsConverter == true && App_Notes == true && App_LengthConverter == true)
@@ -401,12 +362,15 @@
     //Apps
     //Calculator - WIP
     private bool App_Calculator = false;
+    string buttonValue = "0";
     double App_Calculator_Value = 0;
     double App_Calculator_Value2 = 0;
+    double negateTemp = 0;
     string App_Calculator_Display = "0";
     string App_Calculator_FirstNumber = "0";
     string App_Calculator_SecondNumber = "0";
     string App_Calculator_Mode = "";
+    int secondNumberLength = 0;
     private void Addition()
     {
         if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
@@ -495,6 +459,7 @@
         App_Calculator_Mode = "";
         App_Calculator_Value = 0;
         App_Calculator_Value2 = 0;
+        negateTemp = 0;
     }
     private void App_Calculator_Decimal()
     {
@@ -502,19 +467,94 @@
         {
             if (!App_Calculator_SecondNumber.Contains('.'))
             {
-                if (App_Calculator_SecondNumber == "0")
-                {
-                    App_Calculator_SecondNumber = App_Calculator_SecondNumber.Remove(App_Calculator_SecondNumber.Length - 1);
-                }
-                App_Calculator_SecondNumber = App_Calculator_SecondNumber + "0.";
-                App_Calculator_Display = App_Calculator_Display + "0.";
+                App_Calculator_SecondNumber = App_Calculator_SecondNumber + ".";
+                App_Calculator_Display = App_Calculator_Display + ".";
             }
         }
         else 
         {
             if (!App_Calculator_FirstNumber.Contains('.')) {
-            App_Calculator_FirstNumber = App_Calculator_FirstNumber + ".";
-            App_Calculator_Display = App_Calculator_Display + "."; 
+                App_Calculator_FirstNumber = App_Calculator_FirstNumber + ".";
+                App_Calculator_Display = App_Calculator_Display + "."; 
+            }
+        }
+    }
+    private void App_Calculator_PlusMinus()
+    {
+        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
+        {
+            secondNumberLength = App_Calculator_SecondNumber.Length;
+            if (App_Calculator_SecondNumber.Contains('-') == false)
+            {
+                if (App_Calculator_SecondNumber == "0")
+                {
+                    App_Calculator_Display = App_Calculator_Display + "-";
+                    App_Calculator_SecondNumber = "-0";
+                }
+                else if (App_Calculator_SecondNumber == "0.")
+                {
+                    App_Calculator_Display = App_Calculator_Display.Remove(App_Calculator_Display.Length - 1);
+                    App_Calculator_Display = App_Calculator_Display + "-.";
+                    App_Calculator_SecondNumber = "-0.";
+                }
+                else
+                {
+                    App_Calculator_Display = App_Calculator_Display.Remove(App_Calculator_Display.Length - secondNumberLength);
+                    negateTemp = Double.Parse(App_Calculator_SecondNumber);
+                    negateTemp = negateTemp * -1;
+                    App_Calculator_SecondNumber = negateTemp.ToString();
+                    App_Calculator_Display = App_Calculator_Display + App_Calculator_SecondNumber;
+                }
+            }
+            else if (App_Calculator_SecondNumber.Contains('-') == true)
+            {
+                if (App_Calculator_SecondNumber == "-0")
+                {
+                    App_Calculator_Display = App_Calculator_Display.Remove(App_Calculator_Display.Length - 1);
+                    App_Calculator_SecondNumber = "0";
+                }
+                else if (App_Calculator_SecondNumber.Contains("-0.") == true)
+                {
+                    App_Calculator_SecondNumber = App_Calculator_SecondNumber.Replace("-.", string.Empty);
+                    App_Calculator_Display = App_Calculator_Display.Replace(" -.", " .");
+                    App_Calculator_SecondNumber = "0.";
+                }
+                else
+                {
+                    App_Calculator_Display = App_Calculator_Display.Remove(App_Calculator_Display.Length - secondNumberLength);
+                    App_Calculator_SecondNumber = App_Calculator_SecondNumber.Replace("-", string.Empty);
+                    negateTemp = Double.Parse(App_Calculator_SecondNumber);
+                    if (App_Calculator_SecondNumber == "")
+                    {
+                        App_Calculator_SecondNumber = "0";
+                    }
+                    App_Calculator_Display = App_Calculator_Display + App_Calculator_SecondNumber;
+                }
+            }
+        }
+        else
+        {
+            if (App_Calculator_FirstNumber.Contains('-') == false)
+            {
+                negateTemp = Double.Parse(App_Calculator_FirstNumber);
+                negateTemp = negateTemp * -1;
+                App_Calculator_FirstNumber = negateTemp.ToString();
+                App_Calculator_Display = App_Calculator_FirstNumber;
+                if (App_Calculator_Display == "-0")
+                {
+                    App_Calculator_Display = "-";
+                }
+            }
+            else if (App_Calculator_FirstNumber.Contains('-') == true)
+            {
+                App_Calculator_FirstNumber = App_Calculator_FirstNumber.Replace("-", string.Empty);
+                App_Calculator_Display = App_Calculator_FirstNumber;
+                if (App_Calculator_FirstNumber == "")
+                {
+                    App_Calculator_FirstNumber = "0";
+                    App_Calculator_Display = App_Calculator_FirstNumber;
+                }
+                negateTemp = 0;
             }
         }
     }
@@ -557,7 +597,7 @@
         App_Calculator_Value = 0;
         App_Calculator_Value2 = 0;
     }
-    private void Calc_Button_Nine()
+    private void Calc_Button_Number(string buttonValue)
     {
         if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
         {
@@ -565,264 +605,30 @@
             {
                 App_Calculator_SecondNumber = "";
             }
-            App_Calculator_Value2 = 9;
-            App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
-            App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
+            if (App_Calculator_SecondNumber == "-0")
+            {
+                App_Calculator_SecondNumber = buttonValue;
+                App_Calculator_Display = App_Calculator_Display.Remove(App_Calculator_Display.Length - 1);
+                App_Calculator_Display = App_Calculator_Display + App_Calculator_SecondNumber;
+            }
+            else
+            {
+                App_Calculator_Value2 = Double.Parse(buttonValue);
+                App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
+                App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
+            }
         }
         else
         {
-            App_Calculator_Value = 9;
             if (App_Calculator_Display == "0")
             {
+                App_Calculator_Value = Double.Parse(buttonValue);
                 App_Calculator_Display = App_Calculator_Value.ToString();
                 App_Calculator_FirstNumber = App_Calculator_Display;
             }
             else
             {
-                App_Calculator_Display = App_Calculator_Display + App_Calculator_Value.ToString();
-                App_Calculator_FirstNumber = App_Calculator_Display;
-            }
-        }
-    }
-    private void Calc_Button_Eight()
-    {
-        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
-        {
-            if (App_Calculator_SecondNumber == "0")
-            {
-                App_Calculator_SecondNumber = "";
-            }
-            App_Calculator_Value2 = 8;
-            App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
-            App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
-        }
-        else
-        {
-            App_Calculator_Value = 8;
-            if (App_Calculator_Display == "0")
-            {
-                App_Calculator_Display = App_Calculator_Value.ToString();
-                App_Calculator_FirstNumber = App_Calculator_Display;
-            }
-            else
-            {
-                App_Calculator_Display = App_Calculator_Display + App_Calculator_Value.ToString();
-                App_Calculator_FirstNumber = App_Calculator_Display;
-            }
-        }
-        
-    }
-    private void Calc_Button_Seven()
-    {
-        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
-        {
-            if (App_Calculator_SecondNumber == "0")
-            {
-                App_Calculator_SecondNumber = "";
-            }
-            App_Calculator_Value2 = 7;
-            App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
-            App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
-        }
-        else
-        {
-            App_Calculator_Value = 7;
-            if (App_Calculator_Display == "0")
-            {
-                App_Calculator_Display = App_Calculator_Value.ToString();
-                App_Calculator_FirstNumber = App_Calculator_Display;
-            }
-            else
-            {
-                App_Calculator_Display = App_Calculator_Display + App_Calculator_Value.ToString();
-                App_Calculator_FirstNumber = App_Calculator_Display;
-            }
-        }
-    }
-    private void Calc_Button_Six()
-    {
-        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
-        {
-            if (App_Calculator_SecondNumber == "0")
-            {
-                App_Calculator_SecondNumber = "";
-            }
-            App_Calculator_Value2 = 6;
-            App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
-            App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
-        }
-        else
-        {
-            App_Calculator_Value = 6;
-            if (App_Calculator_Display == "0")
-            {
-                App_Calculator_Display = App_Calculator_Value.ToString();
-                App_Calculator_FirstNumber = App_Calculator_Display;
-            }
-            else
-            {
-                App_Calculator_Display = App_Calculator_Display + App_Calculator_Value.ToString();
-                App_Calculator_FirstNumber = App_Calculator_Display;
-            }
-        }
-    }
-    private void Calc_Button_Five()
-    {
-        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
-        {
-            if (App_Calculator_SecondNumber == "0")
-            {
-                App_Calculator_SecondNumber = "";
-            }
-            App_Calculator_Value2 = 5;
-            App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
-            App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
-        }
-        else
-        {
-            App_Calculator_Value = 5;
-            if (App_Calculator_Display == "0")
-            {
-                App_Calculator_Display = App_Calculator_Value.ToString();
-                App_Calculator_FirstNumber = App_Calculator_Display;
-            }
-            else
-            {
-                App_Calculator_Display = App_Calculator_Display + App_Calculator_Value.ToString();
-                App_Calculator_FirstNumber = App_Calculator_Display;
-            }
-        }
-    }
-    private void Calc_Button_Four()
-    {
-        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
-        {
-            if (App_Calculator_SecondNumber == "0")
-            {
-                App_Calculator_SecondNumber = "";
-            }
-            App_Calculator_Value2 = 4;
-            App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
-            App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
-        }
-        else
-        {
-            App_Calculator_Value = 4;
-            if (App_Calculator_Display == "0")
-            {
-                App_Calculator_Display = App_Calculator_Value.ToString();
-                App_Calculator_FirstNumber = App_Calculator_Display;
-            }
-            else
-            {
-                App_Calculator_Display = App_Calculator_Display + App_Calculator_Value.ToString();
-                App_Calculator_FirstNumber = App_Calculator_Display;
-            }
-        }
-    }
-    private void Calc_Button_Three()
-    {
-        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
-        {
-            if (App_Calculator_SecondNumber == "0")
-            {
-                App_Calculator_SecondNumber = "";
-            }
-            App_Calculator_Value2 = 3;
-            App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
-            App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
-        }
-        else
-        {
-            App_Calculator_Value = 3;
-            if (App_Calculator_Display == "0")
-            {
-                App_Calculator_Display = App_Calculator_Value.ToString();
-                App_Calculator_FirstNumber = App_Calculator_Display;
-            }
-            else
-            {
-                App_Calculator_Display = App_Calculator_Display + App_Calculator_Value.ToString();
-                App_Calculator_FirstNumber = App_Calculator_Display;
-            }
-        }
-    }
-    private void Calc_Button_Two()
-    {
-        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
-        {
-            if (App_Calculator_SecondNumber == "0")
-            {
-                App_Calculator_SecondNumber = "";
-            }
-            App_Calculator_Value2 = 2;
-            App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
-            App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
-        }
-        else
-        {
-            App_Calculator_Value = 2;
-            if (App_Calculator_Display == "0")
-            {
-                App_Calculator_Display = App_Calculator_Value.ToString();
-                App_Calculator_FirstNumber = App_Calculator_Display;
-            }
-            else
-            {
-                App_Calculator_Display = App_Calculator_Display + App_Calculator_Value.ToString();
-                App_Calculator_FirstNumber = App_Calculator_Display;
-            }
-        }
-    }
-    private void Calc_Button_One()
-    {
-        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
-        {
-            if (App_Calculator_SecondNumber == "0")
-            {
-                App_Calculator_SecondNumber = "";
-            }
-            App_Calculator_Value2 = 1;
-            App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
-            App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
-        }
-        else
-        {
-            App_Calculator_Value = 1;
-            if (App_Calculator_Display == "0")
-            {
-                App_Calculator_Display = App_Calculator_Value.ToString();
-                App_Calculator_FirstNumber = App_Calculator_Display;
-            }
-            else
-            {
-                App_Calculator_Display = App_Calculator_Display + App_Calculator_Value.ToString();
-                App_Calculator_FirstNumber = App_Calculator_Display;
-            }
-        }
-    }
-    private void Calc_Button_Zero()
-    {
-        if (App_Calculator_Display.Contains('+') || App_Calculator_Display.Contains("- ") || App_Calculator_Display.Contains('*') || App_Calculator_Display.Contains('÷'))
-        {
-            if (App_Calculator_SecondNumber == "0")
-            {
-                App_Calculator_SecondNumber = "";
-            }
-            App_Calculator_Value2 = 0;
-            App_Calculator_Display = App_Calculator_Display + App_Calculator_Value2.ToString();
-            App_Calculator_SecondNumber = App_Calculator_SecondNumber + App_Calculator_Value2.ToString();
-        }
-        else
-        {
-            App_Calculator_Value = 0;
-            if (App_Calculator_Display == "0")
-            {
-                App_Calculator_Display = App_Calculator_Value.ToString();
-                App_Calculator_FirstNumber = App_Calculator_Display;
-            }
-            else
-            {
+                App_Calculator_Value = Double.Parse(buttonValue);
                 App_Calculator_Display = App_Calculator_Display + App_Calculator_Value.ToString();
                 App_Calculator_FirstNumber = App_Calculator_Display;
             }
@@ -892,28 +698,33 @@
     double quarters = 0;
     private string Cents { get; set; } = "";
     private string OutcomeStatement { get; set; } = "";
+    private string OutcomeStatementCents { get; set; } = "";
+    private string OutcomeStatementCoins { get; set; } = "";
     private void ConvertDollars()
     {
         Cents = String.Format("{0:0.00}", DollarAmount);
         Cents = Cents.Replace("0.0", "");
         Cents = Cents.Replace(".0", "");
         Cents = Cents.Replace(".", "");
-        OutcomeStatement = "You have " + Cents + " cents.";
+        OutcomeStatementCents = "You have " + Cents + " cents.";
 
-        //int total = Convert.ToInt32(DollarAmount);
-        //for (int q = 0; q <= total / 25; q++)
-        //{
-        //    int total_less_q = total - q * 25;
-        //    for (int d = 0; d <= total_less_q / 10; d++)
-        //    {
-        //        int total_less_q_d = total_less_q - d * 10;
-        //        for (int n = 0; n <= total_less_q_d / 5; n++)
-        //        {
-        //            int p = total_less_q_d - n * 5;
-        //            OutcomeStatement = "You have " + Cents + " cents. This is " + q + " Quarters, " + d + " Dimes, " + n + " Nickels, and " + p + "Pennies.";
-        //        }
-        //    }
-        //}
+
+
+        int total = Convert.ToInt32(DollarAmount);
+        for (int q = 0; q <= total / 25; q++)
+        {
+            int total_less_q = total - q * 25;
+            for (int d = 0; d <= total_less_q / 10; d++)
+            {
+                int total_less_q_d = total_less_q - d * 10;
+                for (int n = 0; n <= total_less_q_d / 5; n++)
+                {
+                    int p = total_less_q_d - n * 5;
+                    OutcomeStatementCoins = " This is " + q + " Quarters, " + d + " Dimes, " + n + " Nickels, and " + p + "Pennies.";
+                }
+            }
+        }
+        OutcomeStatement = OutcomeStatementCents + OutcomeStatementCoins;
 
     }
     //Stopwatch
@@ -959,6 +770,7 @@
     //Color Picker
     private bool App_ColorPicker = false;
     private bool isFirstColor = true;
+    public MudColor backcolor = "#2E333C";
     public MudColor firstColor = "#2275d2";
     public MudColor secondColor = "#ed930c";
     public MudColor _pickerColor = "#2275d2";
@@ -1013,7 +825,11 @@
             _pickerColor = secondColorConverted;
         }
     }
-    //Notes - WIP
+    private void SetBackgroundColor()
+    {
+        backcolor = _pickerColor;
+    }
+    //Notes
     private bool App_Notes = false;
     //Length Converter
     private bool App_LengthConverter = false;
@@ -1132,7 +948,123 @@
             App_LengthConverter_Value2 = App_LengthConverter_Value1;
         }
     }
-    
+    //Mass Converter
+    private bool App_MassConverter = false;
+    double App_MassConverter_Value1 = 0;
+    double App_MassConverter_Value2 = 0;
+    private string MassValue1 { get; set; } = "Pound";
+    private string MassValue2 { get; set; } = "Kilogram";
+    private void ConvertMass()
+    {
+        if (MassValue1 == "Pound" && MassValue2 == "Pound") {
+            App_MassConverter_Value2 = App_MassConverter_Value1;
+        }
+        if (MassValue1 == "Pound" && MassValue2 == "Ounce") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 * 16;
+        }
+        if (MassValue1 == "Pound" && MassValue2 == "Kilogram") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 / 2.205;
+        }
+        if (MassValue1 == "Pound" && MassValue2 == "Gram") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 * 453.6;
+        }
+        if (MassValue1 == "Pound" && MassValue2 == "US Ton") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 / 2000;
+        }
+        if (MassValue1 == "Pound" && MassValue2 == "Metric Ton") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 / 2205;
+        }
+        if (MassValue1 == "Ounce" && MassValue2 == "Pound") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 / 16;
+        }
+        if (MassValue1 == "Ounce" && MassValue2 == "Ounce") {
+            App_MassConverter_Value2 = App_MassConverter_Value1;
+        }
+        if (MassValue1 == "Ounce" && MassValue2 == "Kilogram") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 / 35.274;
+        }
+        if (MassValue1 == "Ounce" && MassValue2 == "Gram") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 * 28.35;
+        }
+        if (MassValue1 == "Ounce" && MassValue2 == "US Ton") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 / 32000;
+        }
+        if (MassValue1 == "Ounce" && MassValue2 == "Metric Ton") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 / 35270;
+        }
+        if (MassValue1 == "Kilogram" && MassValue2 == "Pound") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 * 2.205;
+        }
+        if (MassValue1 == "Kilogram" && MassValue2 == "Ounce") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 * 35.274;
+        }
+        if (MassValue1 == "Kilogram" && MassValue2 == "Kilogram") {
+            App_MassConverter_Value2 = App_MassConverter_Value1;
+        }
+        if (MassValue1 == "Kilogram" && MassValue2 == "Gram") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 * 1000;
+        }
+        if (MassValue1 == "Kilogram" && MassValue2 == "US Ton") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 / 907.2;
+        }
+        if (MassValue1 == "Kilogram" && MassValue2 == "Metric Ton") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 / 1000;
+        }
+        if (MassValue1 == "Gram" && MassValue2 == "Pound") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 / 453.6;
+        }
+        if (MassValue1 == "Gram" && MassValue2 == "Ounce") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 / 28.35;
+        }
+        if (MassValue1 == "Gram" && MassValue2 == "Kilogram") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 / 63360;
+        }
+        if (MassValue1 == "Gram" && MassValue2 == "Gram") {
+            App_MassConverter_Value2 = App_MassConverter_Value1;
+        }
+        if (MassValue1 == "Gram" && MassValue2 == "US Ton") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 / 907200;
+        }
+        if (MassValue1 == "Gram" && MassValue2 == "Metric Ton") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 / 0.000001;
+        }
+        if (MassValue1 == "US Ton" && MassValue2 == "Pound") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 * 2000;
+        }
+        if (MassValue1 == "US Ton" && MassValue2 == "Ounce") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 * 32000;
+        }
+        if (MassValue1 == "US Ton" && MassValue2 == "Kilogram") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 * 907.2;
+        }
+        if (MassValue1 == "US Ton" && MassValue2 == "Gram") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 * 907200;
+        }
+        if (MassValue1 == "US Ton" && MassValue2 == "US Ton") {
+            App_MassConverter_Value2 = App_MassConverter_Value1;
+        }
+        if (MassValue1 == "US Ton" && MassValue2 == "Metric Ton") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 / 1.102;
+        }
+        if (MassValue1 == "Metric Ton" && MassValue2 == "Pound") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 * 2205;
+        }
+        if (MassValue1 == "Metric Ton" && MassValue2 == "Ounce") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 * 35270;
+        }
+        if (MassValue1 == "Metric Ton" && MassValue2 == "Kilogram") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 * 1000;
+        }
+        if (MassValue1 == "Metric Ton" && MassValue2 == "Gram") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 * 0.000001;
+        }
+        if (MassValue1 == "Metric Ton" && MassValue2 == "US Ton") {
+            App_MassConverter_Value2 = App_MassConverter_Value1 * 1.102;
+        }
+        if (MassValue1 == "Metric Ton" && MassValue2 == "Metric Ton") {
+            App_MassConverter_Value2 = App_MassConverter_Value1;
+        }
+    }
     //Tab Controls
     private bool home = true;
     private bool Utilities = false;
@@ -1193,6 +1125,11 @@
         AllAppsFalse();
         App_LengthConverter = true;
     }
+    private void Tab_MassConverter()
+    {
+        AllAppsFalse();
+        App_MassConverter = true;
+    }
     private void AllTabsFalse() {
         home = false;
         Utilities = false;
@@ -1208,6 +1145,7 @@
         App_TemperatureConverter = false;
         App_DollarsCentsConverter = false;
         App_LengthConverter = false;
+        App_MassConverter = false;
     }
     private void App_SelectAll()
     {
@@ -1218,5 +1156,6 @@
         App_ColorPicker = true;
         App_Notes = true;
         App_LengthConverter = true;
+        App_MassConverter = true;
     }
 }

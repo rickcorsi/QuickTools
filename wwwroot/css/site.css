@@ -3,11 +3,15 @@
     justify-content: center;
     background-color: #2E333C;
 }
-
+.backScreen {
+    width: 100%;
+    height: 100%;
+    background-color: #2E333C;
+}
 .MudAppBar {
     background-color: #111A28;
     color: #111A28;
-    height: 50px;
+    height: 35px;
 }
 .MudButton {
     height: 25px;
@@ -32,34 +36,40 @@
     color: white;
 }
 .MainDiv {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -590px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     background-color: rgba(100,100,100,0.0);
-    margin: 5%;
-    margin: 100px;
     width: 1200px;
     min-width: 1200px;
     max-width: 1200px;
     min-height: 500px;
 }
 .MultipleWidgetsDiv {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -520px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: start;
     background-color: rgba(100,100,100,0.0);
-    margin: 5%;
-    margin: 100px;
-    margin-left: 270px;
     width: 1600px;
     min-width: 1200px;
     max-width: 1200px;
     min-height: 500px;
 }
 .MudPaperSmallWidget {
-    background-color: #04BFFD;
+    border-radius: 7px;
+    background-color: white;
     width: 400px;
     height: 400px;
     margin: 2%;
@@ -67,7 +77,8 @@
     min-height: 400px;
 }
 .MudPaperMediumWidget {
-    background-color: #04BFFD;
+    border-radius: 7px;
+    background-color: white;
     width: 550px;
     height: 400px;
     margin: 2%;
@@ -75,7 +86,8 @@
     min-height: 400px;
 }
 .MudPaperLargeWidget {
-    background-color: #04BFFD;
+    border-radius: 7px;
+    background-color: white;
     width: 1000px;
     height: 600px;
     margin: 2%;
@@ -86,11 +98,22 @@
     max-width: 80px;
     max-height: 320px;
     margin: 2%;
-    border-radius: 3px;
 }
 .colorPreview {
     min-width: 125px;
     min-height: 35px;
     border-radius: 7px;
     margin: 2%;
+}
+#drag-1, #drag-2 {
+    width: 25%;
+    min-height: 6.5em;
+    margin: 1rem 0 0 1rem;
+    background-color: #29e;
+    color: white;
+    border-radius: 0.75em;
+    padding: 4%;
+    touch-action: none;
+    user-select: none;
+    transform: translate(0px, 0px);
 }
