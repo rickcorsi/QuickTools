@@ -11,63 +11,67 @@
 
 <style>
     :root {
-        --mud-palette-primary: #111A28;
+        --mud-palette-primary: @accentcolor;
+        --mud-palette-tertiary: @textColor;
         background-color: @backcolor;
     }
 </style>
 <PageTitle>Index</PageTitle>
 <div>
-    <MudAppBar Color="MudBlazor.Color.Primary" Class="MudAppBar">
+    <MudAppBar Color="MudBlazor.Color.Primary" Elevation="1" Class="MudAppBar">
         <MudButton OnClick="tab1" Class="MudButton">
-            <MudText Style="font-size: 18px;" Class="Text">Home</MudText>
-        </MudButton>
+            <MudText Style="font-size: 18px;" Class="Text" Color="MudBlazor.Color.Tertiary">Home</MudText>
+        </MudButton> |
         <MudButton OnClick="tab2" Class="MudButton">
-            <MudText Style="font-size: 18px;" Class="Text">Utilities</MudText>
-        </MudButton>
+            <MudText Style="font-size: 18px;" Class="Text" Color="MudBlazor.Color.Tertiary">Utilities</MudText>
+        </MudButton> |
         <MudButton OnClick="tab3" Class="MudButton">
-            <MudText Style="font-size: 18px;" Class="Text">Converters</MudText>
-        </MudButton>        
+            <MudText Style="font-size: 18px;" Class="Text" Color="MudBlazor.Color.Tertiary">Converters</MudText>
+        </MudButton>       
     </MudAppBar>
     @if (home == true)
     {
-        <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 32px;" Class="MudAppBar"><MudButton Style="font-size: 16px;" OnClick="OpenDialog" Class="" ><MudText Style="" Class="Text">Select Widgets</MudText></MudButton></MudAppBar>
+        <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 35px;" Elevation="0" Class="MudAppBar"><MudButton Style="font-size: 16px;" OnClick="OpenDialog" Class="" ><MudText Style="" Class="Text" Color="MudBlazor.Color.Tertiary">Select Widgets</MudText></MudButton></MudAppBar>
     }
     @if (Utilities == true)
     {
-        <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 32px;" Class="MudAppBar">
+        <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 35px;" Elevation="0" Class="MudAppBar">
             <MudButton OnClick="Tab_Calculator" Class="MudButton">
-                <MudText Style="font-size: 16px;" Class="Text">Calculator</MudText>
-            </MudButton>       
+                <MudText Style="font-size: 16px;" Class="Text" Color="MudBlazor.Color.Tertiary">Calculator</MudText>
+            </MudButton> |      
             <MudButton OnClick="Tab_Stopwatch" Class="MudButton">
-                <MudText Style="font-size: 16px;" Class="Text">Stopwatch</MudText>
-            </MudButton>    
+                <MudText Style="font-size: 16px;" Class="Text" Color="MudBlazor.Color.Tertiary">Stopwatch</MudText>
+            </MudButton> |  
+            <MudButton OnClick="Tab_Timer" Class="MudButton">
+                <MudText Style="font-size: 16px;" Class="Text" Color="MudBlazor.Color.Tertiary">Timer</MudText>
+            </MudButton> |
             <MudButton OnClick="Tab_ColorPicker" Class="MudButton">
-                <MudText Style="font-size: 16px;" Class="Text">Color Picker</MudText>
-            </MudButton>  
+                <MudText Style="font-size: 16px;" Class="Text" Color="MudBlazor.Color.Tertiary">Color Picker</MudText>
+            </MudButton> |
             <MudButton OnClick="Tab_Notes" Class="MudButton">
-                <MudText Style="font-size: 16px;" Class="Text">Notes</MudText>
+                <MudText Style="font-size: 16px;" Class="Text" Color="MudBlazor.Color.Tertiary">Notes</MudText>
             </MudButton>  
         </MudAppBar>
     }
     @if (Converters == true)
     {
-        <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 32px;" Class="MudAppBar">
+        <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 35px;" Elevation="0" Class="MudAppBar">
             <MudButton OnClick="Tab_TemperatureConverter" Class="MudButton">
-                <MudText Style="font-size: 16px;" Class="Text">Temperature Converter</MudText>
-            </MudButton>
+                <MudText Style="font-size: 16px;" Class="Text" Color="MudBlazor.Color.Tertiary">Temperature Converter</MudText>
+            </MudButton> |
             <MudButton OnClick="Tab_DollarsCentsConverter" Class="MudButton">
-                <MudText Style="font-size: 16px;" Class="Text">Dollars to Cents Converter</MudText>
-            </MudButton>  
+                <MudText Style="font-size: 16px;" Class="Text" Color="MudBlazor.Color.Tertiary">Dollars to Cents Converter</MudText>
+            </MudButton> |
             <MudButton OnClick="Tab_LengthConverter" Class="MudButton">
-                <MudText Style="font-size: 16px;" Class="Text">Length Converter</MudText>
-            </MudButton>  
+                <MudText Style="font-size: 16px;" Class="Text" Color="MudBlazor.Color.Tertiary">Length Converter</MudText>
+            </MudButton> |
             <MudButton OnClick="Tab_MassConverter" Class="MudButton">
-                <MudText Style="font-size: 16px;" Class="Text">Mass Converter</MudText>
+                <MudText Style="font-size: 16px;" Class="Text" Color="MudBlazor.Color.Tertiary">Mass Converter</MudText>
             </MudButton>  
         </MudAppBar>
     }
 </div>
-<div class="backScreen" style="background-color: @backcolor">
+<div class="backScreen" style="background-color: @accentcolor">
     @if (home == true) {
     }
     <div class="@className">
@@ -76,7 +80,7 @@
             @if (App_MassConverter == true)
             {
                 ReOrderWidgets();
-                <div class="MudPaperMediumWidget" style="order: @widgetOrder[7]">
+                <div class="MudPaperMediumWidget" style="order: @widgetOrder[8]">
                     <div style="display: flex;">
                     <MudText Style="margin: 5%;">Mass Converter</MudText>
                     @if (home == true) {
@@ -114,7 +118,7 @@
             @if (App_LengthConverter == true)
             {
                 ReOrderWidgets();
-                <div class="MudPaperMediumWidget" style="order: @widgetOrder[6]">
+                <div class="MudPaperMediumWidget" style="order: @widgetOrder[7]">
                     <div style="display: flex;">
                     <MudText Style="margin: 5%;">Length Converter</MudText>
                     @if (home == true) {
@@ -152,7 +156,7 @@
             @if (App_DollarsCentsConverter == true)
             {
                 ReOrderWidgets();
-                <div class="MudPaperSmallWidget" style="order: @widgetOrder[5]">
+                <div class="MudPaperSmallWidget" style="order: @widgetOrder[6]">
                     <div style="display: flex;">
                     <MudText Style="margin: 5%;">Dollars to Cents Converter</MudText>
                     @if (home == true) {
@@ -169,7 +173,7 @@
             @if (App_TemperatureConverter == true)
             {
                 ReOrderWidgets();
-                <div class="MudPaperMediumWidget" style="order: @widgetOrder[4]">
+                <div class="MudPaperMediumWidget" style="order: @widgetOrder[5]">
                     <div style="display: flex;">
                     <MudText Style="margin: 5%;">Temperature Converter</MudText>
                     @if (home == true) {
@@ -204,7 +208,7 @@
             @if (App_Notes == true)
             {
                 ReOrderWidgets();
-                <div class="MudPaperSmallWidget" style="order: @widgetOrder[3]">
+                <div class="MudPaperSmallWidget" style="order: @widgetOrder[4]">
                     <div style="display: flex;">
                         <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Notes</MudText>
                         @if (home == true)
@@ -217,6 +221,36 @@
                 </div> 
                 </div>
             }
+            @if (App_Timer == true)
+            {
+                ReOrderWidgets();
+                <div class="MudPaperSmallWidget" style="order: @widgetOrder[3]">
+                    <div style="display: flex;">
+                    <MudText Style="margin: 5%;">Timer</MudText>
+                    @if (home == true) {
+                    <MudIconButton OnClick='() => App_Timer = false' Style="margin-left: 276px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                    }    
+                    </div> 
+                    <div style="display: flex; justify-content: center;">
+                        <MudText Style="font-size: 36px;">@displaytimer_Timer</MudText>
+                    </div>
+                    <div style="display: flex; justify-content: center;">
+                        <MudButton Style="margin: 5%;" Disabled="@isTiming_Timer" OnClick="TimerTiming">Start</MudButton>
+                        <MudButton Style="margin: 5%;" Disabled="@isPaused_Timer" OnClick="TimerPause">Pause</MudButton>
+                        <MudButton Style="margin: 5%;" Disabled="@isReset_Timer" OnClick="TimerReset">Reset</MudButton>
+                    </div>
+                    <div style="display: flex; justify-content: center; margin: 20px;">
+                        <MudNumericField Class="timerField" Style="margin: 10px;" @bind-Value="Hours" Label="Hours" Variant="Variant.Outlined" Min="0" Max="12"/>
+                        <MudNumericField Class="timerField" Style="margin: 10px;" @bind-Value="Minutes" Label="Minutes" Variant="Variant.Outlined" Min="0" Max="60"/>
+                        <MudNumericField Class="timerField" Style="margin: 10px;" @bind-Value="Seconds" Label="Seconds" Variant="Variant.Outlined" Min="0" Max="60"/>
+                    </div>
+                    <div>
+                    <MudToggleIconButton Style="margin-left: 15px; margin-top: 17px;" @bind-Toggled="@SoundOn"
+                     Icon="@Icons.Filled.VolumeOff" Title="Off"
+                     ToggledIcon="@Icons.Filled.VolumeUp" ToggledTitle="On"/>
+                    </div>
+                </div>
+            }   
             @if (App_Stopwatch == true)
             {
                 ReOrderWidgets();
@@ -274,7 +308,8 @@
                         </MudListItem>
                         <MudTextField @bind-Value="secondColorConverted" Style="margin-right: 4%;" Adornment="Adornment.End" AdornmentIcon="@Icons.Outlined.ChangeCircle" OnAdornmentClick="HEXColorEntered" ReadOnly="false" Variant="Variant.Outlined"/>
                     </MudList>
-                    <MudButton OnClick="SetBackgroundColor" Style="margin-top: 13px;">Set Background</MudButton>
+                    <MudButton OnClick="SetBackgroundColor" Style="margin-top: 3px;">Set Background</MudButton>
+                    <MudButton OnClick="SetAccentColor" Style="margin-top: 3px;">Set Accent</MudButton>
                     </div>
                     </div>
                 </div>
@@ -325,7 +360,6 @@
                     <MudText Class="Text" >buttonValue: @buttonValue</MudText>*@
                 </div>
             }
-
     }
     </div>    
     @if (Advanced == true)
@@ -339,7 +373,9 @@
         <MudText Class="Text" >widgetOrder[4]: @widgetOrder[4]</MudText>
         <MudText Class="Text" >widgetOrder[5]: @widgetOrder[5]</MudText>
         <MudText Class="Text" >widgetOrder[6]: @widgetOrder[6]</MudText>
-        <MudText Class="Text" >widgetOrder[7]: @widgetOrder[7]</MudText>*@
+        <MudText Class="Text" >widgetOrder[7]: @widgetOrder[7]</MudText>
+        <MudText Class="Text" >widgetOrder[8]: @widgetOrder[8]</MudText>
+        *@
     </div>
 </div>
 <MudDialog @bind-IsVisible="visible" Options="dialogOptions">
@@ -351,6 +387,7 @@
         <MudCheckBox @bind-Checked="@App_Calculator" Label="Calculator"></MudCheckBox>
         <MudCheckBox @bind-Checked="@App_ColorPicker" Label="Color Picker"></MudCheckBox>
         <MudCheckBox @bind-Checked="@App_Stopwatch" Label="Stopwatch"></MudCheckBox>
+        <MudCheckBox @bind-Checked="@App_Timer" Label="Timer"></MudCheckBox>
         <MudCheckBox @bind-Checked="@App_Notes" Label="Notes"></MudCheckBox>
         <MudText>Converters</MudText>
         <MudCheckBox @bind-Checked="@App_TemperatureConverter" Label="Temperature Converter"></MudCheckBox>
@@ -359,7 +396,7 @@
         <MudCheckBox @bind-Checked="@App_MassConverter" Label="Mass Converter"></MudCheckBox>
     </DialogContent>
     <DialogActions>
-        @if (App_Calculator == true && App_TemperatureConverter == true && App_ColorPicker == true && App_Stopwatch == true && App_DollarsCentsConverter == true && App_Notes == true && App_LengthConverter == true  && App_MassConverter == true)
+        @if (App_Calculator == true && App_TemperatureConverter == true && App_ColorPicker == true && App_Stopwatch == true &&  App_Timer == true && App_DollarsCentsConverter == true && App_Notes == true && App_LengthConverter == true && App_MassConverter == true)
         {
         <MudButton Variant="Variant.Filled" OnClick="AllAppsFalse" Style="width:140px;">Deselect All</MudButton>
         }
@@ -369,13 +406,21 @@
         <MudButton Variant="Variant.Filled" OnClick="Submit" Class="px-10">Close</MudButton>
     </DialogActions>
 </MudDialog>
+<MudMessageBox @ref="timerNotificationMSG" YesText="Ok">
+    <MessageContent>
+        <MudText Style="font-family:'Ubuntu', sans-serif; font-weight: bold; font-size: 20px;"> Timer Finished </MudText>
+        @if (SoundOn) //Is sound if not off, play timer sound
+        {
+        <audio autoplay><source src="/Audio/TimerSound.mp3" /></audio>
+        }
+    </MessageContent>
+</MudMessageBox>
 @code {
     private bool visible;
     private int rating;
     private void OpenDialog() => visible = true;
     void Submit() => visible = false;
     private DialogOptions dialogOptions = new() { FullWidth = true };
-
     string className = "MultipleWidgetsDiv";
 
     //Apps
@@ -743,7 +788,6 @@
             }
         }
         OutcomeStatement = OutcomeStatementCents + OutcomeStatementCoins;
-
     }
     //Stopwatch
     private bool App_Stopwatch = false;
@@ -787,7 +831,9 @@
     //Color Picker
     private bool App_ColorPicker = false;
     private bool isFirstColor = true;
+    public MudColor textColor = "#ffffff";
     public MudColor backcolor = "#2E333C";
+    public MudColor accentcolor = "#111A28";
     public MudColor firstColor = "#2275d2";
     public MudColor secondColor = "#ed930c";
     public MudColor _pickerColor = "#2275d2";
@@ -845,6 +891,16 @@
     private void SetBackgroundColor()
     {
         backcolor = _pickerColor;
+    }
+    private void SetAccentColor()
+    {
+        accentcolor = _pickerColor;
+        if (accentcolor.L > .5){
+            textColor = "000000";
+        }
+        if (accentcolor.L < .5){
+            textColor = "ffffff";
+        }
     }
     //Notes
     private bool App_Notes = false;
@@ -1082,8 +1138,78 @@
             App_MassConverter_Value2 = App_MassConverter_Value1;
         }
     }
+    //Timer
+    private bool App_Timer = false;
+    private bool isTiming_Timer = false;
+    private bool isReset_Timer = true;
+    private bool isPaused_Timer = true;
+    private bool isTimer_Done = false;
+    private bool _pause = false;
+    private bool SoundOn = false;
+    string displaytimer_Timer = "00:00:00";
+    TimeSpan TimeFromZero_Timer;
+    private int Seconds { get; set; }
+    private int Minutes { get; set; }
+    private int Hours { get; set; }
+    async Task TimerTiming() { 
+        isTimer_Done = false; //Set timer to not be done
+        isTiming_Timer = true;
+        isPaused_Timer = false;
+        isReset_Timer = false;
+        if(!_pause) TimeFromZero_Timer = new TimeSpan(Hours, Minutes, Seconds+1); //if not paused create new timer
+        else //resume timer where it left off
+        {
+            _pause = false;
+            TimeFromZero_Timer = TimeFromZero_Timer.Duration(); //create new timer with previous timer's duration b/c timespan has no resume functionality
+        }
+        while (TimeFromZero_Timer > new TimeSpan()) //progress timer until 0
+        {
+            if (!_pause) //if not paused progress timer
+            {
+                await Task.Delay(1000);
+                TimeFromZero_Timer = TimeFromZero_Timer.Subtract(new TimeSpan(0,0,1)); //Remove one second while timing is running
+                displaytimer_Timer = TimeFromZero_Timer.ToString();
+                StateHasChanged();
+            }
+            else{ //stop timing when paused
+                break;
+            }
+        }
+        isTiming_Timer = false;
+        if (displaytimer_Timer == "00:00:00")
+        {
+            TimerReset();
+            timerNotification();
+        }
+        StateHasChanged();
+    }
+    void TimerReset()
+    {
+        displaytimer_Timer = "00:00:00";
+        Seconds = 0;
+        Minutes = 0;
+        Hours = 0;
+        _pause = false;
+        isTiming_Timer = false;
+        isPaused_Timer = true;
+        isReset_Timer = true;
+        TimeFromZero_Timer = (new TimeSpan(Hours,Minutes,Seconds));
+        TimeFromZero_Timer = TimeFromZero_Timer.Add(new TimeSpan(0,0,1));
+    }
+    void TimerPause()
+    {
+        TimeFromZero_Timer = TimeFromZero_Timer.Add(new TimeSpan(0,0,1));
+        _pause = true;
+        isTiming_Timer = false;
+        isPaused_Timer = true;
+    }
+    MudMessageBox timerNotificationMSG { get; set; } //Call timer notification
+    private async void timerNotification()
+    {
+        bool? result = await timerNotificationMSG.Show();
+    }
     //Widget Ordering
-    int[] widgetOrder = {0, 0, 0, 0, 0, 0, 0, 0};
+    int[] widgetOrder = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     private void ReOrderWidgets()
     {
         if (App_Calculator == true)
@@ -1113,50 +1239,59 @@
             increaseAllWidgetOrder();
             widgetOrder[2] = 0;
         }
-        if (App_Notes == true)
+        if (App_Timer == true)
         {
             widgetOrder[3] = widgetOrder[3] - 1;
         }
-        if (App_Notes == false)
+        if (App_Timer == false)
         {
             increaseAllWidgetOrder();
             widgetOrder[3] = 0;
         }
-        if (App_TemperatureConverter == true)
+        if (App_Notes == true)
         {
             widgetOrder[4] = widgetOrder[4] - 1;
         }
-        if (App_TemperatureConverter == false)
+        if (App_Notes == false)
         {
             increaseAllWidgetOrder();
             widgetOrder[4] = 0;
         }
-        if (App_DollarsCentsConverter == true)
+        if (App_TemperatureConverter == true)
         {
             widgetOrder[5] = widgetOrder[5] - 1;
         }
-        if (App_DollarsCentsConverter == false)
+        if (App_TemperatureConverter == false)
         {
             increaseAllWidgetOrder();
             widgetOrder[5] = 0;
         }
-        if (App_LengthConverter == true)
+        if (App_DollarsCentsConverter == true)
         {
             widgetOrder[6] = widgetOrder[6] - 1;
         }
-        if (App_LengthConverter == false)
+        if (App_DollarsCentsConverter == false)
         {
             increaseAllWidgetOrder();
             widgetOrder[6] = 0;
         }
-        if (App_MassConverter == true)
+        if (App_LengthConverter == true)
         {
             widgetOrder[7] = widgetOrder[7] - 1;
+        }
+        if (App_LengthConverter == false)
+        {
+            increaseAllWidgetOrder();
+            widgetOrder[7] = 0;
+        }
+        if (App_MassConverter == true)
+        {
+            widgetOrder[8] = widgetOrder[8] - 1;
         }
         if (App_MassConverter == false)
         {
             increaseAllWidgetOrder();
-            widgetOrder[7] = 0;
+            widgetOrder[8] = 0;
         }
     }
     private void increaseAllWidgetOrder()
@@ -1169,6 +1304,7 @@
         widgetOrder[5] = widgetOrder[5] - 1;
         widgetOrder[6] = widgetOrder[6] - 1;
         widgetOrder[7] = widgetOrder[7] - 1;
+        widgetOrder[8] = widgetOrder[8] - 1;
     }
     //Tab Controls
     private bool home = true;
@@ -1215,6 +1351,10 @@
         AllAppsFalse();
         App_Stopwatch = true;    
     }
+    private void Tab_Timer() {
+        AllAppsFalse();
+        App_Timer = true;    
+    }
     private void Tab_ColorPicker()
     {
         AllAppsFalse();
@@ -1251,13 +1391,27 @@
         App_DollarsCentsConverter = false;
         App_LengthConverter = false;
         App_MassConverter = false;
+        App_Timer = false;
     }
     private void App_SelectAll()
     {
+        if (App_Calculator == false && App_TemperatureConverter == false && App_ColorPicker == false && App_Stopwatch == false &&  App_Timer == false && App_DollarsCentsConverter == false && App_Notes == false && App_LengthConverter == false && App_MassConverter == false)
+        {
+            widgetOrder[0] = 1;
+            widgetOrder[1] = 2;
+            widgetOrder[2] = 3;
+            widgetOrder[3] = 4;
+            widgetOrder[4] = 5;
+            widgetOrder[5] = 6;
+            widgetOrder[6] = 7;
+            widgetOrder[7] = 8;
+            widgetOrder[8] = 9;
+        }
         App_Calculator = true;
         App_TemperatureConverter = true;
         App_DollarsCentsConverter = true;
         App_Stopwatch = true;
+        App_Timer = true;
         App_ColorPicker = true;
         App_Notes = true;
         App_LengthConverter = true;
