@@ -81,12 +81,18 @@
             {
                 ReOrderWidgets();
                 <div class="MudPaperMediumWidget" style="order: @widgetOrder[8]">
+                    <div style="display: flex; justify-content: space-between;">
+                        <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Mass Converter</MudText>
+                        @if (home == true)
+                        {
+                            <div style="margin: 1%;">
+                            <MudIconButton OnClick='() => MoveUp("8")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
+                            <MudIconButton OnClick='() => MoveDown("8")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
+                            <MudIconButton OnClick='() => App_MassConverter = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            </div>
+                        }    
+                    </div>
                     <div style="display: flex;">
-                    <MudText Style="margin: 5%;">Mass Converter</MudText>
-                    @if (home == true) {
-                    <MudIconButton OnClick='() => App_MassConverter = false' Style="margin-left: 340px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                    }    
-                    </div>                    <div style="display: flex;">
                         <div style="margin-left: 5%;">
                             <MudTextField @bind-Value="App_MassConverter_Value1" ReadOnly="false" Variant="Variant.Outlined" Style="" ></MudTextField>
                             <MudSelect @bind-Value="MassValue1" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
@@ -119,12 +125,18 @@
             {
                 ReOrderWidgets();
                 <div class="MudPaperMediumWidget" style="order: @widgetOrder[7]">
+                    <div style="display: flex; justify-content: space-between;">
+                        <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Length Converter</MudText>
+                        @if (home == true)
+                        {
+                            <div style="margin: 1%;">
+                            <MudIconButton OnClick='() => MoveUp("7")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
+                            <MudIconButton OOnClick='() => MoveDown("7")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
+                            <MudIconButton OnClick='() => App_LengthConverter = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            </div>
+                        }    
+                    </div>             
                     <div style="display: flex;">
-                    <MudText Style="margin: 5%;">Length Converter</MudText>
-                    @if (home == true) {
-                    <MudIconButton OnClick='() => App_LengthConverter = false' Style="margin-left: 330px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                    }    
-                    </div>                    <div style="display: flex;">
                         <div style="margin-left: 5%;">
                             <MudTextField @bind-Value="App_LengthConverter_Value1" ReadOnly="false" Variant="Variant.Outlined" Style="" ></MudTextField>
                             <MudSelect @bind-Value="LengthValue1" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
@@ -157,12 +169,17 @@
             {
                 ReOrderWidgets();
                 <div class="MudPaperSmallWidget" style="order: @widgetOrder[6]">
-                    <div style="display: flex;">
-                    <MudText Style="margin: 5%;">Dollars to Cents Converter</MudText>
-                    @if (home == true) {
-                    <MudIconButton OnClick='() => App_DollarsCentsConverter = false' Style="margin-left: 132px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                    }    
-                    </div> 
+                    <div style="display: flex; justify-content: space-between;">
+                        <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Dollars to Cents Converter</MudText>
+                        @if (home == true)
+                        {
+                            <div style="margin: 1%;">
+                            <MudIconButton OnClick='() => MoveUp("6")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
+                            <MudIconButton OnClick='() => MoveDown("6")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
+                            <MudIconButton OnClick='() => App_DollarsCentsConverter = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            </div>
+                        }    
+                    </div>
                     <div style="justify-content: center; padding: 10%;">
                         <MudTextField @bind-Value="DollarAmount" Label="Enter $ Amount" Variant="Variant.Outlined"/>
                         <MudButton Style="margin: 5%;" OnClick="ConvertDollars">Convert</MudButton>
@@ -174,12 +191,18 @@
             {
                 ReOrderWidgets();
                 <div class="MudPaperMediumWidget" style="order: @widgetOrder[5]">
+                    <div style="display: flex; justify-content: space-between;">
+                        <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Temperature Converter</MudText>
+                        @if (home == true)
+                        {
+                            <div style="margin: 1%;">
+                            <MudIconButton OnClick='() => MoveUp("5")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
+                            <MudIconButton OnClick='() => MoveDown("5")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
+                            <MudIconButton OnClick='() => App_TemperatureConverter = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            </div>
+                        }    
+                    </div>                  
                     <div style="display: flex;">
-                    <MudText Style="margin: 5%;">Temperature Converter</MudText>
-                    @if (home == true) {
-                    <MudIconButton OnClick='() => App_TemperatureConverter = false' Style="margin-left: 288px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                    }    
-                    </div>                    <div style="display: flex;">
                         <div style="margin-left: 5%;">
                             <MudTextField @bind-Value="App_TemperatureConverter_Value1" ReadOnly="false" Variant="Variant.Outlined" Style="" ></MudTextField>
                             <MudSelect @bind-Value="TempValue1" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
@@ -209,13 +232,17 @@
             {
                 ReOrderWidgets();
                 <div class="MudPaperSmallWidget" style="order: @widgetOrder[4]">
-                    <div style="display: flex;">
+                    <div style="display: flex; justify-content: space-between;">
                         <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Notes</MudText>
                         @if (home == true)
                         {
-                            <MudIconButton OnClick='() => App_Notes = false' Style="margin-left: 275px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            <div style="margin: 1%;">
+                            <MudIconButton OnClick='() => MoveUp("4")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
+                            <MudIconButton OnClick='() => MoveDown("4")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
+                            <MudIconButton OnClick='() => App_Notes = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            </div>
                         }    
-                </div>
+                    </div>
                 <div style="justify-content: start;">
                     <MudTextField Style="margin: 4%;" Label="" DisableUnderLine="false" T="string" Lines="16" />
                 </div> 
@@ -225,12 +252,17 @@
             {
                 ReOrderWidgets();
                 <div class="MudPaperSmallWidget" style="order: @widgetOrder[3]">
-                    <div style="display: flex;">
-                    <MudText Style="margin: 5%;">Timer</MudText>
-                    @if (home == true) {
-                    <MudIconButton OnClick='() => App_Timer = false' Style="margin-left: 276px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                    }    
-                    </div> 
+                    <div style="display: flex; justify-content: space-between;">
+                        <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Timer</MudText>
+                        @if (home == true)
+                        {
+                            <div style="margin: 1%;">
+                            <MudIconButton OnClick='() => MoveUp("3")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
+                            <MudIconButton OnClick='() => MoveDown("3")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
+                            <MudIconButton OnClick='() => App_Timer = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            </div>
+                        }    
+                    </div>
                     <div style="display: flex; justify-content: center;">
                         <MudText Style="font-size: 36px;">@displaytimer_Timer</MudText>
                     </div>
@@ -255,11 +287,16 @@
             {
                 ReOrderWidgets();
                 <div class="MudPaperSmallWidget" style="order: @widgetOrder[2]">
-                    <div style="display: flex;">
-                    <MudText Style="margin: 5%;">Stopwatch</MudText>
-                    @if (home == true) {
-                    <MudIconButton OnClick='() => App_Stopwatch = false' Style="margin-left: 241px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                    }    
+                    <div style="display: flex; justify-content: space-between;">
+                        <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Stopwatch</MudText>
+                        @if (home == true)
+                        {
+                            <div style="margin: 1%;">
+                            <MudIconButton OnClick='() => MoveUp("2")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
+                            <MudIconButton OnClick='() => MoveDown("2")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
+                            <MudIconButton OnClick='() => App_Stopwatch = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            </div>
+                        }    
                     </div> 
                     <div style="display: flex; justify-content: center;">
                         <MudText Style="font-size: 36px;">@displaytimer</MudText>
@@ -289,12 +326,17 @@
             {
                 ReOrderWidgets();
                 <div class="MudPaperMediumWidget" style="order: @widgetOrder[1]">
-                    <div style="display: flex;">
-                    <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Color Picker</MudText>
-                    @if (home == true) {
-                    <MudIconButton OnClick='() => App_ColorPicker = false' Style="margin-left: 365px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                    }    
-                    </div>   
+                    <div style="display: flex; justify-content: space-between;">
+                        <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Color Picker</MudText>
+                        @if (home == true)
+                        {
+                            <div style="margin: 1%;">
+                            <MudIconButton OnClick='() => MoveUp("1")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
+                            <MudIconButton OnClick='() => MoveDown("1")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
+                            <MudIconButton OnClick='() => App_ColorPicker = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            </div>
+                        }    
+                    </div> 
                     <div style="display: flex; justify-content: center;">
                     <MudColorPicker Value="_pickerColor" ValueChanged="UpdateSelectedColor" Class="ColorPicker" DisableToolbar="true" DisableAlpha="true" DisableColorField="false" DisablePreview="true" DisableSliders="false" DisableInputs="true" DisableModeSwitch="false" ColorPickerMode="ColorPickerMode.RGB" PickerVariant="PickerVariant.Static" />
                     <div>
@@ -318,12 +360,17 @@
             {
                 ReOrderWidgets();
                 <div class="MudPaperSmallWidget" style="order: @widgetOrder[0]">
-                    <div style="display: flex;">
-                    <MudText Style="margin: 5%;">Calculator</MudText>
-                    @if (home == true) {
-                    <MudIconButton OnClick='() => App_Calculator = false' Style="margin-left: 245px; width: 40px; height: 40px;" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                    }    
-                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Calculator</MudText>
+                        @if (home == true)
+                        {
+                            <div style="margin: 1%;">
+                            <MudIconButton OnClick='() => MoveUp("0")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
+                            <MudIconButton OnClick='() => MoveDown("0")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
+                            <MudIconButton OnClick='() => App_Calculator = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            </div>
+                        }    
+                    </div> 
                     <div style="display: flex;">
                     <MudTextField @bind-Value="App_Calculator_Display" ReadOnly="true" Variant="Variant.Outlined" Style="margin-left: 2%; margin-right: 2%; margin-bottom: 3%;" ></MudTextField>
                     </div>
@@ -365,17 +412,16 @@
     @if (Advanced == true)
     {
     }
-    <div style="margin: 150px;">
-@*      <MudText Class="Text" >widgetOrder[0]: @widgetOrder[0]</MudText>
-        <MudText Class="Text" >widgetOrder[1]: @widgetOrder[1]</MudText>
-        <MudText Class="Text" >widgetOrder[2]: @widgetOrder[2]</MudText>
-        <MudText Class="Text" >widgetOrder[3]: @widgetOrder[3]</MudText>
-        <MudText Class="Text" >widgetOrder[4]: @widgetOrder[4]</MudText>
-        <MudText Class="Text" >widgetOrder[5]: @widgetOrder[5]</MudText>
-        <MudText Class="Text" >widgetOrder[6]: @widgetOrder[6]</MudText>
-        <MudText Class="Text" >widgetOrder[7]: @widgetOrder[7]</MudText>
-        <MudText Class="Text" >widgetOrder[8]: @widgetOrder[8]</MudText>
-        *@
+    <div style="margin-top: 800px;">
+        <MudText Class="Text" >App_Calculator[0]: @widgetOrder[0]</MudText>
+        <MudText Class="Text" >App_ColorPicker[1]: @widgetOrder[1]</MudText>
+        <MudText Class="Text" >App_Stopwatch[2]: @widgetOrder[2]</MudText>
+        <MudText Class="Text" >App_Timer[3]: @widgetOrder[3]</MudText>
+        <MudText Class="Text" >App_Notes[4]: @widgetOrder[4]</MudText>
+        <MudText Class="Text" >App_Temp[5]: @widgetOrder[5]</MudText>
+        <MudText Class="Text" >App_Dollars[6]: @widgetOrder[6]</MudText>
+        <MudText Class="Text" >App_Length[7]: @widgetOrder[7]</MudText>
+        <MudText Class="Text" >App_Mass[8]: @widgetOrder[8]</MudText>
     </div>
 </div>
 <MudDialog @bind-IsVisible="visible" Options="dialogOptions">
@@ -755,6 +801,7 @@
             App_TemperatureConverter_Value2 = App_TemperatureConverter_Value1;
         }
     }
+
     //Dollars to Cents Converter
     private bool App_DollarsCentsConverter = false;
     double DollarAmount = 0;
@@ -832,7 +879,7 @@
     private bool App_ColorPicker = false;
     private bool isFirstColor = true;
     public MudColor textColor = "#ffffff";
-    public MudColor backcolor = "#2E333C";
+    public MudColor backcolor = "#bdcad8";
     public MudColor accentcolor = "#111A28";
     public MudColor firstColor = "#2275d2";
     public MudColor secondColor = "#ed930c";
@@ -1210,6 +1257,7 @@
     }
     //Widget Ordering
     int[] widgetOrder = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+    int tempOrder = 0;
     private void ReOrderWidgets()
     {
         if (App_Calculator == true)
@@ -1306,6 +1354,50 @@
         widgetOrder[7] = widgetOrder[7] - 1;
         widgetOrder[8] = widgetOrder[8] - 1;
     }
+    private void MoveUp(string WidgetValue)
+    {
+        int val = Int32.Parse(WidgetValue);
+        int[] ordered = widgetOrder.OrderBy(x => x).ToArray();
+            for (int i = 0; i < 9; i++)
+            {
+                if (i != val)
+                {
+                    widgetOrder[i] = widgetOrder[i] + 1;
+                }
+            }
+        
+    }
+    private void MoveDown(string WidgetValue)
+    {
+        int val = Int32.Parse(WidgetValue);
+        int[] ordered = widgetOrder.OrderBy(x => x).ToArray();
+            for (int i = 0; i < 9; i++)
+            {
+                if (i != val)
+                {
+                    widgetOrder[i] = widgetOrder[i] - 1;
+                }
+            }
+    }
+
+    //    Array Swapping Option
+    //    private void MoveUp(string WidgetValue)
+    //    {
+    //    int val = Int32.Parse(WidgetValue);
+    //    int[] ordered = widgetOrder.OrderBy(x => x).ToArray();
+    //    Array.Sort(ordered);
+    //    tempOrder = widgetOrder[val];
+    //    (widgetOrder[val], ordered[val-1]) = (ordered[val-1], ordered[val]);
+    //    //for (int i = 0; i < 9; i++)
+    //    //{
+    //    //    if (i != val)
+    //    //    {
+    //    //        widgetOrder[i] = ordered[i] + 2;
+    //    //    }
+    //    //}
+    //    widgetOrder[val - 1] = tempOrder;
+    //}
+
     //Tab Controls
     private bool home = true;
     private bool Utilities = false;
