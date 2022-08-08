@@ -86,6 +86,16 @@
     min-width: 550px;
     min-height: 400px;
 }
+.MudPaperMediumWidgetExpanded {
+    border-radius: 7px;
+    background-color: white;
+    width: 855px;
+    height: 400px;
+    margin: 2%;
+    min-width: 855px;
+    min-height: 400px;
+}
+
 .MudPaperLargeWidget {
     border-radius: 7px;
     background-color: white;

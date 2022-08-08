@@ -231,12 +231,20 @@
             @if (App_Notes == true)
             {
                 ReOrderWidgets();
-                <div class="MudPaperSmallWidget" style="order: @widgetOrder[4]">
+                <div class="@notesClass" style="order: @widgetOrder[4]">
                     <div style="display: flex; justify-content: space-between;">
-                        <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Notes</MudText>
+                        <MudText Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Notes</MudText>
                         @if (home == true)
                         {
                             <div style="margin: 1%;">
+                            @if (!isExpandedNotes)
+                            {
+                                <MudIconButton OnClick="ExpandNotes" Icon="@Icons.TwoTone.AddCircleOutline"></MudIconButton>
+                            }
+                            @if (isExpandedNotes)
+                            {
+                                <MudIconButton OnClick="ExpandNotes" Icon="@Icons.TwoTone.RemoveCircleOutline"></MudIconButton>
+                            }
                             <MudIconButton OnClick='() => MoveUp("4")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
                             <MudIconButton OnClick='() => MoveDown("4")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
                             <MudIconButton OnClick='() => App_Notes = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
@@ -244,7 +252,7 @@
                         }    
                     </div>
                 <div style="justify-content: start;">
-                    <MudTextField Style="margin: 4%;" Label="" DisableUnderLine="false" T="string" Lines="16" />
+                    <MudTextField Style="margin: 4%;" Label="" DisableUnderLine="false" T="string" Lines="15" />
                 </div> 
                 </div>
             }
@@ -325,22 +333,30 @@
             @if (App_ColorPicker == true)
             {
                 ReOrderWidgets();
-                <div class="MudPaperMediumWidget" style="order: @widgetOrder[1]">
+                <div class="@colorPickerClass" style="order: @widgetOrder[1]">
                     <div style="display: flex; justify-content: space-between;">
-                        <MudText Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Color Picker</MudText>
+                        <MudText Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Color Picker</MudText>
                         @if (home == true)
                         {
                             <div style="margin: 1%;">
+                            @if (!isExpandedColorPicker)
+                            {
+                                <MudIconButton OnClick="ExpandColorPicker" Icon="@Icons.TwoTone.AddCircleOutline"></MudIconButton>
+                            }
+                            @if (isExpandedColorPicker)
+                            {
+                                <MudIconButton OnClick="ExpandColorPicker" Icon="@Icons.TwoTone.RemoveCircleOutline"></MudIconButton>
+                            }
                             <MudIconButton OnClick='() => MoveUp("1")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
                             <MudIconButton OnClick='() => MoveDown("1")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
                             <MudIconButton OnClick='() => App_ColorPicker = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
                             </div>
                         }    
                     </div> 
-                    <div style="display: flex; justify-content: center;">
+                    <div style="display: flex; justify-content: center; margin-bottom: 10px;">
                     <MudColorPicker Value="_pickerColor" ValueChanged="UpdateSelectedColor" Class="ColorPicker" DisableToolbar="true" DisableAlpha="true" DisableColorField="false" DisablePreview="true" DisableSliders="false" DisableInputs="true" DisableModeSwitch="false" ColorPickerMode="ColorPickerMode.RGB" PickerVariant="PickerVariant.Static" />
-                    <div>
-                    <MudList Clickable="true" SelectedItemChanged="ChangeSelectedColor">
+                        <div style="margin-bottom: 10px;">
+                        <MudList Clickable="true" SelectedItemChanged="ChangeSelectedColor">
                         <MudListItem OnClick="firstColorTrue">
                             <div class="colorPreview" style="@($"background-color:{firstColor};")"></div>
                         </MudListItem>
@@ -353,6 +369,23 @@
                     <MudButton OnClick="SetBackgroundColor" Style="margin-top: 3px;">Set Background</MudButton>
                     <MudButton OnClick="SetAccentColor" Style="margin-top: 3px;">Set Accent</MudButton>
                     </div>
+                    @if (isExpandedColorPicker == true)
+                    {
+                    <div style="margin-bottom: 10px;">
+                        <MudList Clickable="true" SelectedItemChanged="ChangeSelectedColor">
+                        <MudListItem OnClick="firstColorTrue">
+                            <div class="colorPreview" style="@($"background-color:{firstColor};")"></div>
+                        </MudListItem>
+                        <MudTextField @bind-Value="firstColorConverted" Style="margin-right: 4%; margin-bottom: 3%" Adornment="Adornment.End" AdornmentIcon="@Icons.Outlined.ChangeCircle" OnAdornmentClick="HEXColorEntered" ReadOnly="false" Variant="Variant.Outlined"/>
+                        <MudListItem OnClick="secondColorTrue">
+                            <div class="colorPreview" style="@($"background-color:{secondColor};")"></div>
+                        </MudListItem>
+                        <MudTextField @bind-Value="secondColorConverted" Style="margin-right: 4%;" Adornment="Adornment.End" AdornmentIcon="@Icons.Outlined.ChangeCircle" OnAdornmentClick="HEXColorEntered" ReadOnly="false" Variant="Variant.Outlined"/>
+                    </MudList>
+                    <MudButton OnClick="SetBackgroundColor" Style="margin-top: 3px;">Set Background</MudButton>
+                    <MudButton OnClick="SetAccentColor" Style="margin-top: 3px;">Set Accent</MudButton>
+                    </div>
+                    }
                     </div>
                 </div>
             }
@@ -413,7 +446,7 @@
     {
     }
     <div style="margin-top: 800px;">
-        <MudText Class="Text" >App_Calculator[0]: @widgetOrder[0]</MudText>
+@*      <MudText Class="Text" >App_Calculator[0]: @widgetOrder[0]</MudText>
         <MudText Class="Text" >App_ColorPicker[1]: @widgetOrder[1]</MudText>
         <MudText Class="Text" >App_Stopwatch[2]: @widgetOrder[2]</MudText>
         <MudText Class="Text" >App_Timer[3]: @widgetOrder[3]</MudText>
@@ -421,7 +454,7 @@
         <MudText Class="Text" >App_Temp[5]: @widgetOrder[5]</MudText>
         <MudText Class="Text" >App_Dollars[6]: @widgetOrder[6]</MudText>
         <MudText Class="Text" >App_Length[7]: @widgetOrder[7]</MudText>
-        <MudText Class="Text" >App_Mass[8]: @widgetOrder[8]</MudText>
+        <MudText Class="Text" >App_Mass[8]: @widgetOrder[8]</MudText>*@
     </div>
 </div>
 <MudDialog @bind-IsVisible="visible" Options="dialogOptions">
@@ -468,6 +501,8 @@
     void Submit() => visible = false;
     private DialogOptions dialogOptions = new() { FullWidth = true };
     string className = "MultipleWidgetsDiv";
+    string colorPickerClass = "MudPaperMediumWidget";
+    string notesClass = "MudPaperSmallWidget";
 
     //Apps
     //Calculator
@@ -801,7 +836,6 @@
             App_TemperatureConverter_Value2 = App_TemperatureConverter_Value1;
         }
     }
-
     //Dollars to Cents Converter
     private bool App_DollarsCentsConverter = false;
     double DollarAmount = 0;
@@ -878,6 +912,7 @@
     //Color Picker
     private bool App_ColorPicker = false;
     private bool isFirstColor = true;
+    private bool isExpandedColorPicker = false;
     public MudColor textColor = "#ffffff";
     public MudColor backcolor = "#bdcad8";
     public MudColor accentcolor = "#111A28";
@@ -949,8 +984,35 @@
             textColor = "ffffff";
         }
     }
+    private void ExpandColorPicker()
+    {
+        if (isExpandedColorPicker == false)
+        {
+            colorPickerClass = "MudPaperMediumWidgetExpanded";
+            isExpandedColorPicker = true;
+        }
+        else if (isExpandedColorPicker == true)
+        {
+            colorPickerClass = "MudPaperMediumWidget";
+            isExpandedColorPicker = false;
+        }
+    }
     //Notes
     private bool App_Notes = false;
+    private bool isExpandedNotes = false;
+    private void ExpandNotes()
+    {
+        if (isExpandedNotes == false)
+        {
+            notesClass = "MudPaperMediumWidget";
+            isExpandedNotes = true;
+        }
+        else if (isExpandedNotes == true)
+        {
+            notesClass = "MudPaperSmallWidget";
+            isExpandedNotes = false;
+        }
+    }
     //Length Converter
     private bool App_LengthConverter = false;
     double App_LengthConverter_Value1 = 0;
@@ -1208,7 +1270,7 @@
         {
             _pause = false;
             TimeFromZero_Timer = TimeFromZero_Timer.Duration(); //create new timer with previous timer's duration b/c timespan has no resume functionality
-        }
+        }   
         while (TimeFromZero_Timer > new TimeSpan()) //progress timer until 0
         {
             if (!_pause) //if not paused progress timer
@@ -1260,6 +1322,7 @@
     int tempOrder = 0;
     private void ReOrderWidgets()
     {
+        int[] ordered = widgetOrder.OrderBy(x => x).ToArray();
         if (App_Calculator == true)
         {
             widgetOrder[0] = widgetOrder[0] - 1;
@@ -1267,7 +1330,7 @@
         if (App_Calculator == false)
         {
             increaseAllWidgetOrder();
-            widgetOrder[0] = 0;
+            widgetOrder[0] = ordered[7] + 1;
         }
         if (App_ColorPicker == true)
         {
@@ -1276,7 +1339,7 @@
         if (App_ColorPicker == false)
         {
             increaseAllWidgetOrder();
-            widgetOrder[1] = 0;
+            widgetOrder[1] = ordered[7] + 1;
         }
         if (App_Stopwatch == true)
         {
@@ -1285,7 +1348,7 @@
         if (App_Stopwatch == false)
         {
             increaseAllWidgetOrder();
-            widgetOrder[2] = 0;
+            widgetOrder[2] = ordered[7] + 1;
         }
         if (App_Timer == true)
         {
@@ -1294,7 +1357,7 @@
         if (App_Timer == false)
         {
             increaseAllWidgetOrder();
-            widgetOrder[3] = 0;
+            widgetOrder[3] = ordered[7] + 1;
         }
         if (App_Notes == true)
         {
@@ -1303,7 +1366,7 @@
         if (App_Notes == false)
         {
             increaseAllWidgetOrder();
-            widgetOrder[4] = 0;
+            widgetOrder[4] = ordered[7] + 1;
         }
         if (App_TemperatureConverter == true)
         {
@@ -1312,7 +1375,7 @@
         if (App_TemperatureConverter == false)
         {
             increaseAllWidgetOrder();
-            widgetOrder[5] = 0;
+            widgetOrder[5] = ordered[7] + 1;
         }
         if (App_DollarsCentsConverter == true)
         {
@@ -1321,7 +1384,7 @@
         if (App_DollarsCentsConverter == false)
         {
             increaseAllWidgetOrder();
-            widgetOrder[6] = 0;
+            widgetOrder[6] = ordered[7] + 1;
         }
         if (App_LengthConverter == true)
         {
@@ -1330,7 +1393,7 @@
         if (App_LengthConverter == false)
         {
             increaseAllWidgetOrder();
-            widgetOrder[7] = 0;
+            widgetOrder[7] = ordered[7] + 1;
         }
         if (App_MassConverter == true)
         {
@@ -1339,7 +1402,7 @@
         if (App_MassConverter == false)
         {
             increaseAllWidgetOrder();
-            widgetOrder[8] = 0;
+            widgetOrder[8] = ordered[7] + 1;
         }
     }
     private void increaseAllWidgetOrder()
@@ -1358,45 +1421,38 @@
     {
         int val = Int32.Parse(WidgetValue);
         int[] ordered = widgetOrder.OrderBy(x => x).ToArray();
+        if (ordered[0] != widgetOrder[val]) {
             for (int i = 0; i < 9; i++)
             {
                 if (i != val)
                 {
                     widgetOrder[i] = widgetOrder[i] + 1;
                 }
+                else {
+                    widgetOrder[val] = widgetOrder[val] - 1;
+                }
             }
-        
+        }
     }
     private void MoveDown(string WidgetValue)
     {
         int val = Int32.Parse(WidgetValue);
         int[] ordered = widgetOrder.OrderBy(x => x).ToArray();
+        if (ordered[8] != widgetOrder[val])
+        {
             for (int i = 0; i < 9; i++)
             {
                 if (i != val)
                 {
                     widgetOrder[i] = widgetOrder[i] - 1;
                 }
+                else
+                {
+                    widgetOrder[val] = widgetOrder[val] + 1;
+                }
             }
+        }
     }
-
-    //    Array Swapping Option
-    //    private void MoveUp(string WidgetValue)
-    //    {
-    //    int val = Int32.Parse(WidgetValue);
-    //    int[] ordered = widgetOrder.OrderBy(x => x).ToArray();
-    //    Array.Sort(ordered);
-    //    tempOrder = widgetOrder[val];
-    //    (widgetOrder[val], ordered[val-1]) = (ordered[val-1], ordered[val]);
-    //    //for (int i = 0; i < 9; i++)
-    //    //{
-    //    //    if (i != val)
-    //    //    {
-    //    //        widgetOrder[i] = ordered[i] + 2;
-    //    //    }
-    //    //}
-    //    widgetOrder[val - 1] = tempOrder;
-    //}
 
     //Tab Controls
     private bool home = true;
