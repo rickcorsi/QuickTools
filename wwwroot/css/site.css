@@ -35,6 +35,7 @@
 }
 
 .Text {
+    font-family: Broadway;
 }
 .MainDiv {
     position: absolute;
@@ -108,13 +109,30 @@
 .ColorPicker {
     max-width: 80px;
     max-height: 320px;
-    margin: 2%;
+    margin: 12px;
 }
 .colorPreview {
     min-width: 125px;
     min-height: 25px;
     border-radius: 7px;
-    margin: 2%;
+    margin: 7px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #eaebeb;
+}
+.colorHistoryGrid {
+    width: 80px;
+    max-height: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.colorHistoryItem {
+    width: 20px;
+    height: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #eaebeb;
 }
 .timerField {
     max-width: 80px;
