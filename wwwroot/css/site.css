@@ -15,6 +15,8 @@
 }
 .MudButton {
     height: 25px;
+    color: red;
+    background-color: red;
 }
     .MudButton:hover {
     }
@@ -33,6 +35,7 @@
 }
 
 .Text {
+    font-family: Broadway;
 }
 .MainDiv {
     position: absolute;
@@ -84,6 +87,16 @@
     min-width: 550px;
     min-height: 400px;
 }
+.MudPaperMediumWidgetExpanded {
+    border-radius: 7px;
+    background-color: white;
+    width: 855px;
+    height: 400px;
+    margin: 2%;
+    min-width: 855px;
+    min-height: 400px;
+}
+
 .MudPaperLargeWidget {
     border-radius: 7px;
     background-color: white;
@@ -96,13 +109,30 @@
 .ColorPicker {
     max-width: 80px;
     max-height: 320px;
-    margin: 2%;
+    margin: 12px;
 }
 .colorPreview {
     min-width: 125px;
     min-height: 25px;
     border-radius: 7px;
-    margin: 2%;
+    margin: 7px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #eaebeb;
+}
+.colorHistoryGrid {
+    width: 80px;
+    max-height: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.colorHistoryItem {
+    width: 20px;
+    height: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #eaebeb;
 }
 .timerField {
     max-width: 80px;
