@@ -18,16 +18,23 @@
     color: red;
     background-color: red;
 }
-    .MudButton:hover {
-    }
 .MudButtonCalculator {
     background-color: red;
     color: red;
     min-width: 400px;
     min-height: 4px;
 }
-    .MudButtonCalculator:hover {
-        background-color: #2E333C;
+.AppBarButton {
+    height: 30px;
+}
+    .AppBarButton:hover {
+        padding-bottom: 15px;
+    }
+.AppBarButtonText {
+    font-size: 12px;
+}
+    .AppBarButtonText:hover {
+        
     }
 
 .CalcButton {
@@ -36,6 +43,7 @@
 
 .Text {
     font-family: Broadway;
+
 }
 .MainDiv {
     position: absolute;
