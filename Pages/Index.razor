@@ -14,10 +14,11 @@
         --mud-palette-primary: @accentcolor;
         --mud-palette-secondary: @widgetTextColor;
         --mud-palette-tertiary: @textColor;
-
         background-color: @backcolor;
     }
 </style>
+
+
 <PageTitle>Index</PageTitle>
 <div>
     <MudAppBar Color="MudBlazor.Color.Primary" Elevation="1" Dense="true" Class="MudAppBar">
@@ -56,6 +57,12 @@
             </MudButton> 
             <MudButton OnClick="Tab_Notes" Class="AppBarButton" DisableRipple="true">
                 <MudText Class="AppBarButtonText" Style="font-size: 12px; margin-bottom: 10px;" Color="MudBlazor.Color.Tertiary"> Notes </MudText>
+            </MudButton>
+            <MudButton OnClick="Tab_Calendar" Class="AppBarButton" DisableRipple="true">
+                <MudText Class="AppBarButtonText" Style="font-size: 12px; margin-bottom: 10px;" Color="MudBlazor.Color.Tertiary"> Calendar </MudText>
+            </MudButton>  
+            <MudButton OnClick="Tab_GraphBuilder" Class="AppBarButton" DisableRipple="true">
+                <MudText Class="AppBarButtonText" Style="font-size: 12px; margin-bottom: 10px;" Color="MudBlazor.Color.Tertiary"> Graph Builder </MudText>
             </MudButton>  
         </MudAppBar>
     }
@@ -87,14 +94,14 @@
             @if (App_MassConverter == true)
             {
                 ReOrderWidgets();
-                <div class="MudPaperMediumWidget" style="order: @widgetOrder[8]; background-color: @widgetColor;">
+                <div class="MudPaperMediumWidget" style="order: @widgetOrder[10]; background-color: @widgetColor;">
                     <div style="display: flex; justify-content: space-between;">
                         <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Mass Converter</MudText>
                         @if (home == true)
                         {
                             <div style="margin: 1%;">
-                            <MudIconButton OnClick='() => MoveUp("8")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
-                            <MudIconButton OnClick='() => MoveDown("8")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
+                            <MudIconButton OnClick='() => MoveUp("10")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
+                            <MudIconButton OnClick='() => MoveDown("10")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
                             <MudIconButton OnClick='() => App_MassConverter = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
                             </div>
                         }    
@@ -131,14 +138,14 @@
             @if (App_LengthConverter == true)
             {
                 ReOrderWidgets();
-                <div class="MudPaperMediumWidget" style="order: @widgetOrder[7]; background-color: @widgetColor;">
+                <div class="MudPaperMediumWidget" style="order: @widgetOrder[9]; background-color: @widgetColor;">
                     <div style="display: flex; justify-content: space-between;">
                         <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Length Converter</MudText>
                         @if (home == true)
                         {
                             <div style="margin: 1%;">
-                            <MudIconButton OnClick='() => MoveUp("7")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
-                            <MudIconButton OOnClick='() => MoveDown("7")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
+                            <MudIconButton OnClick='() => MoveUp("9")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
+                            <MudIconButton OOnClick='() => MoveDown("9")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
                             <MudIconButton OnClick='() => App_LengthConverter = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
                             </div>
                         }    
@@ -175,14 +182,14 @@
             @if (App_VolumeConverter == true)
             {
                 ReOrderWidgets();
-                <div class="MudPaperMediumWidget" style="order: @widgetOrder[6]; background-color: @widgetColor;">
+                <div class="MudPaperMediumWidget" style="order: @widgetOrder[8]; background-color: @widgetColor;">
                     <div style="display: flex; justify-content: space-between;">
                         <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Volume Converter</MudText>
                         @if (home == true)
                         {
                             <div style="margin: 1%;">
-                            <MudIconButton OnClick='() => MoveUp("6")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
-                            <MudIconButton OnClick='() => MoveDown("6")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
+                            <MudIconButton OnClick='() => MoveUp("8")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
+                            <MudIconButton OnClick='() => MoveDown("8")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
                             <MudIconButton OnClick='() => App_VolumeConverter = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
                             </div>
                         }    
@@ -219,14 +226,14 @@
             @if (App_TemperatureConverter == true)
             {
                 ReOrderWidgets();
-                <div class="MudPaperMediumWidget" style="order: @widgetOrder[5]; background-color: @widgetColor;">
+                <div class="MudPaperMediumWidget" style="order: @widgetOrder[7]; background-color: @widgetColor;">
                     <div style="display: flex; justify-content: space-between;">
                         <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Temperature Converter</MudText>
                         @if (home == true)
                         {
                             <div style="margin: 1%;">
-                            <MudIconButton OnClick='() => MoveUp("5")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
-                            <MudIconButton OnClick='() => MoveDown("5")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
+                            <MudIconButton OnClick='() => MoveUp("7")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
+                            <MudIconButton OnClick='() => MoveDown("7")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
                             <MudIconButton OnClick='() => App_TemperatureConverter = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
                             </div>
                         }    
@@ -257,15 +264,146 @@
     }
     @if (Utilities == true || home == true)
     {
+            @if (App_GraphBuilder == true)
+            {
+                ReOrderWidgets();
+                <div class="@graphBuilderClass" style="order: @widgetOrder[6]; background-color: @widgetColor;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Graph Builder</MudText>
+                            <div style="margin: 2px;">
+                            @if (!isExpandedGraphBuilder)
+                            {
+                                <MudIconButton OnClick="ExpandGraphBuilder" Icon="@Icons.TwoTone.AddCircleOutline"></MudIconButton>
+                            }
+                            @if (isExpandedGraphBuilder)
+                            {
+                                <MudIconButton OnClick="ExpandGraphBuilder" Icon="@Icons.TwoTone.RemoveCircleOutline"></MudIconButton>
+                            }
+                            @if (home == true)
+                            {
+                                <MudIconButton OnClick='() => MoveUp("6")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
+                                <MudIconButton OnClick='() => MoveDown("6")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
+                                <MudIconButton OnClick='() => App_GraphBuilder = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            }  
+                        </div>
+                    </div>
+                <div style="display: flex; justify-content: start;">
+                    <div class="GraphArea">
+                        <div class="GraphAreaTitle"><MudText Style="font-size: 20px;">@GraphTitle</MudText></div>
+                        <div style="display: flex; justify-content: start;">                        
+                            <div class="yAxisContainer">
+                                <MudText Style="margin-left: 10px;">@GraphBuilderMax</MudText>
+                                <MudText Style="margin-left: 10px; margin-top: 190px;">@GraphBuilderMin</MudText>
+                            </div>
+                            <div class="GraphContainer">
+                                    @if (GraphNumberOfBars >= 1)
+                                    {
+                                        <div class="GraphBar">
+                                            <div style="height: @bar1Height%; background-color: @graphcolor;" class="GraphBarInterior"></div>
+                                        </div>
+                                    }
+                                    @if (GraphNumberOfBars >= 2)
+                                    {
+                                        <div class="GraphBar">
+                                            <div style="height: @bar2Height%; background-color: @graphcolor;" class="GraphBarInterior"></div>
+                                        </div>                                    
+                                    }
+                                    @if (GraphNumberOfBars >= 3)
+                                    {
+                                        <div class="GraphBar">
+                                            <div style="height: @bar3Height%; background-color: @graphcolor;" class="GraphBarInterior"></div>
+                                        </div>                                    
+                                    }
+                                    @if (GraphNumberOfBars >= 4)
+                                    {
+                                        <div class="GraphBar">
+                                            <div style="height: @bar4Height%; background-color: @graphcolor;" class="GraphBarInterior"></div>
+                                        </div>                                    
+                                    }
+                                    @if (GraphNumberOfBars >= 5)
+                                    {
+                                        <div class="GraphBar">
+                                            <div style="height: @bar5Height%; background-color: @graphcolor;" class="GraphBarInterior"></div>
+                                        </div>                                    
+                                    }
+                                </div>
+                        </div>
+                        <div class="xAxisContainer"></div>
+                    </div>
+                        @if (isExpandedGraphBuilder)
+                        {
+                            <div class="InputArea">
+                                <div style="display: flex; justify-content: start;">
+                                <MudTextField @bind-Value="GraphTitle" Style="margin-left: 8px; margin-right: 8px;" Label="Graph Title" Variant="Variant.Outlined"></MudTextField>                    
+                                <MudButton OnClick="BuildGraph" Style="" >Build Graph</MudButton>
+                                </div>
+                                <div style="display: flex; justify-content: start;">
+                                <MudNumericField Class="GraphInputBoxes" Style="margin-left: 8px; width: 140px;" @bind-Value="GraphBuilderMin" Label="Min" Variant="Variant.Outlined"/>
+                                <MudNumericField Class="GraphInputBoxes" Style="margin-left: 8px; margin-right: 8px; width: 140px;" @bind-Value="GraphBuilderMax" Label="Max" Variant="Variant.Outlined"/>
+                                </div>
+                                <div style="display: flex; justify-content: start;">
+                                <MudNumericField Class="GraphInputBoxes" Style="margin-left: 8px; width: 140px;" @bind-Value="GraphNumberOfBars" Label="# of Bars" Variant="Variant.Outlined" Min="0" Max="5"/>
+                                    @if (GraphNumberOfBars >= 1)
+                                    {
+                                    <MudNumericField Class="GraphInputBoxes" Style="margin-left: 8px; margin-right: 8px; width: 140px;" @bind-Value="GraphBar1" Label="Bar 1" Variant="Variant.Outlined" Min="0"/>
+                                    }
+                                </div>
+                                <div style="display: flex; justify-content: start;">
+                                    @if (GraphNumberOfBars >= 2)
+                                    {
+                                    <MudNumericField Class="GraphInputBoxes" Style="margin-left: 8px; margin-right: 8px; width: 140px;" @bind-Value="GraphBar2" Label="Bar 2" Variant="Variant.Outlined" Min="0"/>
+                                    }
+                                    @if (GraphNumberOfBars >= 3)
+                                    {
+                                    <MudNumericField Class="GraphInputBoxes" Style="margin-right: 8px; width: 140px;" @bind-Value="GraphBar3" Label="Bar 3" Variant="Variant.Outlined" Min="0"/>
+                                    }
+                                </div>
+                                <div style="display: flex; justify-content: start;">
+                                    @if (GraphNumberOfBars >= 4)
+                                    {
+                                    <MudNumericField Class="GraphInputBoxes" Style="margin-left: 8px; margin-right: 8px; width: 140px;" @bind-Value="GraphBar4" Label="Bar 4" Variant="Variant.Outlined" Min="0"/>
+                                    }
+                                    @if (GraphNumberOfBars >= 5)
+                                    {
+                                    <MudNumericField Class="GraphInputBoxes" Style="margin-right: 8px; width: 140px;" @bind-Value="GraphBar5" Label="Bar 5" Variant="Variant.Outlined" Min="0"/>
+                                    }
+                                </div
+                            </div>
+                        }
+                </div> 
+                </div>
+            }
+            @if (App_Calendar == true)
+            {
+                ReOrderWidgets();
+                <div class="MudPaperMediumWidget" style="order: @widgetOrder[5]; background-color: @widgetColor;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Calendar</MudText>
+                        @if (home == true)
+                        {
+                            <div style="margin: 1%;">
+                            <MudIconButton OnClick='() => MoveUp("5")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
+                            <MudIconButton OnClick='() => MoveDown("5")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
+                            <MudIconButton OnClick='() => App_Calendar = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            </div>
+                        }    
+                    </div>
+                @if (home == false) {
+                <div style="width: 550px; height: 20px;"></div>
+                }
+                <div style="display: flex; justify-content: start;">
+                    <div style="background-color: @accentcolor;" class="CalendarDiv"></div>
+                    <MudDatePicker DisableToolbar="false" PickerVariant="PickerVariant.Static" Orientation="Orientation.Landscape" Date="@(DateTime.Today.AddDays(1))" Class="Calendar"/>
+                </div> 
+                </div>
+            }
             @if (App_Notes == true)
             {
                 ReOrderWidgets();
                 <div class="@notesClass" style="order: @widgetOrder[4]; background-color: @widgetColor;">
                     <div style="display: flex; justify-content: space-between;">
                         <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Notes</MudText>
-                        @if (home == true)
-                        {
-                            <div style="margin: 1%;">
+                            <div style="margin: 2px;">
                             @if (!isExpandedNotes)
                             {
                                 <MudIconButton OnClick="ExpandNotes" Icon="@Icons.TwoTone.AddCircleOutline"></MudIconButton>
@@ -274,14 +412,17 @@
                             {
                                 <MudIconButton OnClick="ExpandNotes" Icon="@Icons.TwoTone.RemoveCircleOutline"></MudIconButton>
                             }
-                            <MudIconButton OnClick='() => MoveUp("4")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
-                            <MudIconButton OnClick='() => MoveDown("4")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
-                            <MudIconButton OnClick='() => App_Notes = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                            </div>
-                        }    
+                            @if (home == true)
+                            {
+                                <MudIconButton OnClick='() => MoveUp("4")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
+                                <MudIconButton OnClick='() => MoveDown("4")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
+                                <MudIconButton OnClick='() => App_Notes = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            
+                            }   
+                        </div>
                     </div>
                 <div style="justify-content: start;">
-                    <MudTextField Style="margin: 4%;" Label="" DisableUnderLine="false" T="string" Lines="15" />
+                    <MudTextField @bind-Value="notesText" Style="margin: 4%;" Label="" DisableUnderLine="false" T="string" Lines="15" />
                 </div> 
                 </div>
             }
@@ -383,7 +524,7 @@
                         </div>
                     </div> 
                     <div style="display: flex; justify-content: start; margin-bottom: 10px;">
-                    <MudColorPicker Value="_pickerColor" ValueChanged="UpdateSelectedColor" Class="ColorPicker" DisableToolbar="true" DisableAlpha="true" DisableColorField="false" DisablePreview="true" DisableSliders="false" DisableInputs="true" DisableModeSwitch="false" ColorPickerMode="ColorPickerMode.RGB" PickerVariant="PickerVariant.Static" />
+                    <MudColorPicker Value="_pickerColor" ValueChanged="UpdateSelectedColor" Class="ColorPicker" DisableToolbar="false" DisableAlpha="true" DisableColorField="false" DisablePreview="true" DisableSliders="false" DisableInputs="true" DisableModeSwitch="false" ColorPickerMode="ColorPickerMode.RGB" PickerVariant="PickerVariant.Static" />
                         <div style="margin-bottom: 10px;">
                         <MudList Clickable="true" SelectedItemChanged="ChangeSelectedColor">
                         <MudListItem Style="max-width: 205px" OnClick="firstColorTrue">
@@ -400,9 +541,10 @@
                     {
                     <div style="margin-bottom: 10px;">
                         <div style="max-width: 200px;">
-                        <MudButton OnClick="SetBackgroundColor" Style="margin-top: 2px; max-width: 200px; max-height: 30px;">Set Background</MudButton>
-                        <MudButton OnClick="SetAccentColor" Style="margin-top: 2px; max-width: 200px; max-height: 30px;">Set Accent</MudButton>
-                        </div>
+                        <MudButton OnClick="SetBackgroundColor" Style="margin-top: 2px; max-width: 200px; max-height: 30px;">Set Background Color</MudButton>
+                        <MudButton OnClick="SetAccentColor" Style="margin-top: 2px; max-width: 200px; max-height: 30px;">Set Accent Color</MudButton>
+                        <MudButton OnClick="SetGraphColor" Style="margin-top: 2px; max-width: 200px; max-height: 30px;">Set Graph Color</MudButton>
+                    </div>
                         <MudMenu @bind-Value="selectedTheme" Label="Select Theme" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft" Dense="true">
                             <MudMenuItem OnClick='() => SetTheme("Default")'>Default</MudMenuItem>
                             <MudMenuItem OnClick='() => SetTheme("Dark Mode")'>Dark Mode</MudMenuItem>
@@ -496,6 +638,8 @@
         <MudCheckBox @bind-Checked="@App_Stopwatch" Label="Stopwatch"></MudCheckBox>
         <MudCheckBox @bind-Checked="@App_Timer" Label="Timer"></MudCheckBox>
         <MudCheckBox @bind-Checked="@App_Notes" Label="Notes"></MudCheckBox>
+        <MudCheckBox @bind-Checked="@App_Calendar" Label="Calendar"></MudCheckBox>
+        <MudCheckBox @bind-Checked="@App_GraphBuilder" Label="Graph Builder"></MudCheckBox>
         <MudText>Converters</MudText>
         <MudCheckBox @bind-Checked="@App_TemperatureConverter" Label="Temperature Converter"></MudCheckBox>
         <MudCheckBox @bind-Checked="@App_VolumeConverter" Label="Volume Converter"></MudCheckBox>
@@ -503,7 +647,7 @@
         <MudCheckBox @bind-Checked="@App_MassConverter" Label="Mass Converter"></MudCheckBox>
     </DialogContent>
     <DialogActions>
-        @if (App_Calculator == true && App_TemperatureConverter == true && App_ColorPicker == true && App_Stopwatch == true &&  App_Timer == true && App_VolumeConverter == true && App_Notes == true && App_LengthConverter == true && App_MassConverter == true)
+        @if (App_Calculator == true && App_TemperatureConverter == true && App_ColorPicker == true && App_Stopwatch == true &&  App_Timer == true && App_VolumeConverter == true && App_Notes == true && App_LengthConverter == true && App_MassConverter == true && App_Calendar == true && App_GraphBuilder == true)
         {
         <MudButton Variant="Variant.Filled" OnClick="AllAppsFalse" Style="width:140px;">Deselect All</MudButton>
         }
@@ -529,8 +673,6 @@
     void Submit() => visible = false;
     private DialogOptions dialogOptions = new() { FullWidth = true };
     string className = "MultipleWidgetsDiv";
-    string colorPickerClass = "MudPaperMediumWidget";
-    string notesClass = "MudPaperSmallWidget";
     //Apps
     //Calculator
     private bool App_Calculator = false;
@@ -1026,6 +1168,7 @@
     public MudColor textColor = "#ffffff";
     public MudColor backcolor = "#bdcad8";
     public MudColor accentcolor = "#111A28";
+    public MudColor graphcolor = "#0476f6";
     public MudColor firstColor = "#0476f6";
     public MudColor secondColor = "#ed0c3d";
     public MudColor _pickerColor = "#0476f6";
@@ -1038,6 +1181,7 @@
     string widgetColor = "#ffffff";
     private MudTheme _theme = new();
     private bool _isDarkMode = false;
+    string colorPickerClass = "MudPaperMediumWidget";
     private void ChangeSelectedColor(MudListItem item)
     {
         if (isFirstColor == true)
@@ -1100,6 +1244,10 @@
         if (accentcolor.L < .45){
             textColor = "ffffff";
         }
+    }
+    private void SetGraphColor()
+    {
+        graphcolor = _pickerColor;
     }
     private void ExpandColorPicker()
     {
@@ -1197,6 +1345,8 @@
     //Notes
     private bool App_Notes = false;
     private bool isExpandedNotes = false;
+    string notesText = "";
+    string notesClass = "MudPaperSmallWidget";
     private void ExpandNotes()
     {
         if (isExpandedNotes == false)
@@ -1514,8 +1664,54 @@
     {
         bool? result = await timerNotificationMSG.Show();
     }
+    //Calendar
+    private bool App_Calendar = false;
+    //Graph Builder
+    private bool App_GraphBuilder = false;
+    private bool isExpandedGraphBuilder = false;
+    string graphBuilderClass = "MudPaperMediumWidget";
+    private double GraphBuilderMin = 0;
+    private double GraphBuilderMax = 100;
+    string GraphTitle = "Title";
+    private int GraphNumberOfBars = 2;
+    double GraphBar1 = 0;
+    double GraphBar2 = 0;
+    double GraphBar3 = 0;
+    double GraphBar4 = 0;
+    double GraphBar5 = 0;
+    double bar1Height = 0;
+    double bar2Height = 0;
+    double bar3Height = 0;
+    double bar4Height = 0;
+    double bar5Height = 0;
+    private void ExpandGraphBuilder()
+    {
+        if (isExpandedGraphBuilder == false)
+        {
+            graphBuilderClass = "MudPaperMediumWidgetExpanded";
+            isExpandedGraphBuilder = true;
+        }
+        else if (isExpandedGraphBuilder == true)
+        {
+            graphBuilderClass = "MudPaperMediumWidget";
+            isExpandedGraphBuilder = false;
+        }
+    }
+    private void BuildGraph()
+    {
+    bar1Height = GraphBar1 / GraphBuilderMax;
+    bar1Height = bar1Height * 100;
+    bar2Height = GraphBar2 / GraphBuilderMax;
+    bar2Height = bar2Height * 100;
+    bar3Height = GraphBar3 / GraphBuilderMax;
+    bar3Height = bar3Height * 100;
+    bar4Height = GraphBar4 / GraphBuilderMax;
+    bar4Height = bar4Height * 100;
+    bar5Height = GraphBar5 / GraphBuilderMax;
+    bar5Height = bar5Height * 100;
+    }
     //Widget Ordering
-    int[] widgetOrder = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+    int[] widgetOrder = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     int tempOrder = 0;
     private void ReOrderWidgets()
     {
@@ -1565,41 +1761,59 @@
             increaseAllWidgetOrder();
             widgetOrder[4] = ordered[7] + 1;
         }
-        if (App_TemperatureConverter == true)
+        if (App_Calendar == true)
         {
             widgetOrder[5] = widgetOrder[5] - 1;
         }
-        if (App_TemperatureConverter == false)
+        if (App_Calendar == false)
         {
             increaseAllWidgetOrder();
             widgetOrder[5] = ordered[7] + 1;
         }
-        if (App_VolumeConverter == true)
+        if (App_GraphBuilder == true)
         {
             widgetOrder[6] = widgetOrder[6] - 1;
         }
-        if (App_VolumeConverter == false)
+        if (App_GraphBuilder == false)
         {
             increaseAllWidgetOrder();
             widgetOrder[6] = ordered[7] + 1;
         }
-        if (App_LengthConverter == true)
+        if (App_TemperatureConverter == true)
         {
             widgetOrder[7] = widgetOrder[7] - 1;
         }
-        if (App_LengthConverter == false)
+        if (App_TemperatureConverter == false)
         {
             increaseAllWidgetOrder();
             widgetOrder[7] = ordered[7] + 1;
         }
-        if (App_MassConverter == true)
+        if (App_VolumeConverter == true)
         {
             widgetOrder[8] = widgetOrder[8] - 1;
+        }
+        if (App_VolumeConverter == false)
+        {
+            increaseAllWidgetOrder();
+            widgetOrder[8] = ordered[7] + 1;
+        }
+        if (App_LengthConverter == true)
+        {
+            widgetOrder[9] = widgetOrder[9] - 1;
+        }
+        if (App_LengthConverter == false)
+        {
+            increaseAllWidgetOrder();
+            widgetOrder[9] = ordered[7] + 1;
+        }
+        if (App_MassConverter == true)
+        {
+            widgetOrder[10] = widgetOrder[10] - 1;
         }
         if (App_MassConverter == false)
         {
             increaseAllWidgetOrder();
-            widgetOrder[8] = ordered[7] + 1;
+            widgetOrder[10] = ordered[7] + 1;
         }
     }
     private void increaseAllWidgetOrder()
@@ -1613,13 +1827,15 @@
         widgetOrder[6] = widgetOrder[6] - 1;
         widgetOrder[7] = widgetOrder[7] - 1;
         widgetOrder[8] = widgetOrder[8] - 1;
+        widgetOrder[9] = widgetOrder[9] - 1;
+        widgetOrder[10] = widgetOrder[10] - 1;
     }
     private void MoveUp(string WidgetValue)
     {
         int val = Int32.Parse(WidgetValue);
         int[] ordered = widgetOrder.OrderBy(x => x).ToArray();
         if (ordered[0] != widgetOrder[val]) {
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 11; i++)
             {
                 if (i != val)
                 {
@@ -1635,9 +1851,9 @@
     {
         int val = Int32.Parse(WidgetValue);
         int[] ordered = widgetOrder.OrderBy(x => x).ToArray();
-        if (ordered[8] != widgetOrder[val])
+        if (ordered[9] != widgetOrder[val])
         {
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 11; i++)
             {
                 if (i != val)
                 {
@@ -1674,10 +1890,6 @@
         AllAppsFalse();
         Converters = true;
         App_TemperatureConverter = true;
-    }
-    private void tab4() {
-        AllTabsFalse();
-        Advanced = true;    
     }
     private void Tab_Calculator() {
         AllAppsFalse();
@@ -1719,6 +1931,16 @@
         AllAppsFalse();
         App_MassConverter = true;
     }
+    private void Tab_Calendar()
+    {
+        AllAppsFalse();
+        App_Calendar = true;
+    }
+    private void Tab_GraphBuilder()
+    {
+        AllAppsFalse();
+        App_GraphBuilder = true;
+    }
     private void AllTabsFalse() {
         home = false;
         Utilities = false;
@@ -1736,10 +1958,12 @@
         App_LengthConverter = false;
         App_MassConverter = false;
         App_Timer = false;
+        App_Calendar = false;
+        App_GraphBuilder = false;
     }
     private void App_SelectAll()
     {
-        if (App_Calculator == false && App_TemperatureConverter == false && App_ColorPicker == false && App_Stopwatch == false &&  App_Timer == false && App_VolumeConverter == false && App_Notes == false && App_LengthConverter == false && App_MassConverter == false)
+        if (App_Calculator == false && App_TemperatureConverter == false && App_ColorPicker == false && App_Stopwatch == false &&  App_Timer == false && App_VolumeConverter == false && App_Notes == false && App_LengthConverter == false && App_MassConverter == false && App_Calendar == false && App_GraphBuilder == false)
         {
             widgetOrder[0] = 1;
             widgetOrder[1] = 2;
@@ -1750,6 +1974,8 @@
             widgetOrder[6] = 7;
             widgetOrder[7] = 8;
             widgetOrder[8] = 9;
+            widgetOrder[9] = 10;
+            widgetOrder[10] = 11;
         }
         App_Calculator = true;
         App_TemperatureConverter = true;
@@ -1760,5 +1986,7 @@
         App_Notes = true;
         App_LengthConverter = true;
         App_MassConverter = true;
+        App_Calendar = true;
+        App_GraphBuilder = true;
     }
 }

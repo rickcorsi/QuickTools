@@ -42,8 +42,6 @@
 }
 
 .Text {
-    font-family: Broadway;
-
 }
 .MainDiv {
     position: absolute;
@@ -128,20 +126,75 @@
     border-width: 2px;
     border-color: #eaebeb;
 }
-.colorHistoryGrid {
-    width: 80px;
-    max-height: 40px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-.colorHistoryItem {
-    width: 20px;
-    height: 20px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #eaebeb;
-}
 .timerField {
     max-width: 80px;
+}
+.CalendarDiv {
+    width: 150px;
+    height: 308px;
+    margin-top: 33px;
+    border-radius: 0px 0px 0px 7px;
+}
+.Calendar {
+    width: 550px;
+    border-radius: 0px 0px 7px 0px;
+    margin-top: 33px;
+}
+.GraphArea {
+    background-color: rgba(100,100,100,0.05);
+    width: 530px;
+    height: 328px;
+    margin: 10px;
+    border-radius: 7px;
+}
+.InputArea {
+    background-color: rgba(100,100,100,0.0);
+    width: 305px;
+    height: 328px;
+    border-radius: 7px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.GraphInputBoxes {
+    max-width: 10px;
+}
+.GraphAreaTitle {
+    width: 530px;
+    height: 40px;
+    display: flex;
+    margin-top: 5px;
+    justify-content: center;
+}
+.yAxisContainer {
+    width: 40px;
+    height: 240px;
+}
+.xAxisContainer {
+    margin-top: 2px;
+    width: 530px;
+    height: 44px;
+    border-top: 2px solid;
+    border-style: solid;
+    border-color: black;
+}
+.GraphContainer {
+    width: 490px;
+    height: 240px;
+    justify-content: space-evenly;
+    display: flex;
+    border-top: 2px solid;
+    border-style: solid;
+    border-color: rgba(100,100,100,0.10);
+}
+.GraphBar {
+    background-color: rgba(100,100,100,0.00);
+    width: 40px;
+    height: 240px;
+    position: relative;
+}
+.GraphBarInterior {
+    width: 40px;
+    position: absolute;
+    bottom: 0;
 }
