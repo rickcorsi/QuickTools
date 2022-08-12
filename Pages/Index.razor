@@ -299,76 +299,183 @@
                                     @if (GraphNumberOfBars >= 1)
                                     {
                                         <div class="GraphBar">
-                                            <div style="height: @bar1Height%; background-color: @graphcolor;" class="GraphBarInterior"></div>
+                                            <div style="height: @bar1Height%; background-color: @graphcolor;" class="GraphBarInterior">
+                                                @if (CheckBoxValues == true) {
+                                                <MudText Style="padding-left: 25%;" Class="GraphBarValue">@GraphBar1</MudText>
+                                                }                                                
+                                            </div>
                                         </div>
                                     }
                                     @if (GraphNumberOfBars >= 2)
                                     {
                                         <div class="GraphBar">
-                                            <div style="height: @bar2Height%; background-color: @graphcolor;" class="GraphBarInterior"></div>
+                                            <div style="height: @bar2Height%; background-color: @graphcolor;" class="GraphBarInterior">
+                                                @if (CheckBoxValues == true) {
+                                                <MudText Style="padding-left: 25%;" Class="GraphBarValue">@GraphBar2</MudText>
+                                                }                                             
+                                            </div>
                                         </div>                                    
                                     }
                                     @if (GraphNumberOfBars >= 3)
                                     {
                                         <div class="GraphBar">
-                                            <div style="height: @bar3Height%; background-color: @graphcolor;" class="GraphBarInterior"></div>
+                                            <div style="height: @bar3Height%; background-color: @graphcolor;" class="GraphBarInterior">
+                                                @if (CheckBoxValues == true) {
+                                                <MudText Style="padding-left: 25%;" Class="GraphBarValue">@GraphBar3</MudText>
+                                                }                                             
+                                            </div>
                                         </div>                                    
                                     }
                                     @if (GraphNumberOfBars >= 4)
                                     {
                                         <div class="GraphBar">
-                                            <div style="height: @bar4Height%; background-color: @graphcolor;" class="GraphBarInterior"></div>
+                                            <div style="height: @bar4Height%; background-color: @graphcolor;" class="GraphBarInterior">
+                                                @if (CheckBoxValues == true) {
+                                                <MudText Style="padding-left: 25%;" Class="GraphBarValue">@GraphBar4</MudText>
+                                                }                                             
+                                            </div>
                                         </div>                                    
                                     }
                                     @if (GraphNumberOfBars >= 5)
                                     {
                                         <div class="GraphBar">
-                                            <div style="height: @bar5Height%; background-color: @graphcolor;" class="GraphBarInterior"></div>
+                                            <div style="height: @bar5Height%; background-color: @graphcolor;" class="GraphBarInterior">
+                                                @if (CheckBoxValues == true) {
+                                                <MudText Style="padding-left: 25%;" Class="GraphBarValue">@GraphBar5</MudText>
+                                                }                                             
+                                            </div>
+                                        </div>                                    
+                                    }
+                                    @if (GraphNumberOfBars >= 6)
+                                    {
+                                        <div class="GraphBar">
+                                            <div style="height: @bar6Height%; background-color: @graphcolor;" class="GraphBarInterior">
+                                                @if (CheckBoxValues == true) {
+                                                <MudText Style="padding-left: 25%;" Class="GraphBarValue">@GraphBar6</MudText>
+                                                } 
+                                            </div>
                                         </div>                                    
                                     }
                                 </div>
                         </div>
-                        <div class="xAxisContainer"></div>
-                    </div>
-                        @if (isExpandedGraphBuilder)
-                        {
-                            <div class="InputArea">
-                                <div style="display: flex; justify-content: start;">
-                                <MudTextField @bind-Value="GraphTitle" Style="margin-left: 8px; margin-right: 8px;" Label="Graph Title" Variant="Variant.Outlined"></MudTextField>                    
-                                <MudButton OnClick="BuildGraph" Style="" >Build Graph</MudButton>
-                                </div>
-                                <div style="display: flex; justify-content: start;">
-                                <MudNumericField Class="GraphInputBoxes" Style="margin-left: 8px; width: 140px;" @bind-Value="GraphBuilderMin" Label="Min" Variant="Variant.Outlined"/>
-                                <MudNumericField Class="GraphInputBoxes" Style="margin-left: 8px; margin-right: 8px; width: 140px;" @bind-Value="GraphBuilderMax" Label="Max" Variant="Variant.Outlined"/>
-                                </div>
-                                <div style="display: flex; justify-content: start;">
-                                <MudNumericField Class="GraphInputBoxes" Style="margin-left: 8px; width: 140px;" @bind-Value="GraphNumberOfBars" Label="# of Bars" Variant="Variant.Outlined" Min="0" Max="5"/>
+                        <div class="xAxisContainer">
+                                @if (CheckBoxLabels == true)
+                                {
                                     @if (GraphNumberOfBars >= 1)
                                     {
-                                    <MudNumericField Class="GraphInputBoxes" Style="margin-left: 8px; margin-right: 8px; width: 140px;" @bind-Value="GraphBar1" Label="Bar 1" Variant="Variant.Outlined" Min="0"/>
+                                        <MudText Class="GraphBarLabel">@GraphBarLabel1</MudText>
                                     }
-                                </div>
-                                <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 2)
                                     {
-                                    <MudNumericField Class="GraphInputBoxes" Style="margin-left: 8px; margin-right: 8px; width: 140px;" @bind-Value="GraphBar2" Label="Bar 2" Variant="Variant.Outlined" Min="0"/>
+                                        <MudText Class="GraphBarLabel">@GraphBarLabel2</MudText>
                                     }
                                     @if (GraphNumberOfBars >= 3)
                                     {
-                                    <MudNumericField Class="GraphInputBoxes" Style="margin-right: 8px; width: 140px;" @bind-Value="GraphBar3" Label="Bar 3" Variant="Variant.Outlined" Min="0"/>
+                                        <MudText Class="GraphBarLabel">@GraphBarLabel3</MudText>
                                     }
-                                </div>
-                                <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 4)
                                     {
-                                    <MudNumericField Class="GraphInputBoxes" Style="margin-left: 8px; margin-right: 8px; width: 140px;" @bind-Value="GraphBar4" Label="Bar 4" Variant="Variant.Outlined" Min="0"/>
+                                        <MudText Class="GraphBarLabel">@GraphBarLabel4</MudText>
                                     }
                                     @if (GraphNumberOfBars >= 5)
                                     {
-                                    <MudNumericField Class="GraphInputBoxes" Style="margin-right: 8px; width: 140px;" @bind-Value="GraphBar5" Label="Bar 5" Variant="Variant.Outlined" Min="0"/>
+                                        <MudText Class="GraphBarLabel">@GraphBarLabel5</MudText>
+                                    }
+                                    @if (GraphNumberOfBars >= 6)
+                                    {
+                                        <MudText Class="GraphBarLabel">@GraphBarLabel6</MudText>
+                                    }
+                                }
+                        </div>
+                    </div>
+                    @if (isExpandedGraphBuilder)
+                        {
+                            @if (graphTabBars == true)
+                            {
+                            <div class="InputArea">
+                                <MudButton OnClick="ChangeGraphTab" Style="" >Graph Label Input</MudButton> 
+                                <div style="display: flex; justify-content: start;">
+                                <MudButton OnClick="BuildGraph" Style="" >Build Graph</MudButton>
+                                </div>
+                                <div style="display: flex; justify-content: start;">
+                                <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBuilderMax" Label="Max Value" Variant="Variant.Outlined"/>
+                                <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphNumberOfBars" Label="# of Bars" Variant="Variant.Outlined" Min="0" Max="6"/>
+                                </div>
+                                <div style="display: flex; justify-content: start;">
+                                    @if (GraphNumberOfBars >= 1)
+                                    {
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar1" />
+                                    }
+                                    @if (GraphNumberOfBars >= 2)
+                                    {
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar2" />
+                                    }
+                                </div>
+                                <div style="display: flex; justify-content: start;">
+                                    @if (GraphNumberOfBars >= 3)
+                                    {
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar3" />
+                                    }
+                                    @if (GraphNumberOfBars >= 4)
+                                    {
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar4" />
+                                    }
+                                </div>
+                                <div style="display: flex; justify-content: start;">
+                                    @if (GraphNumberOfBars >= 5)
+                                    {
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar5" />
+                                    }
+                                    @if (GraphNumberOfBars >= 6)
+                                    {
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar6" />
                                     }
                                 </div
                             </div>
+                            }
+                            @if (graphTabBars == false) {
+                            <div class="InputArea">
+                                <MudButton OnClick="ChangeGraphTab" Style="" >Graph Bar Input</MudButton> 
+                                <div style="display: flex; justify-content: start;">
+                                <MudButton OnClick="BuildGraph" Style="" >Build Graph</MudButton>
+                                </div>
+                                <MudTextField @bind-Value="GraphTitle" Margin="Margin.Dense" Style="margin-left: 8px; margin-right: 8px;" Label="Graph Title" Variant="Variant.Outlined"></MudTextField>                    
+                                <div style="display: flex; justify-content: start;">
+                                    <MudCheckBox @bind-Checked="@CheckBoxLabels" Label="Bar Labels"></MudCheckBox>
+                                    <MudCheckBox @bind-Checked="@CheckBoxValues" Label="Bar Values"></MudCheckBox>
+                                </div>
+                                <div style="display: flex; justify-content: start;">
+                                    @if (GraphNumberOfBars >= 1)
+                                    {
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel1" />
+                                    }
+                                    @if (GraphNumberOfBars >= 2)
+                                    {
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel2" />
+                                    }
+                                </div>
+                                <div style="display: flex; justify-content: start;">
+                                    @if (GraphNumberOfBars >= 3)
+                                    {
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel3" />
+                                    }
+                                    @if (GraphNumberOfBars >= 4)
+                                    {
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel4" />
+                                    }
+                                </div>
+                                <div style="display: flex; justify-content: start;">
+                                    @if (GraphNumberOfBars >= 5)
+                                    {
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel5" />
+                                    }
+                                    @if (GraphNumberOfBars >= 6)
+                                    {
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel6" />
+                                    }
+                                </div
+                            </div>
+                            }
                         }
                 </div> 
                 </div>
@@ -389,11 +496,13 @@
                         }    
                     </div>
                 @if (home == false) {
-                <div style="width: 550px; height: 20px;"></div>
+                <div style="width: 550px; height: 25px;"></div>
                 }
                 <div style="display: flex; justify-content: start;">
-                    <div style="background-color: @accentcolor;" class="CalendarDiv"></div>
-                    <MudDatePicker DisableToolbar="false" PickerVariant="PickerVariant.Static" Orientation="Orientation.Landscape" Date="@(DateTime.Today.AddDays(1))" Class="Calendar"/>
+                    <div class="CalendarDiv">
+                        <text style="color: @widgetTextColor;" class="CalenderDayDisplay">Today is @todayDate.</text>
+                    </div>
+                    <MudDatePicker DisableToolbar="true" PickerVariant="PickerVariant.Static" Orientation="Orientation.Landscape" Date="@(DateTime.Today)" Class="Calendar"/>
                 </div> 
                 </div>
             }
@@ -1666,9 +1775,11 @@
     }
     //Calendar
     private bool App_Calendar = false;
+    string todayDate = DateTime.Now.ToShortDateString();
     //Graph Builder
     private bool App_GraphBuilder = false;
     private bool isExpandedGraphBuilder = false;
+    private bool graphTabBars = true;
     string graphBuilderClass = "MudPaperMediumWidget";
     private double GraphBuilderMin = 0;
     private double GraphBuilderMax = 100;
@@ -1679,11 +1790,21 @@
     double GraphBar3 = 0;
     double GraphBar4 = 0;
     double GraphBar5 = 0;
+    double GraphBar6 = 0;
     double bar1Height = 0;
     double bar2Height = 0;
     double bar3Height = 0;
     double bar4Height = 0;
     double bar5Height = 0;
+    double bar6Height = 0;
+    string GraphBarLabel1 = "Bar 1";
+    string GraphBarLabel2 = "Bar 2";
+    string GraphBarLabel3 = "Bar 3";
+    string GraphBarLabel4 = "Bar 4";
+    string GraphBarLabel5 = "Bar 5";
+    string GraphBarLabel6 = "Bar 6";
+    public bool CheckBoxLabels { get; set; } = false;
+    public bool CheckBoxValues { get; set; } = false;
     private void ExpandGraphBuilder()
     {
         if (isExpandedGraphBuilder == false)
@@ -1699,16 +1820,29 @@
     }
     private void BuildGraph()
     {
-    bar1Height = GraphBar1 / GraphBuilderMax;
-    bar1Height = bar1Height * 100;
-    bar2Height = GraphBar2 / GraphBuilderMax;
-    bar2Height = bar2Height * 100;
-    bar3Height = GraphBar3 / GraphBuilderMax;
-    bar3Height = bar3Height * 100;
-    bar4Height = GraphBar4 / GraphBuilderMax;
-    bar4Height = bar4Height * 100;
-    bar5Height = GraphBar5 / GraphBuilderMax;
-    bar5Height = bar5Height * 100;
+        bar1Height = GraphBar1 / GraphBuilderMax;
+        bar1Height = bar1Height * 100;
+        bar2Height = GraphBar2 / GraphBuilderMax;
+        bar2Height = bar2Height * 100;
+        bar3Height = GraphBar3 / GraphBuilderMax;
+        bar3Height = bar3Height * 100;
+        bar4Height = GraphBar4 / GraphBuilderMax;
+        bar4Height = bar4Height * 100;
+        bar5Height = GraphBar5 / GraphBuilderMax;
+        bar5Height = bar5Height * 100;
+        bar6Height = GraphBar6 / GraphBuilderMax;
+        bar6Height = bar6Height * 100;
+    }
+    private void ChangeGraphTab()
+    {
+        if (graphTabBars == false)
+        {
+            graphTabBars = true;
+        }
+        else if (graphTabBars == true)
+        {
+            graphTabBars = false;
+        }
     }
     //Widget Ordering
     int[] widgetOrder = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
