@@ -12,8 +12,19 @@
 <style>
     :root {
         --mud-palette-primary: @accentcolor;
+        --mud-palette-lines-inputs: @widgetTextColor;
         --mud-palette-secondary: @widgetTextColor;
+        --mud-palette-action-default: @widgetTextColor;
         --mud-palette-tertiary: @textColor;
+        --mud-palette-success: @backcolor;
+        --mud-palette-success-text: @widgetTextColor;
+        --mud-palette-surface: @widgetColor;
+        --mud-palette-text-primary: @widgetTextColor;
+        --mud-palette-text-secondary: @widgetTextColor;
+        --mud-palette-background: @textColor;
+        --mud-palette-background-grey: @textColor;
+        --mud-palette-primary-text: @textColor;
+        --mud-palette-action-disabled-background: @backcolor;
         background-color: @backcolor;
     }
 </style>
@@ -30,7 +41,16 @@
         </MudButton> 
         <MudButton OnClick="tab3" Class="AppBarButton" DisableRipple="true">
             <MudText Style="font-size: 18px;" Color="MudBlazor.Color.Tertiary"> Converters </MudText>
-        </MudButton>       
+        </MudButton>
+        <MudSpacer />
+        <MudMenu @bind-Value="selectedTheme" Variant="Variant.Outlined" Style="height: 20px;" Color="MudBlazor.Color.Tertiary" Label="Select Theme" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft" Dense="true">
+            <MudMenuItem OnClick='() => SetTheme("Light")'>Light</MudMenuItem>
+            <MudMenuItem OnClick='() => SetTheme("Dark")'>Dark</MudMenuItem>
+            <MudMenuItem OnClick='() => SetTheme("High Contrast")'>High Contrast</MudMenuItem>
+            <MudMenuItem OnClick='() => SetTheme("Low Contrast")'>Low Contrast</MudMenuItem>
+            <MudMenuItem OnClick='() => SetTheme("Miami Vice")'>Miami Vice</MudMenuItem>
+            <MudMenuItem OnClick='() => SetTheme("Cyberpunk")'>Cyberpunk</MudMenuItem>
+        </MudMenu>
     </MudAppBar>
     @if (home == true)
     {
@@ -119,7 +139,7 @@
                             </MudSelect>    
                         </div>
                         <div style="margin-left: 5%;">
-                            <MudTextField @bind-Value="App_MassConverter_Value2" ReadOnly="true" Variant="Variant.Outlined" Style="" ></MudTextField>
+                            <MudTextField @bind-Value="App_MassConverter_Value2" ReadOnly="true" Variant="Variant.Outlined" Style="Color: " ></MudTextField>
                             <MudSelect @bind-Value="MassValue2" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
                                 <MudSelectItem Value="@("Pound")" />
                                 <MudSelectItem Value="@("Ounce")" />
@@ -131,7 +151,7 @@
                         </div>
                     </div>
                     <div>
-                        <MudButton OnClick="ConvertMass" Style="margin: 5%; margin-top: 155px;" >Convert</MudButton>
+                        <MudButton OnClick="ConvertMass" Style="margin: 5%; margin-top: 190px; height: 20px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Convert</MudButton>
                     </div>
                 </div>
             }
@@ -175,7 +195,7 @@
                         </div>
                     </div>
                     <div>
-                        <MudButton OnClick="ConvertLength" Style="margin: 5%; margin-top: 155px;" >Convert</MudButton>
+                        <MudButton OnClick="ConvertLength" Style="margin: 5%; margin-top: 190px; height: 20px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Convert</MudButton>
                     </div>
                 </div>
             }
@@ -219,7 +239,7 @@
                         </div>
                     </div>
                     <div>
-                        <MudButton OnClick="ConvertVolume" Style="margin: 5%; margin-top: 155px;" >Convert</MudButton>
+                        <MudButton OnClick="ConvertVolume" Style="margin: 5%; margin-top: 190px; height: 20px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Convert</MudButton>
                     </div>
                 </div>
             }
@@ -257,7 +277,7 @@
                         </div>
                     </div>
                     <div>
-                        <MudButton OnClick="ConvertTemp" Style="margin: 5%; margin-top: 155px;" >Convert</MudButton>
+                        <MudButton OnClick="ConvertTemp" Style="margin: 5%; margin-top: 190px; height: 20px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Convert</MudButton>
                     </div>
                 </div>
             }
@@ -299,9 +319,9 @@
                                     @if (GraphNumberOfBars >= 1)
                                     {
                                         <div class="GraphBar">
-                                            <div style="height: @bar1Height%; background-color: @graphcolor;" class="GraphBarInterior">
+                                            <div style="height: @barHeight[0]%; background-color: @graphcolor;" class="GraphBarInterior">
                                                 @if (CheckBoxValues == true) {
-                                                <MudText Style="padding-left: 25%;" Class="GraphBarValue">@GraphBar1</MudText>
+                                                <MudText Style="padding-left: 25%;" Class="GraphBarValue">@GraphBar[0]</MudText>
                                                 }                                                
                                             </div>
                                         </div>
@@ -309,9 +329,9 @@
                                     @if (GraphNumberOfBars >= 2)
                                     {
                                         <div class="GraphBar">
-                                            <div style="height: @bar2Height%; background-color: @graphcolor;" class="GraphBarInterior">
+                                            <div style="height: @barHeight[1]%; background-color: @graphcolor;" class="GraphBarInterior">
                                                 @if (CheckBoxValues == true) {
-                                                <MudText Style="padding-left: 25%;" Class="GraphBarValue">@GraphBar2</MudText>
+                                                <MudText Style="padding-left: 25%;" Class="GraphBarValue">@GraphBar[1]</MudText>
                                                 }                                             
                                             </div>
                                         </div>                                    
@@ -319,9 +339,9 @@
                                     @if (GraphNumberOfBars >= 3)
                                     {
                                         <div class="GraphBar">
-                                            <div style="height: @bar3Height%; background-color: @graphcolor;" class="GraphBarInterior">
+                                            <div style="height: @barHeight[2]%; background-color: @graphcolor;" class="GraphBarInterior">
                                                 @if (CheckBoxValues == true) {
-                                                <MudText Style="padding-left: 25%;" Class="GraphBarValue">@GraphBar3</MudText>
+                                                <MudText Style="padding-left: 25%;" Class="GraphBarValue">@GraphBar[2]</MudText>
                                                 }                                             
                                             </div>
                                         </div>                                    
@@ -329,9 +349,9 @@
                                     @if (GraphNumberOfBars >= 4)
                                     {
                                         <div class="GraphBar">
-                                            <div style="height: @bar4Height%; background-color: @graphcolor;" class="GraphBarInterior">
+                                            <div style="height: @barHeight[3]%; background-color: @graphcolor;" class="GraphBarInterior">
                                                 @if (CheckBoxValues == true) {
-                                                <MudText Style="padding-left: 25%;" Class="GraphBarValue">@GraphBar4</MudText>
+                                                <MudText Style="padding-left: 25%;" Class="GraphBarValue">@GraphBar[3]</MudText>
                                                 }                                             
                                             </div>
                                         </div>                                    
@@ -339,9 +359,9 @@
                                     @if (GraphNumberOfBars >= 5)
                                     {
                                         <div class="GraphBar">
-                                            <div style="height: @bar5Height%; background-color: @graphcolor;" class="GraphBarInterior">
+                                            <div style="height: @barHeight[4]%; background-color: @graphcolor;" class="GraphBarInterior">
                                                 @if (CheckBoxValues == true) {
-                                                <MudText Style="padding-left: 25%;" Class="GraphBarValue">@GraphBar5</MudText>
+                                                <MudText Style="padding-left: 25%;" Class="GraphBarValue">@GraphBar[4]</MudText>
                                                 }                                             
                                             </div>
                                         </div>                                    
@@ -349,9 +369,9 @@
                                     @if (GraphNumberOfBars >= 6)
                                     {
                                         <div class="GraphBar">
-                                            <div style="height: @bar6Height%; background-color: @graphcolor;" class="GraphBarInterior">
+                                            <div style="height: @barHeight[5]%; background-color: @graphcolor;" class="GraphBarInterior">
                                                 @if (CheckBoxValues == true) {
-                                                <MudText Style="padding-left: 25%;" Class="GraphBarValue">@GraphBar6</MudText>
+                                                <MudText Style="padding-left: 25%;" Class="GraphBarValue">@GraphBar[5]</MudText>
                                                 } 
                                             </div>
                                         </div>                                    
@@ -363,27 +383,27 @@
                                 {
                                     @if (GraphNumberOfBars >= 1)
                                     {
-                                        <MudText Class="GraphBarLabel">@GraphBarLabel1</MudText>
+                                        <MudText Class="GraphBarLabel">@GraphBarLabel[0]</MudText>
                                     }
                                     @if (GraphNumberOfBars >= 2)
                                     {
-                                        <MudText Class="GraphBarLabel">@GraphBarLabel2</MudText>
+                                        <MudText Class="GraphBarLabel">@GraphBarLabel[1]</MudText>
                                     }
                                     @if (GraphNumberOfBars >= 3)
                                     {
-                                        <MudText Class="GraphBarLabel">@GraphBarLabel3</MudText>
+                                        <MudText Class="GraphBarLabel">@GraphBarLabel[2]</MudText>
                                     }
                                     @if (GraphNumberOfBars >= 4)
                                     {
-                                        <MudText Class="GraphBarLabel">@GraphBarLabel4</MudText>
+                                        <MudText Class="GraphBarLabel">@GraphBarLabel[3]</MudText>
                                     }
                                     @if (GraphNumberOfBars >= 5)
                                     {
-                                        <MudText Class="GraphBarLabel">@GraphBarLabel5</MudText>
+                                        <MudText Class="GraphBarLabel">@GraphBarLabel[4]</MudText>
                                     }
                                     @if (GraphNumberOfBars >= 6)
                                     {
-                                        <MudText Class="GraphBarLabel">@GraphBarLabel6</MudText>
+                                        <MudText Class="GraphBarLabel">@GraphBarLabel[5]</MudText>
                                     }
                                 }
                         </div>
@@ -404,31 +424,31 @@
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 1)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar1" />
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar[0]" />
                                     }
                                     @if (GraphNumberOfBars >= 2)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar2" />
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar[1]" />
                                     }
                                 </div>
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 3)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar3" />
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar[2]" />
                                     }
                                     @if (GraphNumberOfBars >= 4)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar4" />
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar[3]" />
                                     }
                                 </div>
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 5)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar5" />
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar[4]" />
                                     }
                                     @if (GraphNumberOfBars >= 6)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar6" />
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar[5]" />
                                     }
                                 </div
                             </div>
@@ -447,31 +467,31 @@
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 1)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel1" />
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel[0]" />
                                     }
                                     @if (GraphNumberOfBars >= 2)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel2" />
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel[1]" />
                                     }
                                 </div>
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 3)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel3" />
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel[2]" />
                                     }
                                     @if (GraphNumberOfBars >= 4)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel4" />
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel[3]" />
                                     }
                                 </div>
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 5)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel5" />
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel[4]" />
                                     }
                                     @if (GraphNumberOfBars >= 6)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel6" />
+                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel[5]" />
                                     }
                                 </div
                             </div>
@@ -502,7 +522,7 @@
                     <div class="CalendarDiv">
                         <text style="color: @widgetTextColor;" class="CalenderDayDisplay">Today is @todayDate.</text>
                     </div>
-                    <MudDatePicker DisableToolbar="true" PickerVariant="PickerVariant.Static" Orientation="Orientation.Landscape" Date="@(DateTime.Today)" Class="Calendar"/>
+                    <MudDatePicker ReadOnly="true" DisableToolbar="true" PickerVariant="PickerVariant.Static" Orientation="Orientation.Landscape" Date="@(DateTime.Today)" Class="Calendar"/>
                 </div> 
                 </div>
             }
@@ -554,9 +574,9 @@
                         <MudText Color="@MudBlazor.Color.Secondary" Style="@($"font-family:{fontType}; font-size: 36px;")">@displaytimer_Timer</MudText>
                     </div>
                     <div style="display: flex; justify-content: center;">
-                        <MudButton Style="margin: 5%;" Disabled="@isTiming_Timer" OnClick="TimerTiming">Start</MudButton>
-                        <MudButton Style="margin: 5%;" Disabled="@isPaused_Timer" OnClick="TimerPause">Pause</MudButton>
-                        <MudButton Style="margin: 5%;" Disabled="@isReset_Timer" OnClick="TimerReset">Reset</MudButton>
+                        <MudButton Variant="Variant.Outlined" Style="margin: 5%; height: 20px;" Color="MudBlazor.Color.Secondary" Disabled="@isTiming_Timer" OnClick="TimerTiming">Start</MudButton>
+                        <MudButton Variant="Variant.Outlined" Style="margin: 5%; height: 20px;" Color="MudBlazor.Color.Secondary" Disabled="@isPaused_Timer" OnClick="TimerPause">Pause</MudButton>
+                        <MudButton Variant="Variant.Outlined" Style="margin: 5%; height: 20px;" Color="MudBlazor.Color.Secondary" Disabled="@isReset_Timer" OnClick="TimerReset">Reset</MudButton>
                     </div>
                     <div style="display: flex; justify-content: center; margin: 20px;">
                         <MudNumericField Class="timerField" Style="margin: 10px;" @bind-Value="Hours" Label="Hours" Variant="Variant.Outlined" Min="0" Max="12"/>
@@ -589,8 +609,8 @@
                         <MudText Color="@MudBlazor.Color.Secondary" Style="@($"font-family:{fontType}; font-size: 36px;")">@displaytimer</MudText>
                     </div>
                     <div style="display: flex; justify-content: center;">
-                        <MudButton Style="margin: 5%;" Disabled="@isTiming" OnClick="StopwatchTiming">Start</MudButton>
-                        <MudButton Style="margin: 5%;" Disabled="@isStopped" OnClick="StopwatchStop">Stop</MudButton>
+                        <MudButton Variant="Variant.Outlined" Style="margin: 5%; height: 20px;" Color="MudBlazor.Color.Secondary" Disabled="@isTiming" OnClick="StopwatchTiming">Start</MudButton>
+                        <MudButton Variant="Variant.Outlined" Style="margin: 5%; height: 20px;" Color="MudBlazor.Color.Secondary" Disabled="@isStopped" OnClick="StopwatchStop">Stop</MudButton>
                     </div>
                     @if (stopwatchStops >= 1)
                     {
@@ -653,14 +673,13 @@
                         <MudButton OnClick="SetBackgroundColor" Style="margin-top: 2px; max-width: 200px; max-height: 30px;">Set Background Color</MudButton>
                         <MudButton OnClick="SetAccentColor" Style="margin-top: 2px; max-width: 200px; max-height: 30px;">Set Accent Color</MudButton>
                         <MudButton OnClick="SetGraphColor" Style="margin-top: 2px; max-width: 200px; max-height: 30px;">Set Graph Color</MudButton>
-                    </div>
+                        </div>
                         <MudMenu @bind-Value="selectedTheme" Label="Select Theme" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft" Dense="true">
-                            <MudMenuItem OnClick='() => SetTheme("Default")'>Default</MudMenuItem>
-                            <MudMenuItem OnClick='() => SetTheme("Dark Mode")'>Dark Mode</MudMenuItem>
+                            <MudMenuItem OnClick='() => SetTheme("Light")'>Light</MudMenuItem>
+                            <MudMenuItem OnClick='() => SetTheme("Dark")'>Dark</MudMenuItem>
                             <MudMenuItem OnClick='() => SetTheme("High Contrast")'>High Contrast</MudMenuItem>
                             <MudMenuItem OnClick='() => SetTheme("Low Contrast")'>Low Contrast</MudMenuItem>
                             <MudMenuItem OnClick='() => SetTheme("Miami Vice")'>Miami Vice</MudMenuItem>
-                            <MudMenuItem OnClick='() => SetTheme("Vintage")'>Vintage</MudMenuItem>
                             <MudMenuItem OnClick='() => SetTheme("Cyberpunk")'>Cyberpunk</MudMenuItem>
                         </MudMenu>
                     </div>
@@ -720,20 +739,6 @@
                 </div>
             }
     }
-    </div>    
-    @if (Advanced == true)
-    {
-    }
-    <div style="margin-top: 800px;">
-@*      <MudText Class="Text" >App_Calculator[0]: @widgetOrder[0]</MudText>
-        <MudText Class="Text" >App_ColorPicker[1]: @widgetOrder[1]</MudText>
-        <MudText Class="Text" >App_Stopwatch[2]: @widgetOrder[2]</MudText>
-        <MudText Class="Text" >App_Timer[3]: @widgetOrder[3]</MudText>
-        <MudText Class="Text" >App_Notes[4]: @widgetOrder[4]</MudText>
-        <MudText Class="Text" >App_Temp[5]: @widgetOrder[5]</MudText>
-        <MudText Class="Text" >App_Dollars[6]: @widgetOrder[6]</MudText>
-        <MudText Class="Text" >App_Length[7]: @widgetOrder[7]</MudText>
-        <MudText Class="Text" >App_Mass[8]: @widgetOrder[8]</MudText>*@
     </div>
 </div>
 <MudDialog @bind-IsVisible="visible" Options="dialogOptions">
@@ -769,7 +774,7 @@
 <MudMessageBox @ref="timerNotificationMSG" YesText="Ok">
     <MessageContent>
         <MudText Style="font-family:'Ubuntu', sans-serif; font-weight: bold; font-size: 20px;"> Timer Finished </MudText>
-        @if (SoundOn) //Is sound if not off, play timer sound
+        @if (SoundOn)
         {
         <audio autoplay><source src="/Audio/TimerSound.mp3" /></audio>
         }
@@ -777,12 +782,11 @@
 </MudMessageBox>
 @code {
     private bool visible;
-    private int rating;
     private void OpenDialog() => visible = true;
     void Submit() => visible = false;
     private DialogOptions dialogOptions = new() { FullWidth = true };
     string className = "MultipleWidgetsDiv";
-    //Apps
+//Apps
     //Calculator
     private bool App_Calculator = false;
     string buttonValue = "0";
@@ -1274,6 +1278,8 @@
     private bool App_ColorPicker = false;
     private bool isFirstColor = true;
     private bool isExpandedColorPicker = false;
+    private bool _isDarkMode = false;
+    private MudTheme _theme = new();
     public MudColor textColor = "#ffffff";
     public MudColor backcolor = "#bdcad8";
     public MudColor accentcolor = "#111A28";
@@ -1288,8 +1294,6 @@
     string selectedTheme = "Default";
     string fontType = "Roboto";
     string widgetColor = "#ffffff";
-    private MudTheme _theme = new();
-    private bool _isDarkMode = false;
     string colorPickerClass = "MudPaperMediumWidget";
     private void ChangeSelectedColor(MudListItem item)
     {
@@ -1373,7 +1377,7 @@
     }
     private void SetTheme(String _theme)
     {
-        if (_theme == "Default")
+        if (_theme == "Light")
         {
             selectedTheme = _theme;
             backcolor = "#bdcad8";
@@ -1384,7 +1388,7 @@
             widgetTextColor = "#000000";
             _isDarkMode = false;
         }  
-        if (_theme == "Dark Mode")
+        if (_theme == "Dark")
         {
             selectedTheme = _theme;
             backcolor = "#1E1E2D";
@@ -1425,17 +1429,6 @@
             textColor = "000000";
             fontType = "Broadway";
             widgetColor = "#ffffff";
-            widgetTextColor = "#000000";
-            _isDarkMode = false;
-        }  
-        if (_theme == "Vintage")
-        {
-            selectedTheme = _theme;
-            backcolor = "#D7BE80";
-            accentcolor = "#6C9A97";
-            textColor = "000000";
-            fontType = "Roboto";
-            widgetColor = "#DD826F";
             widgetTextColor = "#000000";
             _isDarkMode = false;
         }  
@@ -1785,24 +1778,9 @@
     private double GraphBuilderMax = 100;
     string GraphTitle = "Title";
     private int GraphNumberOfBars = 2;
-    double GraphBar1 = 0;
-    double GraphBar2 = 0;
-    double GraphBar3 = 0;
-    double GraphBar4 = 0;
-    double GraphBar5 = 0;
-    double GraphBar6 = 0;
-    double bar1Height = 0;
-    double bar2Height = 0;
-    double bar3Height = 0;
-    double bar4Height = 0;
-    double bar5Height = 0;
-    double bar6Height = 0;
-    string GraphBarLabel1 = "Bar 1";
-    string GraphBarLabel2 = "Bar 2";
-    string GraphBarLabel3 = "Bar 3";
-    string GraphBarLabel4 = "Bar 4";
-    string GraphBarLabel5 = "Bar 5";
-    string GraphBarLabel6 = "Bar 6";
+    double[] GraphBar = {0, 0, 0, 0, 0, 0};
+    double[] barHeight = {0, 0, 0, 0, 0, 0};
+    string[] GraphBarLabel = { "Bar 1", "Bar 2", "Bar 3", "Bar 4", "Bar 5", "Bar 6" };
     public bool CheckBoxLabels { get; set; } = false;
     public bool CheckBoxValues { get; set; } = false;
     private void ExpandGraphBuilder()
@@ -1820,18 +1798,10 @@
     }
     private void BuildGraph()
     {
-        bar1Height = GraphBar1 / GraphBuilderMax;
-        bar1Height = bar1Height * 100;
-        bar2Height = GraphBar2 / GraphBuilderMax;
-        bar2Height = bar2Height * 100;
-        bar3Height = GraphBar3 / GraphBuilderMax;
-        bar3Height = bar3Height * 100;
-        bar4Height = GraphBar4 / GraphBuilderMax;
-        bar4Height = bar4Height * 100;
-        bar5Height = GraphBar5 / GraphBuilderMax;
-        bar5Height = bar5Height * 100;
-        bar6Height = GraphBar6 / GraphBuilderMax;
-        bar6Height = bar6Height * 100;
+        for (int i = 0; i < 6; i++) {
+            barHeight[i] = GraphBar[i] / GraphBuilderMax;
+            barHeight[i] = barHeight[i] * 100;
+        }
     }
     private void ChangeGraphTab()
     {
@@ -1843,284 +1813,5 @@
         {
             graphTabBars = false;
         }
-    }
-    //Widget Ordering
-    int[] widgetOrder = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    int tempOrder = 0;
-    private void ReOrderWidgets()
-    {
-        int[] ordered = widgetOrder.OrderBy(x => x).ToArray();
-        if (App_Calculator == true)
-        {
-            widgetOrder[0] = widgetOrder[0] - 1;
-        }
-        if (App_Calculator == false)
-        {
-            increaseAllWidgetOrder();
-            widgetOrder[0] = ordered[7] + 1;
-        }
-        if (App_ColorPicker == true)
-        {
-            widgetOrder[1] = widgetOrder[1] - 1;
-        }
-        if (App_ColorPicker == false)
-        {
-            increaseAllWidgetOrder();
-            widgetOrder[1] = ordered[7] + 1;
-        }
-        if (App_Stopwatch == true)
-        {
-            widgetOrder[2] = widgetOrder[2] - 1;
-        }
-        if (App_Stopwatch == false)
-        {
-            increaseAllWidgetOrder();
-            widgetOrder[2] = ordered[7] + 1;
-        }
-        if (App_Timer == true)
-        {
-            widgetOrder[3] = widgetOrder[3] - 1;
-        }
-        if (App_Timer == false)
-        {
-            increaseAllWidgetOrder();
-            widgetOrder[3] = ordered[7] + 1;
-        }
-        if (App_Notes == true)
-        {
-            widgetOrder[4] = widgetOrder[4] - 1;
-        }
-        if (App_Notes == false)
-        {
-            increaseAllWidgetOrder();
-            widgetOrder[4] = ordered[7] + 1;
-        }
-        if (App_Calendar == true)
-        {
-            widgetOrder[5] = widgetOrder[5] - 1;
-        }
-        if (App_Calendar == false)
-        {
-            increaseAllWidgetOrder();
-            widgetOrder[5] = ordered[7] + 1;
-        }
-        if (App_GraphBuilder == true)
-        {
-            widgetOrder[6] = widgetOrder[6] - 1;
-        }
-        if (App_GraphBuilder == false)
-        {
-            increaseAllWidgetOrder();
-            widgetOrder[6] = ordered[7] + 1;
-        }
-        if (App_TemperatureConverter == true)
-        {
-            widgetOrder[7] = widgetOrder[7] - 1;
-        }
-        if (App_TemperatureConverter == false)
-        {
-            increaseAllWidgetOrder();
-            widgetOrder[7] = ordered[7] + 1;
-        }
-        if (App_VolumeConverter == true)
-        {
-            widgetOrder[8] = widgetOrder[8] - 1;
-        }
-        if (App_VolumeConverter == false)
-        {
-            increaseAllWidgetOrder();
-            widgetOrder[8] = ordered[7] + 1;
-        }
-        if (App_LengthConverter == true)
-        {
-            widgetOrder[9] = widgetOrder[9] - 1;
-        }
-        if (App_LengthConverter == false)
-        {
-            increaseAllWidgetOrder();
-            widgetOrder[9] = ordered[7] + 1;
-        }
-        if (App_MassConverter == true)
-        {
-            widgetOrder[10] = widgetOrder[10] - 1;
-        }
-        if (App_MassConverter == false)
-        {
-            increaseAllWidgetOrder();
-            widgetOrder[10] = ordered[7] + 1;
-        }
-    }
-    private void increaseAllWidgetOrder()
-    {
-        widgetOrder[0] = widgetOrder[0] - 1;
-        widgetOrder[1] = widgetOrder[1] - 1;
-        widgetOrder[2] = widgetOrder[2] - 1;
-        widgetOrder[3] = widgetOrder[3] - 1;
-        widgetOrder[4] = widgetOrder[4] - 1;
-        widgetOrder[5] = widgetOrder[5] - 1;
-        widgetOrder[6] = widgetOrder[6] - 1;
-        widgetOrder[7] = widgetOrder[7] - 1;
-        widgetOrder[8] = widgetOrder[8] - 1;
-        widgetOrder[9] = widgetOrder[9] - 1;
-        widgetOrder[10] = widgetOrder[10] - 1;
-    }
-    private void MoveUp(string WidgetValue)
-    {
-        int val = Int32.Parse(WidgetValue);
-        int[] ordered = widgetOrder.OrderBy(x => x).ToArray();
-        if (ordered[0] != widgetOrder[val]) {
-            for (int i = 0; i < 11; i++)
-            {
-                if (i != val)
-                {
-                    widgetOrder[i] = widgetOrder[i] + 1;
-                }
-                else {
-                    widgetOrder[val] = widgetOrder[val] - 1;
-                }
-            }
-        }
-    }
-    private void MoveDown(string WidgetValue)
-    {
-        int val = Int32.Parse(WidgetValue);
-        int[] ordered = widgetOrder.OrderBy(x => x).ToArray();
-        if (ordered[9] != widgetOrder[val])
-        {
-            for (int i = 0; i < 11; i++)
-            {
-                if (i != val)
-                {
-                    widgetOrder[i] = widgetOrder[i] - 1;
-                }
-                else
-                {
-                    widgetOrder[val] = widgetOrder[val] + 1;
-                }
-            }
-        }
-    }
-    //Tab Controls
-    private bool home = true;
-    private bool Utilities = false;
-    private bool Converters = false;
-    private bool Advanced = false;
-    private void tab1() {
-        AllTabsFalse();
-        className = "MultipleWidgetsDiv";
-        AllAppsFalse();
-        home = true;
-    }
-    private void tab2() {
-        AllTabsFalse();
-        className = "MainDiv";
-        AllAppsFalse();
-        Utilities = true;
-        App_Calculator = true;
-    }
-    private void tab3() {
-        AllTabsFalse();
-        className = "MainDiv";
-        AllAppsFalse();
-        Converters = true;
-        App_TemperatureConverter = true;
-    }
-    private void Tab_Calculator() {
-        AllAppsFalse();
-        App_Calculator = true;
-    }
-    private void Tab_TemperatureConverter() {
-        AllAppsFalse();
-        App_TemperatureConverter = true;
-    }
-    private void Tab_VolumeConverter() {
-        AllAppsFalse();
-        App_VolumeConverter = true;
-    }
-    private void Tab_Stopwatch() {
-        AllAppsFalse();
-        App_Stopwatch = true;    
-    }
-    private void Tab_Timer() {
-        AllAppsFalse();
-        App_Timer = true;    
-    }
-    private void Tab_ColorPicker()
-    {
-        AllAppsFalse();
-        App_ColorPicker = true;
-    }
-    private void Tab_Notes()
-    {
-        AllAppsFalse();
-        App_Notes = true;
-    }
-    private void Tab_LengthConverter()
-    {
-        AllAppsFalse();
-        App_LengthConverter = true;
-    }
-    private void Tab_MassConverter()
-    {
-        AllAppsFalse();
-        App_MassConverter = true;
-    }
-    private void Tab_Calendar()
-    {
-        AllAppsFalse();
-        App_Calendar = true;
-    }
-    private void Tab_GraphBuilder()
-    {
-        AllAppsFalse();
-        App_GraphBuilder = true;
-    }
-    private void AllTabsFalse() {
-        home = false;
-        Utilities = false;
-        Converters = false;
-        Advanced = false; 
-    }
-    private void AllAppsFalse()
-    {
-        App_Calculator = false;
-        App_Stopwatch = false;
-        App_ColorPicker = false;
-        App_Notes = false;
-        App_TemperatureConverter = false;
-        App_VolumeConverter = false;
-        App_LengthConverter = false;
-        App_MassConverter = false;
-        App_Timer = false;
-        App_Calendar = false;
-        App_GraphBuilder = false;
-    }
-    private void App_SelectAll()
-    {
-        if (App_Calculator == false && App_TemperatureConverter == false && App_ColorPicker == false && App_Stopwatch == false &&  App_Timer == false && App_VolumeConverter == false && App_Notes == false && App_LengthConverter == false && App_MassConverter == false && App_Calendar == false && App_GraphBuilder == false)
-        {
-            widgetOrder[0] = 1;
-            widgetOrder[1] = 2;
-            widgetOrder[2] = 3;
-            widgetOrder[3] = 4;
-            widgetOrder[4] = 5;
-            widgetOrder[5] = 6;
-            widgetOrder[6] = 7;
-            widgetOrder[7] = 8;
-            widgetOrder[8] = 9;
-            widgetOrder[9] = 10;
-            widgetOrder[10] = 11;
-        }
-        App_Calculator = true;
-        App_TemperatureConverter = true;
-        App_VolumeConverter = true;
-        App_Stopwatch = true;
-        App_Timer = true;
-        App_ColorPicker = true;
-        App_Notes = true;
-        App_LengthConverter = true;
-        App_MassConverter = true;
-        App_Calendar = true;
-        App_GraphBuilder = true;
     }
 }
