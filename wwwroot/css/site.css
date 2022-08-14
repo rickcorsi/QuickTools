@@ -102,7 +102,15 @@
     min-width: 855px;
     min-height: 400px;
 }
-
+.MudPaperSmallWidgetExpanded {
+    border-radius: 7px;
+    background-color: white;
+    width: 650px;
+    height: 400px;
+    margin: 2%;
+    min-width: 650px;
+    min-height: 400px;
+}
 .MudPaperLargeWidget {
     border-radius: 7px;
     background-color: white;
@@ -222,4 +230,30 @@
 .GraphBarValue {
     position: absolute;
     bottom: 100%;
+}
+.converterLog {
+    height: 150px;
+    width: 495px;
+    border-radius: 7px;
+    margin: 5%;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid;
+}
+.converterLogText {
+}
+.calculatorExpanded {
+    width: 230px;
+    height: 320px;
+    margin: 2px;
+}
+.calculatorLog {
+    width: 230px;
+    height: 280px;
+    margin-top: 1%;
+    margin-bottom: 20px;
+    border: 1px solid;
+    border-radius: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
