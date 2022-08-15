@@ -257,3 +257,12 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+.stopwatchLog {
+    height: 150px;
+    width: 360px;
+    border-radius: 7px;
+    margin: 5%;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid;
+}
