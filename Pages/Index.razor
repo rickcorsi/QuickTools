@@ -492,31 +492,31 @@
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 1)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar[0]" />
+                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBar[0]" Label="@GraphBarLabel[0]" Variant="Variant.Outlined" Min="0"/>
                                     }
                                     @if (GraphNumberOfBars >= 2)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar[1]" />
+                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBar[1]" Label="@GraphBarLabel[1]" Variant="Variant.Outlined" Min="0"/>
                                     }
                                 </div>
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 3)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar[2]" />
+                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBar[2]" Label="@GraphBarLabel[2]" Variant="Variant.Outlined" Min="0"/>
                                     }
                                     @if (GraphNumberOfBars >= 4)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar[3]" />
+                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBar[3]" Label="@GraphBarLabel[3]" Variant="Variant.Outlined" Min="0"/>
                                     }
                                 </div>
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 5)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar[4]" />
+                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBar[4]" Label="@GraphBarLabel[4]" Variant="Variant.Outlined" Min="0"/>
                                     }
                                     @if (GraphNumberOfBars >= 6)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBar[5]" />
+                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBar[5]" Label="@GraphBarLabel[5]" Variant="Variant.Outlined" Min="0"/>
                                     }
                                 </div
                             </div>
@@ -535,31 +535,31 @@
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 1)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel[0]" />
+                                    <MudTextField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBarLabel[0]" Label="" Variant="Variant.Outlined"/>
                                     }
                                     @if (GraphNumberOfBars >= 2)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel[1]" />
+                                    <MudTextField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBarLabel[1]" Label="" Variant="Variant.Outlined"/>
                                     }
                                 </div>
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 3)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel[2]" />
+                                    <MudTextField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBarLabel[2]" Label="" Variant="Variant.Outlined"/>
                                     }
                                     @if (GraphNumberOfBars >= 4)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel[3]" />
+                                    <MudTextField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBarLabel[3]" Label="" Variant="Variant.Outlined"/>
                                     }
                                 </div>
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 5)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel[4]" />
+                                    <MudTextField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBarLabel[4]" Label="" Variant="Variant.Outlined"/>
                                     }
                                     @if (GraphNumberOfBars >= 6)
                                     {
-                                    <input class="GraphInputFields" style="color: grey;" @bind-value="GraphBarLabel[5]" />
+                                    <MudTextField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBarLabel[5]" Label="" Variant="Variant.Outlined"/>
                                     }
                                 </div
                             </div>
@@ -680,21 +680,23 @@
                         <MudButton Variant="Variant.Outlined" Style="margin: 5%; height: 20px;" Color="MudBlazor.Color.Secondary" Disabled="@isTiming" OnClick="StopwatchTiming">Start</MudButton>
                         <MudButton Variant="Variant.Outlined" Style="margin: 5%; height: 20px;" Color="MudBlazor.Color.Secondary" Disabled="@isStopped" OnClick="StopwatchStop">Stop</MudButton>
                     </div>
-                    @if (stopwatchStops >= 1)
-                    {
-                        <div style="display: flex; justify-content: center; margin-top: 5px;">
-                            <MudText Style="font-size: 16px;">Recent Times:</MudText>
-                        </div>
-                        <div style="display: flex; justify-content: center; margin-top: 5px;">
-                            <MudText Style="font-size: 14px;">@RecentTime1</MudText>
-                        </div>
-                        <div style="display: flex; justify-content: center; margin-top: 5px;">
-                            <MudText Style="font-size: 14px;">@RecentTime2</MudText>
-                        </div>
-                        <div style="display: flex; justify-content: center; margin-top: 5px;">
-                            <MudText Style="font-size: 14px;">@RecentTime3</MudText>
-                        </div>
+                    @if (LogStopwatch == true) {
+                    <div class="stopwatchLog" style="border-color: @widgetTextColor;">
+                            @if (LogStopwatch == true) {
+                            <MudTextField @bind-Value="swLog" ReadOnly="true" Variant="Variant.Text" Style="" DisableUnderLine="true" Lines="6" ></MudTextField>
+                            }
+                    </div>
                     }
+                    @if (LogStopwatch == false) {
+                    <div class="stopwatchLog" style="border-color: @widgetColor;"></div>
+                    }
+                    @if (LogStopwatch == false) {
+                        <MudButton OnClick="ToggleLogStopwatch" Style="margin-bottom: 5%; margin-left: 5%; margin-top: 0px; height: 20px; width: 120px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Show Log</MudButton>                    
+                        }
+                        @if (LogStopwatch == true) {
+                        <MudButton OnClick="ToggleLogStopwatch" Style="margin-bottom: 5%; margin-left: 5%; margin-top: 0px; height: 20px; width: 120px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Hide Log</MudButton>                    
+                        <MudButton OnClick="ClearLogStopwatch" Style="margin-bottom: 5%; margin-left: 5%; height: 20px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Clear Log</MudButton>                    
+                        }
                 </div>
             }   
             @if (App_ColorPicker == true)
@@ -1427,11 +1429,11 @@
     private bool App_Stopwatch = false;
     private bool isTiming = false;
     private bool isStopped = true;
+    private bool LogStopwatch = false;
     string displaytimer = "00:00:00";
     int stopwatchStops = 0;
-    string RecentTime1 = "";
-    string RecentTime2 = "";
-    string RecentTime3 = "";
+    string RecentTime = "";
+    string swLog = "";
     TimeSpan TimeFromZero;
     async Task StopwatchTiming() { 
         displaytimer = "00:00:00";
@@ -1450,17 +1452,31 @@
     }
     void StopwatchStop()
     {
-        if (stopwatchStops >= 2) {
-            RecentTime3 = RecentTime2;
-        }
-        if (stopwatchStops >= 1) {
-            RecentTime2 = RecentTime1;
-        }
-        RecentTime1 = TimeFromZero.ToString();
+        RecentTime = TimeFromZero.ToString();
+        AddToLogStopwatch();
         isTiming = false;
         isStopped = true;
 
         stopwatchStops++;
+    }
+    private void AddToLogStopwatch()
+    {
+        swLog = swLog + RecentTime + "\n";
+    }
+    private void ToggleLogStopwatch()
+    {
+        if (LogStopwatch == false)
+        {
+            LogStopwatch = true;
+        }
+        else if (LogStopwatch == true)
+        {
+            LogStopwatch = false;
+        }
+    }
+    private void ClearLogStopwatch()
+    {
+        swLog = "";
     }
     //Color Picker
     private bool App_ColorPicker = false;
