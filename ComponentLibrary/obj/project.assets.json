@@ -8,23 +8,23 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Bossman\\.nuget\\packages\\": {},
+    "C:\\Users\\billz\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\git\\repos\\WebProject\\ComponentLibrary\\ComponentLibrary.csproj",
+      "projectUniqueName": "C:\\Users\\billz\\source\\repos\\WebProject\\ComponentLibrary\\ComponentLibrary.csproj",
       "projectName": "ComponentLibrary",
-      "projectPath": "C:\\git\\repos\\WebProject\\ComponentLibrary\\ComponentLibrary.csproj",
-      "packagesPath": "C:\\Users\\Bossman\\.nuget\\packages\\",
-      "outputPath": "C:\\git\\repos\\WebProject\\ComponentLibrary\\obj\\",
+      "projectPath": "C:\\Users\\billz\\source\\repos\\WebProject\\ComponentLibrary\\ComponentLibrary.csproj",
+      "packagesPath": "C:\\Users\\billz\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\billz\\source\\repos\\WebProject\\ComponentLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Bossman\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\billz\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

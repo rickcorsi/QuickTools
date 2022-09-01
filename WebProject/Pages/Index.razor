@@ -12,6 +12,7 @@
 <style>
     :root {
         --mud-palette-primary: @accentcolor;
+        --mud-palette-appbar-background: @appbarcolor;
         --mud-palette-lines-inputs: @widgetTextColor;
         --mud-palette-secondary: @widgetTextColor;
         --mud-palette-action-default: @widgetTextColor;
@@ -32,7 +33,7 @@
 
 <PageTitle>Index</PageTitle>
 <div>
-    <MudAppBar Color="MudBlazor.Color.Primary" Elevation="1" Dense="true" Class="MudAppBar">
+    <MudAppBar Elevation="1" Dense="true" Class="MudAppBar">
         <MudButton OnClick="tab1" Class="AppBarButton" DisableRipple="true">
             <MudText Style="font-size: 18px;" Color="MudBlazor.Color.Tertiary"> Home </MudText>
         </MudButton> 
@@ -54,7 +55,7 @@
     </MudAppBar>
     @if (home == true)
     {
-        <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 35px;" Elevation="0" Dense="true" Class="MudAppBar">
+        <MudAppBar Style="margin-top: 35px;" Elevation="0" Dense="true" Class="MudAppBar">
             <MudButton OnClick="OpenDialog" Class="AppBarButton" DisableRipple="true">
                 <MudText Class="AppBarButtonText" Style="font-size: 12px; margin-bottom: 10px;" Color="MudBlazor.Color.Tertiary"> Select Widgets </MudText>
             </MudButton>
@@ -62,7 +63,7 @@
     }
     @if (Utilities == true)
     {
-        <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 35px;" Elevation="0" Dense="true" Class="MudAppBar" DisableRipple="true">
+        <MudAppBar Style="margin-top: 35px;" Elevation="0" Dense="true" Class="MudAppBar" DisableRipple="true">
             <MudButton OnClick="Tab_Calculator" Class="AppBarButton" DisableRipple="true">
                 <MudText Class="AppBarButtonText" Style="font-size: 12px; margin-bottom: 10px;" Color="MudBlazor.Color.Tertiary"> Calculator </MudText>
             </MudButton>       
@@ -88,7 +89,7 @@
     }
     @if (Converters == true)
     {
-        <MudAppBar Color="MudBlazor.Color.Primary" Style="margin-top: 35px;" Elevation="0" Dense="true" Class="MudAppBar">
+        <MudAppBar Style="margin-top: 35px;" Elevation="0" Dense="true" Class="MudAppBar">
             <MudButton OnClick="Tab_TemperatureConverter" Class="AppBarButton" DisableRipple="true">
                 <MudText Class="AppBarButtonText" Style="font-size: 12px; margin-bottom: 10px;" Color="MudBlazor.Color.Tertiary"> Temperature Converter </MudText>
             </MudButton> 
@@ -107,19 +108,6 @@
 </div>
 <div class="backScreen" style="background-color: @accentcolor">
     @if (home == true) {
-                    <div style="margin-top: 1500px">
-                    <MudText Class="Text" >widgetOrder[0]: @widgetOrder[0]</MudText>
-                    <MudText Class="Text" >widgetOrder[1]: @widgetOrder[1]</MudText>
-                    <MudText Class="Text" >widgetOrder[2]: @widgetOrder[2]</MudText>
-                    <MudText Class="Text" >widgetOrder[3]: @widgetOrder[3]</MudText>
-                    <MudText Class="Text" >widgetOrder[4]: @widgetOrder[4]</MudText>
-                    <MudText Class="Text" >widgetOrder[5]: @widgetOrder[5]</MudText>
-                    <MudText Class="Text" >widgetOrder[6]: @widgetOrder[6]</MudText>
-                    <MudText Class="Text" >widgetOrder[7]: @widgetOrder[7]</MudText>
-                    <MudText Class="Text" >widgetOrder[8]: @widgetOrder[8]</MudText>
-                    <MudText Class="Text" >widgetOrder[8]: @widgetOrder[9]</MudText>
-                    <MudText Class="Text" >widgetOrder[8]: @widgetOrder[10]</MudText>
-                    </div>
     }
     <div class="@className">
     @if (Converters == true || home == true)
@@ -494,49 +482,57 @@
                             @if (graphTabBars == true)
                             {
                             <div class="InputArea">
-                                <MudButton OnClick="ChangeGraphTab" Style="" >Graph Label Input</MudButton> 
+                                <div style="display: flex; justify-content: space-between;">
+                                    <MudIconButton Disabled="isExpandedGraphBuilder" OnClick="ChangeGraphTab" Icon="@Icons.TwoTone.KeyboardArrowLeft"></MudIconButton>
+                                    <MudText Style="margin-top: 17px">Data Input</MudText>
+                                    <MudIconButton Disabled="!isExpandedGraphBuilder" OnClick="ChangeGraphTab" Icon="@Icons.TwoTone.KeyboardArrowRight"></MudIconButton>
+                                </div>
                                 <div style="display: flex; justify-content: start;">
                                 <MudButton OnClick="BuildGraph" Style="" >Build Graph</MudButton>
                                 </div>
                                 <div style="display: flex; justify-content: start;">
-                                <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBuilderMax" Label="Max Value" Variant="Variant.Outlined"/>
-                                <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphNumberOfBars" Label="# of Bars" Variant="Variant.Outlined" Min="0" Max="6"/>
+                                <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBuilderMax" Label="Max Value" Variant="Variant.Outlined"/>
+                                <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphNumberOfBars" Label="# of Bars" Variant="Variant.Outlined" Min="0" Max="6"/>
                                 </div>
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 1)
                                     {
-                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBar[0]" Label="@GraphBarLabel[0]" Variant="Variant.Outlined" Min="0"/>
+                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBar[0]" Label="@GraphBarLabel[0]" Variant="Variant.Outlined" Min="0"/>
                                     }
                                     @if (GraphNumberOfBars >= 2)
                                     {
-                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBar[1]" Label="@GraphBarLabel[1]" Variant="Variant.Outlined" Min="0"/>
+                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBar[1]" Label="@GraphBarLabel[1]" Variant="Variant.Outlined" Min="0"/>
                                     }
                                 </div>
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 3)
                                     {
-                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBar[2]" Label="@GraphBarLabel[2]" Variant="Variant.Outlined" Min="0"/>
+                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBar[2]" Label="@GraphBarLabel[2]" Variant="Variant.Outlined" Min="0"/>
                                     }
                                     @if (GraphNumberOfBars >= 4)
                                     {
-                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBar[3]" Label="@GraphBarLabel[3]" Variant="Variant.Outlined" Min="0"/>
+                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBar[3]" Label="@GraphBarLabel[3]" Variant="Variant.Outlined" Min="0"/>
                                     }
                                 </div>
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 5)
                                     {
-                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBar[4]" Label="@GraphBarLabel[4]" Variant="Variant.Outlined" Min="0"/>
+                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBar[4]" Label="@GraphBarLabel[4]" Variant="Variant.Outlined" Min="0"/>
                                     }
                                     @if (GraphNumberOfBars >= 6)
                                     {
-                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBar[5]" Label="@GraphBarLabel[5]" Variant="Variant.Outlined" Min="0"/>
+                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBar[5]" Label="@GraphBarLabel[5]" Variant="Variant.Outlined" Min="0"/>
                                     }
                                 </div
                             </div>
                             }
                             @if (graphTabBars == false) {
                             <div class="InputArea">
-                                <MudButton OnClick="ChangeGraphTab" Style="" >Graph Bar Input</MudButton> 
+                                <div style="display: flex; justify-content: space-between;">
+                                    <MudIconButton Disabled="!isExpandedGraphBuilder" OnClick="ChangeGraphTab" Icon="@Icons.TwoTone.KeyboardArrowLeft"></MudIconButton>
+                                    <MudText Style="margin-top: 17px">Label Input</MudText>
+                                    <MudIconButton Disabled="isExpandedGraphBuilder" OnClick="ChangeGraphTab" Icon="@Icons.TwoTone.KeyboardArrowRight"></MudIconButton>
+                                </div>
                                 <div style="display: flex; justify-content: start;">
                                 <MudButton OnClick="BuildGraph" Style="" >Build Graph</MudButton>
                                 </div>
@@ -548,31 +544,31 @@
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 1)
                                     {
-                                    <MudTextField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBarLabel[0]" Label="" Variant="Variant.Outlined"/>
+                                    <MudTextField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBarLabel[0]" Label="" Variant="Variant.Outlined"/>
                                     }
                                     @if (GraphNumberOfBars >= 2)
                                     {
-                                    <MudTextField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBarLabel[1]" Label="" Variant="Variant.Outlined"/>
+                                    <MudTextField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBarLabel[1]" Label="" Variant="Variant.Outlined"/>
                                     }
                                 </div>
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 3)
                                     {
-                                    <MudTextField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBarLabel[2]" Label="" Variant="Variant.Outlined"/>
+                                    <MudTextField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBarLabel[2]" Label="" Variant="Variant.Outlined"/>
                                     }
                                     @if (GraphNumberOfBars >= 4)
                                     {
-                                    <MudTextField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBarLabel[3]" Label="" Variant="Variant.Outlined"/>
+                                    <MudTextField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBarLabel[3]" Label="" Variant="Variant.Outlined"/>
                                     }
                                 </div>
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 5)
                                     {
-                                    <MudTextField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBarLabel[4]" Label="" Variant="Variant.Outlined"/>
+                                    <MudTextField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBarLabel[4]" Label="" Variant="Variant.Outlined"/>
                                     }
                                     @if (GraphNumberOfBars >= 6)
                                     {
-                                    <MudTextField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 5px; width: 140px;" @bind-Value="GraphBarLabel[5]" Label="" Variant="Variant.Outlined"/>
+                                    <MudTextField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBarLabel[5]" Label="" Variant="Variant.Outlined"/>
                                     }
                                 </div
                             </div>
@@ -755,16 +751,10 @@
                         <div style="max-width: 200px;">
                         <MudButton OnClick="SetBackgroundColor" Style="margin-top: 2px; max-width: 200px; max-height: 30px;">Set Background Color</MudButton>
                         <MudButton OnClick="SetAccentColor" Style="margin-top: 2px; max-width: 200px; max-height: 30px;">Set Accent Color</MudButton>
+                        <MudButton OnClick="SetAppBarColor" Style="margin-top: 2px; max-width: 200px; max-height: 30px;">Set AppBar Color</MudButton>
+                        <MudButton OnClick="SetWidgetColor" Style="margin-top: 2px; max-width: 200px; max-height: 30px;">Set Widget Color</MudButton>
                         <MudButton OnClick="SetGraphColor" Style="margin-top: 2px; max-width: 200px; max-height: 30px;">Set Graph Color</MudButton>
                         </div>
-                        <MudMenu @bind-Value="selectedTheme" Label="Select Theme" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft" Dense="true">
-                            <MudMenuItem OnClick='() => SetTheme("Light")'>Light</MudMenuItem>
-                            <MudMenuItem OnClick='() => SetTheme("Dark")'>Dark</MudMenuItem>
-                            <MudMenuItem OnClick='() => SetTheme("High Contrast")'>High Contrast</MudMenuItem>
-                            <MudMenuItem OnClick='() => SetTheme("Low Contrast")'>Low Contrast</MudMenuItem>
-                            <MudMenuItem OnClick='() => SetTheme("Miami Vice")'>Miami Vice</MudMenuItem>
-                            <MudMenuItem OnClick='() => SetTheme("Cyberpunk")'>Cyberpunk</MudMenuItem>
-                        </MudMenu>
                     </div>
                     }
                     </div>
@@ -831,9 +821,6 @@
                         </div>
                         }
                     </div>
-
-
-
 @*                    <MudText Class="Text" Style="margin-top: 40px;" >App_Calculator_Value: @App_Calculator_Value</MudText>
                     <MudText Class="Text" >App_Calculator_Value2: @App_Calculator_Value2</MudText>
                     <MudText Class="Text" >App_Calculator_Display: @App_Calculator_Display</MudText>
@@ -1503,17 +1490,18 @@
     public MudColor textColor = "#ffffff";
     public MudColor backcolor = "#bdcad8";
     public MudColor accentcolor = "#111A28";
+    public MudColor appbarcolor = "#111A28";
     public MudColor graphcolor = "#0476f6";
     public MudColor firstColor = "#0476f6";
     public MudColor secondColor = "#ed0c3d";
     public MudColor _pickerColor = "#0476f6";
     public MudColor widgetTextColor = "#000000";
+    public MudColor widgetColor = "#ffffff";
     string firstColorConverted = "#0476f6";
     string colorValStr = "#######";
     string secondColorConverted = "#ed0c3d";
     string selectedTheme = "Default";
     string fontType = "Roboto";
-    string widgetColor = "#ffffff";
     string colorPickerClass = "MudPaperMediumWidget";
     private void ChangeSelectedColor(MudListItem item)
     {
@@ -1571,16 +1559,34 @@
     private void SetAccentColor()
     {
         accentcolor = _pickerColor;
-        if (accentcolor.L > .45){
-            textColor = "000000";
-        }
-        if (accentcolor.L < .45){
-            textColor = "ffffff";
-        }
     }
     private void SetGraphColor()
     {
         graphcolor = _pickerColor;
+    }
+    private void SetAppBarColor()
+    {
+        appbarcolor = _pickerColor;
+        if (appbarcolor.L > .45){
+            textColor = "000000";
+        }
+        if (appbarcolor.L < .45){
+            textColor = "ffffff";
+        }
+    }
+    private void SetWidgetColor()
+    {
+        widgetColor = _pickerColor;
+        if (widgetColor.L > .45){
+            widgetTextColor = "000000";
+        }
+        if (widgetColor.L < .45){
+            widgetTextColor = "ffffff";
+        }
+    }
+    private void SetWidgetTextColor()
+    {
+        widgetTextColor = _pickerColor;
     }
     private void ExpandColorPicker()
     {
@@ -1601,66 +1607,72 @@
         {
             selectedTheme = _theme;
             backcolor = "#bdcad8";
-            accentcolor = "#121218";
+            appbarcolor = "#121218";
             textColor = "ffffff";
             fontType = "Roboto";
             widgetColor = "#ffffff";
             widgetTextColor = "#000000";
+            accentcolor = "121218";
             _isDarkMode = false;
         }  
         if (_theme == "Dark")
         {
             selectedTheme = _theme;
             backcolor = "#1E1E2D";
-            accentcolor = "#121218";
+            appbarcolor = "#121218";
             textColor = "ffffff";
             fontType = "Roboto";
             widgetColor = "#151521";
             widgetTextColor = "#ffffff";
+            accentcolor = "ffffff";
             _isDarkMode = true;
         }  
         if (_theme == "High Contrast")
         {
             selectedTheme = _theme;
             backcolor = "#000000";
-            accentcolor = "#000000";
+            appbarcolor = "#000000";
             textColor = "ffffff";
             fontType = "Roboto";
             widgetColor = "#ffffff";
-            widgetTextColor = "#000000";
+            widgetTextColor = "#383838";
+            accentcolor = "383838";
             _isDarkMode = false;
         }  
         if (_theme == "Low Contrast")
         {
             selectedTheme = _theme;
             backcolor = "#eff3f3";
-            accentcolor = "#e7eded";
+            appbarcolor = "#e7eded";
             textColor = "000000";
             fontType = "Roboto";
             widgetColor = "#ffffff";
             widgetTextColor = "#000000";
+            accentcolor = "383838";
             _isDarkMode = false;
         }  
         if (_theme == "Miami Vice")
         {
             selectedTheme = _theme;
             backcolor = "#9ef9f9";
-            accentcolor = "#f7a1e9";
+            appbarcolor = "#f7a1e9";
             textColor = "000000";
             fontType = "Broadway";
             widgetColor = "#ffffff";
             widgetTextColor = "#000000";
+            accentcolor = "d1d2d3";
             _isDarkMode = false;
         }  
         if (_theme == "Cyberpunk")
         {
             selectedTheme = _theme;
             backcolor = "#120324";
-            accentcolor = "#020d19";
+            appbarcolor = "#020d19";
             textColor = "ff0586";
             fontType = "Roboto";
             widgetColor = "#340939";
             widgetTextColor = "#ff0586";
+            accentcolor = "51efcb";
             _isDarkMode = true;
         }  
     }
