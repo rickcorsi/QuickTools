@@ -5,160 +5,18 @@
         //Widget Ordering
         int[] widgetOrder = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         int tempOrder = 0;
+        int widgetsOpened = 0;
         private void ReOrderWidgets()
         {
-            int[] ordered = widgetOrder.OrderBy(x => x).ToArray();
-            if (App_Calculator == true)
-            {
-                widgetOrder[0] = widgetOrder[0] - 1;
-            }
-            if (App_Calculator == false)
-            {
-                increaseAllWidgetOrder();
-                widgetOrder[0] = ordered[7] + 1;
-            }
-            if (App_ColorPicker == true)
-            {
-                widgetOrder[1] = widgetOrder[1] - 1;
-            }
-            if (App_ColorPicker == false)
-            {
-                increaseAllWidgetOrder();
-                widgetOrder[1] = ordered[7] + 1;
-            }
-            if (App_Stopwatch == true)
-            {
-                widgetOrder[2] = widgetOrder[2] - 1;
-            }
-            if (App_Stopwatch == false)
-            {
-                increaseAllWidgetOrder();
-                widgetOrder[2] = ordered[7] + 1;
-            }
-            if (App_Timer == true)
-            {
-                widgetOrder[3] = widgetOrder[3] - 1;
-            }
-            if (App_Timer == false)
-            {
-                increaseAllWidgetOrder();
-                widgetOrder[3] = ordered[7] + 1;
-            }
-            if (App_Notes == true)
-            {
-                widgetOrder[4] = widgetOrder[4] - 1;
-            }
-            if (App_Notes == false)
-            {
-                increaseAllWidgetOrder();
-                widgetOrder[4] = ordered[7] + 1;
-            }
-            if (App_Calendar == true)
-            {
-                widgetOrder[5] = widgetOrder[5] - 1;
-            }
-            if (App_Calendar == false)
-            {
-                increaseAllWidgetOrder();
-                widgetOrder[5] = ordered[7] + 1;
-            }
-            if (App_GraphBuilder == true)
-            {
-                widgetOrder[6] = widgetOrder[6] - 1;
-            }
-            if (App_GraphBuilder == false)
-            {
-                increaseAllWidgetOrder();
-                widgetOrder[6] = ordered[7] + 1;
-            }
-            if (App_TemperatureConverter == true)
-            {
-                widgetOrder[7] = widgetOrder[7] - 1;
-            }
-            if (App_TemperatureConverter == false)
-            {
-                increaseAllWidgetOrder();
-                widgetOrder[7] = ordered[7] + 1;
-            }
-            if (App_VolumeConverter == true)
-            {
-                widgetOrder[8] = widgetOrder[8] - 1;
-            }
-            if (App_VolumeConverter == false)
-            {
-                increaseAllWidgetOrder();
-                widgetOrder[8] = ordered[7] + 1;
-            }
-            if (App_LengthConverter == true)
-            {
-                widgetOrder[9] = widgetOrder[9] - 1;
-            }
-            if (App_LengthConverter == false)
-            {
-                increaseAllWidgetOrder();
-                widgetOrder[9] = ordered[7] + 1;
-            }
-            if (App_MassConverter == true)
-            {
-                widgetOrder[10] = widgetOrder[10] - 1;
-            }
-            if (App_MassConverter == false)
-            {
-                increaseAllWidgetOrder();
-                widgetOrder[10] = ordered[7] + 1;
-            }
         }
         private void increaseAllWidgetOrder()
         {
-            widgetOrder[0] = widgetOrder[0] - 1;
-            widgetOrder[1] = widgetOrder[1] - 1;
-            widgetOrder[2] = widgetOrder[2] - 1;
-            widgetOrder[3] = widgetOrder[3] - 1;
-            widgetOrder[4] = widgetOrder[4] - 1;
-            widgetOrder[5] = widgetOrder[5] - 1;
-            widgetOrder[6] = widgetOrder[6] - 1;
-            widgetOrder[7] = widgetOrder[7] - 1;
-            widgetOrder[8] = widgetOrder[8] - 1;
-            widgetOrder[9] = widgetOrder[9] - 1;
-            widgetOrder[10] = widgetOrder[10] - 1;
-        }
+        }   
         private void MoveUp(string WidgetValue)
         {
-            int val = Int32.Parse(WidgetValue);
-            int[] ordered = widgetOrder.OrderBy(x => x).ToArray();
-            if (ordered[0] != widgetOrder[val])
-            {
-                for (int i = 0; i < 11; i++)
-                {
-                    if (i != val)
-                    {
-                        widgetOrder[i] = widgetOrder[i] + 1;
-                    }
-                    else
-                    {
-                        widgetOrder[val] = widgetOrder[val] - 1;
-                    }
-                }
-            }
         }
         private void MoveDown(string WidgetValue)
         {
-            int val = Int32.Parse(WidgetValue);
-            int[] ordered = widgetOrder.OrderBy(x => x).ToArray();
-            if (ordered[9] != widgetOrder[val])
-            {
-                for (int i = 0; i < 11; i++)
-                {
-                    if (i != val)
-                    {
-                        widgetOrder[i] = widgetOrder[i] - 1;
-                    }
-                    else
-                    {
-                        widgetOrder[val] = widgetOrder[val] + 1;
-                    }
-                }
-            }
         }
         //Tab Controls
         private bool home = true;
@@ -281,6 +139,7 @@
                 widgetOrder[9] = 10;
                 widgetOrder[10] = 11;
             }
+            widgetsOpened = 11;
             App_Calculator = true;
             App_TemperatureConverter = true;
             App_VolumeConverter = true;
@@ -292,6 +151,61 @@
             App_MassConverter = true;
             App_Calendar = true;
             App_GraphBuilder = true;
+        }
+        private void CloseMassConverter()
+        {
+            App_MassConverter = false;
+            widgetsOpened = widgetsOpened - 1;
+        }
+        private void CloseLengthConverter()
+        {
+            App_LengthConverter = false;
+            widgetsOpened = widgetsOpened - 1;
+        }
+        private void CloseTemperatureConverter()
+        {
+            App_TemperatureConverter = false;
+            widgetsOpened = widgetsOpened - 1;
+        }
+        private void CloseVolumeConverter()
+        {
+            App_VolumeConverter = false;
+            widgetsOpened = widgetsOpened - 1;
+        }
+        private void CloseGraphBuilder()
+        {
+            App_GraphBuilder = false;
+            widgetsOpened = widgetsOpened - 1;
+        }
+        private void CloseCalendar()
+        {
+            App_Calendar = false;
+            widgetsOpened = widgetsOpened - 1;
+        }
+        private void CloseNotes()
+        {
+            App_Notes = false;
+            widgetsOpened = widgetsOpened - 1;
+        }
+        private void CloseTimer()
+        {
+            App_Timer = false;
+            widgetsOpened = widgetsOpened - 1;
+        }
+        private void CloseStopwatch()
+        {
+            App_Stopwatch = false;
+            widgetsOpened = widgetsOpened - 1;
+        }
+        private void CloseColerPicker()
+        {
+            App_ColorPicker = false;
+            widgetsOpened = widgetsOpened - 1;
+        }
+        private void CloseCalculator()
+        {
+            App_Calculator = false;
+            widgetsOpened = widgetsOpened - 1;
         }
     }
 }

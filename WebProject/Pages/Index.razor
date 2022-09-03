@@ -31,7 +31,7 @@
 </style>
 
 
-<PageTitle>Index</PageTitle>
+<PageTitle>QuickTools</PageTitle>
 <div>
     <MudAppBar Elevation="1" Dense="true" Class="MudAppBar">
         <MudButton OnClick="tab1" Class="AppBarButton" DisableRipple="true">
@@ -43,6 +43,7 @@
         <MudButton OnClick="tab3" Class="AppBarButton" DisableRipple="true">
             <MudText Style="font-size: 18px;" Color="MudBlazor.Color.Tertiary"> Converters </MudText>
         </MudButton>
+                            <MudText Class="Text" Style="margin-top: 4px;" >widgetsOpened: @widgetsOpened</MudText>
         <MudSpacer />
         <MudMenu @bind-Value="selectedTheme" Variant="Variant.Outlined" Style="height: 20px;" Color="MudBlazor.Color.Tertiary" Label="Select Theme" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft" Dense="true">
             <MudMenuItem OnClick='() => SetTheme("Light")'>Light</MudMenuItem>
@@ -51,6 +52,9 @@
             <MudMenuItem OnClick='() => SetTheme("Low Contrast")'>Low Contrast</MudMenuItem>
             <MudMenuItem OnClick='() => SetTheme("Miami Vice")'>Miami Vice</MudMenuItem>
             <MudMenuItem OnClick='() => SetTheme("Cyberpunk")'>Cyberpunk</MudMenuItem>
+            @if (customThemeSpawned == true) {
+            <MudMenuItem OnClick='() => SetTheme("Custom Theme")'>Custom Theme</MudMenuItem>
+            }
         </MudMenu>
     </MudAppBar>
     @if (home == true)
@@ -123,7 +127,7 @@
                             <div style="margin: 1%;">
                             <MudIconButton OnClick='() => MoveUp("10")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
                             <MudIconButton OnClick='() => MoveDown("10")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
-                            <MudIconButton OnClick='() => App_MassConverter = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            <MudIconButton OnClick="CloseMassConverter" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                             </div>
                         }    
                     </div>
@@ -183,8 +187,8 @@
                         {
                             <div style="margin: 1%;">
                             <MudIconButton OnClick='() => MoveUp("9")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
-                            <MudIconButton OOnClick='() => MoveDown("9")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
-                            <MudIconButton OnClick='() => App_LengthConverter = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            <MudIconButton OnClick='() => MoveDown("9")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
+                            <MudIconButton OnClick="CloseLengthConverter" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                             </div>
                         }    
                     </div>             
@@ -245,7 +249,7 @@
                             <div style="margin: 1%;">
                             <MudIconButton OnClick='() => MoveUp("8")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
                             <MudIconButton OnClick='() => MoveDown("8")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
-                            <MudIconButton OnClick='() => App_VolumeConverter = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            <MudIconButton OnClick="CloseVolumeConverter" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                             </div>
                         }    
                     </div>
@@ -306,7 +310,7 @@
                             <div style="margin: 1%;">
                             <MudIconButton OnClick='() => MoveUp("7")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
                             <MudIconButton OnClick='() => MoveDown("7")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
-                            <MudIconButton OnClick='() => App_TemperatureConverter = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            <MudIconButton OnClick="CloseTemperatureConverter" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                             </div>
                         }    
                     </div>                  
@@ -372,7 +376,7 @@
                             {
                                 <MudIconButton OnClick='() => MoveUp("6")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
                                 <MudIconButton OnClick='() => MoveDown("6")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
-                                <MudIconButton OnClick='() => App_GraphBuilder = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                                <MudIconButton OnClick="CloseGraphBuilder" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                             }  
                         </div>
                     </div>
@@ -588,7 +592,7 @@
                             <div style="margin: 1%;">
                             <MudIconButton OnClick='() => MoveUp("5")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
                             <MudIconButton OnClick='() => MoveDown("5")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
-                            <MudIconButton OnClick='() => App_Calendar = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            <MudIconButton OnClick="CloseCalendar" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                             </div>
                         }    
                     </div>
@@ -622,7 +626,7 @@
                             {
                                 <MudIconButton OnClick='() => MoveUp("4")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
                                 <MudIconButton OnClick='() => MoveDown("4")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
-                                <MudIconButton OnClick='() => App_Notes = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                                <MudIconButton OnClick="CloseNotes" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                             
                             }   
                         </div>
@@ -643,7 +647,7 @@
                             <div style="margin: 1%;">
                             <MudIconButton OnClick='() => MoveUp("3")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
                             <MudIconButton OnClick='() => MoveDown("3")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
-                            <MudIconButton OnClick='() => App_Timer = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            <MudIconButton OnClick="CloseTimer" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                             </div>
                         }    
                     </div>
@@ -678,7 +682,7 @@
                             <div style="margin: 1%;">
                             <MudIconButton OnClick='() => MoveUp("2")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
                             <MudIconButton OnClick='() => MoveDown("2")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
-                            <MudIconButton OnClick='() => App_Stopwatch = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            <MudIconButton OnClick="CloseStopwatch" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                             </div>
                         }    
                     </div> 
@@ -727,7 +731,7 @@
                         {
                             <MudIconButton OnClick='() => MoveUp("1")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
                             <MudIconButton OnClick='() => MoveDown("1")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
-                            <MudIconButton OnClick='() => App_ColorPicker = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>                            
+                            <MudIconButton OnClick="CloseColerPicker" Icon="@Icons.Material.Filled.Close"></MudIconButton>                            
                         }   
                         </div>
                     </div> 
@@ -779,7 +783,7 @@
                         {
                             <MudIconButton OnClick='() => MoveUp("0")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
                             <MudIconButton OnClick='() => MoveDown("0")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
-                            <MudIconButton OnClick='() => App_Calculator = false' Icon="@Icons.Material.Filled.Close"></MudIconButton>                            
+                            <MudIconButton OnClick="CloseCalculator" Icon="@Icons.Material.Filled.Close"></MudIconButton>                            
                         }   
                         </div>
                     </div> 
@@ -821,15 +825,6 @@
                         </div>
                         }
                     </div>
-@*                    <MudText Class="Text" Style="margin-top: 40px;" >App_Calculator_Value: @App_Calculator_Value</MudText>
-                    <MudText Class="Text" >App_Calculator_Value2: @App_Calculator_Value2</MudText>
-                    <MudText Class="Text" >App_Calculator_Display: @App_Calculator_Display</MudText>
-                    <MudText Class="Text" >App_Calculator_FirstNumber: @App_Calculator_FirstNumber</MudText>
-                    <MudText Class="Text" >App_Calculator_SecondNumber: @App_Calculator_SecondNumber</MudText>
-                    <MudText Class="Text" >App_Calculator_Mode: @App_Calculator_Mode</MudText>
-                    <MudText Class="Text" >negateTemp: @negateTemp</MudText>
-                    <MudText Class="Text" >secondNumberLength: @App_Calculator_SecondNumber.Length</MudText>
-                    <MudText Class="Text" >buttonValue: @buttonValue</MudText>*@
                 </div>
             }
     }
@@ -1486,6 +1481,7 @@
     private bool isFirstColor = true;
     private bool isExpandedColorPicker = false;
     private bool _isDarkMode = false;
+    private bool customThemeSpawned = false;
     private MudTheme _theme = new();
     public MudColor textColor = "#ffffff";
     public MudColor backcolor = "#bdcad8";
@@ -1503,6 +1499,12 @@
     string selectedTheme = "Default";
     string fontType = "Roboto";
     string colorPickerClass = "MudPaperMediumWidget";
+    public MudColor customBackColor = "ffffff";
+    public MudColor customAppBarColor = "ffffff";
+    public MudColor customTextColor = "ffffff";
+    public MudColor customWidgetColor = "ffffff";
+    public MudColor customWidgetTextColor = "ffffff";
+    public MudColor customAccentColor = "ffffff";
     private void ChangeSelectedColor(MudListItem item)
     {
         if (isFirstColor == true)
@@ -1554,18 +1556,38 @@
     }
     private void SetBackgroundColor()
     {
+        if (customThemeSpawned == true)
+        {
+            SetTheme("Custom Theme");
+        }
         backcolor = _pickerColor;
+        customThemeSpawned = true;
+        customBackColor = backcolor;
     }
     private void SetAccentColor()
     {
+        if (customThemeSpawned == true)
+        {
+            SetTheme("Custom Theme");
+        }
         accentcolor = _pickerColor;
+        customThemeSpawned = true;
+        customAccentColor = accentcolor;
     }
     private void SetGraphColor()
     {
+        if (customThemeSpawned == true)
+        {
+            SetTheme("Custom Theme");
+        }
         graphcolor = _pickerColor;
     }
     private void SetAppBarColor()
     {
+        if (customThemeSpawned == true)
+        {
+            SetTheme("Custom Theme");
+        }
         appbarcolor = _pickerColor;
         if (appbarcolor.L > .45){
             textColor = "000000";
@@ -1573,6 +1595,8 @@
         if (appbarcolor.L < .45){
             textColor = "ffffff";
         }
+        customThemeSpawned = true;
+        customAppBarColor = appbarcolor;
     }
     private void SetWidgetColor()
     {
@@ -1583,6 +1607,8 @@
         if (widgetColor.L < .45){
             widgetTextColor = "ffffff";
         }
+        customThemeSpawned = true;
+        customWidgetColor = widgetColor;
     }
     private void SetWidgetTextColor()
     {
@@ -1675,6 +1701,27 @@
             accentcolor = "51efcb";
             _isDarkMode = true;
         }  
+        if (_theme == "Custom Theme")
+        {
+            selectedTheme = _theme;
+            backcolor = customBackColor;
+            appbarcolor = customAppBarColor;
+            fontType = "Roboto";
+            widgetColor = customWidgetColor;
+            accentcolor = customAccentColor;
+            if (appbarcolor.L > .45){
+            textColor = "000000";
+            }
+            if (appbarcolor.L < .45){
+                textColor = "ffffff";
+            }
+            if (widgetColor.L > .45){
+            widgetTextColor = "000000";
+            }
+            if (widgetColor.L < .45){
+                widgetTextColor = "ffffff";
+            }
+        }
     }
     //Notes
     private bool App_Notes = false;

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebProject", "WebProject\WebProject.csproj", "{BF5268A2-E200-46EC-B297-6240B5D7B352}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentLibrary", "ComponentLibrary\ComponentLibrary.csproj", "{281BCF02-E0B4-481E-8951-D352DF848E2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComponentLibrary", "ComponentLibrary\ComponentLibrary.csproj", "{281BCF02-E0B4-481E-8951-D352DF848E2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
