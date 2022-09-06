@@ -32,6 +32,10 @@
 
 
 <PageTitle>QuickTools</PageTitle>
+@if (@isTiming == true)
+{
+    <PageTitle>QuickTools | @displaytimer</PageTitle>
+}
 <div>
     <MudAppBar Elevation="1" Dense="true" Class="MudAppBar">
         <MudButton OnClick="tab1" Class="AppBarButton" DisableRipple="true">
