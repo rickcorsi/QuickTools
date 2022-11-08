@@ -55,7 +55,6 @@
         <MudButton OnClick="tab3" Class="AppBarButton" DisableRipple="true">
             <MudText Style="font-size: 18px;" Color="MudBlazor.Color.Tertiary"> Converters </MudText>
         </MudButton>
-                            <MudText Class="Text" Style="margin-top: 4px;" >widgetsOpened: @widgetsOpened</MudText>
         <MudSpacer />
         <MudMenu @bind-Value="selectedTheme" Variant="Variant.Outlined" Style="height: 20px;" Color="MudBlazor.Color.Tertiary" Label="Select Theme" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft" Dense="true">
             <MudMenuItem OnClick='() => SetTheme("Light")'>Light</MudMenuItem>
@@ -139,8 +138,6 @@
                             @if (home == true)
                             {
                                 <div style="margin: 1%;">
-                                    <MudIconButton OnClick='() => MoveUp("10")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
-                                    <MudIconButton OnClick='() => MoveDown("10")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
                                     <MudIconButton OnClick="CloseMassConverter" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                                 </div>
                             }    
@@ -208,8 +205,6 @@
                             @if (home == true)
                             {
                                 <div style="margin: 1%;">
-                                    <MudIconButton OnClick='() => MoveUp("9")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
-                                    <MudIconButton OnClick='() => MoveDown("9")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
                                     <MudIconButton OnClick="CloseLengthConverter" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                                 </div>
                             }    
@@ -277,8 +272,6 @@
                         @if (home == true)
                         {
                             <div style="margin: 1%;">
-                            <MudIconButton OnClick='() => MoveUp("8")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
-                            <MudIconButton OnClick='() => MoveDown("8")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
                             <MudIconButton OnClick="CloseVolumeConverter" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                             </div>
                         }    
@@ -341,8 +334,6 @@
                         @if (home == true)
                         {
                             <div style="margin: 1%;">
-                            <MudIconButton OnClick='() => MoveUp("7")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
-                            <MudIconButton OnClick='() => MoveDown("7")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
                             <MudIconButton OnClick="CloseTemperatureConverter" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                             </div>
                         }    
@@ -410,8 +401,6 @@
                             }
                             @if (home == true)
                             {
-                                <MudIconButton OnClick='() => MoveUp("6")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
-                                <MudIconButton OnClick='() => MoveDown("6")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
                                 <MudIconButton OnClick="CloseGraphBuilder" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                             }  
                         </div>
@@ -629,8 +618,6 @@
                             @if (home == true)
                             {
                                 <div style="margin: 1%;">
-                                    <MudIconButton OnClick='() => MoveUp("5")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
-                                    <MudIconButton OnClick='() => MoveDown("5")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
                                     <MudIconButton OnClick="CloseCalendar" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                                 </div>
                             }    
@@ -667,8 +654,6 @@
                                 }
                                 @if (home == true)
                                 {
-                                    <MudIconButton OnClick='() => MoveUp("4")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
-                                    <MudIconButton OnClick='() => MoveDown("4")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
                                     <MudIconButton OnClick="CloseNotes" Icon="@Icons.Material.Filled.Close"></MudIconButton>
 
                                 }   
@@ -691,11 +676,9 @@
                             @if (home == true)
                             {
                                 <div style="margin: 1%;">
-                                    <MudIconButton OnClick='() => MoveUp("3")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
-                            <MudIconButton OnClick='() => MoveDown("3")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
-                            <MudIconButton OnClick="CloseTimer" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                            </div>
-                        }    
+                                <MudIconButton OnClick="CloseTimer" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                                </div>
+                            }    
                     </div>
                     <div style="display: flex; justify-content: center;">
                         <MudText Color="@MudBlazor.Color.Secondary" Style="@($"font-family:{fontType}; font-size: 36px;")">@displaytimer_Timer</MudText>
@@ -729,8 +712,6 @@
                             @if (home == true)
                             {
                                 <div style="margin: 1%;">
-                                    <MudIconButton OnClick='() => MoveUp("2")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
-                                    <MudIconButton OnClick='() => MoveDown("2")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
                                     <MudIconButton OnClick="CloseStopwatch" Icon="@Icons.Material.Filled.Close"></MudIconButton>
                                 </div>
                             }    
@@ -786,8 +767,6 @@
                         }
                         @if (home == true)
                         {
-                            <MudIconButton OnClick='() => MoveUp("1")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
-                            <MudIconButton OnClick='() => MoveDown("1")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
                             <MudIconButton OnClick="CloseColerPicker" Icon="@Icons.Material.Filled.Close"></MudIconButton>                            
                         }   
                         </div>
@@ -841,8 +820,6 @@
                         }
                         @if (home == true)
                         {
-                            <MudIconButton OnClick='() => MoveUp("0")' Icon="@Icons.TwoTone.KeyboardArrowUp"></MudIconButton>
-                            <MudIconButton OnClick='() => MoveDown("0")' Icon="@Icons.TwoTone.KeyboardArrowDown"></MudIconButton>
                             <MudIconButton OnClick="CloseCalculator" Icon="@Icons.Material.Filled.Close"></MudIconButton>                            
                         }   
                         </div>
@@ -891,6 +868,7 @@
     }
     </div>
 </div>
+>
 <MudDialog @bind-IsVisible="visible" OnBackdropClick="CountOpenWidgets" Options="dialogOptions">
     <TitleContent>
         Select Widgets
@@ -941,6 +919,7 @@
         CountOpenWidgets();
     }
     private DialogOptions dialogOptions = new() { FullWidth = true };
+
     string className = "MultipleWidgetsDiv";
     //Apps
     //Calculator
