@@ -291,7 +291,6 @@
             if (MassConverterIsOpen == false)
             {
                 MassConverterIsOpen = true;
-                widgetsOpened = widgetsOpened + 1;
             }
         }
         private void OpenLengthConverter()
@@ -299,7 +298,6 @@
             if (LengthConverterIsOpen == false)
             {
                 LengthConverterIsOpen = true;
-                widgetsOpened = widgetsOpened + 1;
             }
         }
         private void OpenTemperatureConverter()
@@ -307,7 +305,6 @@
             if (TemperatureConverterIsOpen == false)
             {
                 TemperatureConverterIsOpen = true;
-                widgetsOpened = widgetsOpened + 1;
             }
         }
         private void OpenVolumeConverter()
@@ -315,7 +312,6 @@
             if (VolumeConverterIsOpen == false)
             {
                 VolumeConverterIsOpen = true;
-                widgetsOpened = widgetsOpened + 1;
             }
         }
         private void OpenGraphBuilder()
@@ -323,7 +319,6 @@
             if (GraphBuilderIsOpen == false)
             {
                 GraphBuilderIsOpen = true;
-                widgetsOpened = widgetsOpened + 1;
             }
         }
         private void OpenCalendar()
@@ -331,7 +326,6 @@
             if (CalendarIsOpen == false)
             {
                 CalendarIsOpen = true;
-                widgetsOpened = widgetsOpened + 1;
             }
         }
         private void OpenNotes()
@@ -339,7 +333,6 @@
             if (NotesIsOpen == false)
             {
                 NotesIsOpen = true;
-                widgetsOpened = widgetsOpened + 1;
             }
         }
         private void OpenTimer()
@@ -347,7 +340,6 @@
             if (TimerIsOpen == false)
             {
                 TimerIsOpen = true;
-                widgetsOpened = widgetsOpened + 1;
             }
         }
         private void OpenStopwatch()
@@ -355,7 +347,6 @@
             if (StopwatchIsOpen == false)
             {
                 StopwatchIsOpen = true;
-                widgetsOpened = widgetsOpened + 1;
             }
         }
         private void OpenColerPicker()
@@ -363,7 +354,6 @@
             if (ColorPickerIsOpen == false)
             {
                 ColorPickerIsOpen = true;
-                widgetsOpened = widgetsOpened + 1;
             }
         }
         private void OpenCalculator()
@@ -371,7 +361,6 @@
             if (CalculatorIsOpen == false)
             {
                 CalculatorIsOpen = true;
-                widgetsOpened = widgetsOpened + 1;
             }
         }
     }
