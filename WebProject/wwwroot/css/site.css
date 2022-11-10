@@ -131,8 +131,17 @@
     border-radius: 7px;
     margin: 7px;
     border-style: solid;
-    border-width: 2px;
-    border-color: #eaebeb;
+    border-width: .5px;
+    border-color: #000000;
+}
+.colorPreviewActive {
+    min-width: 125px;
+    min-height: 25px;
+    border-radius: 7px;
+    margin: 7px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #000000;
 }
 .timerField {
     max-width: 80px;
@@ -265,4 +274,27 @@
     padding-left: 15px;
     padding-right: 15px;
     border: 1px solid;
+}
+.customizeTheme {
+    margin: 5px;
+    padding: 5px;
+    width: 290px;
+    height: 155px;
+    border: 1px solid;
+    border-radius: 7px;
+}
+.colorPreviewSmall {
+    min-width: 25px;
+    min-height: 25px;
+    max-width: 25px;
+    max-height: 25px;
+    border: 1px solid;
+}
+.recentColors {
+    justify-content: start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 202px;
+    height: 100px;
 }
