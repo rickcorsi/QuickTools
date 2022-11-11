@@ -2,10 +2,14 @@
 @using System.Drawing;
 @using System.Timers;
 @using System.Threading.Tasks;
+@using Microsoft.AspNetCore.Mvc.ViewFeatures
 @using MudBlazor.Utilities;
 @using System.Linq;
 @using System.Text.RegularExpressions;
 @using System.Collections.Generic;
+@using System.ComponentModel;
+@using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage
+@inject ProtectedLocalStorage BrowserStorage
 @inject IDialogService DialogService
 <MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="_theme"/>
 
@@ -56,14 +60,37 @@
         </MudButton>
         <MudSpacer />
         <MudMenu @bind-Value="selectedTheme" Variant="Variant.Outlined" Style="height: 20px;" Color="MudBlazor.Color.Tertiary" Label="Select Theme" AnchorOrigin="Origin.BottomLeft" TransformOrigin="Origin.TopLeft" Dense="true">
-            <MudMenuItem OnClick='() => SetTheme("Light")'>Light</MudMenuItem>
-            <MudMenuItem OnClick='() => SetTheme("Dark")'>Dark</MudMenuItem>
-            <MudMenuItem OnClick='() => SetTheme("High Contrast")'>High Contrast</MudMenuItem>
-            <MudMenuItem OnClick='() => SetTheme("Low Contrast")'>Low Contrast</MudMenuItem>
-            <MudMenuItem OnClick='() => SetTheme("Miami Vice")'>Miami Vice</MudMenuItem>
-            <MudMenuItem OnClick='() => SetTheme("Cyberpunk")'>Cyberpunk</MudMenuItem>
+            <MudMenuItem Style="width: 140px;" OnClick='() => SetTheme("Light")'>
+            @if (@theme1 == true) {
+                <MudIcon Icon="@Icons.Filled.CheckBox"/>
+            }
+            Light
+            </MudMenuItem>
+            <MudMenuItem OnClick='() => SetTheme("Dark")'>
+            @if (@theme2 == true) {
+                <MudIcon Icon="@Icons.Filled.CheckBox"/>
+            }
+            Dark
+            </MudMenuItem>
+            <MudMenuItem OnClick='() => SetTheme("Miami Vice")'>
+            @if (@theme3 == true) {
+                <MudIcon Icon="@Icons.Filled.CheckBox"/>
+            }
+            Miami Vice
+            </MudMenuItem>
+            <MudMenuItem OnClick='() => SetTheme("Cyberpunk")'>
+            @if (@theme4 == true) {
+                <MudIcon Icon="@Icons.Filled.CheckBox"/>
+            }
+            Cyberpunk
+            </MudMenuItem>
             @if (customThemeCreated == true) {
-            <MudMenuItem OnClick='() => SetTheme("Custom Theme")'>Custom Theme</MudMenuItem>
+                <MudMenuItem OnClick='() => SetTheme("Custom Theme")'>
+                @if (@theme5 == true) {
+                    <MudIcon Icon="@Icons.Filled.CheckBox"/>
+                }
+                Custom Theme
+            </MudMenuItem>
             }
         </MudMenu>
     </MudAppBar>
@@ -783,7 +810,7 @@
                             }
                         </MudListItem>
                         <MudTextField @bind-Value="firstColorConverted" Style="margin-right: 7px; margin-bottom: 7px; max-width: 205px" Adornment="Adornment.End" AdornmentIcon="@Icons.Outlined.ChangeCircle" OnAdornmentClick="HEXColorEntered" ReadOnly="false" Variant="Variant.Outlined"/>
-                        <MudListItem Style="max-width: 205px" OnClick="secondColorTrue">
+@*                        <MudListItem Style="max-width: 205px" OnClick="secondColorTrue">
                             @if (isSecondColor) {
                             <div class="colorPreviewActive" style="@($"background-color:{secondColor};")"></div>
                             }
@@ -792,7 +819,50 @@
                             }
                         </MudListItem>
                         <MudTextField @bind-Value="secondColorConverted" Style="margin-right: 7px; max-width: 205px;" Adornment="Adornment.End" AdornmentIcon="@Icons.Outlined.ChangeCircle" OnAdornmentClick="HEXColorEntered" ReadOnly="false" Variant="Variant.Outlined"/>
-                    </MudList>
+*@                    </MudList>
+                            <MudText Style="margin-top: 15px;">Recent Colors</MudText>
+                            <div class="recentColors">         
+                                <button @onclick="() => setPickedColor(0)" class="colorPreviewSmall" style="background-color: @recentColor[0]"></button>
+                                <button @onclick="() => setPickedColor(1)" class="colorPreviewSmall" style="background-color: @recentColor[1]"></button>
+                                <button @onclick="() => setPickedColor(2)" class="colorPreviewSmall" style="background-color: @recentColor[2]"></button>
+                                <button @onclick="() => setPickedColor(3)" class="colorPreviewSmall" style="background-color: @recentColor[3]"></button>
+                                <button @onclick="() => setPickedColor(4)" class="colorPreviewSmall" style="background-color: @recentColor[4]"></button>
+                                <button @onclick="() => setPickedColor(5)" class="colorPreviewSmall" style="background-color: @recentColor[5]"></button>
+                                <button @onclick="() => setPickedColor(6)" class="colorPreviewSmall" style="background-color: @recentColor[6]"></button>
+                                <button @onclick="() => setPickedColor(7)" class="colorPreviewSmall" style="background-color: @recentColor[7]"></button>
+                                <button @onclick="() => setPickedColor(8)" class="colorPreviewSmall" style="background-color: @recentColor[8]"></button>
+                                <button @onclick="() => setPickedColor(9)" class="colorPreviewSmall" style="background-color: @recentColor[9]"></button>
+                                <button @onclick="() => setPickedColor(10)" class="colorPreviewSmall" style="background-color: @recentColor[10]"></button>
+                                <button @onclick="() => setPickedColor(11)" class="colorPreviewSmall" style="background-color: @recentColor[11]"></button>
+                                <button @onclick="() => setPickedColor(12)" class="colorPreviewSmall" style="background-color: @recentColor[12]"></button>
+                                <button @onclick="() => setPickedColor(13)" class="colorPreviewSmall" style="background-color: @recentColor[13]"></button>
+                                <button @onclick="() => setPickedColor(14)" class="colorPreviewSmall" style="background-color: @recentColor[14]"></button>
+                                <button @onclick="() => setPickedColor(15)" class="colorPreviewSmall" style="background-color: @recentColor[15]"></button>
+                                <button @onclick="() => setPickedColor(16)" class="colorPreviewSmall" style="background-color: @recentColor[16]"></button>
+                                <button @onclick="() => setPickedColor(17)" class="colorPreviewSmall" style="background-color: @recentColor[17]"></button>
+                                <button @onclick="() => setPickedColor(18)" class="colorPreviewSmall" style="background-color: @recentColor[18]"></button>
+                                <button @onclick="() => setPickedColor(19)" class="colorPreviewSmall" style="background-color: @recentColor[19]"></button>
+                                <button @onclick="() => setPickedColor(20)" class="colorPreviewSmall" style="background-color: @recentColor[20]"></button>
+                                <button @onclick="() => setPickedColor(21)" class="colorPreviewSmall" style="background-color: @recentColor[21]"></button>
+                                <button @onclick="() => setPickedColor(22)" class="colorPreviewSmall" style="background-color: @recentColor[22]"></button>
+                                <button @onclick="() => setPickedColor(23)" class="colorPreviewSmall" style="background-color: @recentColor[23]"></button>
+                                <button @onclick="() => setPickedColor(24)" class="colorPreviewSmall" style="background-color: @recentColor[24]"></button>
+                                <button @onclick="() => setPickedColor(25)" class="colorPreviewSmall" style="background-color: @recentColor[25]"></button>
+                                <button @onclick="() => setPickedColor(26)" class="colorPreviewSmall" style="background-color: @recentColor[26]"></button>
+                                <button @onclick="() => setPickedColor(27)" class="colorPreviewSmall" style="background-color: @recentColor[27]"></button>
+                                <button @onclick="() => setPickedColor(28)" class="colorPreviewSmall" style="background-color: @recentColor[28]"></button>
+                                <button @onclick="() => setPickedColor(29)" class="colorPreviewSmall" style="background-color: @recentColor[29]"></button>
+                                <button @onclick="() => setPickedColor(30)" class="colorPreviewSmall" style="background-color: @recentColor[30]"></button>
+                                <button @onclick="() => setPickedColor(31)" class="colorPreviewSmall" style="background-color: @recentColor[31]"></button>     
+                                <button @onclick="() => setPickedColor(32)" class="colorPreviewSmall" style="background-color: @recentColor[32]"></button>
+                                <button @onclick="() => setPickedColor(33)" class="colorPreviewSmall" style="background-color: @recentColor[33]"></button>
+                                <button @onclick="() => setPickedColor(34)" class="colorPreviewSmall" style="background-color: @recentColor[34]"></button>
+                                <button @onclick="() => setPickedColor(35)" class="colorPreviewSmall" style="background-color: @recentColor[35]"></button>
+                                <button @onclick="() => setPickedColor(36)" class="colorPreviewSmall" style="background-color: @recentColor[36]"></button>
+                                <button @onclick="() => setPickedColor(37)" class="colorPreviewSmall" style="background-color: @recentColor[37]"></button>
+                                <button @onclick="() => setPickedColor(38)" class="colorPreviewSmall" style="background-color: @recentColor[38]"></button>
+                                <button @onclick="() => setPickedColor(39)" class="colorPreviewSmall" style="background-color: @recentColor[39]"></button>   
+                            </div>
                     </div>
                     @if (isExpandedColorPicker == true)
                     {
@@ -822,42 +892,6 @@
                                     <div class="colorPreviewSmall" style="background-color: @customTextColor"></div>
                                 </div>
                                 *@
-                            </div>
-                            <MudText>Recent Colors</MudText>
-                            <div class="recentColors">
-                                
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[0]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[1]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[2]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[3]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[4]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[5]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[6]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[7]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[8]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[9]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[10]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[11]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[12]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[13]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[14]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[15]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[16]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[17]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[18]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[19]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[20]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[21]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[22]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[23]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[24]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[25]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[26]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[27]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[28]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[29]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[30]"></button>
-                                <button class="colorPreviewSmall" style="background-color: @recentColor[31]"></button>     
                             </div>
                         </div>
                     </div>
@@ -975,6 +1009,15 @@
 </MudMessageBox>
 
 @code {
+
+    //protected override async Task OnAfterRenderAsync(bool firstRender)
+    //{
+    //    if (firstRender)
+    //    {
+    //        await Read();
+    //        StateHasChanged();
+    //    }
+    //}
     private bool visible;
     private void OpenDialog() {
         visible = true;
@@ -1595,30 +1638,38 @@
     private bool isExpandedColorPicker = false;
     private bool _isDarkMode = false;
     private bool customThemeCreated = false;
+    private bool theme1 = true;
+    private bool theme2 = false;
+    private bool theme3 = false;
+    private bool theme4 = false;
+    private bool theme5 = false;
     private MudTheme _theme = new();
     public MudColor textColor = "#ffffff";
     public MudColor backcolor = "#bdcad8";
     public MudColor accentcolor = "#111A28";
-    public MudColor appbarcolor = "#111A28";
+    public MudColor appbarcolor = "#121218";
     public MudColor graphcolor = "#111A28";
     public MudColor firstColor = "#0476f6";
     public MudColor secondColor = "#ed0c3d";
     public MudColor _pickerColor = "#0476f6";
     public MudColor widgetTextColor = "#000000";
     public MudColor widgetColor = "#ffffff";
-    string firstColorConverted = "#0476f6";
-    string colorValStr = "#######";
-    string secondColorConverted = "#ed0c3d";
-    string selectedTheme = "Default";
-    string fontType = "Roboto";
-    string colorPickerClass = "MudPaperMediumWidget";
     public MudColor customBackColor = "ffffff";
     public MudColor customAppBarColor = "ffffff";
     public MudColor customTextColor = "ffffff";
     public MudColor customWidgetColor = "ffffff";
     public MudColor customWidgetTextColor = "ffffff";
     public MudColor customAccentColor = "ffffff";
-    string[] recentColor = { "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff",};
+    string firstColorConverted = "#0476f6";
+    string colorValStr = "#######";
+    string secondColorConverted = "#ed0c3d";
+    string selectedTheme = "Default";
+    string fontType = "Roboto";
+    string colorPickerClass = "MudPaperMediumWidget";
+    string[] recentColor = { "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", 
+    "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", 
+    "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", 
+    "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff",};
     private void ChangeSelectedColor(MudListItem item)
     {
         if (isFirstColor == true)
@@ -1677,30 +1728,61 @@
     }
     private void SetBackgroundColor()
     {
-        if (customThemeCreated == true)
+        if (customThemeCreated == false)
         {
             SetTheme("Custom Theme");
         }
-        backcolor = _pickerColor;
+            backcolor = _pickerColor;
+        if (widgetColor == backcolor || customWidgetColor == customBackColor){
+            Console.Write("Check1");
+            string colorString = backcolor.ToString(MudColorOutputFormats.Hex);
+            System.Drawing.Color _backcolor = StringToColor(colorString);
+            _backcolor = ChangeColorBrightness(_backcolor, -.15f);
+            colorString = HexConverter(_backcolor);
+            customBackColor = colorString;
+            backcolor = colorString;
+        }
+        else {
+            customBackColor = backcolor;
+            Console.Write("Check2");
+        }
         customThemeCreated = true;
-        customBackColor = backcolor;
         setRecentColor();
+        //Save();
     }
     private void SetAccentColor()
     {
-        if (customThemeCreated == true)
+        if (customThemeCreated == false)
         {
             SetTheme("Custom Theme");
         }
         accentcolor = _pickerColor;
         graphcolor = _pickerColor;
+        if (accentcolor == widgetColor || customAccentColor == customWidgetColor){
+            string colorString = accentcolor.ToString(MudColorOutputFormats.Hex);
+            if (accentcolor.L > .45){
+                System.Drawing.Color _accentcolor = StringToColor(colorString);
+                _accentcolor = ChangeColorBrightness(_accentcolor, -.5f);            
+                colorString = HexConverter(_accentcolor);
+            }
+            if (accentcolor.L < .45){
+                System.Drawing.Color _accentcolor = StringToColor(colorString);
+                _accentcolor = ChangeColorBrightness(_accentcolor, .5f);          
+                colorString = HexConverter(_accentcolor);
+            }
+            customAccentColor = colorString;
+            accentcolor = colorString;
+        }
+        else {
+            customAccentColor = accentcolor;
+        }
         customThemeCreated = true;
-        customAccentColor = accentcolor;
         setRecentColor();
+        //Save();
     }
     private void SetGraphColor()
     {
-        if (customThemeCreated == true)
+        if (customThemeCreated == false)
         {
             SetTheme("Custom Theme");
         }
@@ -1708,11 +1790,22 @@
     }
     private void SetAppBarColor()
     {
-        if (customThemeCreated == true)
+        if (customThemeCreated == false)
         {
             SetTheme("Custom Theme");
         }
         appbarcolor = _pickerColor;
+        if (appbarcolor == backcolor || appbarcolor == widgetColor || customAppBarColor == customBackColor || customAppBarColor == customWidgetColor){
+            string colorString = appbarcolor.ToString(MudColorOutputFormats.Hex);
+            System.Drawing.Color _appbarcolor = StringToColor(colorString);
+            _appbarcolor = ChangeColorBrightness(_appbarcolor, -.30f);
+            colorString = HexConverter(_appbarcolor);
+            customAppBarColor = colorString;
+            appbarcolor = colorString;
+        }
+        else {
+            customAppBarColor = appbarcolor;
+        }
         if (appbarcolor.L > .45){
             textColor = "000000";
         }
@@ -1720,12 +1813,31 @@
             textColor = "ffffff";
         }
         customThemeCreated = true;
-        customAppBarColor = appbarcolor;
         setRecentColor();
+        //Save();
     }
     private void SetWidgetColor()
     {
+        if (customThemeCreated == false)
+        {
+            SetTheme("Custom Theme");
+        }
         widgetColor = _pickerColor;
+        if (accentcolor == widgetColor || customAccentColor == customWidgetColor)
+        {
+            SetAccentColor();
+        }
+        if (widgetColor == backcolor || customWidgetColor == customBackColor){
+            string colorString = widgetColor.ToString(MudColorOutputFormats.Hex);
+            System.Drawing.Color _widgetColor = StringToColor(colorString);
+            _widgetColor = ChangeColorBrightness(_widgetColor, -.15f);
+            colorString = HexConverter(_widgetColor);
+            customWidgetColor = colorString;
+            widgetColor = colorString;
+        }
+        else {
+            customWidgetColor = widgetColor;
+        }
         if (widgetColor.L > .45){
             widgetTextColor = "000000";
         }
@@ -1733,8 +1845,39 @@
             widgetTextColor = "ffffff";
         }
         customThemeCreated = true;
-        customWidgetColor = widgetColor;
         setRecentColor();
+        //Save();
+    }
+    public static System.Drawing.Color ChangeColorBrightness(System.Drawing.Color color, float correctionFactor)
+    {
+        float red = (float)color.R;
+        float green = (float)color.G;
+        float blue = (float)color.B;
+        if (correctionFactor < 0)
+        {
+            correctionFactor = 1 + correctionFactor;
+            red *= correctionFactor;
+            green *= correctionFactor;
+            blue *= correctionFactor;
+        }
+        else
+        {
+            red = (255 - red) * correctionFactor + red;
+            green = (255 - green) * correctionFactor + green;
+            blue = (255 - blue) * correctionFactor + blue;
+        }
+    return System.Drawing.Color.FromArgb(color.A, (int)red, (int)green, (int)blue);
+    Console.WriteLine(color);
+    }
+    public static System.Drawing.Color StringToColor(string colorStr)
+    {
+        TypeConverter cc = TypeDescriptor.GetConverter(typeof(System.Drawing.Color));
+        var result = (System.Drawing.Color)cc.ConvertFromString(colorStr);
+        return result;
+    }
+    private static String HexConverter(System.Drawing.Color c)
+    {
+        return "#" + c.R.ToString("X2") + c.G.ToString("X2") + c.B.ToString("X2");
     }
     //private void SetTextColor()
     //{
@@ -1772,11 +1915,10 @@
         recentColor[0] = tempRecentColor;
         recentColor[0] = _pickerColor.ToString(MudColorOutputFormats.Hex);
     }
-    //private void setPickedColor(string s) {
-    //    int n = Int32.Parse(s);
-    //    string tempRecent = recentColor[n];
-    //    backcolor = tempRecent;
-    //}
+    private void setPickedColor(int n) {
+        _pickerColor = recentColor[n];
+        setRecentColor();
+    }
     //private string setPickedColor(string s) {
     //    int n = Int32.Parse(s);
     //    string tempRecent = recentColor[n];
@@ -1787,6 +1929,8 @@
     {
         if (_theme == "Light")
         {
+            setAllThemesFalse();
+            theme1 = true;
             selectedTheme = _theme;
             backcolor = "#bdcad8";
             appbarcolor = "#121218";
@@ -1800,6 +1944,8 @@
         }  
         if (_theme == "Dark")
         {
+            setAllThemesFalse();
+            theme2 = true;
             selectedTheme = _theme;
             backcolor = "#1E1E2D";
             appbarcolor = "#121218";
@@ -1807,38 +1953,14 @@
             fontType = "Roboto";
             widgetColor = "#151521";
             widgetTextColor = "#ffffff";
-            accentcolor = "ffffff";
+            accentcolor = "47476d";
             graphcolor = "ffffff";
             _isDarkMode = true;
         }  
-        if (_theme == "High Contrast")
-        {
-            selectedTheme = _theme;
-            backcolor = "#000000";
-            appbarcolor = "#000000";
-            textColor = "ffffff";
-            fontType = "Roboto";
-            widgetColor = "#ffffff";
-            widgetTextColor = "#383838";
-            accentcolor = "383838";
-            graphcolor = "383838";
-            _isDarkMode = false;
-        }  
-        if (_theme == "Low Contrast")
-        {
-            selectedTheme = _theme;
-            backcolor = "#eff3f3";
-            appbarcolor = "#e7eded";
-            textColor = "000000";
-            fontType = "Roboto";
-            widgetColor = "#ffffff";
-            widgetTextColor = "#000000";
-            accentcolor = "383838";
-            graphcolor = "383838";
-            _isDarkMode = false;
-        }  
         if (_theme == "Miami Vice")
         {
+            setAllThemesFalse();
+            theme3 = true;
             selectedTheme = _theme;
             backcolor = "#9ef9f9";
             appbarcolor = "#f7a1e9";
@@ -1852,6 +1974,8 @@
         }  
         if (_theme == "Cyberpunk")
         {
+            setAllThemesFalse();
+            theme4 = true;
             selectedTheme = _theme;
             backcolor = "#120324";
             appbarcolor = "#020d19";
@@ -1865,14 +1989,16 @@
         }  
         if (_theme == "Custom Theme")
         {
+            setAllThemesFalse();
+            theme5 = true;
             selectedTheme = _theme;
             backcolor = customBackColor;
             appbarcolor = customAppBarColor;
-            fontType = "Roboto";
             widgetColor = customWidgetColor;
             accentcolor = customAccentColor;
             //textColor = customTextColor;
             //widgetTextColor = customTextColor;
+            fontType = "Roboto";
             if (appbarcolor.L > .45){
             textColor = "000000";
             }
@@ -1887,6 +2013,41 @@
             }
         }
     }
+    private void setAllThemesFalse() {
+            theme1 = false;
+            theme2 = false;
+            theme3 = false;
+            theme4 = false;
+            theme5 = false;
+    }
+
+    //public async Task Save()
+    //{
+    //await BrowserStorage.SetAsync("Custom Background Color", customBackColor);
+    //await BrowserStorage.SetAsync("Custom Accent Color", customAccentColor);
+    //await BrowserStorage.SetAsync("Custom Appbar Color", customAppBarColor);
+    //await BrowserStorage.SetAsync("Custom Widget Color", customWidgetColor);
+    //}
+
+    //public async Task Read()
+    //{
+    //var result1 = await BrowserStorage.GetAsync<string>("Custom Background Color");
+    //customBackColor = result1.Success ? result1.Value : "";
+    //var result2 = await BrowserStorage.GetAsync<string>("Custom Accent Color");
+    //customAccentColor = result2.Success ? result2.Value : "";
+    //var result3 = await BrowserStorage.GetAsync<string>("Custom Appbar Color");
+    //customAppBarColor = result3.Success ? result3.Value : "";
+    //var result4 = await BrowserStorage.GetAsync<string>("Custom Widget Color");
+    //customWidgetColor = result4.Success ? result4.Value : "";
+    //}
+
+    //public async Task Delete()
+    //{
+    //await BrowserStorage.DeleteAsync("Custom Background Color");
+    //await BrowserStorage.DeleteAsync("Custom Accent Color");
+    //await BrowserStorage.DeleteAsync("Custom Appbar Color");
+    //await BrowserStorage.DeleteAsync("Custom Widget Color");
+    //}
     //Notes
     private bool App_Notes = false;
     private bool isExpandedNotes = false;
