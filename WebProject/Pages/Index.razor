@@ -15,6 +15,10 @@
 
 <style>
     :root {
+        --mud-palette-primary-darken: @backcolor;
+        --mud-palette-primary-lighten: @accentcolor;
+        --mud-palette-secondary-darken: @backcolor;
+        --mud-palette-secondary-lighten: @accentcolor;
         --mud-palette-primary: @accentcolor;
         --mud-palette-appbar-background: @appbarcolor;
         --mud-palette-lines-inputs: @widgetTextColor;
@@ -164,7 +168,9 @@
                             @if (home == true)
                             {
                                 <div style="margin: 1%;">
+                                <MudTooltip Text="Close" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
                                     <MudIconButton OnClick="CloseMassConverter" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                                </MudTooltip>
                                 </div>
                             }    
                         </div>
@@ -231,7 +237,9 @@
                             @if (home == true)
                             {
                                 <div style="margin: 1%;">
+                                <MudTooltip Text="Close" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
                                     <MudIconButton OnClick="CloseLengthConverter" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                                </MudTooltip>
                                 </div>
                             }    
                         </div>             
@@ -298,7 +306,9 @@
                         @if (home == true)
                         {
                             <div style="margin: 1%;">
-                            <MudIconButton OnClick="CloseVolumeConverter" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            <MudTooltip Text="Close" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
+                                <MudIconButton OnClick="CloseVolumeConverter" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            </MudTooltip>
                             </div>
                         }    
                     </div>
@@ -360,7 +370,9 @@
                         @if (home == true)
                         {
                             <div style="margin: 1%;">
-                            <MudIconButton OnClick="CloseTemperatureConverter" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            <MudTooltip Text="Close" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
+                                <MudIconButton OnClick="CloseTemperatureConverter" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            </MudTooltip>
                             </div>
                         }    
                     </div>                  
@@ -419,15 +431,21 @@
                             <div style="margin: 2px;">
                             @if (!isExpandedGraphBuilder)
                             {
+                            <MudTooltip Text="More" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
                                 <MudIconButton OnClick="ExpandGraphBuilder" Icon="@Icons.TwoTone.AddCircleOutline"></MudIconButton>
+                            </MudTooltip>
                             }
                             @if (isExpandedGraphBuilder)
                             {
+                            <MudTooltip Text="Less" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
                                 <MudIconButton OnClick="ExpandGraphBuilder" Icon="@Icons.TwoTone.RemoveCircleOutline"></MudIconButton>
+                            </MudTooltip>
                             }
                             @if (home == true)
                             {
+                            <MudTooltip Text="Close" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
                                 <MudIconButton OnClick="CloseGraphBuilder" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            </MudTooltip>
                             }  
                         </div>
                     </div>
@@ -540,43 +558,45 @@
                                 <div style="display: flex; justify-content: space-between;">
                                     <MudIconButton Disabled="isExpandedGraphBuilder" OnClick="ChangeGraphTab" Icon="@Icons.TwoTone.KeyboardArrowLeft"></MudIconButton>
                                     <MudText Style="margin-top: 17px">Data Input</MudText>
-                                    <MudIconButton Disabled="!isExpandedGraphBuilder" OnClick="ChangeGraphTab" Icon="@Icons.TwoTone.KeyboardArrowRight"></MudIconButton>
+                                    <MudTooltip Text="Label Input" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
+                                        <MudIconButton Disabled="!isExpandedGraphBuilder" OnClick="ChangeGraphTab" Icon="@Icons.TwoTone.KeyboardArrowRight"></MudIconButton>
+                                    </MudTooltip>
                                 </div>
                                 <div style="display: flex; justify-content: start;">
-                                <MudButton OnClick="BuildGraph" Style="" >Build Graph</MudButton>
+                                <MudButton OnClick="BuildGraph" Style="height: 20px; width: 140px; margin: 8px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Build Graph</MudButton>
                                 </div>
                                 <div style="display: flex; justify-content: start;">
-                                <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBuilderMax" Label="Max Value" Variant="Variant.Outlined"/>
+                                <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBuilderMax" Label="Max Value" Variant="Variant.Outlined" />
                                 <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphNumberOfBars" Label="# of Bars" Variant="Variant.Outlined" Min="0" Max="6"/>
                                 </div>
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 1)
                                     {
-                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBar[0]" Label="@GraphBarLabel[0]" Variant="Variant.Outlined" Min="0"/>
+                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBar[0]" Label="@GraphBarLabel[0]" Variant="Variant.Outlined" Min="0" Max="@GraphBuilderMax"/>
                                     }
                                     @if (GraphNumberOfBars >= 2)
                                     {
-                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBar[1]" Label="@GraphBarLabel[1]" Variant="Variant.Outlined" Min="0"/>
+                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBar[1]" Label="@GraphBarLabel[1]" Variant="Variant.Outlined" Min="0" Max="@GraphBuilderMax"/>
                                     }
                                 </div>
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 3)
                                     {
-                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBar[2]" Label="@GraphBarLabel[2]" Variant="Variant.Outlined" Min="0"/>
+                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBar[2]" Label="@GraphBarLabel[2]" Variant="Variant.Outlined" Min="0" Max="@GraphBuilderMax"/>
                                     }
                                     @if (GraphNumberOfBars >= 4)
                                     {
-                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBar[3]" Label="@GraphBarLabel[3]" Variant="Variant.Outlined" Min="0"/>
+                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBar[3]" Label="@GraphBarLabel[3]" Variant="Variant.Outlined" Min="0" Max="@GraphBuilderMax"/>
                                     }
                                 </div>
                                 <div style="display: flex; justify-content: start;">
                                     @if (GraphNumberOfBars >= 5)
                                     {
-                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBar[4]" Label="@GraphBarLabel[4]" Variant="Variant.Outlined" Min="0"/>
+                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBar[4]" Label="@GraphBarLabel[4]" Variant="Variant.Outlined" Min="0" Max="@GraphBuilderMax"/>
                                     }
                                     @if (GraphNumberOfBars >= 6)
                                     {
-                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBar[5]" Label="@GraphBarLabel[5]" Variant="Variant.Outlined" Min="0"/>
+                                    <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBar[5]" Label="@GraphBarLabel[5]" Variant="Variant.Outlined" Min="0" Max="@GraphBuilderMax"/>
                                     }
                                 </div
                             </div>
@@ -584,12 +604,14 @@
                             @if (graphTabBars == false) {
                             <div class="InputArea">
                                 <div style="display: flex; justify-content: space-between;">
+                                    <MudTooltip Text="Data Input" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
                                     <MudIconButton Disabled="!isExpandedGraphBuilder" OnClick="ChangeGraphTab" Icon="@Icons.TwoTone.KeyboardArrowLeft"></MudIconButton>
+                                    </MudTooltip>
                                     <MudText Style="margin-top: 17px">Label Input</MudText>
                                     <MudIconButton Disabled="isExpandedGraphBuilder" OnClick="ChangeGraphTab" Icon="@Icons.TwoTone.KeyboardArrowRight"></MudIconButton>
                                 </div>
                                 <div style="display: flex; justify-content: start;">
-                                <MudButton OnClick="BuildGraph" Style="" >Build Graph</MudButton>
+                                <MudButton OnClick="BuildGraph" Style="height: 20px; width: 140px; margin: 8px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Build Graph</MudButton>
                                 </div>
                                 <MudTextField @bind-Value="GraphTitle" Margin="Margin.Dense" Style="margin-left: 8px; margin-right: 8px;" Label="Graph Title" Variant="Variant.Outlined"></MudTextField>                    
                                 <div style="display: flex; justify-content: start;">
@@ -644,7 +666,9 @@
                             @if (home == true)
                             {
                                 <div style="margin: 1%;">
+                                <MudTooltip Text="Close" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
                                     <MudIconButton OnClick="CloseCalendar" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                                </MudTooltip>
                                 </div>
                             }    
                         </div>
@@ -672,16 +696,21 @@
                             <div style="margin: 2px;">
                                 @if (!isExpandedNotes)
                                 {
+                                <MudTooltip Text="More" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
                                     <MudIconButton OnClick="ExpandNotes" Icon="@Icons.TwoTone.AddCircleOutline"></MudIconButton>
+                                </MudTooltip>
                                 }
                                 @if (isExpandedNotes)
                                 {
+                                <MudTooltip Text="Less" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
                                     <MudIconButton OnClick="ExpandNotes" Icon="@Icons.TwoTone.RemoveCircleOutline"></MudIconButton>
+                                </MudTooltip>
                                 }
                                 @if (home == true)
                                 {
+                                <MudTooltip Text="Close" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
                                     <MudIconButton OnClick="CloseNotes" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-
+                                </MudTooltip>
                                 }   
                             </div>
                     </div>
@@ -697,33 +726,47 @@
                 @if (TimerIsOpen == true)
                 {
                 <div class="MudPaperSmallWidget" style="order: @widgetOrder[3]; background-color: @widgetColor;">
-                        <div style="display: flex; justify-content: space-between;">
-                            <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Timer</MudText>
+                    <div style="display: flex; justify-content: space-between;">
+                        <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Timer</MudText>
+                        <div style="margin: 2px;">
                             @if (home == true)
                             {
-                                <div style="margin: 1%;">
+                            <MudTooltip Text="Close" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
                                 <MudIconButton OnClick="CloseTimer" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                                </div>
+                            </MudTooltip>
                             }    
+                        </div>
                     </div>
                     <div style="display: flex; justify-content: center;">
                         <MudText Color="@MudBlazor.Color.Secondary" Style="@($"font-family:{fontType}; font-size: 36px;")">@displaytimer_Timer</MudText>
                     </div>
                     <div style="display: flex; justify-content: center;">
-                        <MudButton Variant="Variant.Outlined" Style="margin: 5%; height: 20px;" Color="MudBlazor.Color.Secondary" Disabled="@isTiming_Timer" OnClick="TimerTiming">Start</MudButton>
-                        <MudButton Variant="Variant.Outlined" Style="margin: 5%; height: 20px;" Color="MudBlazor.Color.Secondary" Disabled="@isPaused_Timer" OnClick="TimerPause">Pause</MudButton>
-                        <MudButton Variant="Variant.Outlined" Style="margin: 5%; height: 20px;" Color="MudBlazor.Color.Secondary" Disabled="@isReset_Timer" OnClick="TimerReset">Reset</MudButton>
+                        <MudButton Variant="Variant.Outlined" Style="margin: 15px; height: 20px;" Color="MudBlazor.Color.Secondary" Disabled="@isTiming_Timer" OnClick="TimerTiming">Start</MudButton>
+                        <MudButton Variant="Variant.Outlined" Style="margin: 15px; height: 20px;" Color="MudBlazor.Color.Secondary" Disabled="@isPaused_Timer" OnClick="TimerPause">Pause</MudButton>
+                        <MudButton Variant="Variant.Outlined" Style="margin: 15px; height: 20px;" Color="MudBlazor.Color.Secondary" Disabled="@isReset_Timer" OnClick="TimerReset">Reset</MudButton>
                     </div>
                     <div style="display: flex; justify-content: center; margin: 20px;">
-                        <MudNumericField Class="timerField" Style="margin: 10px;" @bind-Value="Hours" Label="Hours" Variant="Variant.Outlined" Min="0" Max="12"/>
+                        <MudNumericField Class="timerField" Style="margin: 10px;" @bind-Value="Hours" Label="Hours" Variant="Variant.Outlined" Min="0" Max="18"/>
                         <MudNumericField Class="timerField" Style="margin: 10px;" @bind-Value="Minutes" Label="Minutes" Variant="Variant.Outlined" Min="0" Max="60"/>
                         <MudNumericField Class="timerField" Style="margin: 10px;" @bind-Value="Seconds" Label="Seconds" Variant="Variant.Outlined" Min="0" Max="60"/>
+                    </div> 
+                    <div style="margin-left: 15px; margin-top: 84px;">
+                        @if (SoundOn == true){
+                        <MudTooltip Text="Unmute" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
+                             <MudToggleIconButton @bind-Toggled="@SoundOn"
+                             Icon="@Icons.Filled.VolumeOff"
+                             ToggledIcon="@Icons.Filled.VolumeUp"/>
+                        </MudTooltip>
+                        }
+                        @if (SoundOn == false){
+                        <MudTooltip Text="Mute" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
+                             <MudToggleIconButton @bind-Toggled="@SoundOn"
+                             Icon="@Icons.Filled.VolumeOff"
+                             ToggledIcon="@Icons.Filled.VolumeUp"/>
+                        </MudTooltip>
+                        }
                     </div>
-                    <div>
-                    <MudToggleIconButton Style="margin-left: 15px; margin-top: 17px;" @bind-Toggled="@SoundOn"
-                     Icon="@Icons.Filled.VolumeOff" Title="Off"
-                     ToggledIcon="@Icons.Filled.VolumeUp" ToggledTitle="On"/>
-                    </div>
+                        
                 </div>
                 }
             }   
@@ -738,7 +781,9 @@
                             @if (home == true)
                             {
                                 <div style="margin: 1%;">
+                                <MudTooltip Text="Close" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
                                     <MudIconButton OnClick="CloseStopwatch" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                                </MudTooltip>
                                 </div>
                             }    
                         </div> 
@@ -785,15 +830,21 @@
                         <div style="margin: 2px;">
                         @if (!isExpandedColorPicker)
                         {
-                            <MudIconButton OnClick="ExpandColorPicker" Icon="@Icons.TwoTone.AddCircleOutline"></MudIconButton>
+                            <MudTooltip Text="More" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
+                                <MudIconButton OnClick="ExpandColorPicker" Icon="@Icons.TwoTone.AddCircleOutline"></MudIconButton>
+                            </MudTooltip>
                         }
                         @if (isExpandedColorPicker)
                         {
-                            <MudIconButton OnClick="ExpandColorPicker" Icon="@Icons.TwoTone.RemoveCircleOutline"></MudIconButton>
+                            <MudTooltip Text="Less" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
+                                <MudIconButton OnClick="ExpandColorPicker" Icon="@Icons.TwoTone.RemoveCircleOutline"></MudIconButton>
+                            </MudTooltip>
                         }
                         @if (home == true)
                         {
-                            <MudIconButton OnClick="CloseColerPicker" Icon="@Icons.Material.Filled.Close"></MudIconButton>                            
+                            <MudTooltip Text="Close" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
+                                <MudIconButton OnClick="CloseColerPicker" Icon="@Icons.Material.Filled.Close"></MudIconButton>                            
+                            </MudTooltip>
                         }   
                         </div>
                     </div> 
@@ -809,7 +860,7 @@
                             <div class="colorPreview" style="@($"background-color:{firstColor};")"></div>
                             }
                         </MudListItem>
-                        <MudTextField @bind-Value="firstColorConverted" Style="margin-right: 7px; margin-bottom: 7px; max-width: 205px" Adornment="Adornment.End" AdornmentIcon="@Icons.Outlined.ChangeCircle" OnAdornmentClick="HEXColorEntered" ReadOnly="false" Variant="Variant.Outlined"/>
+                        <MudTextField @bind-Value="firstColorConverted" Style="margin-right: 7px; margin-bottom: 7px; max-width: 205px" Adornment="Adornment.End" AdornmentIcon="@Icons.Outlined.ChangeCircle" AdornmentAriaLabel="Refresh" OnAdornmentClick="HEXColorEntered" ReadOnly="false" Variant="Variant.Outlined"/>
 @*                        <MudListItem Style="max-width: 205px" OnClick="secondColorTrue">
                             @if (isSecondColor) {
                             <div class="colorPreviewActive" style="@($"background-color:{secondColor};")"></div>
@@ -911,15 +962,21 @@
                         <div style="margin: 2px;">
                         @if (!isExpandedCalculator)
                         {
-                            <MudIconButton OnClick="ExpandCalculator" Icon="@Icons.TwoTone.AddCircleOutline"></MudIconButton>
+                            <MudTooltip Text="More" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
+                                <MudIconButton OnClick="ExpandCalculator" Icon="@Icons.TwoTone.AddCircleOutline"></MudIconButton>
+                            </MudTooltip>
                         }
                         @if (isExpandedCalculator)
                         {
-                            <MudIconButton OnClick="ExpandCalculator" Icon="@Icons.TwoTone.RemoveCircleOutline"></MudIconButton>
+                            <MudTooltip Text="Less" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
+                                <MudIconButton OnClick="ExpandCalculator" Icon="@Icons.TwoTone.RemoveCircleOutline"></MudIconButton>
+                            </MudTooltip>
                         }
                         @if (home == true)
                         {
-                            <MudIconButton OnClick="CloseCalculator" Icon="@Icons.Material.Filled.Close"></MudIconButton>                            
+                            <MudTooltip Text="Close" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
+                                <MudIconButton OnClick="CloseCalculator" Icon="@Icons.Material.Filled.Close"></MudIconButton>                            
+                            </MudTooltip>
                         }   
                         </div>
                     </div> 
@@ -990,12 +1047,12 @@
     <DialogActions>
         @if (App_Calculator == true && App_TemperatureConverter == true && App_ColorPicker == true && App_Stopwatch == true &&  App_Timer == true && App_VolumeConverter == true && App_Notes == true && App_LengthConverter == true && App_MassConverter == true && App_Calendar == true && App_GraphBuilder == true)
         {
-        <MudButton Variant="Variant.Filled" OnClick="AllAppsFalse" Style="width:140px;">Deselect All</MudButton>
+        <MudButton Variant="Variant.Filled" Color="MudBlazor.Color.Primary" OnClick="AllAppsFalse" Style="width:140px;">Deselect All</MudButton>
         }
         else {
-        <MudButton Variant="Variant.Filled" OnClick="App_SelectAll" Style="width:140px;">Select All</MudButton>
+        <MudButton Variant="Variant.Filled" Color="MudBlazor.Color.Primary" OnClick="App_SelectAll" Style="width:140px;">Select All</MudButton>
         }
-        <MudButton Variant="Variant.Filled" OnClick="Submit" Class="px-10">Close</MudButton>
+        <MudButton Variant="Variant.Filled" Color="MudBlazor.Color.Primary" OnClick="Submit" Class="px-10">Close</MudButton>
     </DialogActions>
 </MudDialog>
 <MudMessageBox @ref="timerNotificationMSG" YesText="Ok">
@@ -1009,15 +1066,6 @@
 </MudMessageBox>
 
 @code {
-
-    //protected override async Task OnAfterRenderAsync(bool firstRender)
-    //{
-    //    if (firstRender)
-    //    {
-    //        await Read();
-    //        StateHasChanged();
-    //    }
-    //}
     private bool visible;
     private void OpenDialog() {
         visible = true;
@@ -1716,6 +1764,17 @@
     }
     private void HEXColorEntered()
     {
+        if (firstColorConverted.Contains("##"))
+        {
+            firstColorConverted = firstColorConverted.Replace("##", "#");
+        }
+        var regex = @"(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)";
+        var match = Regex.Match(firstColorConverted, regex,RegexOptions.IgnoreCase);
+        if (!match.Success)
+        {
+            Console.Write("Matches: " + match);
+            firstColorConverted = "#000000";
+        }
         firstColor = firstColorConverted;
         secondColor = secondColorConverted;
         if (isFirstColor == true){
@@ -1724,7 +1783,8 @@
         if (isFirstColor == false){
             _pickerColor = secondColorConverted;
         }
-        setRecentColor();
+        setRecentColor();         
+
     }
     private void SetBackgroundColor()
     {
@@ -1732,7 +1792,7 @@
         {
             SetTheme("Custom Theme");
         }
-            backcolor = _pickerColor;
+        backcolor = _pickerColor;
         if (widgetColor == backcolor || customWidgetColor == customBackColor){
             Console.Write("Check1");
             string colorString = backcolor.ToString(MudColorOutputFormats.Hex);
@@ -1748,7 +1808,7 @@
         }
         customThemeCreated = true;
         setRecentColor();
-        //Save();
+        Save();
     }
     private void SetAccentColor()
     {
@@ -1778,7 +1838,7 @@
         }
         customThemeCreated = true;
         setRecentColor();
-        //Save();
+        Save();
     }
     private void SetGraphColor()
     {
@@ -1814,7 +1874,7 @@
         }
         customThemeCreated = true;
         setRecentColor();
-        //Save();
+        Save();
     }
     private void SetWidgetColor()
     {
@@ -1846,7 +1906,7 @@
         }
         customThemeCreated = true;
         setRecentColor();
-        //Save();
+        Save();
     }
     public static System.Drawing.Color ChangeColorBrightness(System.Drawing.Color color, float correctionFactor)
     {
@@ -1866,8 +1926,8 @@
             green = (255 - green) * correctionFactor + green;
             blue = (255 - blue) * correctionFactor + blue;
         }
-    return System.Drawing.Color.FromArgb(color.A, (int)red, (int)green, (int)blue);
-    Console.WriteLine(color);
+        return System.Drawing.Color.FromArgb(color.A, (int)red, (int)green, (int)blue);
+        Console.WriteLine(color);
     }
     public static System.Drawing.Color StringToColor(string colorStr)
     {
@@ -1907,6 +1967,8 @@
     }
     private void setRecentColor() 
     {
+        if (recentColor[0] != _pickerColor)
+        {
         string tempRecentColor = recentColor[recentColor.Length - 1];
         for (int t = recentColor.Length - 1; t > 0; t--)
         {
@@ -1914,6 +1976,7 @@
         }
         recentColor[0] = tempRecentColor;
         recentColor[0] = _pickerColor.ToString(MudColorOutputFormats.Hex);
+        }
     }
     private void setPickedColor(int n) {
         _pickerColor = recentColor[n];
@@ -1983,7 +2046,7 @@
             fontType = "Roboto";
             widgetColor = "#340939";
             widgetTextColor = "#ff0586";
-            accentcolor = "51efcb";
+            accentcolor = "8b064b";
             graphcolor = "ff0586";
             _isDarkMode = true;
         }  
@@ -2000,13 +2063,13 @@
             //widgetTextColor = customTextColor;
             fontType = "Roboto";
             if (appbarcolor.L > .45){
-            textColor = "000000";
+                textColor = "000000";
             }
             if (appbarcolor.L < .45){
                 textColor = "ffffff";
             }
             if (widgetColor.L > .45){
-            widgetTextColor = "000000";
+                widgetTextColor = "000000";
             }
             if (widgetColor.L < .45){
                 widgetTextColor = "ffffff";
@@ -2014,40 +2077,47 @@
         }
     }
     private void setAllThemesFalse() {
-            theme1 = false;
-            theme2 = false;
-            theme3 = false;
-            theme4 = false;
-            theme5 = false;
+        theme1 = false;
+        theme2 = false;
+        theme3 = false;
+        theme4 = false;
+        theme5 = false;
     }
 
-    //public async Task Save()
-    //{
-    //await BrowserStorage.SetAsync("Custom Background Color", customBackColor);
-    //await BrowserStorage.SetAsync("Custom Accent Color", customAccentColor);
-    //await BrowserStorage.SetAsync("Custom Appbar Color", customAppBarColor);
-    //await BrowserStorage.SetAsync("Custom Widget Color", customWidgetColor);
-    //}
+    public async Task Save()
+    {
+        //await BrowserStorage.SetAsync("Custom Background Color", customBackColor);
+        //Console.Write("Custom Background Color Saved", customBackColor);
+        //await BrowserStorage.SetAsync("Custom Accent Color", customAccentColor);
+        //Console.Write("Custom Accent Color Saved", customAccentColor); 
+        //await BrowserStorage.SetAsync("Custom Appbar Color", customAppBarColor);
+        //Console.Write("Custom Appbar Color Saved", customAppBarColor); 
+        //await BrowserStorage.SetAsync("Custom Widget Color", customWidgetColor);
+        //Console.Write("Custom Widget Color Saved", customWidgetColor); 
+    }
 
-    //public async Task Read()
-    //{
-    //var result1 = await BrowserStorage.GetAsync<string>("Custom Background Color");
-    //customBackColor = result1.Success ? result1.Value : "";
-    //var result2 = await BrowserStorage.GetAsync<string>("Custom Accent Color");
-    //customAccentColor = result2.Success ? result2.Value : "";
-    //var result3 = await BrowserStorage.GetAsync<string>("Custom Appbar Color");
-    //customAppBarColor = result3.Success ? result3.Value : "";
-    //var result4 = await BrowserStorage.GetAsync<string>("Custom Widget Color");
-    //customWidgetColor = result4.Success ? result4.Value : "";
-    //}
-
-    //public async Task Delete()
-    //{
-    //await BrowserStorage.DeleteAsync("Custom Background Color");
-    //await BrowserStorage.DeleteAsync("Custom Accent Color");
-    //await BrowserStorage.DeleteAsync("Custom Appbar Color");
-    //await BrowserStorage.DeleteAsync("Custom Widget Color");
-    //}
+    public async Task Read()
+    {
+        //var result1 = await BrowserStorage.GetAsync<string>("Custom Background Color");
+        //customBackColor = result1.Success ? result1.Value : "";
+        //Console.Write("Custom Background Color Read", result1); 
+        //var result2 = await BrowserStorage.GetAsync<string>("Custom Accent Color");
+        //customAccentColor = result2.Success ? result2.Value : "";
+        //Console.Write("Custom Accent Color Read", result2); 
+        //var result3 = await BrowserStorage.GetAsync<string>("Custom Appbar Color");
+        //customAppBarColor = result3.Success ? result3.Value : "";
+        //Console.Write("Custom Appbar Color Read", result3); 
+        //var result4 = await BrowserStorage.GetAsync<string>("Custom Widget Color");
+        //customWidgetColor = result4.Success ? result4.Value : "";
+        //Console.Write("Custom Widget Color Read", result4); 
+    }
+    public async Task Delete()
+    {
+        await BrowserStorage.DeleteAsync("Custom Background Color");
+        await BrowserStorage.DeleteAsync("Custom Accent Color");
+        await BrowserStorage.DeleteAsync("Custom Appbar Color");
+        await BrowserStorage.DeleteAsync("Custom Widget Color");
+    }
     //Notes
     private bool App_Notes = false;
     private bool isExpandedNotes = false;
@@ -2067,130 +2137,166 @@
         }
     }
     //Length Converter
-    private bool App_LengthConverter = false;
-    private bool LogLength = false;
-    double App_LengthConverter_Value1 = 0;
-    double App_LengthConverter_Value2 = 0;
-    private string LengthValue1 { get; set; } = "Foot";
-    private string LengthValue2 { get; set; } = "Yard";
-    string lengthLog = "";
-    private void ConvertLength()
+    protected bool App_LengthConverter = false;
+    protected bool LogLength = false;
+    protected double App_LengthConverter_Value1 = 0;
+    protected double App_LengthConverter_Value2 = 0;
+    protected string LengthValue1 { get; set; } = "Foot";
+    protected string LengthValue2 { get; set; } = "Yard";
+    protected string lengthLog = "";
+    protected void ConvertLength()
     {
-        if (LengthValue1 == "Foot" && LengthValue2 == "Foot") {
+        if (LengthValue1 == "Foot" && LengthValue2 == "Foot")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1;
         }
-        if (LengthValue1 == "Foot" && LengthValue2 == "Yard") {
-            App_LengthConverter_Value2 = App_LengthConverter_Value1 * 1/3;
+        if (LengthValue1 == "Foot" && LengthValue2 == "Yard")
+        {
+            App_LengthConverter_Value2 = App_LengthConverter_Value1 * 1 / 3;
         }
-        if (LengthValue1 == "Foot" && LengthValue2 == "Mile") {
+        if (LengthValue1 == "Foot" && LengthValue2 == "Mile")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 / 5280;
         }
-        if (LengthValue1 == "Foot" && LengthValue2 == "Inch") {
+        if (LengthValue1 == "Foot" && LengthValue2 == "Inch")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 * 12;
         }
-        if (LengthValue1 == "Foot" && LengthValue2 == "Meter") {
+        if (LengthValue1 == "Foot" && LengthValue2 == "Meter")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 / 3.281;
         }
-        if (LengthValue1 == "Foot" && LengthValue2 == "Kilometer") {
+        if (LengthValue1 == "Foot" && LengthValue2 == "Kilometer")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 / 3281;
         }
-        if (LengthValue1 == "Yard" && LengthValue2 == "Foot") {
+        if (LengthValue1 == "Yard" && LengthValue2 == "Foot")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 * 3;
         }
-        if (LengthValue1 == "Yard" && LengthValue2 == "Yard") {
+        if (LengthValue1 == "Yard" && LengthValue2 == "Yard")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1;
         }
-        if (LengthValue1 == "Yard" && LengthValue2 == "Mile") {
+        if (LengthValue1 == "Yard" && LengthValue2 == "Mile")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 / 1760;
         }
-        if (LengthValue1 == "Yard" && LengthValue2 == "Inch") {
+        if (LengthValue1 == "Yard" && LengthValue2 == "Inch")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 * 36;
         }
-        if (LengthValue1 == "Yard" && LengthValue2 == "Meter") {
+        if (LengthValue1 == "Yard" && LengthValue2 == "Meter")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 / 1.094;
         }
-        if (LengthValue1 == "Yard" && LengthValue2 == "Kilometer") {
+        if (LengthValue1 == "Yard" && LengthValue2 == "Kilometer")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 / 1094;
         }
-        if (LengthValue1 == "Mile" && LengthValue2 == "Foot") {
+        if (LengthValue1 == "Mile" && LengthValue2 == "Foot")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 * 5280;
         }
-        if (LengthValue1 == "Mile" && LengthValue2 == "Yard") {
+        if (LengthValue1 == "Mile" && LengthValue2 == "Yard")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 * 1760;
         }
-        if (LengthValue1 == "Mile" && LengthValue2 == "Mile") {
+        if (LengthValue1 == "Mile" && LengthValue2 == "Mile")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1;
         }
-        if (LengthValue1 == "Mile" && LengthValue2 == "Inch") {
+        if (LengthValue1 == "Mile" && LengthValue2 == "Inch")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 * 63360;
         }
-        if (LengthValue1 == "Mile" && LengthValue2 == "Meter") {
+        if (LengthValue1 == "Mile" && LengthValue2 == "Meter")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 * 1609;
         }
-        if (LengthValue1 == "Mile" && LengthValue2 == "Kilometer") {
+        if (LengthValue1 == "Mile" && LengthValue2 == "Kilometer")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 * 1.609;
         }
-        if (LengthValue1 == "Inch" && LengthValue2 == "Foot") {
+        if (LengthValue1 == "Inch" && LengthValue2 == "Foot")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 / 12;
         }
-        if (LengthValue1 == "Inch" && LengthValue2 == "Yard") {
+        if (LengthValue1 == "Inch" && LengthValue2 == "Yard")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 / 36;
         }
-        if (LengthValue1 == "Inch" && LengthValue2 == "Mile") {
+        if (LengthValue1 == "Inch" && LengthValue2 == "Mile")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 / 63360;
         }
-        if (LengthValue1 == "Inch" && LengthValue2 == "Inch") {
+        if (LengthValue1 == "Inch" && LengthValue2 == "Inch")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1;
         }
-        if (LengthValue1 == "Inch" && LengthValue2 == "Meter") {
+        if (LengthValue1 == "Inch" && LengthValue2 == "Meter")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 / 39.37;
         }
-        if (LengthValue1 == "Inch" && LengthValue2 == "Kilometer") {
+        if (LengthValue1 == "Inch" && LengthValue2 == "Kilometer")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 / 39370;
         }
-        if (LengthValue1 == "Meter" && LengthValue2 == "Foot") {
+        if (LengthValue1 == "Meter" && LengthValue2 == "Foot")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 * 3.281;
         }
-        if (LengthValue1 == "Meter" && LengthValue2 == "Yard") {
+        if (LengthValue1 == "Meter" && LengthValue2 == "Yard")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 * 1.094;
         }
-        if (LengthValue1 == "Meter" && LengthValue2 == "Mile") {
+        if (LengthValue1 == "Meter" && LengthValue2 == "Mile")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 / 1609;
         }
-        if (LengthValue1 == "Meter" && LengthValue2 == "Inch") {
+        if (LengthValue1 == "Meter" && LengthValue2 == "Inch")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 * 39.37;
         }
-        if (LengthValue1 == "Meter" && LengthValue2 == "Meter") {
+        if (LengthValue1 == "Meter" && LengthValue2 == "Meter")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1;
         }
-        if (LengthValue1 == "Meter" && LengthValue2 == "Kilometer") {
+        if (LengthValue1 == "Meter" && LengthValue2 == "Kilometer")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 / 1000;
         }
-        if (LengthValue1 == "Kilometer" && LengthValue2 == "Foot") {
+        if (LengthValue1 == "Kilometer" && LengthValue2 == "Foot")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 * 3281;
         }
-        if (LengthValue1 == "Kilometer" && LengthValue2 == "Yard") {
+        if (LengthValue1 == "Kilometer" && LengthValue2 == "Yard")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 * 1094;
         }
-        if (LengthValue1 == "Kilometer" && LengthValue2 == "Mile") {
+        if (LengthValue1 == "Kilometer" && LengthValue2 == "Mile")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 / 1.609;
         }
-        if (LengthValue1 == "Kilometer" && LengthValue2 == "Inch") {
+        if (LengthValue1 == "Kilometer" && LengthValue2 == "Inch")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 * 39370;
         }
-        if (LengthValue1 == "Kilometer" && LengthValue2 == "Meter") {
+        if (LengthValue1 == "Kilometer" && LengthValue2 == "Meter")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1 * 1000;
         }
-        if (LengthValue1 == "Kilometer" && LengthValue2 == "Kilometer") {
+        if (LengthValue1 == "Kilometer" && LengthValue2 == "Kilometer")
+        {
             App_LengthConverter_Value2 = App_LengthConverter_Value1;
         }
         AddToLogLength();
     }
-    private void AddToLogLength()
+    protected void AddToLogLength()
     {
         lengthLog = lengthLog + App_LengthConverter_Value1 + " " + LengthValue1 + " " + " = " + App_LengthConverter_Value2 + " " + LengthValue2 + "\n";
     }
-    private void ToggleLogLength()
+    protected void ToggleLogLength()
     {
         if (LogLength == false)
         {
@@ -2201,7 +2307,7 @@
             LogLength = false;
         }
     }
-    private void ClearLogLength()
+    protected void ClearLogLength()
     {
         lengthLog = "";
     }
@@ -2426,6 +2532,7 @@
     private double GraphBuilderMax = 100;
     string GraphTitle = "Title";
     private int GraphNumberOfBars = 2;
+    private double graphMax = 0;
     double[] GraphBar = {0, 0, 0, 0, 0, 0};
     double[] barHeight = {0, 0, 0, 0, 0, 0};
     string[] GraphBarLabel = { "Bar 1", "Bar 2", "Bar 3", "Bar 4", "Bar 5", "Bar 6" };
@@ -2446,9 +2553,10 @@
     }
     private void BuildGraph()
     {
+        FindMax();
         for (int i = 0; i < 6; i++) {
-            barHeight[i] = GraphBar[i] / GraphBuilderMax;
-            barHeight[i] = barHeight[i] * 100;
+                barHeight[i] = GraphBar[i] / GraphBuilderMax;
+                barHeight[i] = barHeight[i] * 100;  
         }
     }
     private void ChangeGraphTab()
@@ -2460,6 +2568,14 @@
         else if (graphTabBars == true)
         {
             graphTabBars = false;
+        }
+    }
+    private void FindMax() {
+        graphMax = GraphBar.Max();
+        Console.Write("Graph Max: " + graphMax);
+        if (GraphBuilderMax < graphMax)
+        {
+            GraphBuilderMax = graphMax;
         }
     }
 }
