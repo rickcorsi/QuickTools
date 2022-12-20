@@ -24,19 +24,6 @@
     min-width: 400px;
     min-height: 4px;
 }
-.AppBarButton {
-    height: 30px;
-}
-    .AppBarButton:hover {
-        padding-bottom: 15px;
-    }
-.AppBarButtonText {
-    font-size: 12px;
-}
-    .AppBarButtonText:hover {
-        
-    }
-
 .CalcButton {
     min-width: 400px;
 }
@@ -61,7 +48,7 @@
 }
 .MultipleWidgetsDiv {
     position: absolute;
-    top: 50%;
+    top: 52%;
     left: 50%;
     margin-top: -300px;
     margin-left: -680px;
@@ -301,3 +288,122 @@
     height: 125px;
     background-color: #ffffff;
 }
+.OpenWidgetsContainer {
+    width: 215px;
+    height: 52px;
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: fixed;
+    top: 7%;
+    left: 1%;
+    border-radius: 25px;
+    margin-left: 0px;
+    border: 2px solid;
+    border-color: white;
+}
+.OpenWidgetsContainerChild1 {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    margin-top: 2px;
+    padding-top: 1px;
+    display: flex;
+    justify-content: center;
+}
+.OpenWidgetsContainerChild2 {
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    margin: 2px;
+    padding-top: 7px;
+    display: flex;
+    justify-content: center;
+}
+.NewToolBar {
+    width: 100%;
+    height: 100px;
+    margin-top: 0px;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 6;
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.NewToolBarChild1 {
+    width: 100%;
+    height: 50px;
+    padding-top: 7px;
+    padding-left: 7px;
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.NewToolBarChild2 {
+    width: 100%;
+    height: 50px;
+    padding-top: 7px;
+    padding-left: 7px;
+}
+.ToolBarText {
+    margin-left: 10px;
+}
+.AppBarButton {
+    height: 30px;
+}
+.AppBarButtonChild {
+    height: 30px;
+}
+.AppBarButtonText {
+    font-size: 12px;
+}
+.AppBarButtonSelectedText {
+    font-size: 12px;
+}
+.AppBarButtonChildText {
+    font-size: 12px;
+}
+
+.AppBarButton::before {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    visibility: hidden;
+    background-color: var(--mud-palette-primary-text);
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+.AppBarButton:hover::before {
+    width: 100%;
+    visibility: visible;
+}
+
+.AppBarButton.active {
+    position: relative;
+}
+    .AppBarButton.active::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        bottom: 0;
+        background-color: var(--mud-palette-primary-text);
+        transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+    }

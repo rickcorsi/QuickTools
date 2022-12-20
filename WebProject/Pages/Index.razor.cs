@@ -2,10 +2,13 @@
 {
     public partial class Index
     {
+
+
         //Widget Ordering
         int[] widgetOrder = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         int tempOrder = 0;
         int widgetsOpened = 0;
+        bool anyWidgetOpened = false;
         private void MoveUp(string WidgetValue)
         {
         }
@@ -43,56 +46,67 @@
         private void Tab_Calculator()
         {
             AllAppsFalse();
+            widgetsOpened = 1;
             App_Calculator = true;
         }
         private void Tab_TemperatureConverter()
         {
             AllAppsFalse();
+            widgetsOpened = 1;
             App_TemperatureConverter = true;
         }
         private void Tab_VolumeConverter()
         {
             AllAppsFalse();
+            widgetsOpened = 1;
             App_VolumeConverter = true;
         }
         private void Tab_Stopwatch()
         {
             AllAppsFalse();
+            widgetsOpened = 1;
             App_Stopwatch = true;
         }
         private void Tab_Timer()
         {
             AllAppsFalse();
+            widgetsOpened = 1;
             App_Timer = true;
         }
         private void Tab_ColorPicker()
         {
             AllAppsFalse();
+            widgetsOpened = 1;
             App_ColorPicker = true;
         }
         private void Tab_Notes()
         {
             AllAppsFalse();
+            widgetsOpened = 1;
             App_Notes = true;
         }
         private void Tab_LengthConverter()
         {
             AllAppsFalse();
+            widgetsOpened = 1;
             App_LengthConverter = true;
         }
         private void Tab_MassConverter()
         {
             AllAppsFalse();
+            widgetsOpened = 1;
             App_MassConverter = true;
         }
         private void Tab_Calendar()
         {
             AllAppsFalse();
+            widgetsOpened = 1;
             App_Calendar = true;
         }
         private void Tab_GraphBuilder()
         {
             AllAppsFalse();
+            widgetsOpened = 1;
             App_GraphBuilder = true;
         }
         private void AllTabsFalse()
@@ -145,6 +159,7 @@
             App_MassConverter = true;
             App_Calendar = true;
             App_GraphBuilder = true;
+            widgetsOpened = 11;
         }
 
         private bool MassConverterIsOpen = false;
