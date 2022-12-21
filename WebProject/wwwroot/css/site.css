@@ -6,29 +6,21 @@
 .backScreen {
     width: 100%;
     height: 10px;
-    background-color: #2E333C;
+    background-color: var(--mud-palette-primary);
 }
-.MudAppBar {
-    background-color: #111A28;
-    color: #111A28;
-    height: 35px;
+.pageHeader {
+    margin-top: 83px;
+    width: 100%;
+    height: 5px;
 }
 .MudButton {
     height: 25px;
-    color: red;
-    background-color: red;
 }
 .MudButtonCalculator {
-    background-color: red;
-    color: red;
-    min-width: 400px;
-    min-height: 4px;
-}
-.CalcButton {
-    min-width: 400px;
-}
-
-.Text {
+    min-width: 90px;
+    min-height: 50px;
+    width: 90px;
+    height: 50px;
 }
 .MainDiv {
     position: absolute;
@@ -71,6 +63,7 @@
     min-width: 400px;
     min-height: 400px;
 }
+
 .MudPaperMediumWidget {
     border-radius: 7px;
     background-color: white;
@@ -80,6 +73,7 @@
     min-width: 550px;
     min-height: 400px;
 }
+
 .MudPaperMediumWidgetExpanded {
     border-radius: 7px;
     background-color: white;
@@ -89,6 +83,7 @@
     min-width: 855px;
     min-height: 400px;
 }
+
 .MudPaperSmallWidgetExpanded {
     border-radius: 7px;
     background-color: white;
@@ -98,6 +93,7 @@
     min-width: 650px;
     min-height: 400px;
 }
+
 .MudPaperLargeWidget {
     border-radius: 7px;
     background-color: white;
@@ -107,11 +103,13 @@
     min-width: 1000px;
     min-height: 600px;
 }
+
 .ColorPicker {
     max-width: 80px;
     max-height: 320px;
     margin: 12px;
 }
+
 .colorPreview {
     min-width: 125px;
     min-height: 25px;
@@ -121,6 +119,7 @@
     border-width: .5px;
     border-color: #000000;
 }
+
 .colorPreviewActive {
     min-width: 125px;
     min-height: 25px;
@@ -130,9 +129,11 @@
     border-width: 3px;
     border-color: rgba(0,10,0,0.75);
 }
+
 .timerField {
     max-width: 80px;
 }
+
 .CalendarDiv {
     width: 450px;
     height: 318px;
@@ -141,14 +142,17 @@
     background-color: rgba(100,100,100,0.0);
     padding: 30px;
 }
+
 .Calendar {
     width: 550px;
     border-radius: 0px 0px 7px 0px;
     margin-top: 23px;
 }
+
 .CalenderDayDisplay {
     font-size: 30px;
 }
+
 .GraphArea {
     background-color: rgba(100,100,100,0.05);
     width: 530px;
@@ -156,6 +160,7 @@
     margin: 10px;
     border-radius: 7px;
 }
+
 .InputArea {
     background-color: rgba(100,100,100,0.0);
     width: 305px;
@@ -165,6 +170,7 @@
     margin-right: 10px;
     margin-bottom: 10px;
 }
+
 .GraphAreaTitle {
     width: 530px;
     height: 40px;
@@ -172,10 +178,12 @@
     margin-top: 5px;
     justify-content: center;
 }
+
 .yAxisContainer {
     width: 40px;
     height: 240px;
 }
+
 .xAxisContainer {
     display: flex;
     justify-content: space-evenly;
@@ -186,6 +194,7 @@
     border-style: solid;
     border-color: black;
 }
+
 .GraphContainer {
     width: 490px;
     height: 240px;
@@ -195,17 +204,20 @@
     border-style: solid;
     border-color: rgba(100,100,100,0.10);
 }
+
 .GraphBar {
     background-color: rgba(100,100,100,0.00);
     width: 40px;
     height: 240px;
     position: relative;
 }
+
 .GraphBarInterior {
     width: 40px;
     position: absolute;
     bottom: 0;
 }
+
 .GraphInputFields {
     width: 140px;
     height: 36px;
@@ -218,15 +230,18 @@
     margin-left: 6px;
     margin: 5px;
 }
+
 .GraphBarLabel {
     padding-top: 20px;
     padding-left: 20px;
     transform: rotate(-45deg);
 }
+
 .GraphBarValue {
     position: absolute;
     bottom: 100%;
 }
+
 .converterLog {
     height: 150px;
     width: 495px;
@@ -236,13 +251,12 @@
     padding-right: 15px;
     border: 1px solid;
 }
-.converterLogText {
-}
 .calculatorExpanded {
     width: 230px;
     height: 320px;
     margin: 2px;
 }
+
 .calculatorLog {
     width: 230px;
     height: 280px;
@@ -253,6 +267,7 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+
 .stopwatchLog {
     height: 150px;
     width: 360px;
@@ -262,6 +277,7 @@
     padding-right: 15px;
     border: 1px solid;
 }
+
 .customizeTheme {
     margin: 5px;
     padding: 5px;
@@ -270,6 +286,7 @@
     border: 1px solid;
     border-radius: 7px;
 }
+
 .colorPreviewSmall {
     min-width: 25px;
     min-height: 25px;
@@ -278,6 +295,7 @@
     border: 1px solid;
     border-color: rgba(0,10,0,0.50);
 }
+
 .recentColors {
     justify-content: start;
     display: flex;
@@ -288,6 +306,7 @@
     height: 125px;
     background-color: #ffffff;
 }
+
 .OpenWidgetsContainer {
     width: 215px;
     height: 52px;
@@ -303,6 +322,7 @@
     border: 2px solid;
     border-color: white;
 }
+
 .OpenWidgetsContainerChild1 {
     width: 50px;
     height: 50px;
@@ -312,6 +332,7 @@
     display: flex;
     justify-content: center;
 }
+
 .OpenWidgetsContainerChild2 {
     width: 150px;
     height: 50px;
@@ -321,9 +342,10 @@
     display: flex;
     justify-content: center;
 }
+
 .NewToolBar {
     width: 100%;
-    height: 100px;
+    height: 80px;
     margin-top: 0px;
     position: fixed;
     top: 0%;
@@ -334,6 +356,7 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
 .NewToolBarChild1 {
     width: 100%;
     height: 50px;
@@ -344,27 +367,33 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
 .NewToolBarChild2 {
     width: 100%;
-    height: 50px;
-    padding-top: 7px;
+    height: 30px;
     padding-left: 7px;
 }
+
 .ToolBarText {
     margin-left: 10px;
 }
+
 .AppBarButton {
     height: 30px;
 }
+
 .AppBarButtonChild {
-    height: 30px;
+    height: 20px;
 }
+
 .AppBarButtonText {
     font-size: 12px;
 }
+
 .AppBarButtonSelectedText {
     font-size: 12px;
 }
+
 .AppBarButtonChildText {
     font-size: 12px;
 }
@@ -393,6 +422,7 @@
 .AppBarButton.active {
     position: relative;
 }
+
     .AppBarButton.active::after {
         content: '';
         position: absolute;
@@ -407,3 +437,237 @@
         -ms-transition: all 0.3s ease-in-out;
         -o-transition: all 0.3s ease-in-out;
     }
+
+.notesInput {
+    width: 100%;
+    height: 330px;
+    resize: none;
+    padding: 5px;
+    border: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    resize: none;
+    color: var(--mud-palette-secondary);
+    background-color: var(--mud-palette-surface);
+}
+
+.notesChildInput {
+    width: 100%;
+    height: 330px;
+    background-color: var(--mud-palette-surface);
+}
+
+.notesChildTools {
+    width: 100%;
+    height: 10px;
+    background-color: var(--mud-palette-surface);
+}
+.notesContainer {
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+@media only screen and (max-width: 768px) {
+    .Main {
+        display: flex;
+        justify-content: center;
+        background-color: rgba(100,100,100,0.0);
+        width: 100%;
+        height: 100%;
+        margin-top: -10px;
+        position: fixed;
+        top: 0%;
+        left: 0%;
+    }
+    .backScreen {
+        width: 100%;
+        height: 10px;
+        background-color: var(--mud-palette-primary);
+    }
+    .MainDiv {
+        display: flex;
+        justify-content: center;
+        min-width: 100%;
+        min-height: 400px;
+        padding-right: 4%;
+    }
+    .MudPaperSmallWidget {
+        border-radius: 7px;
+        background-color: white;
+        width: 300px;
+        height: 380px;
+        min-width: 300px;
+        min-height: 380px;
+        margin-top: 100px;
+    }
+    .MudPaperSmallWidgetExpanded {
+        border-radius: 7px;
+        background-color: white;
+        width: 300px;
+        height: 380px;
+        min-width: 300px;
+        min-height: 380px;
+    }
+    .MudPaperMediumWidget {
+        border-radius: 7px;
+        width: 300px;
+        height: 380px;
+        min-width: 300px;
+        min-height: 380px;
+        margin-top: 100px;
+        padding-right: 14px;
+    }
+    .NewToolBar {
+        display: none;
+    }
+    .NewToolBarChild1 {
+        display: none;
+    }
+    .NewToolBarChild2 {
+        display: none;
+    }
+    .ToolBarText {
+        margin-left: 1px;
+    }
+    .AppBarButton {
+        width: 40px;
+        height: 40px;
+    }
+    .MudButton {
+        height: 40px;
+    }
+    .AppBarButtonChild {
+        margin-top: 50%;
+        height: 30px;
+    }
+    .AppBarButtonText {
+        font-size: 8px;
+        color: var(--mud-palette-primary-text);
+    }
+    .AppBarButtonSelectedText {
+        font-size: 6px;
+    }
+    .AppBarButtonChildText {
+        font-size: 6px;
+    }
+    .AppBarButton::before {
+        display: none;
+    }
+    .AppBarButton:hover::before {
+        display: none;
+    }
+    .AppBarButton.active {
+        display: none;
+    }
+    .AppBarButton.active::after {
+        display: none;
+    }
+    .MudButtonCalculator {
+        min-width: 60px;
+        min-height: 50px;
+        width: 60px;
+        height: 50px;
+    }
+    .Expand {
+        display: none;
+    }
+    .calculatorLog {
+        display: none;
+    }
+    .stopwatchLog {
+        height: 150px;
+        width: 280px;
+        border-radius: 7px;
+        margin: 10px;
+        margin-top: 45px;
+        border: 1px solid;
+    }
+    .converterLog {
+        height: 140px;
+        width: 280px;
+        border-radius: 7px;
+        margin: 10px;
+        margin-top: 15px;
+        border: 1px solid;
+    }
+    .toolbarMobile {
+        width: 100%;
+        height: 81px;
+        margin-top: 0px;
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        z-index: 0;
+        display: flex;
+        background-color: var(--mud-palette-appbar-background);
+        justify-content: space-around;
+        padding-top: 25px;
+        padding-left: 25px;
+        z-index: 5;
+    }
+    .openDrawerButton {
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        top: 2%;
+        left: 5%;
+    }
+    .darkModeToggle {
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        top: 2%;
+        left: 25%;
+    }
+    .mobileOverlay {
+        display: flex;
+        justify-content: start;
+        flex-direction: row;
+        flex-wrap: wrap;
+        background-color: var(--mud-palette-appbar-background);
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        z-index: 6;
+        padding-top: 0%;
+        margin-top: 80px;
+    }
+    .mobileOverlayChild1 {
+        width: 100%;
+        height: 35px;
+        padding: 5px;
+        padding-left: 15px;
+    }
+    .mobileOverlayChild2 {
+        width: 100%;
+        height: 35px;
+    }
+    .mobileOverlayChild3 {
+        width: 100%;
+        height: 35px;
+        padding: 5px;
+        padding-left: 15px;
+    }
+    .mobileOverlayChild4 {
+        width: 100%;
+        height: 80px;
+    }
+    .mobileOverlayChild5 {
+        width: 100%;
+        height: 100vh;
+    }
+}
+@media only screen and (min-width: 768.1px) {
+    .toolbarMobile {
+    display: none;
+    }
+    .mobileOverlay {
+    display: none;
+    }
+}
