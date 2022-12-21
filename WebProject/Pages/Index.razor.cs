@@ -46,32 +46,47 @@
         private void Tab_Calculator()
         {
             AllAppsFalse();
+            tab2();
             widgetsOpened = 1;
             App_Calculator = true;
+            drawerOpen = false;
         }
         private void Tab_TemperatureConverter()
         {
             AllAppsFalse();
+            tab3();
             widgetsOpened = 1;
             App_TemperatureConverter = true;
+            drawerOpen = false;
         }
         private void Tab_VolumeConverter()
         {
             AllAppsFalse();
+            tab3();
             widgetsOpened = 1;
+            App_TemperatureConverter = false;
             App_VolumeConverter = true;
+            drawerOpen = false;
         }
         private void Tab_Stopwatch()
         {
             AllAppsFalse();
+            tab2();
             widgetsOpened = 1;
+            App_Calculator = false;
             App_Stopwatch = true;
+            drawerOpen = false;
+            drawerOpen = false;
         }
         private void Tab_Timer()
         {
             AllAppsFalse();
+            tab2();
             widgetsOpened = 1;
+            App_Calculator = false;
             App_Timer = true;
+            drawerOpen = false;
+            drawerOpen = false;
         }
         private void Tab_ColorPicker()
         {
@@ -88,14 +103,20 @@
         private void Tab_LengthConverter()
         {
             AllAppsFalse();
+            tab3();
             widgetsOpened = 1;
+            App_TemperatureConverter = false;
             App_LengthConverter = true;
+            drawerOpen = false;
         }
         private void Tab_MassConverter()
         {
             AllAppsFalse();
+            tab3();
             widgetsOpened = 1;
+            App_TemperatureConverter = false;
             App_MassConverter = true;
+            drawerOpen = false;
         }
         private void Tab_Calendar()
         {
