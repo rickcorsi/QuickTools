@@ -54,10 +54,10 @@
 <div>
 <div class="NewToolBar">
     <div class="NewToolBarChild1" style="background-color: @appbarcolor">
-    <MudButton Disabled="true" OnClick="tab1" Class="AppBarButton" Style="margin: 5px;" DisableRipple="true">
+    <MudButton Disabled="true" OnClick="tab1" Class="AppBarButton" Style="" DisableRipple="true" Variant="Variant.Text">
         <MudText Class="AppBarButtonText" Style="font-size: 18px;" Color="MudBlazor.Color.Tertiary"> QuickTools </MudText>
     </MudButton> 
-    <MudButton OnClick="tab1" Class="AppBarButton" Style="margin: 5px;" DisableRipple="true">
+    <MudButton OnClick="tab1" Class="AppBarButton" Style="" DisableRipple="true" Variant="Variant.Text">
     @if (home == true) {
         <MudText Class="AppBarButtonText" Style="font-size: 18px;" Color="MudBlazor.Color.Tertiary"> Home </MudText>
     }
@@ -65,7 +65,7 @@
         <MudText Class="AppBarButtonText" Style="font-size: 18px;" Color="MudBlazor.Color.Warning"> Home </MudText>
     }
     </MudButton> 
-    <MudButton OnClick="tab2" Class="AppBarButton" Style="margin: 5px;" DisableRipple="true">
+    <MudButton OnClick="tab2" Class="AppBarButton" Style="" DisableRipple="true" Variant="Variant.Text">
     @if (Utilities == true) {
         <MudText Class="AppBarButtonText" Style="font-size: 18px;" Color="MudBlazor.Color.Tertiary"> Utilities </MudText>
     }
@@ -73,16 +73,16 @@
         <MudText Class="AppBarButtonText" Style="font-size: 18px;" Color="MudBlazor.Color.Warning"> Utilities </MudText>
     }
     </MudButton> 
-    <MudButton OnClick="tab3" Class="AppBarButton" Style="margin: 5px;" DisableRipple="true">
+    <MudButton OnClick="tab3" Class="AppBarButton" Style="" DisableRipple="true" Variant="Variant.Text">
     @if (Converters == true) {
         <MudText Class="AppBarButtonText" Style="font-size: 18px;" Color="MudBlazor.Color.Tertiary"> Converters </MudText>
     }
     else {
         <MudText Class="AppBarButtonText" Style="font-size: 18px;" Color="MudBlazor.Color.Warning"> Converters </MudText>
     }
-    </MudButton>     
+    </MudButton>
     <div class="selectTheme">
-        <MudMenu @bind-Value="selectedTheme" Variant="Variant.Outlined" Style="height: 30px; margin: 5px;" Color="MudBlazor.Color.Tertiary" Label="Select Theme" AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopCenter" Dense="true">
+    <MudMenu @bind-Value="selectedTheme" Class="mudMenu" Variant="Variant.Outlined" Style="" Color="MudBlazor.Color.Tertiary" Label="Select Theme" AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopCenter" Dense="true">
         <MudMenuItem Style="width: 120px;" OnClick='() => SetTheme("Light")'>
         @if (@theme1 == true) {
         <MudText Style="font-weight: bold;" >Light</MudText>
@@ -130,57 +130,56 @@
 </div>
 <div class="NewToolBarChild2" style="background-color: @appbarcolor">
     @if (home == true) {
-    <MudButton OnClick="OpenDialog" Class="AppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="font-size: 14px;" Color="MudBlazor.Color.Tertiary"> Select Widgets </MudText>
+    <MudButton OnClick="OpenDialog" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
+        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Select Widgets </MudText>
     </MudButton>       
-@*            <div class="OpenWidgetsContainer" style="background-color: @appbarcolor;">
-        <div class="OpenWidgetsContainerChild1"><MudFab DisableElevation="true" DisableRipple="true" OnClick="OpenDialog" Icon="@Icons.Rounded.Add" Variant="Variant.Filled" Color="MudBlazor.Color.Primary" Size="MudBlazor.Size.Small"/></div>
-        <div class="OpenWidgetsContainerChild2"><MudText Color="@MudBlazor.Color.Tertiary" Style="font-size: 20px;">Select Widgets</MudText></div>
-    </div>*@
     }
     @if (Utilities == true)
     {
-    <MudButton OnClick="Tab_Calculator" Class="AppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="font-size: 14px;" Color="MudBlazor.Color.Tertiary"> Calculator </MudText>
+    <MudButton OnClick="Tab_Calculator" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
+        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Calculator </MudText>
     </MudButton>       
-    <MudButton OnClick="Tab_Stopwatch" Class="AppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="font-size: 14px;" Color="MudBlazor.Color.Tertiary"> Stopwatch </MudText>
+    <MudButton OnClick="Tab_Stopwatch" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
+        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Stopwatch </MudText>
     </MudButton>   
-    <MudButton OnClick="Tab_Timer" Class="AppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="font-size: 14px;" Color="MudBlazor.Color.Tertiary"> Timer </MudText>
+    <MudButton OnClick="Tab_Timer" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
+        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Timer </MudText>
     </MudButton> 
-    <MudButton OnClick="Tab_ColorPicker" Class="AppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="font-size: 14px;" Color="MudBlazor.Color.Tertiary"> Color Picker </MudText>
+    <MudButton OnClick="Tab_ColorPicker" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
+        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Color Picker </MudText>
     </MudButton> 
-    <MudButton OnClick="Tab_Notes" Class="AppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="font-size: 14px;" Color="MudBlazor.Color.Tertiary"> Notes </MudText>
+    <MudButton OnClick="Tab_Notes" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
+        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Notes </MudText>
     </MudButton>
-    <MudButton OnClick="Tab_Calendar" Class="AppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="font-size: 14px;" Color="MudBlazor.Color.Tertiary"> Calendar </MudText>
+    <MudButton OnClick="Tab_Calendar" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
+        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Calendar </MudText>
     </MudButton>  
-    <MudButton OnClick="Tab_GraphBuilder" Class="AppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="font-size: 14px;" Color="MudBlazor.Color.Tertiary"> Graph Builder </MudText>
+    <MudButton OnClick="Tab_GraphBuilder" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
+        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Graph Builder </MudText>
     </MudButton>  
     }
     @if (Converters == true)
     {
-    <MudButton OnClick="Tab_TemperatureConverter" Class="AppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="font-size: 14px;" Color="MudBlazor.Color.Tertiary"> Temperature Converter </MudText>
+    <MudButton OnClick="Tab_TemperatureConverter" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
+        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Temperature Converter </MudText>
     </MudButton> 
-    <MudButton OnClick="Tab_VolumeConverter" Class="AppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="font-size: 14px;" Color="MudBlazor.Color.Tertiary"> Volume Converter </MudText>
+    <MudButton OnClick="Tab_VolumeConverter" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
+        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Volume Converter </MudText>
     </MudButton> 
-    <MudButton OnClick="Tab_LengthConverter" Class="AppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="font-size: 14px;" Color="MudBlazor.Color.Tertiary"> Length Converter </MudText>
+    <MudButton OnClick="Tab_LengthConverter" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
+        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Length Converter </MudText>
     </MudButton> 
-    <MudButton OnClick="Tab_MassConverter" Class="AppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="font-size: 14px;" Color="MudBlazor.Color.Tertiary"> Mass Converter </MudText>
+    <MudButton OnClick="Tab_MassConverter" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
+        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Mass Converter </MudText>
     </MudButton>  
     }
     </div>
+    <div class="NewToolBarChild3" style="background-color: @textColor">
+    
+    </div>
 </div>
 <div class="toolbarMobile">
-    <MudButton Disabled="true" OnClick="tab1" Class="AppBarButton" Style="" DisableRipple="true">
+    <MudButton Disabled="true" OnClick="tab1" Class="MobileAppBarButton" Style="" DisableRipple="true">
         <MudText Class="AppBarButtonText" Style="font-size: 28px;" Color="MudBlazor.Color.Tertiary"> QuickTools </MudText>
     </MudButton> 
     @if(isDarkMode == true){
@@ -198,31 +197,34 @@
     <MudText Class="AppBarButtonText" Style="font-size: 18px;" Color="MudBlazor.Color.Tertiary"> Utilities </MudText>
     </div>
     <div class="mobileOverlayChild2">
-    <MudButton OnClick="Tab_Calculator" Class="AppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="font-size: 14px;" Color="MudBlazor.Color.Tertiary"> Calculator </MudText>
+    <MudButton OnClick="Tab_Calculator" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
+        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Calculator </MudText>
     </MudButton>       
-    <MudButton OnClick="Tab_Stopwatch" Class="AppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="font-size: 14px;" Color="MudBlazor.Color.Tertiary"> Stopwatch </MudText>
+    <MudButton OnClick="Tab_Stopwatch" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
+        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Stopwatch </MudText>
     </MudButton>   
-    <MudButton OnClick="Tab_Timer" Class="AppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="font-size: 14px;" Color="MudBlazor.Color.Tertiary"> Timer </MudText>
+    <MudButton OnClick="Tab_Timer" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
+        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Timer </MudText>
     </MudButton> 
+    <MudButton OnClick="Tab_Notes" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
+        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Notes </MudText>
+    </MudButton>
     </div>
     <div class="mobileOverlayChild3">
     <MudText Class="AppBarButtonText" Style="font-size: 18px;" Color="MudBlazor.Color.Tertiary"> Converters </MudText>
     </div>
     <div class="mobileOverlayChild4">
-    <MudButton OnClick="Tab_TemperatureConverter" Class="AppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="font-size: 14px;" Color="MudBlazor.Color.Tertiary"> Temperature Converter </MudText>
+    <MudButton OnClick="Tab_TemperatureConverter" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
+        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Temperature Converter </MudText>
     </MudButton> 
-    <MudButton OnClick="Tab_VolumeConverter" Class="AppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="font-size: 14px;" Color="MudBlazor.Color.Tertiary"> Volume Converter </MudText>
+    <MudButton OnClick="Tab_VolumeConverter" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
+        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Volume Converter </MudText>
     </MudButton> 
-    <MudButton OnClick="Tab_LengthConverter" Class="AppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="font-size: 14px;" Color="MudBlazor.Color.Tertiary"> Length Converter </MudText>
+    <MudButton OnClick="Tab_LengthConverter" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
+        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Length Converter </MudText>
     </MudButton> 
-    <MudButton OnClick="Tab_MassConverter" Class="AppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="font-size: 14px;" Color="MudBlazor.Color.Tertiary"> Mass Converter </MudText>
+    <MudButton OnClick="Tab_MassConverter" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
+        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Mass Converter </MudText>
     </MudButton>  
     </div>
     <div class="mobileOverlayChild5">
@@ -738,7 +740,7 @@
                 OpenCalendar();
                 @if (CalendarIsOpen == true)
                 {
-                <div class="MudPaperMediumWidget" style="order: @widgetOrder[5]; background-color: @widgetColor;">
+                <div class="CalendarMediumWidget" style="order: @widgetOrder[5]; background-color: @widgetColor;">
                         <div style="display: flex; justify-content: space-between;">
                             <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Calendar</MudText>
                             @if (home == true)
@@ -771,7 +773,7 @@
                 <div class="@notesClass" style="order: @widgetOrder[4]; background-color: @widgetColor;">
                         <div style="display: flex; justify-content: space-between;">
                             <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Notes</MudText>
-                            <div style="margin: 2px;">
+                            <div class="Expand" style="margin: 2px;">
                                 @if (!isExpandedNotes)
                                 {
                                 <MudTooltip Text="More" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
@@ -1069,7 +1071,7 @@
                             <div style="display: flex;">
                             <MudTextField @bind-Value="App_Calculator_Display" AdornmentColor="@MudBlazor.Color.Secondary" ReadOnly="true" Variant="Variant.Outlined" Style="margin-left: 5px; margin-right: 5px; margin-bottom: 5px; max-width: 390px;" ></MudTextField>
                             </div>
-                            <div style="margin-left: 15px; max-width: 390px;">
+                            <div class="calcMain" style="">
                                 <MudButton OnClick="App_Calculator_Clear"  Class="MudButtonCalculator"><MudText Color="MudBlazor.Color.Secondary" Style="font-size: 20px;">C</MudText></MudButton>
                                 <MudButton OnClick="App_Calculator_ClearEntry"  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">CE</MudText></MudButton>
                                 <MudButton OnClick="Calc_Button_Backspace"  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">←</MudText></MudButton>
@@ -1164,7 +1166,7 @@
     string className = "MultipleWidgetsDiv";
     //Apps
     //Calculator
-    private bool App_Calculator = false;
+    private bool App_Calculator = true;
     private bool isExpandedCalculator = false;
     string calculatorClass = "MudPaperSmallWidget";
     string buttonValue = "0";
@@ -1493,7 +1495,7 @@
         calcLog = "";
     }
     //Temperature Converter
-    private bool App_TemperatureConverter = false;
+    private bool App_TemperatureConverter = true;
     private bool LogTemp = false;
     double App_TemperatureConverter_Value1 = 0;
     double App_TemperatureConverter_Value2 = 0;
@@ -1572,7 +1574,7 @@
         tempLog = "";
     }
     //Volume Converter
-    private bool App_VolumeConverter = false;
+    private bool App_VolumeConverter = true;
     private bool LogVolume = false;
     double App_VolumeConverter_Value1 = 0;
     double App_VolumeConverter_Value2 = 0;
@@ -1711,7 +1713,7 @@
         volumeLog = "";
     }
     //Stopwatch
-    private bool App_Stopwatch = false;
+    private bool App_Stopwatch = true;
     private bool isTiming = false;
     private bool isStopped = true;
     private bool LogStopwatch = false;
@@ -1764,7 +1766,7 @@
         swLog = "";
     }
     //Color Picker
-    private bool App_ColorPicker = false;
+    private bool App_ColorPicker = true;
     private bool isFirstColor = true;
     private bool isSecondColor = false;
     private bool isExpandedColorPicker = false;
@@ -1801,7 +1803,7 @@
     string secondColorConverted = "#ed0c3d";
     string selectedTheme = "Default";
     string fontType = "Roboto";
-    string colorPickerClass = "MudPaperMediumWidget";
+    string colorPickerClass = "ColorPickerMediumWidget";
     string[] recentColor = { "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", 
     "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", 
     "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", "ffffff", 
@@ -2046,12 +2048,12 @@
     {
         if (isExpandedColorPicker == false)
         {
-            colorPickerClass = "MudPaperMediumWidgetExpanded";
+            colorPickerClass = "ColorPickerMediumWidgetExpanded";
             isExpandedColorPicker = true;
         }
         else if (isExpandedColorPicker == true)
         {
-            colorPickerClass = "MudPaperMediumWidget";
+            colorPickerClass = "ColorPickerMediumWidget";
             isExpandedColorPicker = false;
         }
     }
@@ -2094,6 +2096,7 @@
             widgetTextColor = "#000000";
             accentcolor = "121218";
             graphcolor = "121218";
+            isDarkMode = false;
             _isDarkMode = false;
         }  
         if (_theme == "Dark")
@@ -2110,6 +2113,7 @@
             widgetTextColor = "#ffffff";
             accentcolor = "47476d";
             graphcolor = "ffffff";
+            isDarkMode = true;
             _isDarkMode = true;
         }  
         if (_theme == "Miami Vice")
@@ -2126,6 +2130,7 @@
             widgetTextColor = "#000000";
             accentcolor = "d1d2d3";
             graphcolor = "f7a1e9";
+            isDarkMode = false;
             _isDarkMode = false;
         }  
         if (_theme == "Cyberpunk")
@@ -2142,6 +2147,7 @@
             widgetTextColor = "#ff0586";
             accentcolor = "8b064b";
             graphcolor = "ff0586";
+            isDarkMode = true;
             _isDarkMode = true;
         }  
         if (_theme == "Custom Theme")
@@ -2170,6 +2176,8 @@
             if (widgetColor.L < .45){
                 widgetTextColor = "ffffff";
             }
+            isDarkMode = false;
+            _isDarkMode = false;
         }
     }
     private void toggleDark()
@@ -2226,7 +2234,7 @@
         await BrowserStorage.DeleteAsync("Custom Widget Color");
     }
     //Notes
-    private bool App_Notes = false;
+    private bool App_Notes = true;
     private bool isExpandedNotes = false;
     string notesText = "";
     string notesClass = "MudPaperSmallWidget";
@@ -2244,7 +2252,7 @@
         }
     }
     //Length Converter
-    protected bool App_LengthConverter = false;
+    protected bool App_LengthConverter = true;
     protected bool LogLength = false;
     protected double App_LengthConverter_Value1 = 0;
     protected double App_LengthConverter_Value2 = 0;
@@ -2419,7 +2427,7 @@
         lengthLog = "";
     }
     //Mass Converter
-    private bool App_MassConverter = false;
+    private bool App_MassConverter = true;
     private bool LogMass = false;
     double App_MassConverter_Value1 = 0;
     double App_MassConverter_Value2 = 0;
@@ -2558,7 +2566,7 @@
         massLog = "";
     }
     //Timer
-    private bool App_Timer = false;
+    private bool App_Timer = true;
     private bool isTiming_Timer = false;
     private bool isReset_Timer = true;
     private bool isPaused_Timer = true;
@@ -2628,13 +2636,13 @@
         bool? result = await timerNotificationMSG.Show();
     }
     //Calendar
-    private bool App_Calendar = false;
+    private bool App_Calendar = true;
     string todayDate = DateTime.Now.ToShortDateString();
     //Graph Builder
-    private bool App_GraphBuilder = false;
+    private bool App_GraphBuilder = true;
     private bool isExpandedGraphBuilder = false;
     private bool graphTabBars = true;
-    string graphBuilderClass = "MudPaperMediumWidget";
+    string graphBuilderClass = "GraphBuilderMediumWidget";
     private double GraphBuilderMin = 0;
     private double GraphBuilderMax = 100;
     string GraphTitle = "Title";
@@ -2649,12 +2657,12 @@
     {
         if (isExpandedGraphBuilder == false)
         {
-            graphBuilderClass = "MudPaperMediumWidgetExpanded";
+            graphBuilderClass = "GraphBuilderMediumWidgetExpanded";
             isExpandedGraphBuilder = true;
         }
         else if (isExpandedGraphBuilder == true)
         {
-            graphBuilderClass = "MudPaperMediumWidget";
+            graphBuilderClass = "GraphBuilderMediumWidget";
             isExpandedGraphBuilder = false;
         }
     }

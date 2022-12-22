@@ -76,7 +76,6 @@
             App_Calculator = false;
             App_Stopwatch = true;
             drawerOpen = false;
-            drawerOpen = false;
         }
         private void Tab_Timer()
         {
@@ -85,7 +84,6 @@
             widgetsOpened = 1;
             App_Calculator = false;
             App_Timer = true;
-            drawerOpen = false;
             drawerOpen = false;
         }
         private void Tab_ColorPicker()
@@ -97,8 +95,11 @@
         private void Tab_Notes()
         {
             AllAppsFalse();
+            tab2();
             widgetsOpened = 1;
+            App_Calculator = false;
             App_Notes = true;
+            drawerOpen = false;
         }
         private void Tab_LengthConverter()
         {
