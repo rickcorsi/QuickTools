@@ -2,8 +2,6 @@
 {
     public partial class Index
     {
-
-
         //Widget Ordering
         int[] widgetOrder = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         int tempOrder = 0;
@@ -24,7 +22,7 @@
         {
             AllTabsFalse();
             className = "MultipleWidgetsDiv";
-            AllAppsFalse();
+            App_SelectAll();
             home = true;
         }
         private void tab2()

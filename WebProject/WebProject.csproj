@@ -24,6 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Scripts\notes.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ComponentLibrary\ComponentLibrary.csproj" />
   </ItemGroup>
 
