@@ -7,7 +7,6 @@
         document.getElementById("textarea1").style.fontStyle = "italic";
 }
     function download() {
-        boldText();
         var text = document.getElementById("textarea1").value;
         text = text.replace(/\n/g, "\r\n");
         var blob = new Blob([text], { type: "text/plain" });

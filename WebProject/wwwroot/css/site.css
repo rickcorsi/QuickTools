@@ -320,6 +320,7 @@
     width: 360px;
     border-radius: 7px;
     margin: 5%;
+    margin-top: 62px;
     padding-left: 15px;
     padding-right: 15px;
     border: 1px solid;
@@ -446,32 +447,52 @@
 .AppBarButtonChild {
     min-height: 60%;
     height: 60%;
-    min-width: 12%;
+    min-width: 3%;
     margin: 4px;
-    overflow: hidden
+    overflow: hidden;
+    padding: 5px;
+    padding-top: 7px;
 }
-.NewAppBarButtonChild {
-    min-height: 60%;
-    height: 60%;
-    min-width: 12%;
+    .AppBarButtonChild:hover {
+
+    }
+
+.toolButtons {
+    min-height: 20px;
+    height: 20px;
+    min-width: 3%;
     margin: 4px;
-    overflow: hidden 
-    border: 2px solid;
-    border-radius: 5px;
-    border-style: solid;
-    border-color: var(--mud-palette-secondary);
-    padding: 3px;
+    overflow: hidden;
+    padding: 7px;
+    padding-top: 8px;
+}
+    .toolButtons:hover {
+        background-color: lime;
+        color: white;
+    }
+
+.toolButtonsText {
+    font-size: 16px;
+    font-family: 'Fira Sans', sans-serif;
+}
+.converterButtonContainer {
+    display: flex;
+    justify-content: start;
+    padding-left: 6px;
+}
+.converterInput {
+    padding-left: 27px;
+}
+.AppBarButtonChildText {
+    font-size: 16px;
+    font-family: 'Fira Sans', sans-serif;
 }
 .AppBarButtonText {
-
+    font-size: 20px;
+    font-family: 'Fira Sans', sans-serif;
 }
-
-.AppBarButtonSelectedText {
-
-}
-
-.AppBarButtonChildText {
-    
+.mainText {
+    font-family: 'Fira Sans', sans-serif;
 }
 
 /*.AppBarButton::before {
@@ -692,31 +713,14 @@ input:focus {
     .NewToolBarChild2 {
         display: none;
     }
-    .ToolBarText {
-        margin-left: 1px;
-    }
     .MobileAppBarButton {
-        height: 40px;
-        width: 40px;
-        position: fixed;
-        top: 25%;
-        left: 5%;
-    }
-    .MudButton {
-        height: 40px;
+
     }
     .MobileAppBarButtonChild {
-        height: 30px;
-    }
-    .AppBarButtonText {
-        font-size: 8px;
-        color: var(--mud-palette-primary-text);
     }
     .AppBarButtonSelectedText {
-        font-size: 6px;
     }
     .AppBarButtonChildText {
-        font-size: 6px;
     }
     .AppBarButton::before {
         display: none;
@@ -747,7 +751,7 @@ input:focus {
         display: none;
     }
     .stopwatchLog {
-        height: 150px;
+        height: 174px;
         width: 280px;
         border-radius: 7px;
         margin: 10px;
@@ -755,7 +759,7 @@ input:focus {
         border: 1px solid;
     }
     .converterLog {
-        height: 140px;
+        height: 165px;
         width: 280px;
         border-radius: 7px;
         margin: 10px;
@@ -785,10 +789,10 @@ input:focus {
         margin-top: 0px;
         z-index: 0;
         display: flex;
-        justify-content: space-around;
-        z-index: 5;
-        padding-left: 5px;
-        padding-right: 5px;
+        justify-content: space-between;
+        padding-top: 22px;
+        padding-right: 15px;
+        padding-left: 15px;
     }
     .toolbarMobileChild2 {
         width: 100%;
@@ -803,22 +807,16 @@ input:focus {
         padding-top: 5px;
         padding-left: 5px;
         padding-right: 5px;
-        border: 1px solid;
-        border-color: var(--mud-palette-success);
+        outline: 2px solid;
+        outline-color: var(--mud-palette-success);
     }
     .openDrawerButton {
         width: 40px;
         height: 40px;
-        position: fixed;
-        top: 25%;
-        left: 5%;
     }
     .darkModeToggle {
         width: 40px;
         height: 40px;
-        position: fixed;
-        top: 25%;
-        left: 25%;
     }
     .mobileOverlay {
         display: flex;
@@ -887,6 +885,21 @@ input:focus {
     .notesInput {
         height: 275px;
     }
+    .MobileAppBarButtonChild {
+        height: 20px;
+        min-width: 3%;
+        margin: 4px;
+        overflow: hidden;
+        padding: 5px;
+        padding-top: 7px;
+    }
+    .MobileAppBarButtonChildText {
+        font-size: 16px;
+    }
+    .converterInput {
+        padding-left: 16px;
+        padding-right: 4px;
+    }
 }
 @media only screen and (min-width: 768.1px) {
     .toolbarMobile {
@@ -894,5 +907,47 @@ input:focus {
     }
     .mobileOverlay {
     display: none;
+    }
+}
+@media only screen and (max-width: 1350px) {
+    .AppBarButtonChild {
+        min-height: 50%;
+        height: 50%;
+        min-width: 3%;
+        margin: 4px;
+        overflow: hidden;
+        padding: 5px;
+        padding-top: 7px;
+    }
+    .AppBarButtonChildText {
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 1250px) {
+    .AppBarButtonChild {
+        min-height: 40%;
+        height: 40%;
+        min-width: 3%;
+        margin: 4px;
+        overflow: hidden;
+        padding: 5px;
+        padding-top: 6px;
+    }
+    .AppBarButtonChildText {
+        font-size: 12px;
+    }
+}
+@media only screen and (max-width: 1150px) {
+    .AppBarButtonChild {
+        min-height: 30%;
+        height: 30%;
+        min-width: 3%;
+        margin: 4px;
+        overflow: hidden;
+        padding: 5px;
+        padding-top: 5px;
+    }
+    .AppBarButtonChildText {
+        font-size: 10px;
     }
 }
