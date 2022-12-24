@@ -54,30 +54,30 @@
 <div class="NewToolBar">
     <div class="NewToolBarChild1" style="background-color: @appbarcolor">
     <MudButton Disabled="true" OnClick="tab1" Class="AppBarButton" Style="" DisableRipple="true" Variant="Variant.Text">
-        <MudText Class="AppBarButtonText" Style="font-size: 18px;" Color="MudBlazor.Color.Tertiary"> QuickTools </MudText>
+        <MudText Class="AppBarButtonText" Style="" Color="MudBlazor.Color.Tertiary"> QuickTools </MudText>
     </MudButton> 
     <MudButton OnClick="tab1" Class="AppBarButton" Style="border-radius: 0px;" DisableRipple="true" Variant="Variant.Text">
     @if (home == true) {
-        <MudText Class="AppBarButtonText" Style="font-size: 18px;" Color="MudBlazor.Color.Tertiary"> Home </MudText>
+        <MudText Class="AppBarButtonText" Style="" Color="MudBlazor.Color.Tertiary"> Home </MudText>
     }
     else {
-        <MudText Class="AppBarButtonText" Style="font-size: 18px;" Color="MudBlazor.Color.Warning"> Home </MudText>
+        <MudText Class="AppBarButtonText" Style="" Color="MudBlazor.Color.Warning"> Home </MudText>
     }
     </MudButton> 
     <MudButton OnClick="tab2" Class="AppBarButton" Style="border-radius: 0px;" DisableRipple="true" Variant="Variant.Text">
     @if (Utilities == true) {
-        <MudText Class="AppBarButtonText" Style="font-size: 18px;" Color="MudBlazor.Color.Tertiary"> Utilities </MudText>
+        <MudText Class="AppBarButtonText" Style="" Color="MudBlazor.Color.Tertiary"> Utilities </MudText>
     }
     else {
-        <MudText Class="AppBarButtonText" Style="font-size: 18px;" Color="MudBlazor.Color.Warning"> Utilities </MudText>
+        <MudText Class="AppBarButtonText" Style="" Color="MudBlazor.Color.Warning"> Utilities </MudText>
     }
     </MudButton> 
     <MudButton OnClick="tab3" Class="AppBarButton" Style="border-radius: 0px;" DisableRipple="true" Variant="Variant.Text">
     @if (Converters == true) {
-        <MudText Class="AppBarButtonText" Style="font-size: 18px;" Color="MudBlazor.Color.Tertiary"> Converters </MudText>
+        <MudText Class="AppBarButtonText" Style="" Color="MudBlazor.Color.Tertiary"> Converters </MudText>
     }
     else {
-        <MudText Class="AppBarButtonText" Style="font-size: 18px;" Color="MudBlazor.Color.Warning"> Converters </MudText>
+        <MudText Class="AppBarButtonText" Style="" Color="MudBlazor.Color.Warning"> Converters </MudText>
     }
     </MudButton>
     <div class="selectTheme">
@@ -256,9 +256,12 @@
 </div>
 <div class="toolbarMobile">
     <div class="toolbarMobileChild1">
+    <div>
     <MudButton Disabled="true" OnClick="tab1" Class="MobileAppBarButton" Style="" DisableRipple="true">
         <MudText Class="AppBarButtonText" Style="font-size: 28px;" Color="MudBlazor.Color.Tertiary"> QuickTools </MudText>
     </MudButton> 
+    </div>
+    <div>
     @if(isDarkMode == true){
     <MudIconButton OnClick="toggleDark" Class="darkModeToggle" Size="MudBlazor.Size.Large" DisableRipple="true" Color="MudBlazor.Color.Tertiary" Icon="@Icons.Rounded.WbSunny"></MudIconButton>
     }
@@ -268,15 +271,16 @@
 
     <MudIconButton OnClick="ToggleDrawer" Class="openDrawerButton" Size="MudBlazor.Size.Large" DisableRipple="true" Color="MudBlazor.Color.Tertiary" Icon="@Icons.Rounded.Menu"></MudIconButton>
     </div>
+    </div>
     <div class="toolbarMobileChild2">
     @if (home == true) {
-    <MudButton OnClick="OpenDialog" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary">
-        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Secondary"> Manage Tools </MudText>
+    <MudButton OnClick="OpenDialog" Class="MobileAppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary">
+        <MudText Class="MobileAppBarButtonChildText" Style="" Color="MudBlazor.Color.Secondary"> Manage Tools </MudText>
     </MudButton>       
     }
     @if (home == false) {
-    <MudButton OnClick="tab1" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary">
-        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Secondary"> Return Home </MudText>
+    <MudButton OnClick="tab1" Class="MobileAppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary">
+        <MudText Class="MobileAppBarButtonChildText" Style="" Color="MudBlazor.Color.Secondary"> Return Home </MudText>
     </MudButton>       
     }
     </div>
@@ -288,16 +292,16 @@
     </div>
     <div class="mobileOverlayChild2">
     <MudButton OnClick="Tab_Calculator" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Calculator </MudText>
+        <MudText Class="MobileAppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Calculator </MudText>
     </MudButton>       
     <MudButton OnClick="Tab_Stopwatch" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Stopwatch </MudText>
+        <MudText Class="MobileAppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Stopwatch </MudText>
     </MudButton>   
     <MudButton OnClick="Tab_Timer" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Timer </MudText>
+        <MudText Class="MobileAppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Timer </MudText>
     </MudButton> 
     <MudButton OnClick="Tab_Notes" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Notes </MudText>
+        <MudText Class="MobileAppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Notes </MudText>
     </MudButton>
     </div>
     <div class="mobileOverlayChild3">
@@ -305,16 +309,16 @@
     </div>
     <div class="mobileOverlayChild4">
     <MudButton OnClick="Tab_TemperatureConverter" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Temperature Converter </MudText>
+        <MudText Class="MobileAppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Temperature Converter </MudText>
     </MudButton> 
     <MudButton OnClick="Tab_VolumeConverter" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Volume Converter </MudText>
+        <MudText Class="MobileAppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Volume Converter </MudText>
     </MudButton> 
     <MudButton OnClick="Tab_LengthConverter" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Length Converter </MudText>
+        <MudText Class="MobileAppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Length Converter </MudText>
     </MudButton> 
     <MudButton OnClick="Tab_MassConverter" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Mass Converter </MudText>
+        <MudText Class="MobileAppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Mass Converter </MudText>
     </MudButton>  
     </div>
     <div class="mobileOverlayChild5">
@@ -345,7 +349,7 @@
                             }    
                         </div>
                         <div style="display: flex;">
-                            <div style="margin-left: 5%;">
+                            <div class="converterInput" style="">
                                 <MudTextField @bind-Value="App_MassConverter_Value1" ReadOnly="false" Variant="Variant.Outlined" Style="" ></MudTextField>
                                 <MudSelect @bind-Value="MassValue1" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
                                     <MudSelectItem Value="@("Pound")" />
@@ -356,7 +360,7 @@
                                     <MudSelectItem Value="@("Metric Ton")" />
                                 </MudSelect>    
                             </div>
-                            <div style="margin-left: 5%;">
+                            <div class="converterInput" style="">
                                 <MudTextField @bind-Value="App_MassConverter_Value2" ReadOnly="true" Variant="Variant.Outlined" Style="Color: " ></MudTextField>
                                 <MudSelect @bind-Value="MassValue2" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
                                     <MudSelectItem Value="@("Pound")" />
@@ -373,7 +377,7 @@
                             <div class="converterLog" style="border-color: @widgetTextColor;">
                                 @if (LogMass == true)
                                 {
-                                    <MudTextField @bind-Value="massLog" Class="converterLogText" ReadOnly="false" Variant="Variant.Text" Style="" DisableUnderLine="true" Lines="6" ></MudTextField>
+                                    <MudTextField @bind-Value="massLog" Class="converterLogText" ReadOnly="true" Variant="Variant.Text" Style="" DisableUnderLine="true" Lines="6" ></MudTextField>
                                 }
                             </div>
                         }
@@ -381,16 +385,24 @@
                         {
                             <div class="converterLog" style="border-color: @widgetColor;"></div>
                         }
-                        <div>
-                            <MudButton OnClick="ConvertMass" Style="margin: 5%; margin-top: 0px; height: 20px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Convert</MudButton>
+                        <div class="converterButtonContainer">
+                            <MudButton OnClick="ConvertMass" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                <MudText Class="toolButtonsText">Convert</MudText>
+                            </MudButton>
                             @if (LogMass == false)
                             {
-                                <MudButton OnClick="ToggleLogMass" Style="margin-bottom: 5%; margin-top: 0px; height: 20px; width: 120px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Show Log</MudButton>
+                                <MudButton OnClick="ToggleLogMass" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                    <MudText Class="toolButtonsText">Show Log</MudText>
+                                </MudButton>
                             }
                             @if (LogMass == true)
                             {
-                                <MudButton OnClick="ToggleLogMass" Style="margin-bottom: 5%; margin-top: 0px; height: 20px; width: 120px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Hide Log</MudButton>                    
-                                <MudButton OnClick="ClearLogMass" Style="margin-bottom: 5%; margin-left: 5%; height: 20px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Clear Log</MudButton>
+                                <MudButton OnClick="ToggleLogMass" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                    <MudText Class="toolButtonsText">Hide Log</MudText>
+                                </MudButton>                    
+                                <MudButton OnClick="ClearLogMass" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                    <MudText Class="toolButtonsFont">Clear Log</MudText>
+                                </MudButton>
                             }
                     </div>
                 </div>
@@ -414,7 +426,7 @@
                             }    
                         </div>             
                         <div style="display: flex;">
-                            <div style="margin-left: 5%;">
+                            <div class="converterInput" style="">
                                 <MudTextField @bind-Value="App_LengthConverter_Value1" ReadOnly="false" Variant="Variant.Outlined" Style="" ></MudTextField>
                                 <MudSelect @bind-Value="LengthValue1" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
                                     <MudSelectItem Value="@("Foot")" />
@@ -425,7 +437,7 @@
                                     <MudSelectItem Value="@("Kilometer")" />
                                 </MudSelect>    
                             </div>
-                            <div style="margin-left: 5%;">
+                            <div class="converterInput" style="">
                                 <MudTextField @bind-Value="App_LengthConverter_Value2" ReadOnly="true" Variant="Variant.Outlined" Style="" ></MudTextField>
                                 <MudSelect @bind-Value="LengthValue2" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
                                     <MudSelectItem Value="@("Foot")" />
@@ -450,18 +462,26 @@
                         {
                             <div class="converterLog" style="border-color: @widgetColor;"></div>
                         }
-                        <div>
-                            <MudButton OnClick="ConvertLength" Style="margin: 5%; margin-top: 0px; height: 20px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Convert</MudButton>
+                        <div class="converterButtonContainer">
+                            <MudButton OnClick="ConvertLength" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                <MudText Class="toolButtonsText">Convert</MudText>
+                            </MudButton>
                             @if (LogLength == false)
                             {
-                                <MudButton OnClick="ToggleLogLength" Style="margin-bottom: 5%; margin-top: 0px; height: 20px; width: 120px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Show Log</MudButton>
+                                <MudButton OnClick="ToggleLogLength" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                    <MudText Class="toolButtonsText">Show Log</MudText>
+                                </MudButton>
                             }
                             @if (LogLength == true)
                             {
-                                <MudButton OnClick="ToggleLogLength" Style="margin-bottom: 5%; margin-top: 0px; height: 20px; width: 120px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Hide Log</MudButton>                    
-                                <MudButton OnClick="ClearLogLength" Style="margin-bottom: 5%; margin-left: 5%; height: 20px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Clear Log</MudButton>
+                                <MudButton OnClick="ToggleLogLength" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                    <MudText Class="toolButtonsText">Hide Log</MudText>
+                                </MudButton>                    
+                                <MudButton OnClick="ClearLogLength" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                    <MudText Class="toolButtonsFont">Clear Log</MudText>
+                                </MudButton>
                             }
-                    </div>
+                        </div>
                 </div>
                 }
             }
@@ -483,7 +503,7 @@
                         }    
                     </div>
                     <div style="display: flex;">
-                        <div style="margin-left: 5%;">
+                            <div class="converterInput" style="">
                             <MudTextField @bind-Value="App_VolumeConverter_Value1" ReadOnly="false" Variant="Variant.Outlined" Style="" ></MudTextField>
                             <MudSelect @bind-Value="VolumeValue1" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
                                 <MudSelectItem Value="@("US Gallon")" />
@@ -494,7 +514,7 @@
                                 <MudSelectItem Value="@("Milliliter")" />
                             </MudSelect>    
                         </div>
-                        <div style="margin-left: 5%;">
+                            <div class="converterInput" style="">
                             <MudTextField @bind-Value="App_VolumeConverter_Value2" ReadOnly="true" Variant="Variant.Outlined" Style="" ></MudTextField>
                             <MudSelect @bind-Value="VolumeValue2" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
                                 <MudSelectItem Value="@("US Gallon")" />
@@ -516,16 +536,26 @@
                     @if (LogVolume == false) {
                     <div class="converterLog" style="border-color: @widgetColor;"></div>
                     }
-                    <div>
-                        <MudButton OnClick="ConvertVolume" Style="margin: 5%; margin-top: 0px; height: 20px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Convert</MudButton>
-                        @if (LogVolume == false) {
-                        <MudButton OnClick="ToggleLogVolume" Style="margin-bottom: 5%; margin-top: 0px; height: 20px; width: 120px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Show Log</MudButton>                    
-                        }
-                        @if (LogVolume == true) {
-                        <MudButton OnClick="ToggleLogVolume" Style="margin-bottom: 5%; margin-top: 0px; height: 20px; width: 120px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Hide Log</MudButton>                    
-                        <MudButton OnClick="ClearLogVolume" Style="margin-bottom: 5%; margin-left: 5%; height: 20px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Clear Log</MudButton>                    
-                        }
-                    </div>
+                        <div class="converterButtonContainer">
+                            <MudButton OnClick="ConvertVolume" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                <MudText Class="toolButtonsText">Convert</MudText>
+                            </MudButton>
+                            @if (LogVolume == false)
+                            {
+                                <MudButton OnClick="ToggleLogVolume" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                    <MudText Class="toolButtonsText">Show Log</MudText>
+                                </MudButton>
+                            }
+                            @if (LogVolume == true)
+                            {
+                                <MudButton OnClick="ToggleLogVolume" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                    <MudText Class="toolButtonsText">Hide Log</MudText>
+                                </MudButton>                    
+                                <MudButton OnClick="ClearLogVolume" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                    <MudText Class="toolButtonsFont">Clear Log</MudText>
+                                </MudButton>
+                            }
+                        </div>
                 </div>
                 }
             }
@@ -547,7 +577,7 @@
                         }    
                     </div>                  
                     <div style="display: flex;">
-                        <div style="margin-left: 5%;">
+                            <div class="converterInput" style="">
                             <MudTextField @bind-Value="App_TemperatureConverter_Value1" ReadOnly="false" Variant="Variant.Outlined" Style="" ></MudTextField>
                             <MudSelect @bind-Value="TempValue1" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
                                 <MudSelectItem Value="@("Fahrenheit")" />
@@ -555,7 +585,7 @@
                                 <MudSelectItem Value="@("Kelvin")" />
                             </MudSelect>    
                         </div>
-                        <div style="margin-left: 5%;">
+                            <div class="converterInput" style="">
                             <MudTextField @bind-Value="App_TemperatureConverter_Value2" ReadOnly="true" Variant="Variant.Outlined" Style="" ></MudTextField>
                             <MudSelect @bind-Value="TempValue2" Margin="Margin.Dense" T="string" Variant="Variant.Outlined">
                                 <MudSelectItem Value="@("Fahrenheit")" />
@@ -574,16 +604,26 @@
                     @if (LogTemp == false) {
                     <div class="converterLog" style="border-color: @widgetColor;"></div>
                     }
-                    <div>
-                        <MudButton OnClick="ConvertTemp" Style="margin: 5%; margin-top: 0px; height: 20px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Convert</MudButton>
-                        @if (LogTemp == false) {
-                        <MudButton OnClick="ToggleLogTemp" Style="margin-bottom: 5%; margin-top: 0px; height: 20px; width: 120px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Show Log</MudButton>                    
-                        }
-                        @if (LogTemp == true) {
-                        <MudButton OnClick="ToggleLogTemp" Style="margin-bottom: 5%; margin-top: 0px; height: 20px; width: 120px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Hide Log</MudButton>                    
-                        <MudButton OnClick="ClearLogTemp" Style="margin-bottom: 5%; margin-left: 5%; height: 20px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Clear Log</MudButton>                    
-                        }
-                    </div>
+                        <div class="converterButtonContainer">
+                            <MudButton OnClick="ConvertTemp" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                <MudText Class="toolButtonsText">Convert</MudText>
+                            </MudButton>
+                            @if (LogTemp == false)
+                            {
+                                <MudButton OnClick="ToggleLogTemp" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                    <MudText Class="toolButtonsText">Show Log</MudText>
+                                </MudButton>
+                            }
+                            @if (LogTemp == true)
+                            {
+                                <MudButton OnClick="ToggleLogTemp" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                    <MudText Class="toolButtonsText">Hide Log</MudText>
+                                </MudButton>                    
+                                <MudButton OnClick="ClearLogTemp" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                    <MudText Class="toolButtonsFont">Clear Log</MudText>
+                                </MudButton>
+                            }
+                        </div>
                 </div>
                 }
             }
@@ -733,8 +773,9 @@
                                     </MudTooltip>
                                 </div>
                                 <div style="display: flex; justify-content: start;">
-                                <MudButton OnClick="BuildGraph" Style="height: 20px; width: 140px; margin: 8px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Build Graph</MudButton>
-                                </div>
+                                <MudButton OnClick="BuildGraph" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary">
+                                    <MudText Class="toolButtonsFont">Build Graph</MudText>                                
+                                </MudButton>                                  </div>
                                 <div style="display: flex; justify-content: start;">
                                 <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBuilderMax" Label="Max Value" Variant="Variant.Outlined" />
                                 <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphNumberOfBars" Label="# of Bars" Variant="Variant.Outlined" Min="0" Max="6"/>
@@ -781,7 +822,9 @@
                                     <MudIconButton Disabled="isExpandedGraphBuilder" OnClick="ChangeGraphTab" Icon="@Icons.TwoTone.KeyboardArrowRight"></MudIconButton>
                                 </div>
                                 <div style="display: flex; justify-content: start;">
-                                <MudButton OnClick="BuildGraph" Style="height: 20px; width: 140px; margin: 8px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Build Graph</MudButton>
+                                <MudButton OnClick="BuildGraph" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary">
+                                    <MudText Class="toolButtonsFont">Build Graph</MudText>                                
+                                </MudButton>   
                                 </div>
                                 <MudTextField @bind-Value="GraphTitle" Margin="Margin.Dense" Style="margin-left: 8px; margin-right: 8px;" Label="Graph Title" Variant="Variant.Outlined"></MudTextField>                    
                                 <div style="display: flex; justify-content: start;">
@@ -922,9 +965,15 @@
                         <MudText Color="@MudBlazor.Color.Secondary" Style="@($"font-family:{fontType}; font-size: 36px;")">@displaytimer_Timer</MudText>
                     </div>
                     <div style="display: flex; justify-content: center;">
-                        <MudButton Variant="Variant.Outlined" Style="margin: 15px; height: 20px;" Color="MudBlazor.Color.Secondary" Disabled="@isTiming_Timer" OnClick="TimerTiming">Start</MudButton>
-                        <MudButton Variant="Variant.Outlined" Style="margin: 15px; height: 20px;" Color="MudBlazor.Color.Secondary" Disabled="@isPaused_Timer" OnClick="TimerPause">Pause</MudButton>
-                        <MudButton Variant="Variant.Outlined" Style="margin: 15px; height: 20px;" Color="MudBlazor.Color.Secondary" Disabled="@isReset_Timer" OnClick="TimerReset">Reset</MudButton>
+                        <MudButton Disabled="@isTiming_Timer" OnClick="TimerTiming" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                            <MudText Class="toolButtonsFont">Start</MudText>                                
+                        </MudButton>      
+                        <MudButton Disabled="@isPaused_Timer" OnClick="TimerPause" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                            <MudText Class="toolButtonsFont">Pause</MudText>                                
+                        </MudButton>          
+                        <MudButton Disabled="@isReset_Timer" OnClick="TimerReset" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                            <MudText Class="toolButtonsFont">Reset</MudText>                                
+                        </MudButton>                         
                     </div>
                     <div style="display: flex; justify-content: center; margin: 20px;">
                         <MudNumericField Class="timerField" Style="margin: 10px;" @bind-Value="Hours" Label="Hours" Variant="Variant.Outlined" Min="0" Max="18"/>
@@ -971,9 +1020,13 @@
                         <div style="display: flex; justify-content: center;">
                             <MudText Color="@MudBlazor.Color.Secondary" Style="@($"font-family:{fontType}; font-size: 36px;")">@displaytimer</MudText>
                         </div>
-                        <div style="display: flex; justify-content: center;">
-                            <MudButton Variant="Variant.Outlined" Style="margin: 5%; height: 20px;" Color="MudBlazor.Color.Secondary" Disabled="@isTiming" OnClick="StopwatchTiming">Start</MudButton>
-                            <MudButton Variant="Variant.Outlined" Style="margin: 5%; height: 20px;" Color="MudBlazor.Color.Secondary" Disabled="@isStopped" OnClick="StopwatchStop">Stop</MudButton>
+                        <div style="display: flex; justify-content: center;">                        
+                            <MudButton Disabled="@isTiming" OnClick="StopwatchTiming" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                <MudText Class="toolButtonsFont">Start</MudText>                                
+                            </MudButton>      
+                            <MudButton Disabled="@isStopped" OnClick="StopwatchStop" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                <MudText Class="toolButtonsFont">Stop</MudText>                                
+                            </MudButton>      
                         </div>
                         @if (LogStopwatch == true)
                         {
@@ -988,15 +1041,23 @@
                         {
                             <div class="stopwatchLog" style="border-color: @widgetColor;"></div>
                         }
+                        <div class="converterButtonContainer">
                         @if (LogStopwatch == false)
                         {
-                            <MudButton OnClick="ToggleLogStopwatch" Style="margin-bottom: 5%; margin-left: 5%; margin-top: 0px; height: 20px; width: 120px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Show Log</MudButton>
+                            <MudButton OnClick="ToggleLogStopwatch" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                <MudText Class="toolButtonsFont">Show Log</MudText>                                
+                            </MudButton>                        
                         }
                         @if (LogStopwatch == true)
                         {
-                            <MudButton OnClick="ToggleLogStopwatch" Style="margin-bottom: 5%; margin-left: 5%; margin-top: 0px; height: 20px; width: 120px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Hide Log</MudButton>                    
-                            <MudButton OnClick="ClearLogStopwatch" Style="margin-bottom: 5%; margin-left: 5%; height: 20px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Clear Log</MudButton>
+                            <MudButton OnClick="ToggleLogStopwatch" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                <MudText Class="toolButtonsFont">Hide Log</MudText>                                
+                            </MudButton>  
+                            <MudButton OnClick="ClearLogStopwatch" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                <MudText Class="toolButtonsFont">Clear Log</MudText>                                
+                            </MudButton>                          
                         }
+                        </div>
                 </div>
                 }
             }   
@@ -1115,7 +1176,7 @@
                                     <div class="colorPreviewSmall" style="background-color: @customAppBarColor; margin: 5px;"></div>
                                 </div>
                                 <div style="justify-content: space-between; display: flex;">
-                                    <MudButton OnClick="SetWidgetColor" Style="margin-top: 2px; max-width: 200px; max-height: 30px;">Set Widget Color</MudButton>
+                                    <MudButton OnClick="SetWidgetColor" Style="margin-top: 2px; max-width: 200px; max-height: 30px;">Set Tool Color</MudButton>
                                     <div class="colorPreviewSmall" style="background-color: @customWidgetColor; margin: 5px;"></div>
                                 </div>
                                 @*
@@ -1195,7 +1256,9 @@
                             <div class="calculatorLog" style="border-color: @widgetTextColor;">
                             <MudTextField @bind-Value="calcLog" Class="converterLogText" ReadOnly="true" Variant="Variant.Text" Style="" DisableUnderLine="true" Lines="12" ></MudTextField>
                             </div>
-                            <MudButton OnClick="ClearLogCalc" Style="margin-bottom: 5%; margin-left: 5%; height: 20px;" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >Clear Log</MudButton>                    
+                            <MudButton OnClick="ClearLogCalc" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                <MudText Class="toolButtonsFont">Clear Log</MudText>                                
+                            </MudButton>                    
                         </div>
                         }
                     </div>
@@ -2191,7 +2254,7 @@
             appbarcolor = "#121218";
             textColor = "ffffff";
             textColorInactive = "#c9cacb";
-            fontType = "Roboto";
+            fontType = "Fira Sans";
             widgetColor = "#ffffff";
             widgetTextColor = "#000000";
             accentcolor = "47476d";
@@ -2208,7 +2271,7 @@
             appbarcolor = "#121218";
             textColor = "ffffff";
             textColorInactive = "#c9cacb";
-            fontType = "Roboto";
+            fontType = "Fira Sans";
             widgetColor = "#151521";
             widgetTextColor = "#ffffff";
             accentcolor = "47476d";
@@ -2242,7 +2305,7 @@
             appbarcolor = "#020d19";
             textColor = "ff0586";
             textColorInactive = "#8b064b";
-            fontType = "Roboto";
+            fontType = "Fira Sans";
             widgetColor = "#340939";
             widgetTextColor = "#ff0586";
             accentcolor = "8b064b";
@@ -2261,7 +2324,7 @@
             accentcolor = customAccentColor;
             //textColor = customTextColor;
             //widgetTextColor = customTextColor;
-            fontType = "Roboto";
+            fontType = "Fira Sans";
             if (appbarcolor.L > .45){
                 textColor = "000000";
                 textColorInactive = "282828";
