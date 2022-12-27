@@ -87,6 +87,13 @@
     display: flex;
     justify-content: space-between;
 }
+.toolHeaderAlt {
+    display: flex;
+    justify-content: space-between;
+}
+.toolHeaderMobile {
+    display: none;
+}
 .ColorPickerMediumWidget {
     border-radius: 7px;
     background-color: white;
@@ -194,10 +201,12 @@
     width: 550px;
     border-radius: 0px 0px 7px 0px;
     margin-top: 23px;
+    font-family: 'Fira Sans', sans-serif;
 }
 
 .CalenderDayDisplay {
     font-size: 30px;
+    font-family: 'Fira Sans', sans-serif;
 }
 
 .GraphArea {
@@ -454,7 +463,8 @@
     padding-top: 7px;
 }
     .AppBarButtonChild:hover {
-
+        outline: 1px solid;
+        border-color: var(--mud-palette-primary);
     }
 
 .toolButtons {
@@ -467,8 +477,8 @@
     padding-top: 8px;
 }
     .toolButtons:hover {
-        background-color: lime;
-        color: white;
+        outline: 1px solid;
+        border-color: var(--mud-palette-primary);
     }
 
 .toolButtonsText {
@@ -549,6 +559,7 @@
     resize: none;
     color: var(--mud-palette-secondary);
     background-color: var(--mud-palette-surface);
+    font-family: 'Fira Sans', sans-serif;
 }
 
 .notesChildInput {
@@ -575,7 +586,14 @@
     margin-bottom: 6px;
     margin-left: 5px;
     padding-top: 2px;
+    font-family: 'Fira Sans', sans-serif;
 }
+    .notesButtons:hover {
+        border: 2px solid;
+        border-radius: 5px;
+        border-style: solid;
+        border-color: var(--mud-palette-primary);
+    }
     .notesButtons:focus {
         border: 2px solid;
         border-radius: 5px;
@@ -594,6 +612,7 @@
     background-color: var(--mud-palette-surface);
     margin-left: 5px;
     padding: 3px;
+    font-family: 'Fira Sans', sans-serif;
 }
 input:focus {
     border-style: solid;
@@ -899,6 +918,13 @@ input:focus {
     .converterInput {
         padding-left: 16px;
         padding-right: 4px;
+    }
+    .toolHeaderAlt {
+        display: none;
+    }
+    .toolHeaderMobile {
+        display: flex;
+        justify-content: space-between;
     }
 }
 @media only screen and (min-width: 768.1px) {

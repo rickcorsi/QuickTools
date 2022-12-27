@@ -337,8 +337,8 @@
                 @if (MassConverterIsOpen == true)
                 {
                     <div class="MudPaperMediumWidget" style="order: @widgetOrder[10]; background-color: @widgetColor;">
-                        <div style="display: flex; justify-content: space-between;">
-                            <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Mass Converter</MudText>
+                        <div class="toolHeader" style="">
+                            <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Mass Converter</MudText>
                             @if (home == true)
                             {
                                 <div style="margin: 1%;">
@@ -401,7 +401,7 @@
                                     <MudText Class="toolButtonsText">Hide Log</MudText>
                                 </MudButton>                    
                                 <MudButton OnClick="ClearLogMass" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                    <MudText Class="toolButtonsFont">Clear Log</MudText>
+                                    <MudText Class="toolButtonsText">Clear Log</MudText>
                                 </MudButton>
                             }
                     </div>
@@ -414,8 +414,8 @@
                 @if (LengthConverterIsOpen == true)
                 {
                     <div class="MudPaperMediumWidget" style="order: @widgetOrder[9]; background-color: @widgetColor;">
-                        <div style="display: flex; justify-content: space-between;">
-                            <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Length Converter</MudText>
+                        <div class="toolHeader" style="">
+                            <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Length Converter</MudText>
                             @if (home == true)
                             {
                                 <div style="margin: 1%;">
@@ -478,7 +478,7 @@
                                     <MudText Class="toolButtonsText">Hide Log</MudText>
                                 </MudButton>                    
                                 <MudButton OnClick="ClearLogLength" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                    <MudText Class="toolButtonsFont">Clear Log</MudText>
+                                    <MudText Class="toolButtonsText">Clear Log</MudText>
                                 </MudButton>
                             }
                         </div>
@@ -491,8 +491,8 @@
                 @if (VolumeConverterIsOpen == true)
                 {
                 <div class="MudPaperMediumWidget" style="order: @widgetOrder[8]; background-color: @widgetColor;">
-                    <div style="display: flex; justify-content: space-between;">
-                        <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Volume Converter</MudText>
+                    <div class="toolHeader" style="">
+                        <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Volume Converter</MudText>
                         @if (home == true)
                         {
                             <div style="margin: 1%;">
@@ -552,7 +552,7 @@
                                     <MudText Class="toolButtonsText">Hide Log</MudText>
                                 </MudButton>                    
                                 <MudButton OnClick="ClearLogVolume" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                    <MudText Class="toolButtonsFont">Clear Log</MudText>
+                                    <MudText Class="toolButtonsText">Clear Log</MudText>
                                 </MudButton>
                             }
                         </div>
@@ -565,8 +565,8 @@
                 @if (TemperatureConverterIsOpen == true)
                 {
                 <div class="MudPaperMediumWidget" style="order: @widgetOrder[7]; background-color: @widgetColor;">
-                    <div style="display: flex; justify-content: space-between;">
-                        <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Temperature Converter</MudText>
+                    <div class="toolHeader" style="">
+                        <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Temperature Converter</MudText>
                         @if (home == true)
                         {
                             <div style="margin: 1%;">
@@ -620,7 +620,7 @@
                                     <MudText Class="toolButtonsText">Hide Log</MudText>
                                 </MudButton>                    
                                 <MudButton OnClick="ClearLogTemp" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                    <MudText Class="toolButtonsFont">Clear Log</MudText>
+                                    <MudText Class="toolButtonsText">Clear Log</MudText>
                                 </MudButton>
                             }
                         </div>
@@ -636,8 +636,8 @@
                 @if (GraphBuilderIsOpen == true)
                 {
                 <div class="@graphBuilderClass" style="order: @widgetOrder[6]; background-color: @widgetColor;">
-                    <div style="display: flex; justify-content: space-between;">
-                        <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Graph Builder</MudText>
+                    <div class="toolHeader" style="">
+                        <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Graph Builder</MudText>
                             <div style="margin: 2px;">
                             @if (!isExpandedGraphBuilder)
                             {
@@ -774,7 +774,7 @@
                                 </div>
                                 <div style="display: flex; justify-content: start;">
                                 <MudButton OnClick="BuildGraph" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary">
-                                    <MudText Class="toolButtonsFont">Build Graph</MudText>                                
+                                    <MudText Class="toolButtonsText">Build Graph</MudText>                                
                                 </MudButton>                                  </div>
                                 <div style="display: flex; justify-content: start;">
                                 <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBuilderMax" Label="Max Value" Variant="Variant.Outlined" />
@@ -823,7 +823,7 @@
                                 </div>
                                 <div style="display: flex; justify-content: start;">
                                 <MudButton OnClick="BuildGraph" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary">
-                                    <MudText Class="toolButtonsFont">Build Graph</MudText>                                
+                                    <MudText Class="toolButtonsText">Build Graph</MudText>                                
                                 </MudButton>   
                                 </div>
                                 <MudTextField @bind-Value="GraphTitle" Margin="Margin.Dense" Style="margin-left: 8px; margin-right: 8px;" Label="Graph Title" Variant="Variant.Outlined"></MudTextField>                    
@@ -874,8 +874,8 @@
                 @if (CalendarIsOpen == true)
                 {
                 <div class="CalendarMediumWidget" style="order: @widgetOrder[5]; background-color: @widgetColor;">
-                        <div style="display: flex; justify-content: space-between;">
-                            <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Calendar</MudText>
+                        <div class="toolHeader" style="">
+                            <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Calendar</MudText>
                             @if (home == true)
                             {
                                 <div style="margin: 1%;">
@@ -904,28 +904,39 @@
                 @if (NotesIsOpen == true)
                 {
                 <div class="@notesClass" style="order: @widgetOrder[4]; background-color: @widgetColor;">
-                        <div class="toolHeader">
-                            <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Notes</MudText>
-                            <div style="margin: 2px;">
-                                @if (!isExpandedNotes)
-                                {
-                                <MudTooltip Text="More" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
-                                    <MudIconButton OnClick="ExpandNotes" Icon="@Icons.TwoTone.AddCircleOutline"></MudIconButton>
-                                </MudTooltip>
-                                }
-                                @if (isExpandedNotes)
-                                {
-                                <MudTooltip Text="Less" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
-                                    <MudIconButton OnClick="ExpandNotes" Icon="@Icons.TwoTone.RemoveCircleOutline"></MudIconButton>
-                                </MudTooltip>
-                                }
-                                @if (home == true)
-                                {
-                                <MudTooltip Text="Close" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
-                                    <MudIconButton OnClick="CloseNotes" Icon="@Icons.Material.Filled.Close"></MudIconButton>
-                                </MudTooltip>
-                                }   
-                            </div>
+                    <div class="toolHeaderAlt">
+                        <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Notes</MudText>
+                        <div style="margin: 2px;">
+                            @if (!isExpandedNotes)
+                            {
+                            <MudTooltip Text="More" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
+                                <MudIconButton OnClick="ExpandNotes" Icon="@Icons.TwoTone.AddCircleOutline"></MudIconButton>
+                            </MudTooltip>
+                            }
+                            @if (isExpandedNotes)
+                            {
+                            <MudTooltip Text="Less" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
+                                <MudIconButton OnClick="ExpandNotes" Icon="@Icons.TwoTone.RemoveCircleOutline"></MudIconButton>
+                            </MudTooltip>
+                            }
+                            @if (home == true)
+                            {
+                            <MudTooltip Text="Close" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
+                                <MudIconButton OnClick="CloseNotes" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            </MudTooltip>
+                            }   
+                        </div>
+                    </div>
+                    <div class="toolHeaderMobile">
+                        <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Notes</MudText>
+                        <div style="margin: 2px;">
+                            @if (home == true)
+                            {
+                            <MudTooltip Text="Close" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
+                                <MudIconButton OnClick="CloseNotes" Icon="@Icons.Material.Filled.Close"></MudIconButton>
+                            </MudTooltip>
+                            }   
+                        </div>
                     </div>
                     <div style="" class="notesContainer">       
                         <div class="notesChildTools">
@@ -950,8 +961,8 @@
                 @if (TimerIsOpen == true)
                 {
                 <div class="MudPaperSmallWidget" style="order: @widgetOrder[3]; background-color: @widgetColor;">
-                    <div style="display: flex; justify-content: space-between;">
-                        <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Timer</MudText>
+                    <div class="toolHeader" style="">
+                        <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Timer</MudText>
                         <div style="margin: 2px;">
                             @if (home == true)
                             {
@@ -966,13 +977,13 @@
                     </div>
                     <div style="display: flex; justify-content: center;">
                         <MudButton Disabled="@isTiming_Timer" OnClick="TimerTiming" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                            <MudText Class="toolButtonsFont">Start</MudText>                                
+                            <MudText Class="toolButtonsText">Start</MudText>                                
                         </MudButton>      
                         <MudButton Disabled="@isPaused_Timer" OnClick="TimerPause" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                            <MudText Class="toolButtonsFont">Pause</MudText>                                
+                            <MudText Class="toolButtonsText">Pause</MudText>                                
                         </MudButton>          
                         <MudButton Disabled="@isReset_Timer" OnClick="TimerReset" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                            <MudText Class="toolButtonsFont">Reset</MudText>                                
+                            <MudText Class="toolButtonsText">Reset</MudText>                                
                         </MudButton>                         
                     </div>
                     <div style="display: flex; justify-content: center; margin: 20px;">
@@ -1006,7 +1017,7 @@
                 @if (StopwatchIsOpen == true)
                 {
                 <div class="MudPaperSmallWidget" style="order: @widgetOrder[2]; background-color: @widgetColor;">
-                        <div style="display: flex; justify-content: space-between;">
+                        <div class="toolHeader" style="">
                             <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Stopwatch</MudText>
                             @if (home == true)
                             {
@@ -1022,10 +1033,10 @@
                         </div>
                         <div style="display: flex; justify-content: center;">                        
                             <MudButton Disabled="@isTiming" OnClick="StopwatchTiming" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                <MudText Class="toolButtonsFont">Start</MudText>                                
+                                <MudText Class="toolButtonsText">Start</MudText>                                
                             </MudButton>      
                             <MudButton Disabled="@isStopped" OnClick="StopwatchStop" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                <MudText Class="toolButtonsFont">Stop</MudText>                                
+                                <MudText Class="toolButtonsText">Stop</MudText>                                
                             </MudButton>      
                         </div>
                         @if (LogStopwatch == true)
@@ -1045,16 +1056,16 @@
                         @if (LogStopwatch == false)
                         {
                             <MudButton OnClick="ToggleLogStopwatch" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                <MudText Class="toolButtonsFont">Show Log</MudText>                                
+                                <MudText Class="toolButtonsText">Show Log</MudText>                                
                             </MudButton>                        
                         }
                         @if (LogStopwatch == true)
                         {
                             <MudButton OnClick="ToggleLogStopwatch" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                <MudText Class="toolButtonsFont">Hide Log</MudText>                                
+                                <MudText Class="toolButtonsText">Hide Log</MudText>                                
                             </MudButton>  
                             <MudButton OnClick="ClearLogStopwatch" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                <MudText Class="toolButtonsFont">Clear Log</MudText>                                
+                                <MudText Class="toolButtonsText">Clear Log</MudText>                                
                             </MudButton>                          
                         }
                         </div>
@@ -1067,8 +1078,8 @@
                 @if (ColorPickerIsOpen == true)
                 {
                 <div class="@colorPickerClass" style="order: @widgetOrder[1]; background-color: @widgetColor;">
-                    <div style="display: flex; justify-content: space-between;">
-                        <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Color Picker</MudText>
+                    <div class="toolHeader" style="">
+                        <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Color Picker</MudText>
                         <div style="margin: 2px;">
                         @if (!isExpandedColorPicker)
                         {
@@ -1199,8 +1210,8 @@
                 @if (CalculatorIsOpen == true)
                 {
                 <div class="@calculatorClass" style="order: @widgetOrder[0]; background-color: @widgetColor;">
-                    <div style="display: flex; justify-content: space-between;">
-                        <MudText Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Calculator</MudText>
+                    <div class="toolHeaderAlt" style="">
+                        <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Calculator</MudText>
                         <div style="margin: 2px;">
                         @if (!isExpandedCalculator)
                         {
@@ -1214,6 +1225,17 @@
                                 <MudIconButton OnClick="ExpandCalculator" Icon="@Icons.TwoTone.RemoveCircleOutline"></MudIconButton>
                             </MudTooltip>
                         }
+                        @if (home == true)
+                        {
+                            <MudTooltip Text="Close" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
+                                <MudIconButton OnClick="CloseCalculator" Icon="@Icons.Material.Filled.Close"></MudIconButton>                            
+                            </MudTooltip>
+                        }   
+                        </div>
+                    </div> 
+                    <div class="toolHeaderMobile" style="">
+                        <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Calculator</MudText>
+                        <div style="margin: 2px;">
                         @if (home == true)
                         {
                             <MudTooltip Text="Close" Color="@MudBlazor.Color.Primary" Placement="Placement.Top">
@@ -1257,7 +1279,7 @@
                             <MudTextField @bind-Value="calcLog" Class="converterLogText" ReadOnly="true" Variant="Variant.Text" Style="" DisableUnderLine="true" Lines="12" ></MudTextField>
                             </div>
                             <MudButton OnClick="ClearLogCalc" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                <MudText Class="toolButtonsFont">Clear Log</MudText>                                
+                                <MudText Class="toolButtonsText">Clear Log</MudText>                                
                             </MudButton>                    
                         </div>
                         }
