@@ -51,33 +51,34 @@
     <PageTitle>QuickTools | @displaytimer | @displaytimer_Timer</PageTitle>
 }
 <div>
-<div class="NewToolBar">
-    <div class="NewToolBarChild1" style="background-color: @appbarcolor">
+<div class="ToolBar">
+    <div class="ToolBarChild1" style="background-color: @appbarcolor">
+
     <MudButton Disabled="true" OnClick="tab1" Class="AppBarButton" Style="" DisableRipple="true" Variant="Variant.Text">
         <MudText Class="AppBarButtonText" Style="" Color="MudBlazor.Color.Tertiary"> QuickTools </MudText>
     </MudButton> 
     <MudButton OnClick="tab1" Class="AppBarButton" Style="border-radius: 0px;" DisableRipple="true" Variant="Variant.Text">
     @if (home == true) {
-        <MudText Class="AppBarButtonText" Style="" Color="MudBlazor.Color.Tertiary"> Home </MudText>
+        <MudText Class="AppBarButtonTextSelected" Style="" > Home </MudText>
     }
     else {
-        <MudText Class="AppBarButtonText" Style="" Color="MudBlazor.Color.Warning"> Home </MudText>
+        <MudText Class="AppBarButtonText" Style=""> Home </MudText>
     }
     </MudButton> 
     <MudButton OnClick="tab2" Class="AppBarButton" Style="border-radius: 0px;" DisableRipple="true" Variant="Variant.Text">
     @if (Utilities == true) {
-        <MudText Class="AppBarButtonText" Style="" Color="MudBlazor.Color.Tertiary"> Utilities </MudText>
+        <MudText Class="AppBarButtonTextSelected" Style="" > Utilities </MudText>
     }
     else {
-        <MudText Class="AppBarButtonText" Style="" Color="MudBlazor.Color.Warning"> Utilities </MudText>
+        <MudText Class="AppBarButtonText" Style="" > Utilities </MudText>
     }
     </MudButton> 
     <MudButton OnClick="tab3" Class="AppBarButton" Style="border-radius: 0px;" DisableRipple="true" Variant="Variant.Text">
     @if (Converters == true) {
-        <MudText Class="AppBarButtonText" Style="" Color="MudBlazor.Color.Tertiary"> Converters </MudText>
+        <MudText Class="AppBarButtonTextSelected" Style="" > Converters </MudText>
     }
     else {
-        <MudText Class="AppBarButtonText" Style="" Color="MudBlazor.Color.Warning"> Converters </MudText>
+        <MudText Class="AppBarButtonText" Style="" > Converters </MudText>
     }
     </MudButton>
     <div class="selectTheme">
@@ -127,82 +128,82 @@
     </MudMenu>
     </div>
 </div>
-<div class="NewToolBarChild2" style="background-color: @appbarcolor">
+<div class="ToolBarChild2" style="background-color: @appbarcolor">
     @if (home == true) {
     <MudButton OnClick="OpenDialog" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Manage Tools </MudText>
+        <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Manage Tools </MudText>
     </MudButton>       
     }
     @if (Utilities == true)
     {
         @if (App_Calculator == true) {
         <MudButton OnClick="Tab_Calculator" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Primary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Calculator </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Calculator </MudText>
         </MudButton> 
         }  
         @if (App_Calculator == false) {
         <MudButton OnClick="Tab_Calculator" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Calculator </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Calculator </MudText>
         </MudButton> 
         }  
         @if (App_Stopwatch == true) {
         <MudButton OnClick="Tab_Stopwatch" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Primary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Stopwatch </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Stopwatch </MudText>
         </MudButton>   
         }  
         @if (App_Stopwatch == false) {
         <MudButton OnClick="Tab_Stopwatch" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Stopwatch </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Stopwatch </MudText>
         </MudButton>   
         }  
         @if (App_Timer == true) {
         <MudButton OnClick="Tab_Timer" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Primary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Timer </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Timer </MudText>
         </MudButton> 
         }  
         @if (App_Timer == false) {
         <MudButton OnClick="Tab_Timer" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Timer </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Timer </MudText>
         </MudButton> 
         } 
         @if (App_ColorPicker == true) {
         <MudButton OnClick="Tab_ColorPicker" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Primary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Color Picker </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Color Picker </MudText>
         </MudButton> 
         }  
         @if (App_ColorPicker == false) {
         <MudButton OnClick="Tab_ColorPicker" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Color Picker </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Color Picker </MudText>
         </MudButton> 
         }  
         @if (App_Notes == true) {
         <MudButton OnClick="Tab_Notes" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Primary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Notes </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Notes </MudText>
         </MudButton>
         }  
         @if (App_Notes == false) {
         <MudButton OnClick="Tab_Notes" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Notes </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Notes </MudText>
         </MudButton>
         }     
         @if (App_Calendar == true) {
         <MudButton OnClick="Tab_Calendar" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Primary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Calendar </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Calendar </MudText>
         </MudButton>  
         }  
         @if (App_Calendar == false) {
         <MudButton OnClick="Tab_Calendar" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Calendar </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Calendar </MudText>
         </MudButton>  
         }     
         @if (App_GraphBuilder == true) {
         <MudButton OnClick="Tab_GraphBuilder" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Primary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Graph Builder </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Graph Builder </MudText>
         </MudButton>  
         }  
         @if (App_GraphBuilder == false) {
         <MudButton OnClick="Tab_GraphBuilder" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Graph Builder </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Graph Builder </MudText>
         </MudButton>  
         }     
     }
@@ -210,47 +211,47 @@
     {
         @if (App_TemperatureConverter == true) {
         <MudButton OnClick="Tab_TemperatureConverter" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Primary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Temperature Converter </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Temperature Converter </MudText>
         </MudButton> 
         }  
         @if (App_TemperatureConverter == false) {
         <MudButton OnClick="Tab_TemperatureConverter" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Temperature Converter </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Temperature Converter </MudText>
         </MudButton>  
         }     
         @if (App_VolumeConverter == true) {
         <MudButton OnClick="Tab_VolumeConverter" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Primary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Volume Converter </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Volume Converter </MudText>
         </MudButton> 
         }  
         @if (App_VolumeConverter == false) {
         <MudButton OnClick="Tab_VolumeConverter" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Volume Converter </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Volume Converter </MudText>
         </MudButton>  
         }     
         @if (App_LengthConverter == true) {
         <MudButton OnClick="Tab_LengthConverter" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Primary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Length Converter </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Length Converter </MudText>
         </MudButton>  
         }  
         @if (App_LengthConverter == false) {
         <MudButton OnClick="Tab_LengthConverter" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Length Converter </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Length Converter </MudText>
         </MudButton>  
         }     
         @if (App_MassConverter == true) {
         <MudButton OnClick="Tab_MassConverter" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Primary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Mass Converter </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Mass Converter </MudText>
         </MudButton> 
         }  
         @if (App_MassConverter == false) {
         <MudButton OnClick="Tab_MassConverter" Class="AppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-            <MudText Class="AppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Mass Converter </MudText>
+            <MudText Class="mainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Mass Converter </MudText>
         </MudButton> 
         }      
     }
     </div>
-    <div class="NewToolBarChild3" style="background-color: @textColor">
+    <div class="ToolBarChild3" style="background-color: @textColor">
     
     </div>
 </div>
@@ -263,24 +264,24 @@
     </div>
     <div>
     @if(isDarkMode == true){
-    <MudIconButton OnClick="toggleDark" Class="darkModeToggle" Size="MudBlazor.Size.Large" DisableRipple="true" Color="MudBlazor.Color.Tertiary" Icon="@Icons.Rounded.WbSunny"></MudIconButton>
+    <MudIconButton OnClick="toggleDark" Class="mobileIconButton" Size="MudBlazor.Size.Large" DisableRipple="true" Color="MudBlazor.Color.Tertiary" Icon="@Icons.Rounded.WbSunny"></MudIconButton>
     }
     @if(isDarkMode == false){
-    <MudIconButton OnClick="toggleDark" Class="darkModeToggle" Size="MudBlazor.Size.Large" DisableRipple="true" Color="MudBlazor.Color.Tertiary" Icon="@Icons.Rounded.DarkMode"></MudIconButton>
+    <MudIconButton OnClick="toggleDark" Class="mobileIconButton" Size="MudBlazor.Size.Large" DisableRipple="true" Color="MudBlazor.Color.Tertiary" Icon="@Icons.Rounded.DarkMode"></MudIconButton>
     }    
 
-    <MudIconButton OnClick="ToggleDrawer" Class="openDrawerButton" Size="MudBlazor.Size.Large" DisableRipple="true" Color="MudBlazor.Color.Tertiary" Icon="@Icons.Rounded.Menu"></MudIconButton>
+    <MudIconButton OnClick="ToggleDrawer" Class="mobileIconButton" Size="MudBlazor.Size.Large" DisableRipple="true" Color="MudBlazor.Color.Tertiary" Icon="@Icons.Rounded.Menu"></MudIconButton>
     </div>
     </div>
     <div class="toolbarMobileChild2">
     @if (home == true) {
     <MudButton OnClick="OpenDialog" Class="MobileAppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary">
-        <MudText Class="MobileAppBarButtonChildText" Style="" Color="MudBlazor.Color.Secondary"> Manage Tools </MudText>
+        <MudText Class="MobilemainTextDynamic" Style="" Color="MudBlazor.Color.Secondary"> Manage Tools </MudText>
     </MudButton>       
     }
     @if (home == false) {
     <MudButton OnClick="tab1" Class="MobileAppBarButtonChild" Style="margin: 4px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary">
-        <MudText Class="MobileAppBarButtonChildText" Style="" Color="MudBlazor.Color.Secondary"> Return Home </MudText>
+        <MudText Class="MobilemainTextDynamic" Style="" Color="MudBlazor.Color.Secondary"> Return Home </MudText>
     </MudButton>       
     }
     </div>
@@ -292,16 +293,16 @@
     </div>
     <div class="mobileOverlayChild2">
     <MudButton OnClick="Tab_Calculator" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="MobileAppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Calculator </MudText>
+        <MudText Class="MobilemainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Calculator </MudText>
     </MudButton>       
     <MudButton OnClick="Tab_Stopwatch" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="MobileAppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Stopwatch </MudText>
+        <MudText Class="MobilemainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Stopwatch </MudText>
     </MudButton>   
     <MudButton OnClick="Tab_Timer" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="MobileAppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Timer </MudText>
+        <MudText Class="MobilemainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Timer </MudText>
     </MudButton> 
     <MudButton OnClick="Tab_Notes" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="MobileAppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Notes </MudText>
+        <MudText Class="MobilemainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Notes </MudText>
     </MudButton>
     </div>
     <div class="mobileOverlayChild3">
@@ -309,16 +310,16 @@
     </div>
     <div class="mobileOverlayChild4">
     <MudButton OnClick="Tab_TemperatureConverter" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="MobileAppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Temperature Converter </MudText>
+        <MudText Class="MobilemainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Temperature Converter </MudText>
     </MudButton> 
     <MudButton OnClick="Tab_VolumeConverter" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="MobileAppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Volume Converter </MudText>
+        <MudText Class="MobilemainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Volume Converter </MudText>
     </MudButton> 
     <MudButton OnClick="Tab_LengthConverter" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="MobileAppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Length Converter </MudText>
+        <MudText Class="MobilemainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Length Converter </MudText>
     </MudButton> 
     <MudButton OnClick="Tab_MassConverter" Class="MobileAppBarButtonChild" Style="margin: 5px;" DisableRipple="true" Variant="Variant.Outlined" Color="MudBlazor.Color.Tertiary">
-        <MudText Class="MobileAppBarButtonChildText" Style="" Color="MudBlazor.Color.Tertiary"> Mass Converter </MudText>
+        <MudText Class="MobilemainTextDynamic" Style="" Color="MudBlazor.Color.Tertiary"> Mass Converter </MudText>
     </MudButton>  
     </div>
     <div class="mobileOverlayChild5">
@@ -338,7 +339,7 @@
                 {
                     <div class="MudPaperMediumWidget" style="order: @widgetOrder[10]; background-color: @widgetColor;">
                         <div class="toolHeader" style="">
-                            <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Mass Converter</MudText>
+                            <MudText Class="mainTextLarge" Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Mass Converter</MudText>
                             @if (home == true)
                             {
                                 <div style="margin: 1%;">
@@ -387,21 +388,21 @@
                         }
                         <div class="converterButtonContainer">
                             <MudButton OnClick="ConvertMass" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                <MudText Class="toolButtonsText">Convert</MudText>
+                                <MudText Class="mainTextMedium">Convert</MudText>
                             </MudButton>
                             @if (LogMass == false)
                             {
                                 <MudButton OnClick="ToggleLogMass" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                    <MudText Class="toolButtonsText">Show Log</MudText>
+                                    <MudText Class="mainTextMedium">Show Log</MudText>
                                 </MudButton>
                             }
                             @if (LogMass == true)
                             {
                                 <MudButton OnClick="ToggleLogMass" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                    <MudText Class="toolButtonsText">Hide Log</MudText>
+                                    <MudText Class="mainTextMedium">Hide Log</MudText>
                                 </MudButton>                    
                                 <MudButton OnClick="ClearLogMass" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                    <MudText Class="toolButtonsText">Clear Log</MudText>
+                                    <MudText Class="mainTextMedium">Clear Log</MudText>
                                 </MudButton>
                             }
                     </div>
@@ -415,7 +416,7 @@
                 {
                     <div class="MudPaperMediumWidget" style="order: @widgetOrder[9]; background-color: @widgetColor;">
                         <div class="toolHeader" style="">
-                            <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Length Converter</MudText>
+                            <MudText Class="mainTextLarge" Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Length Converter</MudText>
                             @if (home == true)
                             {
                                 <div style="margin: 1%;">
@@ -464,21 +465,21 @@
                         }
                         <div class="converterButtonContainer">
                             <MudButton OnClick="ConvertLength" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                <MudText Class="toolButtonsText">Convert</MudText>
+                                <MudText Class="mainTextMedium">Convert</MudText>
                             </MudButton>
                             @if (LogLength == false)
                             {
                                 <MudButton OnClick="ToggleLogLength" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                    <MudText Class="toolButtonsText">Show Log</MudText>
+                                    <MudText Class="mainTextMedium">Show Log</MudText>
                                 </MudButton>
                             }
                             @if (LogLength == true)
                             {
                                 <MudButton OnClick="ToggleLogLength" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                    <MudText Class="toolButtonsText">Hide Log</MudText>
+                                    <MudText Class="mainTextMedium">Hide Log</MudText>
                                 </MudButton>                    
                                 <MudButton OnClick="ClearLogLength" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                    <MudText Class="toolButtonsText">Clear Log</MudText>
+                                    <MudText Class="mainTextMedium">Clear Log</MudText>
                                 </MudButton>
                             }
                         </div>
@@ -492,7 +493,7 @@
                 {
                 <div class="MudPaperMediumWidget" style="order: @widgetOrder[8]; background-color: @widgetColor;">
                     <div class="toolHeader" style="">
-                        <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Volume Converter</MudText>
+                        <MudText Class="mainTextLarge" Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Volume Converter</MudText>
                         @if (home == true)
                         {
                             <div style="margin: 1%;">
@@ -538,21 +539,21 @@
                     }
                         <div class="converterButtonContainer">
                             <MudButton OnClick="ConvertVolume" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                <MudText Class="toolButtonsText">Convert</MudText>
+                                <MudText Class="mainTextMedium">Convert</MudText>
                             </MudButton>
                             @if (LogVolume == false)
                             {
                                 <MudButton OnClick="ToggleLogVolume" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                    <MudText Class="toolButtonsText">Show Log</MudText>
+                                    <MudText Class="mainTextMedium">Show Log</MudText>
                                 </MudButton>
                             }
                             @if (LogVolume == true)
                             {
                                 <MudButton OnClick="ToggleLogVolume" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                    <MudText Class="toolButtonsText">Hide Log</MudText>
+                                    <MudText Class="mainTextMedium">Hide Log</MudText>
                                 </MudButton>                    
                                 <MudButton OnClick="ClearLogVolume" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                    <MudText Class="toolButtonsText">Clear Log</MudText>
+                                    <MudText Class="mainTextMedium">Clear Log</MudText>
                                 </MudButton>
                             }
                         </div>
@@ -566,7 +567,7 @@
                 {
                 <div class="MudPaperMediumWidget" style="order: @widgetOrder[7]; background-color: @widgetColor;">
                     <div class="toolHeader" style="">
-                        <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Temperature Converter</MudText>
+                        <MudText Class="mainTextLarge" Color="@MudBlazor.Color.Secondary" Style="margin-top: 5%; margin-left: 5%; margin-right: 5%;">Temperature Converter</MudText>
                         @if (home == true)
                         {
                             <div style="margin: 1%;">
@@ -606,21 +607,21 @@
                     }
                         <div class="converterButtonContainer">
                             <MudButton OnClick="ConvertTemp" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                <MudText Class="toolButtonsText">Convert</MudText>
+                                <MudText Class="mainTextMedium">Convert</MudText>
                             </MudButton>
                             @if (LogTemp == false)
                             {
                                 <MudButton OnClick="ToggleLogTemp" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                    <MudText Class="toolButtonsText">Show Log</MudText>
+                                    <MudText Class="mainTextMedium">Show Log</MudText>
                                 </MudButton>
                             }
                             @if (LogTemp == true)
                             {
                                 <MudButton OnClick="ToggleLogTemp" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                    <MudText Class="toolButtonsText">Hide Log</MudText>
+                                    <MudText Class="mainTextMedium">Hide Log</MudText>
                                 </MudButton>                    
                                 <MudButton OnClick="ClearLogTemp" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                    <MudText Class="toolButtonsText">Clear Log</MudText>
+                                    <MudText Class="mainTextMedium">Clear Log</MudText>
                                 </MudButton>
                             }
                         </div>
@@ -637,7 +638,7 @@
                 {
                 <div class="@graphBuilderClass" style="order: @widgetOrder[6]; background-color: @widgetColor;">
                     <div class="toolHeader" style="">
-                        <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Graph Builder</MudText>
+                        <MudText Class="mainTextLarge" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Graph Builder</MudText>
                             <div style="margin: 2px;">
                             @if (!isExpandedGraphBuilder)
                             {
@@ -774,7 +775,7 @@
                                 </div>
                                 <div style="display: flex; justify-content: start;">
                                 <MudButton OnClick="BuildGraph" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary">
-                                    <MudText Class="toolButtonsText">Build Graph</MudText>                                
+                                    <MudText Class="mainTextMedium">Build Graph</MudText>                                
                                 </MudButton>                                  </div>
                                 <div style="display: flex; justify-content: start;">
                                 <MudNumericField Class="GraphInputBoxes" Margin="Margin.Dense" Style="margin-left: 6px; margin: 2px; width: 140px;" @bind-Value="GraphBuilderMax" Label="Max Value" Variant="Variant.Outlined" />
@@ -823,7 +824,7 @@
                                 </div>
                                 <div style="display: flex; justify-content: start;">
                                 <MudButton OnClick="BuildGraph" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary">
-                                    <MudText Class="toolButtonsText">Build Graph</MudText>                                
+                                    <MudText Class="mainTextMedium">Build Graph</MudText>                                
                                 </MudButton>   
                                 </div>
                                 <MudTextField @bind-Value="GraphTitle" Margin="Margin.Dense" Style="margin-left: 8px; margin-right: 8px;" Label="Graph Title" Variant="Variant.Outlined"></MudTextField>                    
@@ -875,7 +876,7 @@
                 {
                 <div class="CalendarMediumWidget" style="order: @widgetOrder[5]; background-color: @widgetColor;">
                         <div class="toolHeader" style="">
-                            <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Calendar</MudText>
+                            <MudText Class="mainTextLarge" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Calendar</MudText>
                             @if (home == true)
                             {
                                 <div style="margin: 1%;">
@@ -905,7 +906,7 @@
                 {
                 <div class="@notesClass" style="order: @widgetOrder[4]; background-color: @widgetColor;">
                     <div class="toolHeaderAlt">
-                        <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Notes</MudText>
+                        <MudText Class="mainTextLarge" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Notes</MudText>
                         <div style="margin: 2px;">
                             @if (!isExpandedNotes)
                             {
@@ -928,7 +929,7 @@
                         </div>
                     </div>
                     <div class="toolHeaderMobile">
-                        <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Notes</MudText>
+                        <MudText Class="mainTextLarge" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Notes</MudText>
                         <div style="margin: 2px;">
                             @if (home == true)
                             {
@@ -962,7 +963,7 @@
                 {
                 <div class="MudPaperSmallWidget" style="order: @widgetOrder[3]; background-color: @widgetColor;">
                     <div class="toolHeader" style="">
-                        <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Timer</MudText>
+                        <MudText Class="mainTextLarge" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Timer</MudText>
                         <div style="margin: 2px;">
                             @if (home == true)
                             {
@@ -977,19 +978,19 @@
                     </div>
                     <div style="display: flex; justify-content: center;">
                         <MudButton Disabled="@isTiming_Timer" OnClick="TimerTiming" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                            <MudText Class="toolButtonsText">Start</MudText>                                
+                            <MudText Class="mainTextMedium">Start</MudText>                                
                         </MudButton>      
                         <MudButton Disabled="@isPaused_Timer" OnClick="TimerPause" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                            <MudText Class="toolButtonsText">Pause</MudText>                                
+                            <MudText Class="mainTextMedium">Pause</MudText>                                
                         </MudButton>          
                         <MudButton Disabled="@isReset_Timer" OnClick="TimerReset" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                            <MudText Class="toolButtonsText">Reset</MudText>                                
+                            <MudText Class="mainTextMedium">Reset</MudText>                                
                         </MudButton>                         
                     </div>
                     <div style="display: flex; justify-content: center; margin: 20px;">
-                        <MudNumericField Class="timerField" Style="margin: 10px;" @bind-Value="Hours" Label="Hours" Variant="Variant.Outlined" Min="0" Max="18"/>
-                        <MudNumericField Class="timerField" Style="margin: 10px;" @bind-Value="Minutes" Label="Minutes" Variant="Variant.Outlined" Min="0" Max="60"/>
-                        <MudNumericField Class="timerField" Style="margin: 10px;" @bind-Value="Seconds" Label="Seconds" Variant="Variant.Outlined" Min="0" Max="60"/>
+                        <MudNumericField Class="timerField" Style="" @bind-Value="Hours" Label="Hours" Variant="Variant.Outlined" Min="0" Max="18"/>
+                        <MudNumericField Class="timerField" Style="" @bind-Value="Minutes" Label="Minutes" Variant="Variant.Outlined" Min="0" Max="60"/>
+                        <MudNumericField Class="timerField" Style="" @bind-Value="Seconds" Label="Seconds" Variant="Variant.Outlined" Min="0" Max="60"/>
                     </div> 
                     <div style="margin-left: 15px; margin-top: 84px;">
                         @if (SoundOn == true){
@@ -1033,10 +1034,10 @@
                         </div>
                         <div style="display: flex; justify-content: center;">                        
                             <MudButton Disabled="@isTiming" OnClick="StopwatchTiming" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                <MudText Class="toolButtonsText">Start</MudText>                                
+                                <MudText Class="mainTextMedium">Start</MudText>                                
                             </MudButton>      
                             <MudButton Disabled="@isStopped" OnClick="StopwatchStop" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                <MudText Class="toolButtonsText">Stop</MudText>                                
+                                <MudText Class="mainTextMedium">Stop</MudText>                                
                             </MudButton>      
                         </div>
                         @if (LogStopwatch == true)
@@ -1056,16 +1057,16 @@
                         @if (LogStopwatch == false)
                         {
                             <MudButton OnClick="ToggleLogStopwatch" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                <MudText Class="toolButtonsText">Show Log</MudText>                                
+                                <MudText Class="mainTextMedium">Show Log</MudText>                                
                             </MudButton>                        
                         }
                         @if (LogStopwatch == true)
                         {
                             <MudButton OnClick="ToggleLogStopwatch" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                <MudText Class="toolButtonsText">Hide Log</MudText>                                
+                                <MudText Class="mainTextMedium">Hide Log</MudText>                                
                             </MudButton>  
                             <MudButton OnClick="ClearLogStopwatch" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                <MudText Class="toolButtonsText">Clear Log</MudText>                                
+                                <MudText Class="mainTextMedium">Clear Log</MudText>                                
                             </MudButton>                          
                         }
                         </div>
@@ -1079,7 +1080,7 @@
                 {
                 <div class="@colorPickerClass" style="order: @widgetOrder[1]; background-color: @widgetColor;">
                     <div class="toolHeader" style="">
-                        <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Color Picker</MudText>
+                        <MudText Class="mainTextLarge" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Color Picker</MudText>
                         <div style="margin: 2px;">
                         @if (!isExpandedColorPicker)
                         {
@@ -1106,66 +1107,52 @@
                         <div style="margin-bottom: 10px;">
                         <MudList Clickable="true" SelectedItemChanged="ChangeSelectedColor">
                         <MudListItem Style="max-width: 205px" OnClick="firstColorTrue">
-                            @if (isFirstColor) {
-                            <div class="colorPreviewActive" style="@($"background-color:{firstColor};")"></div>
-                            }
-                            else {
                             <div class="colorPreview" style="@($"background-color:{firstColor};")"></div>
-                            }
                         </MudListItem>
                         <MudTextField @bind-Value="firstColorConverted" Style="margin-right: 7px; margin-bottom: 7px; max-width: 205px" Adornment="Adornment.End" AdornmentIcon="@Icons.Outlined.ChangeCircle" AdornmentAriaLabel="Refresh" OnAdornmentClick="HEXColorEntered" ReadOnly="false" Variant="Variant.Outlined"/>
-@*                        <MudListItem Style="max-width: 205px" OnClick="secondColorTrue">
-                            @if (isSecondColor) {
-                            <div class="colorPreviewActive" style="@($"background-color:{secondColor};")"></div>
-                            }
-                            else {
-                            <div class="colorPreview" style="@($"background-color:{secondColor};")"></div>
-                            }
-                        </MudListItem>
-                        <MudTextField @bind-Value="secondColorConverted" Style="margin-right: 7px; max-width: 205px;" Adornment="Adornment.End" AdornmentIcon="@Icons.Outlined.ChangeCircle" OnAdornmentClick="HEXColorEntered" ReadOnly="false" Variant="Variant.Outlined"/>
-*@                    </MudList>
+                        </MudList>
                             <MudText Style="margin-top: 15px;">Recent Colors</MudText>
                             <div class="recentColors">         
-                                <button @onclick="() => setPickedColor(0)" class="colorPreviewSmall" style="background-color: @recentColor[0]"></button>
-                                <button @onclick="() => setPickedColor(1)" class="colorPreviewSmall" style="background-color: @recentColor[1]"></button>
-                                <button @onclick="() => setPickedColor(2)" class="colorPreviewSmall" style="background-color: @recentColor[2]"></button>
-                                <button @onclick="() => setPickedColor(3)" class="colorPreviewSmall" style="background-color: @recentColor[3]"></button>
-                                <button @onclick="() => setPickedColor(4)" class="colorPreviewSmall" style="background-color: @recentColor[4]"></button>
-                                <button @onclick="() => setPickedColor(5)" class="colorPreviewSmall" style="background-color: @recentColor[5]"></button>
-                                <button @onclick="() => setPickedColor(6)" class="colorPreviewSmall" style="background-color: @recentColor[6]"></button>
-                                <button @onclick="() => setPickedColor(7)" class="colorPreviewSmall" style="background-color: @recentColor[7]"></button>
-                                <button @onclick="() => setPickedColor(8)" class="colorPreviewSmall" style="background-color: @recentColor[8]"></button>
-                                <button @onclick="() => setPickedColor(9)" class="colorPreviewSmall" style="background-color: @recentColor[9]"></button>
-                                <button @onclick="() => setPickedColor(10)" class="colorPreviewSmall" style="background-color: @recentColor[10]"></button>
-                                <button @onclick="() => setPickedColor(11)" class="colorPreviewSmall" style="background-color: @recentColor[11]"></button>
-                                <button @onclick="() => setPickedColor(12)" class="colorPreviewSmall" style="background-color: @recentColor[12]"></button>
-                                <button @onclick="() => setPickedColor(13)" class="colorPreviewSmall" style="background-color: @recentColor[13]"></button>
-                                <button @onclick="() => setPickedColor(14)" class="colorPreviewSmall" style="background-color: @recentColor[14]"></button>
-                                <button @onclick="() => setPickedColor(15)" class="colorPreviewSmall" style="background-color: @recentColor[15]"></button>
-                                <button @onclick="() => setPickedColor(16)" class="colorPreviewSmall" style="background-color: @recentColor[16]"></button>
-                                <button @onclick="() => setPickedColor(17)" class="colorPreviewSmall" style="background-color: @recentColor[17]"></button>
-                                <button @onclick="() => setPickedColor(18)" class="colorPreviewSmall" style="background-color: @recentColor[18]"></button>
-                                <button @onclick="() => setPickedColor(19)" class="colorPreviewSmall" style="background-color: @recentColor[19]"></button>
-                                <button @onclick="() => setPickedColor(20)" class="colorPreviewSmall" style="background-color: @recentColor[20]"></button>
-                                <button @onclick="() => setPickedColor(21)" class="colorPreviewSmall" style="background-color: @recentColor[21]"></button>
-                                <button @onclick="() => setPickedColor(22)" class="colorPreviewSmall" style="background-color: @recentColor[22]"></button>
-                                <button @onclick="() => setPickedColor(23)" class="colorPreviewSmall" style="background-color: @recentColor[23]"></button>
-                                <button @onclick="() => setPickedColor(24)" class="colorPreviewSmall" style="background-color: @recentColor[24]"></button>
-                                <button @onclick="() => setPickedColor(25)" class="colorPreviewSmall" style="background-color: @recentColor[25]"></button>
-                                <button @onclick="() => setPickedColor(26)" class="colorPreviewSmall" style="background-color: @recentColor[26]"></button>
-                                <button @onclick="() => setPickedColor(27)" class="colorPreviewSmall" style="background-color: @recentColor[27]"></button>
-                                <button @onclick="() => setPickedColor(28)" class="colorPreviewSmall" style="background-color: @recentColor[28]"></button>
-                                <button @onclick="() => setPickedColor(29)" class="colorPreviewSmall" style="background-color: @recentColor[29]"></button>
-                                <button @onclick="() => setPickedColor(30)" class="colorPreviewSmall" style="background-color: @recentColor[30]"></button>
-                                <button @onclick="() => setPickedColor(31)" class="colorPreviewSmall" style="background-color: @recentColor[31]"></button>     
-                                <button @onclick="() => setPickedColor(32)" class="colorPreviewSmall" style="background-color: @recentColor[32]"></button>
-                                <button @onclick="() => setPickedColor(33)" class="colorPreviewSmall" style="background-color: @recentColor[33]"></button>
-                                <button @onclick="() => setPickedColor(34)" class="colorPreviewSmall" style="background-color: @recentColor[34]"></button>
-                                <button @onclick="() => setPickedColor(35)" class="colorPreviewSmall" style="background-color: @recentColor[35]"></button>
-                                <button @onclick="() => setPickedColor(36)" class="colorPreviewSmall" style="background-color: @recentColor[36]"></button>
-                                <button @onclick="() => setPickedColor(37)" class="colorPreviewSmall" style="background-color: @recentColor[37]"></button>
-                                <button @onclick="() => setPickedColor(38)" class="colorPreviewSmall" style="background-color: @recentColor[38]"></button>
-                                <button @onclick="() => setPickedColor(39)" class="colorPreviewSmall" style="background-color: @recentColor[39]"></button>   
+                                <button @onclick="() => setPickedColor(0)" class="colorPreviewSmallAll" style="background-color: @recentColor[0]"></button>
+                                <button @onclick="() => setPickedColor(1)" class="colorPreviewSmallAll" style="background-color: @recentColor[1]"></button>
+                                <button @onclick="() => setPickedColor(2)" class="colorPreviewSmallAll" style="background-color: @recentColor[2]"></button>
+                                <button @onclick="() => setPickedColor(3)" class="colorPreviewSmallAll" style="background-color: @recentColor[3]"></button>
+                                <button @onclick="() => setPickedColor(4)" class="colorPreviewSmallAll" style="background-color: @recentColor[4]"></button>
+                                <button @onclick="() => setPickedColor(5)" class="colorPreviewSmallAll" style="background-color: @recentColor[5]"></button>
+                                <button @onclick="() => setPickedColor(6)" class="colorPreviewSmallAll" style="background-color: @recentColor[6]"></button>
+                                <button @onclick="() => setPickedColor(7)" class="colorPreviewSmallAll" style="background-color: @recentColor[7]"></button>
+                                <button @onclick="() => setPickedColor(8)" class="colorPreviewSmallAll" style="background-color: @recentColor[8]"></button>
+                                <button @onclick="() => setPickedColor(9)" class="colorPreviewSmallAll" style="background-color: @recentColor[9]"></button>
+                                <button @onclick="() => setPickedColor(10)" class="colorPreviewSmallAll" style="background-color: @recentColor[10]"></button>
+                                <button @onclick="() => setPickedColor(11)" class="colorPreviewSmallAll" style="background-color: @recentColor[11]"></button>
+                                <button @onclick="() => setPickedColor(12)" class="colorPreviewSmallAll" style="background-color: @recentColor[12]"></button>
+                                <button @onclick="() => setPickedColor(13)" class="colorPreviewSmallAll" style="background-color: @recentColor[13]"></button>
+                                <button @onclick="() => setPickedColor(14)" class="colorPreviewSmallAll" style="background-color: @recentColor[14]"></button>
+                                <button @onclick="() => setPickedColor(15)" class="colorPreviewSmallAll" style="background-color: @recentColor[15]"></button>
+                                <button @onclick="() => setPickedColor(16)" class="colorPreviewSmallAll" style="background-color: @recentColor[16]"></button>
+                                <button @onclick="() => setPickedColor(17)" class="colorPreviewSmallAll" style="background-color: @recentColor[17]"></button>
+                                <button @onclick="() => setPickedColor(18)" class="colorPreviewSmallAll" style="background-color: @recentColor[18]"></button>
+                                <button @onclick="() => setPickedColor(19)" class="colorPreviewSmallAll" style="background-color: @recentColor[19]"></button>
+                                <button @onclick="() => setPickedColor(20)" class="colorPreviewSmallAll" style="background-color: @recentColor[20]"></button>
+                                <button @onclick="() => setPickedColor(21)" class="colorPreviewSmallAll" style="background-color: @recentColor[21]"></button>
+                                <button @onclick="() => setPickedColor(22)" class="colorPreviewSmallAll" style="background-color: @recentColor[22]"></button>
+                                <button @onclick="() => setPickedColor(23)" class="colorPreviewSmallAll" style="background-color: @recentColor[23]"></button>
+                                <button @onclick="() => setPickedColor(24)" class="colorPreviewSmallAll" style="background-color: @recentColor[24]"></button>
+                                <button @onclick="() => setPickedColor(25)" class="colorPreviewSmallAll" style="background-color: @recentColor[25]"></button>
+                                <button @onclick="() => setPickedColor(26)" class="colorPreviewSmallAll" style="background-color: @recentColor[26]"></button>
+                                <button @onclick="() => setPickedColor(27)" class="colorPreviewSmallAll" style="background-color: @recentColor[27]"></button>
+                                <button @onclick="() => setPickedColor(28)" class="colorPreviewSmallAll" style="background-color: @recentColor[28]"></button>
+                                <button @onclick="() => setPickedColor(29)" class="colorPreviewSmallAll" style="background-color: @recentColor[29]"></button>
+                                <button @onclick="() => setPickedColor(30)" class="colorPreviewSmallAll" style="background-color: @recentColor[30]"></button>
+                                <button @onclick="() => setPickedColor(31)" class="colorPreviewSmallAll" style="background-color: @recentColor[31]"></button>     
+                                <button @onclick="() => setPickedColor(32)" class="colorPreviewSmallAll" style="background-color: @recentColor[32]"></button>
+                                <button @onclick="() => setPickedColor(33)" class="colorPreviewSmallAll" style="background-color: @recentColor[33]"></button>
+                                <button @onclick="() => setPickedColor(34)" class="colorPreviewSmallAll" style="background-color: @recentColor[34]"></button>
+                                <button @onclick="() => setPickedColor(35)" class="colorPreviewSmallAll" style="background-color: @recentColor[35]"></button>
+                                <button @onclick="() => setPickedColor(36)" class="colorPreviewSmallAll" style="background-color: @recentColor[36]"></button>
+                                <button @onclick="() => setPickedColor(37)" class="colorPreviewSmallAll" style="background-color: @recentColor[37]"></button>
+                                <button @onclick="() => setPickedColor(38)" class="colorPreviewSmallAll" style="background-color: @recentColor[38]"></button>
+                                <button @onclick="() => setPickedColor(39)" class="colorPreviewSmallAll" style="background-color: @recentColor[39]"></button>   
                             </div>
                     </div>
                     @if (isExpandedColorPicker == true)
@@ -1174,21 +1161,29 @@
                         <div style="max-width: 200px;">
                         <MudText>Customize Theme</MudText>
                             <div class="customizeTheme">
-                                <div style="justify-content: space-between; display: flex;">
-                                    <MudButton OnClick="SetBackgroundColor" Style="margin-top: 2px; max-width: 200px; max-height: 30px;">Set Background Color</MudButton> 
-                                    <div class="colorPreviewSmall" style="background-color: @customBackColor; margin: 5px;"></div>
+                                <div class="customizeThemeChild" style="">
+                                    <MudButton OnClick="SetBackgroundColor" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                        <MudText Class="mainTextMedium">Set Background Color</MudText>
+                                    </MudButton> 
+                                    <div class="colorPreviewSmall" style="background-color: @customBackColor;"></div>
                                 </div>
-                                <div style="justify-content: space-between; display: flex;">
-                                    <MudButton OnClick="SetAccentColor" Style="margin-top: 2px; max-width: 200px; max-height: 30px;">Set Accent Color</MudButton>
-                                    <div class="colorPreviewSmall" style="background-color: @customAccentColor; margin: 5px;"></div>
+                                <div class="customizeThemeChild" style="">
+                                    <MudButton OnClick="SetAccentColor" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                        <MudText Class="mainTextMedium">Set Accent Color</MudText>
+                                    </MudButton> 
+                                    <div class="colorPreviewSmall" style="background-color: @customAccentColor"></div>
                                 </div>
-                                <div style="justify-content: space-between; display: flex;">
-                                    <MudButton OnClick="SetAppBarColor" Style="margin-top: 2px; max-width: 200px; max-height: 30px;">Set AppBar Color</MudButton>
-                                    <div class="colorPreviewSmall" style="background-color: @customAppBarColor; margin: 5px;"></div>
+                                <div class="customizeThemeChild" style="">
+                                    <MudButton OnClick="SetAppBarColor" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                        <MudText Class="mainTextMedium">Set AppBar Color</MudText>
+                                    </MudButton> 
+                                    <div class="colorPreviewSmall" style="background-color: @customAppBarColor"></div>
                                 </div>
-                                <div style="justify-content: space-between; display: flex;">
-                                    <MudButton OnClick="SetWidgetColor" Style="margin-top: 2px; max-width: 200px; max-height: 30px;">Set Tool Color</MudButton>
-                                    <div class="colorPreviewSmall" style="background-color: @customWidgetColor; margin: 5px;"></div>
+                                <div class="customizeThemeChild" style="">
+                                    <MudButton OnClick="SetWidgetColor" Class="toolButtons" Style="" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
+                                        <MudText Class="mainTextMedium">Set Tool Color</MudText>
+                                    </MudButton> 
+                                    <div class="colorPreviewSmall" style="background-color: @customWidgetColor"></div>
                                 </div>
                                 @*
                                 <div style="justify-content: space-between; display: flex;">
@@ -1211,7 +1206,7 @@
                 {
                 <div class="@calculatorClass" style="order: @widgetOrder[0]; background-color: @widgetColor;">
                     <div class="toolHeaderAlt" style="">
-                        <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Calculator</MudText>
+                        <MudText Class="mainTextLarge" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Calculator</MudText>
                         <div style="margin: 2px;">
                         @if (!isExpandedCalculator)
                         {
@@ -1234,7 +1229,7 @@
                         </div>
                     </div> 
                     <div class="toolHeaderMobile" style="">
-                        <MudText Class="mainText" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Calculator</MudText>
+                        <MudText Class="mainTextLarge" Color="@MudBlazor.Color.Secondary" Style="margin-top: 20px; margin-left: 20px; margin-right: 20px;">Calculator</MudText>
                         <div style="margin: 2px;">
                         @if (home == true)
                         {
@@ -1250,26 +1245,26 @@
                             <MudTextField @bind-Value="App_Calculator_Display" AdornmentColor="@MudBlazor.Color.Secondary" ReadOnly="true" Variant="Variant.Outlined" Style="margin-left: 5px; margin-right: 5px; margin-bottom: 5px; max-width: 390px;" ></MudTextField>
                             </div>
                             <div class="calcMain" style="">
-                                <MudButton OnClick="App_Calculator_Clear"  Class="MudButtonCalculator"><MudText Color="MudBlazor.Color.Secondary" Style="font-size: 20px;">C</MudText></MudButton>
-                                <MudButton OnClick="App_Calculator_ClearEntry"  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">CE</MudText></MudButton>
-                                <MudButton OnClick="Calc_Button_Backspace"  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">←</MudText></MudButton>
-                                <MudButton OnClick="Division"  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">÷</MudText></MudButton>
-                                <MudButton OnClick='() => Calc_Button_Number("7")'  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">7</MudText></MudButton>
-                                <MudButton OnClick='() => Calc_Button_Number("8")'  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">8</MudText></MudButton>
-                                <MudButton OnClick='() => Calc_Button_Number("9")'  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">9</MudText></MudButton>
-                                <MudButton OnClick="Multiplication"  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">x</MudText></MudButton>
-                                <MudButton OnClick='() => Calc_Button_Number("4")'  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">4</MudText></MudButton>
-                                <MudButton OnClick='() => Calc_Button_Number("5")'  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">5</MudText></MudButton>
-                                <MudButton OnClick='() => Calc_Button_Number("6")'  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">6</MudText></MudButton>
-                                <MudButton OnClick="Addition"  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">+</MudText></MudButton>
-                                <MudButton OnClick='() => Calc_Button_Number("1")'  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">1</MudText></MudButton>
-                                <MudButton OnClick='() => Calc_Button_Number("2")'  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">2</MudText></MudButton>
-                                <MudButton OnClick='() => Calc_Button_Number("3")'  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">3</MudText></MudButton>
-                                <MudButton OnClick="Subtraction"  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">-</MudText></MudButton>
-                                <MudButton OnClick="App_Calculator_PlusMinus"  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">±</MudText></MudButton>
-                                <MudButton OnClick='() => Calc_Button_Number("0")'  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">0</MudText></MudButton>
-                                <MudButton OnClick="App_Calculator_Decimal"  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">.</MudText></MudButton>
-                                <MudButton OnClick="Equals"  Class="MudButtonCalculator"><MudText Color="@MudBlazor.Color.Secondary" Style="font-size: 20px;" Class="Text">=</MudText></MudButton>
+                                <MudButton OnClick="App_Calculator_Clear"  Class="MudButtonCalculatorFunction"><MudText Color="MudBlazor.Color.Secondary" Class="mainTextLarge">C</MudText></MudButton>
+                                <MudButton OnClick="App_Calculator_ClearEntry"  Class="MudButtonCalculatorFunction"><MudText Color="@MudBlazor.Color.Secondary" Class="mainTextLarge">CE</MudText></MudButton>
+                                <MudButton OnClick="Calc_Button_Backspace"  Class="MudButtonCalculatorFunction"><MudText Color="@MudBlazor.Color.Secondary" Class="mainTextLarge">←</MudText></MudButton>
+                                <MudButton OnClick="Division"  Class="MudButtonCalculatorFunction"><MudText Color="@MudBlazor.Color.Secondary" Class="mainTextLarge">÷</MudText></MudButton>
+                                <MudButton OnClick='() => Calc_Button_Number("7")'  Class="MudButtonCalculatorNumber"><MudText Color="@MudBlazor.Color.Secondary" Class="mainTextLarge">7</MudText></MudButton>
+                                <MudButton OnClick='() => Calc_Button_Number("8")'  Class="MudButtonCalculatorNumber"><MudText Color="@MudBlazor.Color.Secondary" Class="mainTextLarge">8</MudText></MudButton>
+                                <MudButton OnClick='() => Calc_Button_Number("9")'  Class="MudButtonCalculatorNumber"><MudText Color="@MudBlazor.Color.Secondary" Class="mainTextLarge">9</MudText></MudButton>
+                                <MudButton OnClick="Multiplication"  Class="MudButtonCalculatorFunction"><MudText Color="@MudBlazor.Color.Secondary" Class="mainTextLarge">x</MudText></MudButton>
+                                <MudButton OnClick='() => Calc_Button_Number("4")'  Class="MudButtonCalculatorNumber"><MudText Color="@MudBlazor.Color.Secondary" Class="mainTextLarge">4</MudText></MudButton>
+                                <MudButton OnClick='() => Calc_Button_Number("5")'  Class="MudButtonCalculatorNumber"><MudText Color="@MudBlazor.Color.Secondary" Class="mainTextLarge">5</MudText></MudButton>
+                                <MudButton OnClick='() => Calc_Button_Number("6")'  Class="MudButtonCalculatorNumber"><MudText Color="@MudBlazor.Color.Secondary" Class="mainTextLarge">6</MudText></MudButton>
+                                <MudButton OnClick="Addition"  Class="MudButtonCalculatorFunction"><MudText Color="@MudBlazor.Color.Secondary" Class="mainTextLarge">+</MudText></MudButton>
+                                <MudButton OnClick='() => Calc_Button_Number("1")'  Class="MudButtonCalculatorNumber"><MudText Color="@MudBlazor.Color.Secondary" Class="mainTextLarge">1</MudText></MudButton>
+                                <MudButton OnClick='() => Calc_Button_Number("2")'  Class="MudButtonCalculatorNumber"><MudText Color="@MudBlazor.Color.Secondary" Class="mainTextLarge">2</MudText></MudButton>
+                                <MudButton OnClick='() => Calc_Button_Number("3")'  Class="MudButtonCalculatorNumber"><MudText Color="@MudBlazor.Color.Secondary" Class="mainTextLarge">3</MudText></MudButton>
+                                <MudButton OnClick="Subtraction"  Class="MudButtonCalculatorFunction"><MudText Color="@MudBlazor.Color.Secondary" Class="mainTextLarge">-</MudText></MudButton>
+                                <MudButton OnClick="App_Calculator_PlusMinus"  Class="MudButtonCalculatorNumber"><MudText Color="@MudBlazor.Color.Secondary" Class="mainTextLarge">±</MudText></MudButton>
+                                <MudButton OnClick='() => Calc_Button_Number("0")'  Class="MudButtonCalculatorNumber"><MudText Color="@MudBlazor.Color.Secondary" Class="mainTextLarge">0</MudText></MudButton>
+                                <MudButton OnClick="App_Calculator_Decimal"  Class="MudButtonCalculatorNumber"><MudText Color="@MudBlazor.Color.Secondary" Class="mainTextLarge">.</MudText></MudButton>
+                                <MudButton OnClick="Equals"  Class="MudButtonCalculatorFunction"><MudText Color="@MudBlazor.Color.Secondary" Class="mainTextLarge">=</MudText></MudButton>
                             </div>
                         </div>
                         @if (isExpandedCalculator)
@@ -1279,7 +1274,7 @@
                             <MudTextField @bind-Value="calcLog" Class="converterLogText" ReadOnly="true" Variant="Variant.Text" Style="" DisableUnderLine="true" Lines="12" ></MudTextField>
                             </div>
                             <MudButton OnClick="ClearLogCalc" Class="toolButtons" Variant="Variant.Outlined" Color="MudBlazor.Color.Secondary" >
-                                <MudText Class="toolButtonsText">Clear Log</MudText>                                
+                                <MudText Class="mainTextMedium">Clear Log</MudText>                                
                             </MudButton>                    
                         </div>
                         }

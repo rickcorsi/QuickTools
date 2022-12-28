@@ -13,14 +13,32 @@
     width: 100%;
     height: 5px;
 }
-.MudButton {
-    height: 25px;
+.mainTextMedium {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 16px;
 }
-.MudButtonCalculator {
+.mainTextLarge {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 20px;
+}
+.mainTextDynamic {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 16px;
+}
+.MudButtonCalculatorNumber {
     min-width: 90px;
     min-height: 50px;
     width: 90px;
     height: 50px;
+    margin-top: 4px;
+}
+.MudButtonCalculatorFunction {
+    min-width: 90px;
+    min-height: 50px;
+    width: 90px;
+    height: 50px;
+    margin-top: 4px;
+    background-color: rgba(10,10,10,0.05);
 }
 .calcMain {
     margin-left: 15px;
@@ -63,7 +81,6 @@
     min-width: 400px;
     min-height: 400px;
 }
-
 .MudPaperMediumWidget {
     border-radius: 7px;
     background-color: white;
@@ -73,7 +90,6 @@
     min-width: 550px;
     min-height: 400px;
 }
-
 .MudPaperMediumWidgetExpanded {
     border-radius: 7px;
     background-color: white;
@@ -148,67 +164,41 @@
     min-width: 650px;
     min-height: 400px;
 }
-.MudPaperLargeWidget {
-    border-radius: 7px;
-    background-color: white;
-    width: 1000px;
-    height: 600px;
-    margin: 2%;
-    min-width: 1000px;
-    min-height: 600px;
-}
-
 .ColorPicker {
     max-width: 80px;
     max-height: 320px;
     margin: 12px;
 }
-
 .colorPreview {
     min-width: 125px;
     min-height: 25px;
     border-radius: 7px;
     margin: 7px;
     border-style: solid;
-    border-width: .5px;
-    border-color: #000000;
+    border-width: 2px;
+    border-color: var(--mud-palette-text-primary);
 }
-
-.colorPreviewActive {
-    min-width: 125px;
-    min-height: 25px;
-    border-radius: 7px;
-    margin: 7px;
-    border-style: solid;
-    border-width: 3px;
-    border-color: rgba(0,10,0,0.75);
-}
-
 .timerField {
     max-width: 80px;
+    margin: 10px;
 }
-
 .CalendarDiv {
     width: 450px;
-    height: 318px;
+    height: 308px;
     margin-top: 33px;
     border-radius: 0px 0px 0px 7px;
-    background-color: rgba(100,100,100,0.0);
     padding: 30px;
 }
-
 .Calendar {
     width: 550px;
     border-radius: 0px 0px 7px 0px;
     margin-top: 23px;
     font-family: 'Fira Sans', sans-serif;
 }
-
 .CalenderDayDisplay {
     font-size: 30px;
     font-family: 'Fira Sans', sans-serif;
 }
-
 .GraphArea {
     background-color: rgba(100,100,100,0.05);
     width: 530px;
@@ -216,17 +206,12 @@
     margin: 10px;
     border-radius: 7px;
 }
-
 .InputArea {
-    background-color: rgba(100,100,100,0.0);
     width: 305px;
     height: 328px;
     border-radius: 7px;
-    margin-top: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    margin: 10px 10px 10px 0px;
 }
-
 .GraphAreaTitle {
     width: 530px;
     height: 40px;
@@ -234,12 +219,10 @@
     margin-top: 5px;
     justify-content: center;
 }
-
 .yAxisContainer {
     width: 40px;
     height: 240px;
 }
-
 .xAxisContainer {
     display: flex;
     justify-content: space-evenly;
@@ -250,7 +233,6 @@
     border-style: solid;
     border-color: black;
 }
-
 .GraphContainer {
     width: 490px;
     height: 240px;
@@ -260,20 +242,17 @@
     border-style: solid;
     border-color: rgba(100,100,100,0.10);
 }
-
 .GraphBar {
     background-color: rgba(100,100,100,0.00);
     width: 40px;
     height: 240px;
     position: relative;
 }
-
 .GraphBarInterior {
     width: 40px;
     position: absolute;
     bottom: 0;
 }
-
 .GraphInputFields {
     width: 140px;
     height: 36px;
@@ -286,18 +265,14 @@
     margin-left: 6px;
     margin: 5px;
 }
-
 .GraphBarLabel {
-    padding-top: 20px;
-    padding-left: 20px;
+    padding: 20px 0px 10px 20px;
     transform: rotate(-45deg);
 }
-
 .GraphBarValue {
     position: absolute;
     bottom: 100%;
 }
-
 .converterLog {
     height: 150px;
     width: 495px;
@@ -312,18 +287,15 @@
     height: 320px;
     margin: 2px;
 }
-
 .calculatorLog {
     width: 230px;
     height: 280px;
-    margin-top: 1%;
-    margin-bottom: 20px;
+    margin: 1% 0px 20px 0px;
     border: 1px solid;
     border-radius: 7px;
     padding-left: 10px;
     padding-right: 10px;
 }
-
 .stopwatchLog {
     height: 150px;
     width: 360px;
@@ -334,17 +306,28 @@
     padding-right: 15px;
     border: 1px solid;
 }
-
 .customizeTheme {
     margin: 5px;
     padding: 5px;
     width: 290px;
-    height: 155px;
+    height: 148px;
     border: 1px solid;
     border-radius: 7px;
 }
-
+.customizeThemeChild {
+    justify-content: space-between;
+    display: flex;
+    padding: 3px;
+}
 .colorPreviewSmall {
+    min-width: 25px;
+    min-height: 25px;
+    max-width: 25px;
+    max-height: 25px;
+    border: 1px solid;
+    border-color: var(--mud-palette-text-primary);
+}
+.colorPreviewSmallAll {
     min-width: 25px;
     min-height: 25px;
     max-width: 25px;
@@ -352,7 +335,6 @@
     border: 1px solid;
     border-color: rgba(0,10,0,0.50);
 }
-
 .recentColors {
     justify-content: start;
     display: flex;
@@ -363,44 +345,7 @@
     height: 125px;
     background-color: #ffffff;
 }
-
-.OpenWidgetsContainer {
-    width: 215px;
-    height: 52px;
-    display: flex;
-    justify-content: start;
-    flex-direction: row;
-    flex-wrap: wrap;
-    position: fixed;
-    top: 7%;
-    left: 1%;
-    border-radius: 25px;
-    margin-left: 0px;
-    border: 2px solid;
-    border-color: white;
-}
-
-.OpenWidgetsContainerChild1 {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-    margin-top: 2px;
-    padding-top: 1px;
-    display: flex;
-    justify-content: center;
-}
-
-.OpenWidgetsContainerChild2 {
-    width: 150px;
-    height: 50px;
-    font-size: 20px;
-    margin: 2px;
-    padding-top: 7px;
-    display: flex;
-    justify-content: center;
-}
-
-.NewToolBar {
+.ToolBar {
     min-width: 810px;
     width: 100%;
     min-height: 60px;
@@ -415,7 +360,7 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
-.NewToolBarChild1 {
+.ToolBarChild1 {
     width: 100%;
     height: 56%;
     padding-top: 1%;
@@ -428,31 +373,24 @@
     overflow: hidden;
     padding-left: 16px;
 }
-
-.NewToolBarChild2 {
+.ToolBarChild2 {
     width: 100%;
     height: 34%;
     z-index: 7;
     overflow: hidden;
     padding-left: 16px;
 }
-.NewToolBarChild3 {
+.ToolBarChild3 {
     width: 100%;
     height: 10%;
     z-index: 6;
     overflow: hidden;
 }
-
-.ToolBarText {
-    margin-left: 10px;
-}
-
 .AppBarButton {
     min-height: 50%;
     height: 100%;
     overflow: hidden;
 }
-
 .AppBarButtonChild {
     min-height: 60%;
     height: 60%;
@@ -466,7 +404,6 @@
         outline: 1px solid;
         border-color: var(--mud-palette-primary);
     }
-
 .toolButtons {
     min-height: 20px;
     height: 20px;
@@ -480,11 +417,6 @@
         outline: 1px solid;
         border-color: var(--mud-palette-primary);
     }
-
-.toolButtonsText {
-    font-size: 16px;
-    font-family: 'Fira Sans', sans-serif;
-}
 .converterButtonContainer {
     display: flex;
     justify-content: start;
@@ -493,58 +425,21 @@
 .converterInput {
     padding-left: 27px;
 }
-.AppBarButtonChildText {
-    font-size: 16px;
-    font-family: 'Fira Sans', sans-serif;
-}
 .AppBarButtonText {
     font-size: 20px;
     font-family: 'Fira Sans', sans-serif;
+    color: var(--mud-palette-warning);
 }
-.mainText {
+    .AppBarButtonText:hover {
+        transform: translateY(3px);
+        font-family: 'Fira Sans', sans-serif;
+        color: var(--mud-palette-tertiary);
+    }
+.AppBarButtonTextSelected {
+    font-size: 20px;
     font-family: 'Fira Sans', sans-serif;
+    color: var(--mud-palette-tertiary);
 }
-
-/*.AppBarButton::before {
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    left: 0;
-    bottom: 0;
-    visibility: hidden;
-    background-color: var(--mud-palette-primary-text);
-    transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-}
-
-.AppBarButton:hover::before {
-    width: 100%;
-    visibility: visible;
-}
-
-.AppBarButton.active {
-    position: relative;
-}
-
-    .AppBarButton.active::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        left: 0;
-        bottom: 0;
-        background-color: var(--mud-palette-primary-text);
-        transition: all 0.3s ease-in-out;
-        -webkit-transition: all 0.3s ease-in-out;
-        -moz-transition: all 0.3s ease-in-out;
-        -ms-transition: all 0.3s ease-in-out;
-        -o-transition: all 0.3s ease-in-out;
-    }*/
-
 .notesInput {
     width: 100%;
     height: 295px;
@@ -561,12 +456,10 @@
     background-color: var(--mud-palette-surface);
     font-family: 'Fira Sans', sans-serif;
 }
-
 .notesChildInput {
     width: 100%;
     background-color: var(--mud-palette-surface);
 }
-
 .notesChildTools {
     width: 100%;
     height: 35px;
@@ -589,15 +482,11 @@
     font-family: 'Fira Sans', sans-serif;
 }
     .notesButtons:hover {
-        border: 2px solid;
-        border-radius: 5px;
-        border-style: solid;
-        border-color: var(--mud-palette-primary);
+        outline: 1px solid;
+        outline-style: solid;
+        outline-color: var(--mud-palette-secondary);
     }
     .notesButtons:focus {
-        border: 2px solid;
-        border-radius: 5px;
-        border-style: solid;
         border-color: var(--mud-palette-primary);
     }
 .notesInputText {
@@ -614,13 +503,6 @@
     padding: 3px;
     font-family: 'Fira Sans', sans-serif;
 }
-input:focus {
-    border-style: solid;
-    border-color: var(--mud-palette-primary);
-    outline: none;
-    outline-color: var(--mud-palette-primary);
-}
-
 .notesContainer {
     display: flex;
     justify-content: start;
@@ -643,18 +525,9 @@ input:focus {
 }
 @media only screen and (max-width: 768px) {
     .Main {
-        display: flex;
-        justify-content: center;
-        background-color: rgba(100,100,100,0.0);
         width: 100%;
         height: 50%;
         margin-top: -10px;
-
-    }
-    .backScreen {
-        width: 100%;
-        height: 10px;
-        background-color: var(--mud-palette-primary);
     }
     .MainDiv {
         display: flex;
@@ -663,37 +536,18 @@ input:focus {
         min-height: 100vh;
         padding-right: 0%;
         padding-bottom: 50%;
-        position: absolute;
         top: 20%;
-        left: 50%;
-        margin-top: -8%;
-        margin-left: -50%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        background-color: rgba(100,100,100,0.0);
-        width: 100%;
-        min-height: 50vh;
     }
     .MultipleWidgetsDiv {
-        position: absolute;
         min-width: 100%;
         min-height: 500px;
         padding-right: 0%;
         margin-bottom: 100%;
         top: 20%;
-        left: 50%;
         margin-top: -8%;
-        margin-left: -50%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
         justify-content: center;
     }
     .MudPaperSmallWidget {
-        border-radius: 7px;
-        background-color: white;
         width: 300px;
         height: 380px;
         min-width: 300px;
@@ -715,7 +569,6 @@ input:focus {
         min-width: 300px;
     }
     .MudPaperMediumWidget {
-        border-radius: 7px;
         width: 300px;
         height: 380px;
         min-width: 300px;
@@ -723,59 +576,23 @@ input:focus {
         margin-top: 15%;
         padding-right: 14px;
     }
-    .NewToolBar {
-        display: none;
+    .MudButtonCalculatorNumber {
+        min-width: 65px;
+        min-height: 45px;
+        width: 65px;
+        height: 45px;
     }
-    .NewToolBarChild1 {
-        display: none;
-    }
-    .NewToolBarChild2 {
-        display: none;
-    }
-    .MobileAppBarButton {
-
-    }
-    .MobileAppBarButtonChild {
-    }
-    .AppBarButtonSelectedText {
-    }
-    .AppBarButtonChildText {
-    }
-    .AppBarButton::before {
-        display: none;
-    }
-    .AppBarButton:hover::before {
-        display: none;
-    }
-    .AppBarButton.active {
-        display: none;
-    }
-    .AppBarButton.active::after {
-        display: none;
-    }
-    .calcMain {
-        margin-left: 15px;
-        max-width: 390px;
-    }
-    .calculatorExpanded {
-    display: none;
-    }
-    .MudButtonCalculator {
-        min-width: 60px;
-        min-height: 50px;
-        width: 60px;
-        height: 50px;
-    }
-    .calculatorLog {
-        display: none;
+    .MudButtonCalculatorFunction {
+        min-width: 65px;
+        min-height: 45px;
+        width: 65px;
+        height: 45px;
     }
     .stopwatchLog {
         height: 174px;
         width: 280px;
-        border-radius: 7px;
         margin: 10px;
         margin-top: 25px;
-        border: 1px solid;
     }
     .converterLog {
         height: 165px;
@@ -783,7 +600,6 @@ input:focus {
         border-radius: 7px;
         margin: 10px;
         margin-top: 7px;
-        border: 1px solid;
     }
     .toolbarMobile {
         width: 100%;
@@ -829,11 +645,7 @@ input:focus {
         outline: 2px solid;
         outline-color: var(--mud-palette-success);
     }
-    .openDrawerButton {
-        width: 40px;
-        height: 40px;
-    }
-    .darkModeToggle {
+    .mobileIconButton {
         width: 40px;
         height: 40px;
     }
@@ -876,24 +688,6 @@ input:focus {
         width: 100%;
         height: 100vh;
     }
-    .ColorPickerMediumWidget {
-        display: none;
-    }
-    .ColorPickerMediumWidgetExpanded {
-        display: none;
-    }
-    .GraphBuilderMediumWidget {
-        display: none;
-    }
-    .GraphBuilderMediumWidgetExpanded {
-        display: none;
-    }
-    .CalendarMediumWidget {
-        display: none;
-    }
-    .hideOnMobile {
-        display: none;
-    }
     .notesContainer {
         display: flex;
         justify-content: start;
@@ -912,19 +706,55 @@ input:focus {
         padding: 5px;
         padding-top: 7px;
     }
-    .MobileAppBarButtonChildText {
+    .MobilemainTextMedium {
         font-size: 16px;
     }
     .converterInput {
         padding-left: 16px;
         padding-right: 4px;
     }
-    .toolHeaderAlt {
-        display: none;
-    }
     .toolHeaderMobile {
         display: flex;
         justify-content: space-between;
+    }
+    .ColorPickerMediumWidget {
+        display: none;
+    }
+    .ColorPickerMediumWidgetExpanded {
+        display: none;
+    }
+    .GraphBuilderMediumWidget {
+        display: none;
+    }
+    .GraphBuilderMediumWidgetExpanded {
+        display: none;
+    }
+    .CalendarMediumWidget {
+        display: none;
+    }
+    .hideOnMobile {
+        display: none;
+    }
+    .toolHeaderAlt {
+        display: none;
+    }
+    .ToolBar {
+        display: none;
+    }
+    .ToolBarChild1 {
+        display: none;
+    }
+    .ToolBarChild2 {
+        display: none;
+    }
+    .AppBarButtonText:hover {
+        transform: translateY(0px);
+    }
+    .calculatorExpanded {
+        display: none;
+    }
+    .calculatorLog {
+        display: none;
     }
 }
 @media only screen and (min-width: 768.1px) {
@@ -945,7 +775,7 @@ input:focus {
         padding: 5px;
         padding-top: 7px;
     }
-    .AppBarButtonChildText {
+    .mainTextDynamic {
         font-size: 14px;
     }
 }
@@ -959,7 +789,7 @@ input:focus {
         padding: 5px;
         padding-top: 6px;
     }
-    .AppBarButtonChildText {
+    .mainTextDynamic {
         font-size: 12px;
     }
 }
@@ -973,7 +803,6 @@ input:focus {
         padding: 5px;
         padding-top: 5px;
     }
-    .AppBarButtonChildText {
+    .mainTextDynamic {
         font-size: 10px;
     }
-}
