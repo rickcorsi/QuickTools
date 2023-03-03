@@ -1,7 +1,7 @@
 
 # QuickTools
 
-QuickTools is a .NET web application comprised of various useful tools and converters.
+QuickTools is a .NET web application which features various useful tools and converters.
 
 List of Tools:
 * Calculator
@@ -11,6 +11,7 @@ List of Tools:
 * Notes
 * Calendar
 * Graph Builder
+
 Converters:
 * Temperature
 * Volume
