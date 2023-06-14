@@ -67,7 +67,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: center;
     width: 100%;
     min-height: 50vh;
     padding-bottom: 5%;
@@ -80,6 +80,7 @@
     margin: 2%;
     min-width: 400px;
     min-height: 400px;
+    transition: .5s;
 }
 .MudPaperMediumWidget {
     border-radius: 7px;
@@ -89,6 +90,7 @@
     margin: 2%;
     min-width: 550px;
     min-height: 400px;
+    transition: .5s;
 }
 .MudPaperMediumWidgetExpanded {
     border-radius: 7px;
@@ -98,6 +100,7 @@
     margin: 2%;
     min-width: 855px;
     min-height: 400px;
+    transition: .5s;
 }
 .toolHeader {
     display: flex;
@@ -118,6 +121,7 @@
     margin: 2%;
     min-width: 550px;
     min-height: 400px;
+    transition: .5s;
 }
 .ColorPickerMediumWidgetExpanded {
     border-radius: 7px;
@@ -127,6 +131,14 @@
     margin: 2%;
     min-width: 855px;
     min-height: 400px;
+    transition: .5s;
+}
+.colorpickerlabel {
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 1s;
 }
 .GraphBuilderMediumWidget {
     border-radius: 7px;
@@ -136,6 +148,7 @@
     margin: 2%;
     min-width: 550px;
     min-height: 400px;
+    transition: .5s;
 }
 .GraphBuilderMediumWidgetExpanded {
     border-radius: 7px;
@@ -145,6 +158,7 @@
     margin: 2%;
     min-width: 855px;
     min-height: 400px;
+    transition: .5s;
 }
 .CalendarMediumWidget {
     border-radius: 7px;
@@ -154,6 +168,7 @@
     margin: 2%;
     min-width: 550px;
     min-height: 400px;
+    transition: .5s;
 }
 .MudPaperSmallWidgetExpanded {
     border-radius: 7px;
@@ -163,11 +178,13 @@
     margin: 2%;
     min-width: 650px;
     min-height: 400px;
+    transition: .5s;
 }
 .ColorPicker {
     max-width: 80px;
     max-height: 320px;
     margin: 12px;
+    transition: .5s;
 }
 .colorPreview {
     min-width: 125px;
@@ -177,6 +194,7 @@
     border-style: solid;
     border-width: 2px;
     border-color: var(--mud-palette-text-primary);
+    transition: .5s;
 }
 .timerField {
     max-width: 80px;
@@ -192,7 +210,6 @@
 .Calendar {
     width: 550px;
     border-radius: 0px 0px 7px 0px;
-    margin-top: 23px;
     font-family: 'Fira Sans', sans-serif;
 }
 .CalenderDayDisplay {
@@ -211,6 +228,11 @@
     height: 328px;
     border-radius: 7px;
     margin: 10px 10px 10px 0px;
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 1s;
 }
 .GraphAreaTitle {
     width: 530px;
@@ -252,6 +274,7 @@
     width: 40px;
     position: absolute;
     bottom: 0;
+    transition: .5s;
 }
 .GraphInputFields {
     width: 140px;
@@ -274,13 +297,18 @@
     bottom: 100%;
 }
 .converterLog {
-    height: 150px;
+    height: 140px;
     width: 495px;
     border-radius: 7px;
     margin: 5%;
     padding-left: 15px;
     padding-right: 15px;
     border: 1px solid;
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 1s;
 }
 .calculatorExpanded {
     width: 230px;
@@ -295,6 +323,17 @@
     border-radius: 7px;
     padding-left: 10px;
     padding-right: 10px;
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 1s;
+}
+.display-calc {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    width: 390px;
 }
 .stopwatchLog {
     height: 150px;
@@ -305,6 +344,11 @@
     padding-left: 15px;
     padding-right: 15px;
     border: 1px solid;
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 1s;
 }
 .customizeTheme {
     margin: 5px;
@@ -313,7 +357,22 @@
     height: 148px;
     border: 1px solid;
     border-radius: 7px;
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 2s;
 }
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 .customizeThemeChild {
     justify-content: space-between;
     display: flex;
@@ -404,7 +463,7 @@
         outline: 1px solid;
         border-color: var(--mud-palette-primary);
     }
-.toolButtons {
+[class*="toolbuttons-"] {
     min-height: 20px;
     height: 20px;
     min-width: 3%;
@@ -413,10 +472,19 @@
     padding: 7px;
     padding-top: 8px;
 }
-    .toolButtons:hover {
+    .toolbuttons-:hover {
         outline: 1px solid;
         border-color: var(--mud-palette-primary);
     }
+.toolbuttons-plain {
+
+}
+.toolbuttons-calc {
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 1s;
+}
 .converterButtonContainer {
     display: flex;
     justify-content: start;
@@ -429,6 +497,7 @@
     font-size: 20px;
     font-family: 'Fira Sans', sans-serif;
     color: var(--mud-palette-warning);
+    transition: .2s;
 }
     .AppBarButtonText:hover {
         transform: translateY(3px);
@@ -587,6 +656,9 @@
         min-height: 45px;
         width: 65px;
         height: 45px;
+    }
+    .display-calc {
+        width: 290px;
     }
     .stopwatchLog {
         height: 174px;
